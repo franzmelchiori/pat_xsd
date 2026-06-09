@@ -5,7 +5,7 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:vpepergen="../01_vocabularies/pat_persona_genere"
+    xmlns:vpepergen="../01_vocabularies/persona_genere"
     xmlns:edocril="../02_entities/pat_documento"
     targetNamespace="../02_entities/pat_documento"
     elementFormDefault="qualified"
