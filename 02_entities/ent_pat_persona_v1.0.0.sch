@@ -8,7 +8,7 @@
     <sch:pattern id="persona_ab" abstract="true">
         <sch:rule id="rule_persona"  context="$entita_pat_persona">
             <sch:let name="keysStoricoComuni" value="document('../01_vocabularies/voc_comuni_italiani_storico.xml')//Row"/> 
-            <sch:let name="keysProvince" value="document('../01_vocabularies/voc_province_italiane_v1.0.0.xml')//Row"/> 
+            <sch:let name="keysProvince" value="document('../01_vocabularies/voc_province_italiane.xml')//Row"/> 
             <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati_v1.0.0.xml')//Row"/> 
 
             <sch:let name="comune_nascita" value="normalize-space(epepers:comuneNascita)"/>
