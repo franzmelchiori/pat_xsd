@@ -11,7 +11,7 @@
     xmlns:epedocu="../02_entities/pat_documento"
     xmlns:epeindita="../02_entities/pat_indirizzo_italiano"
     xmlns:epeindest="../02_entities/pat_indirizzo_estero"
-    xmlns:epecont="../02_entities/pat_contatti"
+    xmlns:epecont="../02_entities/contatti"
     xmlns:eperapp="../02_entities/pat_rappresentante"
     xmlns:epeimpr="../02_entities/pat_impresa"
     xmlns:epeiscrea="../02_entities/pat_iscrizione_rea"

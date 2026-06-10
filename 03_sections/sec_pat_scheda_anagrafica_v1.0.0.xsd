@@ -10,7 +10,7 @@
     xmlns:epedocu="../02_entities/pat_documento"
     xmlns:epeindita="../02_entities/pat_indirizzo_italiano"
     xmlns:epeindest="../02_entities/pat_indirizzo_estero"
-    xmlns:epecont="../02_entities/pat_contatti"
+    xmlns:epecont="../02_entities/contatti"
     xmlns:eperapp="../02_entities/pat_rappresentante"
     xmlns:epeimpr="../02_entities/pat_impresa"
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
@@ -29,7 +29,7 @@
     <xsd:import namespace="../02_entities/pat_documento" schemaLocation="../02_entities/ent_pat_documento_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/pat_indirizzo_italiano" schemaLocation="../02_entities/ent_pat_indirizzo_italiano_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/pat_indirizzo_estero" schemaLocation="../02_entities/ent_pat_indirizzo_estero_v1.0.0.xsd"/>
-    <xsd:import namespace="../02_entities/pat_contatti" schemaLocation="../02_entities/ent_pat_contatti_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/pat_rappresentante" schemaLocation="../02_entities/ent_pat_ruolo_rappresentante_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/pat_impresa" schemaLocation="../02_entities/ent_pat_impresa_v1.0.0.xsd"/>
 
@@ -90,12 +90,12 @@
                 <xsd:element name="indirizzo_italiano" type="epeindita:entita_pat_indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="indirizzo_estero" type="epeindest:entita_pat_indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice> -->
-            <xsd:element name="contatti" type="epecont:entita_pat_contatti_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="rappresentante" type="eperapp:entita_pat_rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="datiProcuratore" type="epepers:ent_pat_persona_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="residenza_procuratore" type="epeindita:entita_pat_indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
             <!-- TODO: GR: il procuratore puo' risiedere all'estero? -->
-            <xsd:element name="contatti_procuratore" type="epecont:entita_pat_contatti_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="contatti_procuratore" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
 
