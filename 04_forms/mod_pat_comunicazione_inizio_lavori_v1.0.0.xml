@@ -7,7 +7,7 @@
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:epepers="../02_entities/pat_persona"
-    xmlns:epecitt="../02_entities/pat_cittadinanza"
+    xmlns:epecitt="../02_entities/cittadinanza"
     xmlns:epedocu="../02_entities/pat_documento"
     xmlns:epeindita="../02_entities/pat_indirizzo_italiano"
     xmlns:epeindest="../02_entities/pat_indirizzo_estero"
