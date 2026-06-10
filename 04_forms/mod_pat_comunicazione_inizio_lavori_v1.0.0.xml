@@ -8,7 +8,7 @@
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:epepers="../02_entities/pat_persona"
     xmlns:epecitt="../02_entities/cittadinanza"
-    xmlns:epedocu="../02_entities/pat_documento"
+    xmlns:epedocu="../02_entities/documento_rilasciato"
     xmlns:epeindita="../02_entities/pat_indirizzo_italiano"
     xmlns:epeindest="../02_entities/pat_indirizzo_estero"
     xmlns:epecont="../02_entities/contatti"

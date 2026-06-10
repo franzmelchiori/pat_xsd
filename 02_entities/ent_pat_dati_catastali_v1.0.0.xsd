@@ -44,3 +44,4 @@
     
     <xsd:element name="dati_catastali" type="epedatcat:entita_pat_dati_catastali_ctype"/>
 </xsd:schema>
+<!-- TODO: ent_pat_dati_catastali_v1.0.0.sch -->

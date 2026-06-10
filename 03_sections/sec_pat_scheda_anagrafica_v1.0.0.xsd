@@ -7,7 +7,7 @@
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:epepers="../02_entities/pat_persona"
     xmlns:epecitt="../02_entities/cittadinanza"
-    xmlns:epedocu="../02_entities/pat_documento"
+    xmlns:epedocu="../02_entities/documento_rilasciato"
     xmlns:epeindita="../02_entities/pat_indirizzo_italiano"
     xmlns:epeindest="../02_entities/pat_indirizzo_estero"
     xmlns:epecont="../02_entities/contatti"
@@ -26,7 +26,7 @@
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="../02_entities/pat_persona" schemaLocation="../02_entities/ent_pat_persona_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/cittadinanza" schemaLocation="../02_entities/ent_cittadinanza_v1.0.7.xsd"/>
-    <xsd:import namespace="../02_entities/pat_documento" schemaLocation="../02_entities/ent_pat_documento_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/documento_rilasciato" schemaLocation="../02_entities/ent_documento_rilasciato_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/pat_indirizzo_italiano" schemaLocation="../02_entities/ent_pat_indirizzo_italiano_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/pat_indirizzo_estero" schemaLocation="../02_entities/ent_pat_indirizzo_estero_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
@@ -83,7 +83,7 @@
             <xsd:element name="datiDichiarante" type="epepers:ent_pat_persona_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
             <!-- <xsd:element name="cittadino_non_ue" type="xsd:boolean" default="false" minOccurs="1" maxOccurs="1"/> -->
-            <xsd:element name="documento" type="epedocu:entita_pat_documento_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="documento" type="epedocu:documento_rilasciato_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="residenza_dichiarante" type="epeindita:entita_pat_indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
             <!-- TODO: GR: il dichiarante puo' essere una persona estera? -->
             <!-- <xsd:choice>
