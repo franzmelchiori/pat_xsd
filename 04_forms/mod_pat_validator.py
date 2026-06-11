@@ -1,5 +1,5 @@
 """
-    PAT SUE: XML parser
+    PAT XML validator
     ⌘ 2026 Francesco Melchiori
 """
 
@@ -94,9 +94,3 @@ if __name__ == '__main__':
 
     ## assert XML with XSD
     # schema.assertValid(tree)
-
-    ## valuta errori di validazione tra XML PAT e XSD IT, es.:
-    ##     - elementi XML PAT per cui non esiste il relativo elemento XSD IT (dati aggiunti per PAT)
-    ##     - elementi XML PAT non alimentati per il relativo elemento XSD IT (dati inesistenti in PAT)
-    ##     - elementi XML PAT non validi (ma tipizzati) per il relativo elemento XSD IT
-    ##     - elementi XML PAT mancanti (ma obbligatori) per il relativo elemento XSD IT
