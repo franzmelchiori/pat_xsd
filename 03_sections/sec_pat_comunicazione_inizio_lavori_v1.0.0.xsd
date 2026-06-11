@@ -5,7 +5,7 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epeindita="../02_entities/pat_indirizzo_italiano"
+    xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:epedatcat="../02_entities/pat_dati_catastali"
     xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
     xmlns:specil="../03_sections/pat_comunicazione_inizio_lavori"
@@ -19,7 +19,7 @@
     <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
-    <xsd:import namespace="../02_entities/pat_indirizzo_italiano" schemaLocation="../02_entities/ent_pat_indirizzo_italiano_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/pat_dati_catastali" schemaLocation="../02_entities/ent_pat_dati_catastali_v1.0.0.xsd"/>
     <xsd:import namespace="../02_entities/pat_riferimenti_pdc" schemaLocation="../02_entities/ent_pat_riferimenti_pdc_v1.0.0.xsd"/>
 
@@ -34,7 +34,7 @@
                     <xsd:documentation xml:lang="it">Segnala all'ufficio tecnico del Comune di</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="indirizzo_italiano" type="epeindita:entita_pat_indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1">
+            <xsd:element name="indirizzo_italiano" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Localizzazione dell'intervento</xsd:documentation>
                     <xsd:documentation xml:lang="it">ATTENZIONE - l'ubicazione dell'attività o intervento coincide con il Comune a cui è destinata la pratica</xsd:documentation>
