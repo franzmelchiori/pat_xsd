@@ -85,7 +85,7 @@
             <!-- <xsd:element name="cittadino_non_ue" type="xsd:boolean" default="false" minOccurs="1" maxOccurs="1"/> -->
             <xsd:element name="documento" type="epedocu:documento_rilasciato_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="residenza_dichiarante" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-            <!-- TODO: GR: il dichiarante puo' essere una persona estera? -->
+            <!-- TODO: il dichiarante puo' essere una persona estera? -->
             <!-- <xsd:choice>
                 <xsd:element name="indirizzo_italiano" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="indirizzo_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
@@ -94,7 +94,7 @@
             <xsd:element name="rappresentante" type="eperapp:entita_pat_rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="datiProcuratore" type="epepers:persona_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="residenza_procuratore" type="epeindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
-            <!-- TODO: GR: il procuratore puo' risiedere all'estero? -->
+            <!-- TODO: il procuratore puo' risiedere all'estero? -->
             <xsd:element name="contatti_procuratore" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
