@@ -6,7 +6,7 @@
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:epeimpese="../02_entities/pat_impresa_escutrice"
-    xmlns:epepers="../02_entities/pat_persona"
+    xmlns:epepers="../02_entities/persona"
     xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:epeindest="../02_entities/indirizzo_estero"
     xmlns:epecont="../02_entities/contatti"
@@ -22,7 +22,7 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="../02_entities/pat_impresa_escutrice" schemaLocation="../02_entities/ent_pat_impresa_escutrice_v1.0.0.xsd"/>
-    <xsd:import namespace="../02_entities/pat_persona" schemaLocation="../02_entities/ent_pat_persona_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
@@ -70,7 +70,7 @@
                     </xsd:annotation>
                 </xsd:element>
                 <xsd:sequence>
-                    <xsd:element name="altro_direttore" type="epepers:ent_pat_persona_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:element name="altro_direttore" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation xml:lang="it">non è colui che presenta la pratica</xsd:documentation>
                         </xsd:annotation>
@@ -101,7 +101,7 @@
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="incaricato_della" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="altro_progettista" type="epepers:ent_pat_persona_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="altro_progettista" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:choice minOccurs="1" maxOccurs="1">
                 <xsd:element name="residenza_italiana" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="residenza_estera" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>

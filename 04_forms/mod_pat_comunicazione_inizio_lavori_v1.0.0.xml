@@ -6,7 +6,7 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epepers="../02_entities/pat_persona"
+    xmlns:epepers="../02_entities/persona"
     xmlns:epecitt="../02_entities/cittadinanza"
     xmlns:epedocu="../02_entities/documento_rilasciato"
     xmlns:epeindita="../02_entities/indirizzo_italiano"
@@ -103,14 +103,14 @@
             </speschana:selezione_cciaa_non_necessario> -->
         </speschana:opzione_ditta>
         <speschana:datiDichiarante>
-            <epepers:nome>Mario</epepers:nome>
             <epepers:cognome>Rossi</epepers:cognome>
-            <epepers:codiceFiscale>RSSMRA80A01H294E</epepers:codiceFiscale>
+            <epepers:nome>Mario</epepers:nome>
+            <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
             <epepers:sesso>M</epepers:sesso>
-            <epepers:dataNascita>01/01/1980</epepers:dataNascita>
-            <epepers:comuneNascita>TN</epepers:comuneNascita>
-            <epepers:provinciaNascita>TN</epepers:provinciaNascita>
-            <epepers:statoNascita>IT</epepers:statoNascita>
+            <epepers:comune_nascita>TN</epepers:comune_nascita>
+            <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+            <epepers:stato_nascita>IT</epepers:stato_nascita>
+            <epepers:data_nascita>01/01/1980</epepers:data_nascita>
         </speschana:datiDichiarante>
         <speschana:cittadinanza>
             <epecitt:stato_cittadinanza>IT</epecitt:stato_cittadinanza>
@@ -152,14 +152,14 @@
             <eperapp:ruolo>Proprietario</eperapp:ruolo>
         </speschana:rappresentante>
         <speschana:datiProcuratore>
-            <epepers:nome>Mario</epepers:nome>
             <epepers:cognome>Rossi</epepers:cognome>
-            <epepers:codiceFiscale>RSSMRA80A01H294E</epepers:codiceFiscale>
+            <epepers:nome>Mario</epepers:nome>
+            <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
             <epepers:sesso>M</epepers:sesso>
-            <epepers:dataNascita>01/01/1980</epepers:dataNascita>
-            <epepers:comuneNascita>TN</epepers:comuneNascita>
-            <epepers:provinciaNascita>TN</epepers:provinciaNascita>
-            <epepers:statoNascita>IT</epepers:statoNascita>
+            <epepers:comune_nascita>TN</epepers:comune_nascita>
+            <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+            <epepers:stato_nascita>IT</epepers:stato_nascita>
+            <epepers:data_nascita>01/01/1980</epepers:data_nascita>
         </speschana:datiProcuratore>
         <speschana:residenza_procuratore>
             <epeindita:comune>Trento</epeindita:comune>
@@ -278,14 +278,14 @@
                     </epeimpr:selezione_rea_iscritto> -->
                 </epeimpese:impresa>
                 <epeimpese:legale_rappresentante>
-                    <epepers:nome>Mario</epepers:nome>
                     <epepers:cognome>Rossi</epepers:cognome>
-                    <epepers:codiceFiscale>RSSMRA80A01H294E</epepers:codiceFiscale>
+                    <epepers:nome>Mario</epepers:nome>
+                    <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
                     <epepers:sesso>M</epepers:sesso>
-                    <epepers:dataNascita>01/01/1980</epepers:dataNascita>
-                    <epepers:comuneNascita>TN</epepers:comuneNascita>
-                    <epepers:provinciaNascita>TN</epepers:provinciaNascita>
-                    <epepers:statoNascita>IT</epepers:statoNascita>
+                    <epepers:comune_nascita>TN</epepers:comune_nascita>
+                    <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                    <epepers:stato_nascita>IT</epepers:stato_nascita>
+                    <epepers:data_nascita>01/01/1980</epepers:data_nascita>
                 </epeimpese:legale_rappresentante>
                 <epeimpese:verifica_contributiva>
                     <epevercon:cassa_edile>
@@ -331,14 +331,14 @@
                     </epeimpr:selezione_rea_iscritto> -->
                 </epeimpese:impresa>
                 <epeimpese:legale_rappresentante>
-                    <epepers:nome>Mario</epepers:nome>
                     <epepers:cognome>Rossi</epepers:cognome>
-                    <epepers:codiceFiscale>RSSMRA80A01H294E</epepers:codiceFiscale>
+                    <epepers:nome>Mario</epepers:nome>
+                    <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
                     <epepers:sesso>M</epepers:sesso>
-                    <epepers:dataNascita>01/01/1980</epepers:dataNascita>
-                    <epepers:comuneNascita>TN</epepers:comuneNascita>
-                    <epepers:provinciaNascita>TN</epepers:provinciaNascita>
-                    <epepers:statoNascita>IT</epepers:statoNascita>
+                    <epepers:comune_nascita>TN</epepers:comune_nascita>
+                    <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                    <epepers:stato_nascita>IT</epepers:stato_nascita>
+                    <epepers:data_nascita>01/01/1980</epepers:data_nascita>
                 </epeimpese:legale_rappresentante>
                 <epeimpese:verifica_contributiva>
                     <epevercon:inps>
@@ -351,14 +351,14 @@
         <speeselav:direttore_lavori>
             <!-- <speeselav:dichiarante_direttore>true</speeselav:dichiarante_direttore> -->
             <speeselav:altro_direttore>
-                <epepers:nome>Mario</epepers:nome>
                 <epepers:cognome>Rossi</epepers:cognome>
-                <epepers:codiceFiscale>RSSMRA80A01H294E</epepers:codiceFiscale>
+                <epepers:nome>Mario</epepers:nome>
+                <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
                 <epepers:sesso>M</epepers:sesso>
-                <epepers:dataNascita>01/01/1980</epepers:dataNascita>
-                <epepers:comuneNascita>TN</epepers:comuneNascita>
-                <epepers:provinciaNascita>TN</epepers:provinciaNascita>
-                <epepers:statoNascita>IT</epepers:statoNascita>
+                <epepers:comune_nascita>TN</epepers:comune_nascita>
+                <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                <epepers:stato_nascita>IT</epepers:stato_nascita>
+                <epepers:data_nascita>01/01/1980</epepers:data_nascita>
             </speeselav:altro_direttore>
             <!-- <speeselav:residenza_italiana>
                 <epeindita:comune>Trento</epeindita:comune>
@@ -407,14 +407,14 @@
         <speeselav:progettista_lavori>
             <speeselav:incaricato_della>sicurezza</speeselav:incaricato_della>
             <speeselav:altro_progettista>
-                <epepers:nome>Mario</epepers:nome>
                 <epepers:cognome>Rossi</epepers:cognome>
-                <epepers:codiceFiscale>RSSMRA80A01H294E</epepers:codiceFiscale>
+                <epepers:nome>Mario</epepers:nome>
+                <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
                 <epepers:sesso>M</epepers:sesso>
-                <epepers:dataNascita>01/01/1980</epepers:dataNascita>
-                <epepers:comuneNascita>TN</epepers:comuneNascita>
-                <epepers:provinciaNascita>TN</epepers:provinciaNascita>
-                <epepers:statoNascita>IT</epepers:statoNascita>
+                <epepers:comune_nascita>TN</epepers:comune_nascita>
+                <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                <epepers:stato_nascita>IT</epepers:stato_nascita>
+                <epepers:data_nascita>01/01/1980</epepers:data_nascita>
             </speeselav:altro_progettista>
             <!-- <speeselav:residenza_italiana>
                 <epeindita:comune>Trento</epeindita:comune>
