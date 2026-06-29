@@ -1,3 +1,13 @@
+# XSLT issue
+04_forms/mod_pat_comunicazione_inizio_lavori_sue_20260612_part.xml
+04_forms/mod_pat_comunicazione_inizio_lavori_sue_20260612.xml
+04_forms/mod_pat_comunicazione_inizio_lavori_v1.0.0_part.xml
+04_forms/mod_pat_comunicazione_inizio_lavori_v1.0.0_part.xslt
+04_forms/mod_pat_transformer.py
+
+# vs
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

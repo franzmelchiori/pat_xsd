@@ -18,6 +18,13 @@
             "request": "launch",
             "program": "./04_forms/mod_pat_validator.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "[py] transform xml",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "./04_forms/mod_pat_transformer.py",
+            "console": "integratedTerminal"
         }
     ]
 }
