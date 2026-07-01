@@ -6,7 +6,7 @@
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:epeindita="../02_entities/indirizzo_italiano"
-    xmlns:epedatcat="../02_entities/pat_dati_catastali"
+    xmlns:edaca="../02_entities/dati_catastali"
     xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
     xmlns:specil="../03_sections/pat_comunicazione_inizio_lavori"
     targetNamespace="../03_sections/pat_comunicazione_inizio_lavori"
@@ -20,7 +20,7 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
-    <xsd:import namespace="../02_entities/pat_dati_catastali" schemaLocation="../02_entities/ent_pat_dati_catastali_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/pat_riferimenti_pdc" schemaLocation="../02_entities/ent_pat_riferimenti_pdc_v1.0.0.xsd"/>
 
     <xsd:complexType name="sezione_pat_comunicazione_inizio_lavori_ctype">
@@ -40,7 +40,7 @@
                     <xsd:documentation xml:lang="it">ATTENZIONE - l'ubicazione dell'attività o intervento coincide con il Comune a cui è destinata la pratica</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="dati_catastali" type="epedatcat:entita_pat_dati_catastali_ctype" minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="dati_catastali" type="edaca:dati_catastali_ctype" minOccurs="1" maxOccurs="unbounded">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Dati catastali</xsd:documentation>
                     <xsd:documentation xml:lang="it">Per le particelle edificiali non anteporre punteggiatura ai numeri ed in caso di particelle con denominatore inserire numeratore/denominatore (esempio p.ed. .12/3 inserire nel campo 12/3)</xsd:documentation>

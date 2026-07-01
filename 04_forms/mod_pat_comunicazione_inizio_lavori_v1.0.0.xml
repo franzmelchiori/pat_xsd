@@ -17,7 +17,7 @@
     xmlns:epeiscrea="../02_entities/iscrizione_REA"
     xmlns:epedomdig="../02_entities/pat_domicilio_digitale"
     xmlns:epeinfpri="../02_entities/pat_informativa_privacy"
-    xmlns:epedatcat="../02_entities/pat_dati_catastali"
+    xmlns:edaca="../02_entities/dati_catastali"
     xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
     xmlns:epeimpese="../02_entities/pat_impresa_escutrice"
     xmlns:epevercon="../02_entities/pat_verifica_contributiva"
@@ -215,30 +215,30 @@
             <epeindita:cap>38122</epeindita:cap>
         </specil:indirizzo_italiano>
         <specil:dati_catastali>
-            <epedatcat:particella_fondiaria>
-                <epedatcat:codice_particella_fondiaria>123</epedatcat:codice_particella_fondiaria>
-                <epedatcat:codice_comune_catastale>123</epedatcat:codice_comune_catastale>
-                <epedatcat:codice_porzione_materiale>123</epedatcat:codice_porzione_materiale>
-                <epedatcat:codice_subalterno>123</epedatcat:codice_subalterno>
-            </epedatcat:particella_fondiaria>
-            <epedatcat:particella_edificiale>
-                <epedatcat:codice_particella_edificiale>123</epedatcat:codice_particella_edificiale>
-                <epedatcat:codice_comune_catastale>123</epedatcat:codice_comune_catastale>
-                <epedatcat:codice_porzione_materiale>123</epedatcat:codice_porzione_materiale>
-                <epedatcat:codice_subalterno>123</epedatcat:codice_subalterno>
-            </epedatcat:particella_edificiale>
-            <epedatcat:particella_fondiaria>
-                <epedatcat:codice_particella_fondiaria>123</epedatcat:codice_particella_fondiaria>
-                <epedatcat:codice_comune_catastale>123</epedatcat:codice_comune_catastale>
-                <epedatcat:codice_porzione_materiale>123</epedatcat:codice_porzione_materiale>
-                <epedatcat:codice_subalterno>123</epedatcat:codice_subalterno>
-            </epedatcat:particella_fondiaria>
-            <epedatcat:particella_edificiale>
-                <epedatcat:codice_particella_edificiale>123</epedatcat:codice_particella_edificiale>
-                <epedatcat:codice_comune_catastale>123</epedatcat:codice_comune_catastale>
-                <epedatcat:codice_porzione_materiale>123</epedatcat:codice_porzione_materiale>
-                <epedatcat:codice_subalterno>123</epedatcat:codice_subalterno>
-            </epedatcat:particella_edificiale>
+            <edaca:particella_fondiaria>
+                <edaca:codice_particella_fondiaria>123</edaca:codice_particella_fondiaria>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_fondiaria>
+            <edaca:particella_edificiale>
+                <edaca:codice_particella_edificiale>123</edaca:codice_particella_edificiale>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_edificiale>
+            <edaca:particella_fondiaria>
+                <edaca:codice_particella_fondiaria>123</edaca:codice_particella_fondiaria>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_fondiaria>
+            <edaca:particella_edificiale>
+                <edaca:codice_particella_edificiale>123</edaca:codice_particella_edificiale>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_edificiale>
         </specil:dati_catastali>
         <specil:riferimenti_pdc>
             <eperifpdc:protocollo_pdc>abc123</eperifpdc:protocollo_pdc>
