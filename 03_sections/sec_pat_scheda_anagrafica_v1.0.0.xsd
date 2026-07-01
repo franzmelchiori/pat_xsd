@@ -11,7 +11,7 @@
     xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:epeindest="../02_entities/indirizzo_estero"
     xmlns:epecont="../02_entities/contatti"
-    xmlns:eperapp="../02_entities/pat_rappresentante"
+    xmlns:eruorap="../02_entities/rappresentante"
     xmlns:eimpresa="../02_entities/impresa"
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
     targetNamespace="../03_sections/pat_scheda_anagrafica"
@@ -30,7 +30,7 @@
     <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
-    <xsd:import namespace="../02_entities/pat_rappresentante" schemaLocation="../02_entities/ent_pat_ruolo_rappresentante_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/rappresentante" schemaLocation="../02_entities/ent_ruolo_rappresentante_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.8.xsd"/>
 
     <xsd:complexType name="opzione_persona_ctype">
@@ -91,7 +91,7 @@
                 <xsd:element name="indirizzo_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice> -->
             <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="rappresentante" type="eperapp:entita_pat_rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="rappresentante" type="eruorap:rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="datiProcuratore" type="epepers:persona_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="residenza_procuratore" type="epeindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
             <!-- TODO: il procuratore puo' risiedere all'estero? -->
