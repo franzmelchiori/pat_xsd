@@ -20,7 +20,7 @@
     xmlns:edaca="../02_entities/dati_catastali"
     xmlns:erifpdc="../02_entities/riferimenti_pdc"
     xmlns:eimpese="../02_entities/impresa_escutrice"
-    xmlns:epevercon="../02_entities/pat_verifica_contributiva"
+    xmlns:evercon="../02_entities/verifica_contributiva"
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
     xmlns:speoggpra="../03_sections/pat_oggetto_pratica"
     xmlns:sdomdig="../03_sections/domicilio_digitale"
@@ -288,20 +288,20 @@
                     <epepers:data_nascita>01/01/1980</epepers:data_nascita>
                 </eimpese:legale_rappresentante>
                 <eimpese:verifica_contributiva>
-                    <epevercon:cassa_edile>
-                        <epevercon:sede>Trento</epevercon:sede>
-                        <epevercon:codice_impresa>abc123</epevercon:codice_impresa>
-                        <epevercon:codice_cassa>abc123</epevercon:codice_cassa>
-                    </epevercon:cassa_edile>
-                    <epevercon:inps>
-                        <epevercon:sede>Trento</epevercon:sede>
-                        <epevercon:matricola_posizione>abc123</epevercon:matricola_posizione>
-                    </epevercon:inps>
-                    <epevercon:inail>
-                        <epevercon:sede>Trento</epevercon:sede>
-                        <epevercon:codice_impresa>abc123</epevercon:codice_impresa>
-                        <epevercon:posizione_assicurativa>abc123</epevercon:posizione_assicurativa>
-                    </epevercon:inail>
+                    <evercon:cassa_edile>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:codice_impresa>abc123</evercon:codice_impresa>
+                        <evercon:codice_cassa>abc123</evercon:codice_cassa>
+                    </evercon:cassa_edile>
+                    <evercon:inps>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:matricola_posizione>abc123</evercon:matricola_posizione>
+                    </evercon:inps>
+                    <evercon:inail>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:codice_impresa>abc123</evercon:codice_impresa>
+                        <evercon:posizione_assicurativa>abc123</evercon:posizione_assicurativa>
+                    </evercon:inail>
                 </eimpese:verifica_contributiva>
             </seselav:impresa>
             <seselav:impresa>
@@ -341,10 +341,10 @@
                     <epepers:data_nascita>01/01/1980</epepers:data_nascita>
                 </eimpese:legale_rappresentante>
                 <eimpese:verifica_contributiva>
-                    <epevercon:inps>
-                        <epevercon:sede>Trento</epevercon:sede>
-                        <epevercon:matricola_posizione>abc123</epevercon:matricola_posizione>
-                    </epevercon:inps>
+                    <evercon:inps>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:matricola_posizione>abc123</evercon:matricola_posizione>
+                    </evercon:inps>
                 </eimpese:verifica_contributiva>
             </seselav:impresa>
         </seselav:impresa_esecutrice>

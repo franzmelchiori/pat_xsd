@@ -5,8 +5,8 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epevercon="../02_entities/pat_verifica_contributiva"
-    targetNamespace="../02_entities/pat_verifica_contributiva"
+    xmlns:evercon="../02_entities/verifica_contributiva"
+    targetNamespace="../02_entities/verifica_contributiva"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
     version="1.0.8"
@@ -40,20 +40,20 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="ent_pat_verifica_contributiva_ctype">
+    <xsd:complexType name="verifica_contributiva_ctype">
         <xsd:choice minOccurs="1" maxOccurs="1">
             <xsd:sequence>
-                <xsd:element name="cassa_edile" type="epevercon:cassa_edile_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="inps" type="epevercon:inps_ctype" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="inail" type="epevercon:inail_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="cassa_edile" type="evercon:cassa_edile_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="inps" type="evercon:inps_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="inail" type="evercon:inail_ctype" minOccurs="0" maxOccurs="1"/>
             </xsd:sequence>
             <xsd:sequence>
-                <xsd:element name="inps" type="epevercon:inps_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="inail" type="epevercon:inail_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="inps" type="evercon:inps_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="inail" type="evercon:inail_ctype" minOccurs="0" maxOccurs="1"/>
             </xsd:sequence>
-            <xsd:element name="inail" type="epevercon:inail_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="inail" type="evercon:inail_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:choice>
     </xsd:complexType>
     
-    <xsd:element name="verifica_contributiva" type="epevercon:ent_pat_verifica_contributiva_ctype"/>
+    <xsd:element name="verifica_contributiva" type="evercon:verifica_contributiva_ctype"/>
 </xsd:schema>
