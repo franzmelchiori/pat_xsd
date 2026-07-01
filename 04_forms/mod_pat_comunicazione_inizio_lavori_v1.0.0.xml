@@ -22,7 +22,7 @@
     xmlns:eimpese="../02_entities/impresa_escutrice"
     xmlns:evercon="../02_entities/verifica_contributiva"
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
-    xmlns:speoggpra="../03_sections/pat_oggetto_pratica"
+    xmlns:soggpra="../03_sections/oggetto_pratica"
     xmlns:sdomdig="../03_sections/domicilio_digitale"
     xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
     xmlns:sinfpri="../03_sections/informativa_privacy"
@@ -179,7 +179,7 @@
         </speschana:contatti_procuratore>
     </mpecil:sezione_pat_scheda_anagrafica>
     <mpecil:sezione_pat_oggetto_pratica>
-        <speoggpra:oggetto_pratica>descrizione sintetica</speoggpra:oggetto_pratica>
+        <soggpra:oggetto_pratica>descrizione sintetica</soggpra:oggetto_pratica>
     </mpecil:sezione_pat_oggetto_pratica>
     <mpecil:sezione_pat_domicilio_digitale>
         <sdomdig:domicilio_digitale>
