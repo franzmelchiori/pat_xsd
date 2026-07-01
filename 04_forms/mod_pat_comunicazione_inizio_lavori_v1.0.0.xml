@@ -16,7 +16,7 @@
     xmlns:eimpresa="../02_entities/impresa"
     xmlns:epeiscrea="../02_entities/iscrizione_REA"
     xmlns:edomdig="../02_entities/domicilio_digitale"
-    xmlns:epeinfpri="../02_entities/pat_informativa_privacy"
+    xmlns:einfoprivacy="../02_entities/informativa_privacy"
     xmlns:edaca="../02_entities/dati_catastali"
     xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
     xmlns:eimpese="../02_entities/impresa_escutrice"
@@ -194,12 +194,12 @@
     </mpecil:sezione_pat_dichiarazione_consapevolezza>
     <mpecil:sezione_pat_informativa_privacy>
         <speinfpri:informativa_privacy>
-            <epeinfpri:titolare_comune>Trento</epeinfpri:titolare_comune>
-            <epeinfpri:titolare_pec>trento@pec.it</epeinfpri:titolare_pec>
-            <epeinfpri:richieste_comune>Trento</epeinfpri:richieste_comune>
-            <epeinfpri:richieste_mail>trento@pec.it</epeinfpri:richieste_mail>
-            <epeinfpri:responsabile_mail>mario.rossi@pec.it</epeinfpri:responsabile_mail>
-            <epeinfpri:dichiarazione_lettura>true</epeinfpri:dichiarazione_lettura>
+            <einfoprivacy:titolare_comune>Trento</einfoprivacy:titolare_comune>
+            <einfoprivacy:titolare_pec>trento@pec.it</einfoprivacy:titolare_pec>
+            <einfoprivacy:richieste_comune>Trento</einfoprivacy:richieste_comune>
+            <einfoprivacy:richieste_mail>trento@pec.it</einfoprivacy:richieste_mail>
+            <einfoprivacy:responsabile_mail>mario.rossi@pec.it</einfoprivacy:responsabile_mail>
+            <einfoprivacy:dichiarazione_lettura>true</einfoprivacy:dichiarazione_lettura>
         </speinfpri:informativa_privacy>
     </mpecil:sezione_pat_informativa_privacy>
     <mpecil:sezione_pat_comunicazione_inizio_lavori>
