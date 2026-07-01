@@ -12,7 +12,7 @@
     xmlns:sinfpri="../03_sections/informativa_privacy"
     xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
     xmlns:seselav="../03_sections/esecuzione_lavori"
-    xmlns:spesalsic="../03_sections/pat_salute_sicurezza"
+    xmlns:ssalsic="../03_sections/salute_sicurezza"
     xmlns:mpecil="../04_forms/pat_comunicazione_inizio_lavori"
     targetNamespace="../04_forms/pat_comunicazione_inizio_lavori"
     elementFormDefault="qualified"
@@ -31,7 +31,7 @@
     <xsd:import namespace="../03_sections/informativa_privacy" schemaLocation="../03_sections/sec_informativa_privacy_v1.0.8.xsd"/>
     <xsd:import namespace="../03_sections/comunicazione_inizio_lavori" schemaLocation="../03_sections/sec_comunicazione_inizio_lavori_v1.0.8.xsd"/>
     <xsd:import namespace="../03_sections/esecuzione_lavori" schemaLocation="../03_sections/sec_esecuzione_lavori_v1.0.8.xsd"/>
-    <xsd:import namespace="../03_sections/pat_salute_sicurezza" schemaLocation="../03_sections/sec_pat_salute_sicurezza_v1.0.0.xsd"/>
+    <xsd:import namespace="../03_sections/salute_sicurezza" schemaLocation="../03_sections/sec_salute_sicurezza_v1.0.8.xsd"/>
 
     <xsd:complexType name="modulo_pat_comunicazione_inizio_lavori_ctype">
         <xsd:annotation>
@@ -47,7 +47,7 @@
             <xsd:element name="sezione_pat_informativa_privacy" type="sinfpri:sezione_informativa_privacy_ctype"/>
             <xsd:element name="sezione_pat_comunicazione_inizio_lavori" type="scominilav:sezione_comunicazione_inizio_lavori_ctype"/>
             <xsd:element name="sezione_pat_esecuzione_lavori" type="seselav:sezione_esecuzione_lavori_ctype"/>
-            <xsd:element name="sezione_pat_salute_sicurezza" type="spesalsic:sezione_pat_salute_sicurezza_ctype"/>
+            <xsd:element name="sezione_pat_salute_sicurezza" type="ssalsic:sezione_salute_sicurezza_ctype"/>
         </xsd:sequence>
     </xsd:complexType>
     

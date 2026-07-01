@@ -28,7 +28,7 @@
     xmlns:sinfpri="../03_sections/informativa_privacy"
     xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
     xmlns:seselav="../03_sections/esecuzione_lavori"
-    xmlns:spesalsic="../03_sections/pat_salute_sicurezza"
+    xmlns:ssalsic="../03_sections/salute_sicurezza"
     xmlns:mpecil="../04_forms/pat_comunicazione_inizio_lavori">
 
     <mpecil:sezione_pat_scheda_anagrafica>
@@ -461,9 +461,9 @@
         </seselav:progettista_lavori>
     </mpecil:sezione_pat_esecuzione_lavori>
     <mpecil:sezione_pat_salute_sicurezza>
-        <spesalsic:norme_salute_sicurezza>true</spesalsic:norme_salute_sicurezza>
-        <spesalsic:invio_notifica>true</spesalsic:invio_notifica>
-        <spesalsic:data_trasmissione_notifica>28/07/2025</spesalsic:data_trasmissione_notifica>
-        <spesalsic:protocollo_notifica>123abc</spesalsic:protocollo_notifica>
+        <ssalsic:norme_salute_sicurezza>true</ssalsic:norme_salute_sicurezza>
+        <ssalsic:invio_notifica>true</ssalsic:invio_notifica>
+        <ssalsic:data_trasmissione_notifica>28/07/2025</ssalsic:data_trasmissione_notifica>
+        <ssalsic:protocollo_notifica>123abc</ssalsic:protocollo_notifica>
     </mpecil:sezione_pat_salute_sicurezza>
 </mpecil:modulo_pat_comunicazione_inizio_lavori>
