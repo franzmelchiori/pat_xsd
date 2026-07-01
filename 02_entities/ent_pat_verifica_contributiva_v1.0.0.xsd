@@ -9,7 +9,7 @@
     targetNamespace="../02_entities/pat_verifica_contributiva"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>

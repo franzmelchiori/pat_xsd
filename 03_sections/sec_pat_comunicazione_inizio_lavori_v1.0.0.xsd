@@ -7,12 +7,12 @@
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:edaca="../02_entities/dati_catastali"
-    xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
+    xmlns:erifpdc="../02_entities/riferimenti_pdc"
     xmlns:specil="../03_sections/pat_comunicazione_inizio_lavori"
     targetNamespace="../03_sections/pat_comunicazione_inizio_lavori"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
@@ -21,7 +21,7 @@
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.8.xsd"/>
-    <xsd:import namespace="../02_entities/pat_riferimenti_pdc" schemaLocation="../02_entities/ent_pat_riferimenti_pdc_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/riferimenti_pdc" schemaLocation="../02_entities/ent_riferimenti_pdc_v1.0.8.xsd"/>
 
     <xsd:complexType name="sezione_pat_comunicazione_inizio_lavori_ctype">
         <xsd:annotation>
@@ -46,7 +46,7 @@
                     <xsd:documentation xml:lang="it">Per le particelle edificiali non anteporre punteggiatura ai numeri ed in caso di particelle con denominatore inserire numeratore/denominatore (esempio p.ed. .12/3 inserire nel campo 12/3)</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="riferimenti_pdc" type="eperifpdc:entita_pat_riferimenti_pdc_ctype" minOccurs="1" maxOccurs="1">
+            <xsd:element name="riferimenti_pdc" type="erifpdc:riferimenti_pdc_ctype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Riferimenti al permesso di costruire</xsd:documentation>
                 </xsd:annotation>

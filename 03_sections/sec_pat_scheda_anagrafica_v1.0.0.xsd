@@ -17,7 +17,7 @@
     targetNamespace="../03_sections/pat_scheda_anagrafica"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>

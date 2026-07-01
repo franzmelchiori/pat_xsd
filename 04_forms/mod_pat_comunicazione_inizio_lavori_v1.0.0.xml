@@ -18,7 +18,7 @@
     xmlns:edomdig="../02_entities/domicilio_digitale"
     xmlns:einfoprivacy="../02_entities/informativa_privacy"
     xmlns:edaca="../02_entities/dati_catastali"
-    xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
+    xmlns:erifpdc="../02_entities/riferimenti_pdc"
     xmlns:eimpese="../02_entities/impresa_escutrice"
     xmlns:epevercon="../02_entities/pat_verifica_contributiva"
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
@@ -241,9 +241,9 @@
             </edaca:particella_edificiale>
         </specil:dati_catastali>
         <specil:riferimenti_pdc>
-            <eperifpdc:protocollo_pdc>abc123</eperifpdc:protocollo_pdc>
-            <eperifpdc:data_rilascio_pdc>24/07/2025</eperifpdc:data_rilascio_pdc>
-            <eperifpdc:data_inizio_pdc>24/07/2025</eperifpdc:data_inizio_pdc>
+            <erifpdc:protocollo_pdc>abc123</erifpdc:protocollo_pdc>
+            <erifpdc:data_rilascio_pdc>24/07/2025</erifpdc:data_rilascio_pdc>
+            <erifpdc:data_inizio_pdc>24/07/2025</erifpdc:data_inizio_pdc>
         </specil:riferimenti_pdc>
         <specil:silenzio_assenso>true</specil:silenzio_assenso>
         <specil:efficacia_pdc>true</specil:efficacia_pdc>

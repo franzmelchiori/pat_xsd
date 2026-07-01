@@ -5,11 +5,11 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
-    targetNamespace="../02_entities/pat_riferimenti_pdc"
+    xmlns:erifpdc="../02_entities/riferimenti_pdc"
+    targetNamespace="../02_entities/riferimenti_pdc"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
@@ -17,7 +17,7 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
 
-    <xsd:complexType name="entita_pat_riferimenti_pdc_ctype">
+    <xsd:complexType name="riferimenti_pdc_ctype">
         <xsd:sequence>
             <xsd:element name="protocollo_pdc" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="data_rilascio_pdc" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
@@ -25,5 +25,5 @@
         </xsd:sequence>
     </xsd:complexType>
     
-    <xsd:element name="riferimenti_pdc" type="eperifpdc:entita_pat_riferimenti_pdc_ctype"/>
+    <xsd:element name="riferimenti_pdc" type="erifpdc:riferimenti_pdc_ctype"/>
 </xsd:schema>
