@@ -26,7 +26,7 @@
     xmlns:sdomdig="../03_sections/domicilio_digitale"
     xmlns:spediccon="../03_sections/pat_dichiarazione_consapevolezza"
     xmlns:speinfpri="../03_sections/pat_informativa_privacy"
-    xmlns:specil="../03_sections/pat_comunicazione_inizio_lavori"
+    xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
     xmlns:seselav="../03_sections/esecuzione_lavori"
     xmlns:spesalsic="../03_sections/pat_salute_sicurezza"
     xmlns:mpecil="../04_forms/pat_comunicazione_inizio_lavori">
@@ -203,8 +203,8 @@
         </speinfpri:informativa_privacy>
     </mpecil:sezione_pat_informativa_privacy>
     <mpecil:sezione_pat_comunicazione_inizio_lavori>
-        <specil:comune>Trento</specil:comune>
-        <specil:indirizzo_italiano>
+        <scominilav:comune>Trento</scominilav:comune>
+        <scominilav:indirizzo_italiano>
             <epeindita:comune>Trento</epeindita:comune>
             <epeindita:provincia>Trento</epeindita:provincia>
             <epeindita:stato>Italia</epeindita:stato>
@@ -213,8 +213,8 @@
             <epeindita:numero_civico>15</epeindita:numero_civico>
             <epeindita:barrato></epeindita:barrato>
             <epeindita:cap>38122</epeindita:cap>
-        </specil:indirizzo_italiano>
-        <specil:dati_catastali>
+        </scominilav:indirizzo_italiano>
+        <scominilav:dati_catastali>
             <edaca:particella_fondiaria>
                 <edaca:codice_particella_fondiaria>123</edaca:codice_particella_fondiaria>
                 <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
@@ -239,14 +239,14 @@
                 <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
                 <edaca:codice_subalterno>123</edaca:codice_subalterno>
             </edaca:particella_edificiale>
-        </specil:dati_catastali>
-        <specil:riferimenti_pdc>
+        </scominilav:dati_catastali>
+        <scominilav:riferimenti_pdc>
             <erifpdc:protocollo_pdc>abc123</erifpdc:protocollo_pdc>
             <erifpdc:data_rilascio_pdc>24/07/2025</erifpdc:data_rilascio_pdc>
             <erifpdc:data_inizio_pdc>24/07/2025</erifpdc:data_inizio_pdc>
-        </specil:riferimenti_pdc>
-        <specil:silenzio_assenso>true</specil:silenzio_assenso>
-        <specil:efficacia_pdc>true</specil:efficacia_pdc>
+        </scominilav:riferimenti_pdc>
+        <scominilav:silenzio_assenso>true</scominilav:silenzio_assenso>
+        <scominilav:efficacia_pdc>true</scominilav:efficacia_pdc>
     </mpecil:sezione_pat_comunicazione_inizio_lavori>
     <mpecil:sezione_pat_esecuzione_lavori>
         <seselav:impresa_esecutrice>

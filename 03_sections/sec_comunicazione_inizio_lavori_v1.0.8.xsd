@@ -8,8 +8,8 @@
     xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:edaca="../02_entities/dati_catastali"
     xmlns:erifpdc="../02_entities/riferimenti_pdc"
-    xmlns:specil="../03_sections/pat_comunicazione_inizio_lavori"
-    targetNamespace="../03_sections/pat_comunicazione_inizio_lavori"
+    xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
+    targetNamespace="../03_sections/comunicazione_inizio_lavori"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
     version="1.0.8"
@@ -23,7 +23,7 @@
     <xsd:import namespace="../02_entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/riferimenti_pdc" schemaLocation="../02_entities/ent_riferimenti_pdc_v1.0.8.xsd"/>
 
-    <xsd:complexType name="sezione_pat_comunicazione_inizio_lavori_ctype">
+    <xsd:complexType name="sezione_comunicazione_inizio_lavori_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Comunicazione inizio lavori</xsd:documentation>
             <xsd:documentation xml:lang="it">Art. 83, c. 3 della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
@@ -64,5 +64,5 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:element name="sezione_pat_comunicazione_inizio_lavori" type="specil:sezione_pat_comunicazione_inizio_lavori_ctype"/>
+    <xsd:element name="sezione_pat_comunicazione_inizio_lavori" type="scominilav:sezione_comunicazione_inizio_lavori_ctype"/>
 </xsd:schema>
