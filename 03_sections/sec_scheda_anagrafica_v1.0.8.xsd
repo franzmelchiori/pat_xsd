@@ -13,8 +13,8 @@
     xmlns:epecont="../02_entities/contatti"
     xmlns:eruorap="../02_entities/rappresentante"
     xmlns:eimpresa="../02_entities/impresa"
-    xmlns:speschana="../03_sections/pat_scheda_anagrafica"
-    targetNamespace="../03_sections/pat_scheda_anagrafica"
+    xmlns:sschana="../03_sections/scheda_anagrafica"
+    targetNamespace="../03_sections/scheda_anagrafica"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
     version="1.0.8"
@@ -49,7 +49,7 @@
         <xsd:sequence>
             <xsd:element name="selezione_ditta" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1"/>
             <xsd:choice>
-                <xsd:element name="selezione_cciaa_iscritta" type="speschana:opzione_ditta_cciaa_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_cciaa_iscritta" type="sschana:opzione_ditta_cciaa_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="selezione_cciaa_non_iscritta" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="selezione_cciaa_non_necessario" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
@@ -70,15 +70,15 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="sezione_pat_scheda_anagrafica_ctype">
+    <xsd:complexType name="sezione_scheda_anagrafica_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Scheda anagrafica</xsd:documentation>
             <xsd:documentation xml:lang="it">Dati del dichiarante</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
             <xsd:choice>
-                <xsd:element name="opzione_persona" type="speschana:opzione_persona_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="opzione_ditta" type="speschana:opzione_ditta_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="opzione_persona" type="sschana:opzione_persona_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="opzione_ditta" type="sschana:opzione_ditta_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
             <xsd:element name="datiDichiarante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
@@ -99,5 +99,5 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:element name="sezione_pat_scheda_anagrafica" type="speschana:sezione_pat_scheda_anagrafica_ctype"/>
+    <xsd:element name="sezione_pat_scheda_anagrafica" type="sschana:sezione_scheda_anagrafica_ctype"/>
 </xsd:schema>
