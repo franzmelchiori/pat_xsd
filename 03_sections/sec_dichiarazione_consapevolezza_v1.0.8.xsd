@@ -5,8 +5,8 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:spediccon="../03_sections/pat_dichiarazione_consapevolezza"
-    targetNamespace="../03_sections/pat_dichiarazione_consapevolezza"
+    xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
+    targetNamespace="../03_sections/dichiarazione_consapevolezza"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
     version="1.0.8"
@@ -17,7 +17,7 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
 
-    <xsd:complexType name="sezione_pat_dichiarazione_consapevolezza_ctype">
+    <xsd:complexType name="sezione_dichiarazione_consapevolezza_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Dichiarazione di consapevolezza</xsd:documentation>
             <xsd:documentation xml:lang="it">ex art. 46 e 47 DPR 445/2000</xsd:documentation>
@@ -31,5 +31,5 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:element name="sezione_pat_dichiarazione_consapevolezza" type="spediccon:sezione_pat_dichiarazione_consapevolezza_ctype"/>
+    <xsd:element name="sezione_pat_dichiarazione_consapevolezza" type="sdiccon:sezione_dichiarazione_consapevolezza_ctype"/>
 </xsd:schema>

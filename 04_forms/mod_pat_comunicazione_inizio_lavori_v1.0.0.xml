@@ -24,7 +24,7 @@
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
     xmlns:speoggpra="../03_sections/pat_oggetto_pratica"
     xmlns:sdomdig="../03_sections/domicilio_digitale"
-    xmlns:spediccon="../03_sections/pat_dichiarazione_consapevolezza"
+    xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
     xmlns:speinfpri="../03_sections/pat_informativa_privacy"
     xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
     xmlns:seselav="../03_sections/esecuzione_lavori"
@@ -190,7 +190,7 @@
         </sdomdig:domicilio_digitale>
     </mpecil:sezione_pat_domicilio_digitale>
     <mpecil:sezione_pat_dichiarazione_consapevolezza>
-        <spediccon:dichiarazione_consapevolezza>true</spediccon:dichiarazione_consapevolezza>
+        <sdiccon:dichiarazione_consapevolezza>true</sdiccon:dichiarazione_consapevolezza>
     </mpecil:sezione_pat_dichiarazione_consapevolezza>
     <mpecil:sezione_pat_informativa_privacy>
         <speinfpri:informativa_privacy>
