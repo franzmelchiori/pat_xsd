@@ -25,7 +25,7 @@
     xmlns:speoggpra="../03_sections/pat_oggetto_pratica"
     xmlns:sdomdig="../03_sections/domicilio_digitale"
     xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
-    xmlns:speinfpri="../03_sections/pat_informativa_privacy"
+    xmlns:sinfpri="../03_sections/informativa_privacy"
     xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
     xmlns:seselav="../03_sections/esecuzione_lavori"
     xmlns:spesalsic="../03_sections/pat_salute_sicurezza"
@@ -193,14 +193,14 @@
         <sdiccon:dichiarazione_consapevolezza>true</sdiccon:dichiarazione_consapevolezza>
     </mpecil:sezione_pat_dichiarazione_consapevolezza>
     <mpecil:sezione_pat_informativa_privacy>
-        <speinfpri:informativa_privacy>
+        <sinfpri:informativa_privacy>
             <einfoprivacy:titolare_comune>Trento</einfoprivacy:titolare_comune>
             <einfoprivacy:titolare_pec>trento@pec.it</einfoprivacy:titolare_pec>
             <einfoprivacy:richieste_comune>Trento</einfoprivacy:richieste_comune>
             <einfoprivacy:richieste_mail>trento@pec.it</einfoprivacy:richieste_mail>
             <einfoprivacy:responsabile_mail>mario.rossi@pec.it</einfoprivacy:responsabile_mail>
             <einfoprivacy:dichiarazione_lettura>true</einfoprivacy:dichiarazione_lettura>
-        </speinfpri:informativa_privacy>
+        </sinfpri:informativa_privacy>
     </mpecil:sezione_pat_informativa_privacy>
     <mpecil:sezione_pat_comunicazione_inizio_lavori>
         <scominilav:comune>Trento</scominilav:comune>
