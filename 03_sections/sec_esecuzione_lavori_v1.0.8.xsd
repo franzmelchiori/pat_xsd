@@ -5,13 +5,13 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epeimpese="../02_entities/pat_impresa_escutrice"
+    xmlns:eimpese="../02_entities/impresa_escutrice"
     xmlns:epepers="../02_entities/persona"
     xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:epeindest="../02_entities/indirizzo_estero"
     xmlns:epecont="../02_entities/contatti"
-    xmlns:speeselav="../03_sections/pat_esecuzione_lavori"
-    targetNamespace="../03_sections/pat_esecuzione_lavori"
+    xmlns:seselav="../03_sections/esecuzione_lavori"
+    targetNamespace="../03_sections/esecuzione_lavori"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
     version="1.0.0"
@@ -21,7 +21,7 @@
     <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
-    <xsd:import namespace="../02_entities/pat_impresa_escutrice" schemaLocation="../02_entities/ent_pat_impresa_escutrice_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/impresa_escutrice" schemaLocation="../02_entities/ent_impresa_escutrice_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
@@ -37,7 +37,7 @@
                     <xsd:documentation xml:lang="it">IN ECONOMIA (trattasi di lavori eseguiti direttamente dal titolare del provvedimento senza intervento di imprese esecutrici dei lavori o di lavoratori autonomi)</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="impresa" type="epeimpese:entita_pat_impresa_escutrice_ctype" minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="impresa" type="eimpese:impresa_escutrice_ctype" minOccurs="1" maxOccurs="unbounded">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">CON LE IMPRESE / LAVORATORI AUTONOMI di seguito elencati</xsd:documentation>
                     <xsd:documentation xml:lang="it">Nel caso di subentro e/o integrazione di imprese/lavoratori autonomi nel cantiere sussiste l'obbligo di dare tempestiva comunicazione, ai sensi dell'art. 90 del D.Lgs. n. 81 del 2008</xsd:documentation>
@@ -83,7 +83,7 @@
                         <xsd:element name="studio_italia" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="studio_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
                     </xsd:choice>
-                    <xsd:element name="iscrizione_ordine" type="speeselav:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="iscrizione_ordine" type="seselav:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:choice>
             <xsd:element name="visione_relazioni" type="xsd:boolean" minOccurs="1" maxOccurs="1">
@@ -110,17 +110,17 @@
                 <xsd:element name="studio_italia" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="studio_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
-            <xsd:element name="iscrizione_ordine" type="speeselav:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="iscrizione_ordine" type="seselav:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="sezione_pat_esecuzione_lavori_ctype">
+    <xsd:complexType name="sezione_esecuzione_lavori_ctype">
         <xsd:sequence>
-            <xsd:element name="impresa_esecutrice" type="speeselav:impresa_esecutrice_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="direttore_lavori" type="speeselav:direttore_lavori_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="progettista_lavori" type="speeselav:progettista_lavori_ctype" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="impresa_esecutrice" type="seselav:impresa_esecutrice_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="direttore_lavori" type="seselav:direttore_lavori_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="progettista_lavori" type="seselav:progettista_lavori_ctype" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:element name="sezione_pat_esecuzione_lavori" type="speeselav:sezione_pat_esecuzione_lavori_ctype"/>
+    <xsd:element name="sezione_pat_esecuzione_lavori" type="seselav:sezione_esecuzione_lavori_ctype"/>
 </xsd:schema>

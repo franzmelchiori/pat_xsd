@@ -19,7 +19,7 @@
     xmlns:epeinfpri="../02_entities/pat_informativa_privacy"
     xmlns:edaca="../02_entities/dati_catastali"
     xmlns:eperifpdc="../02_entities/pat_riferimenti_pdc"
-    xmlns:epeimpese="../02_entities/pat_impresa_escutrice"
+    xmlns:eimpese="../02_entities/impresa_escutrice"
     xmlns:epevercon="../02_entities/pat_verifica_contributiva"
     xmlns:speschana="../03_sections/pat_scheda_anagrafica"
     xmlns:speoggpra="../03_sections/pat_oggetto_pratica"
@@ -27,7 +27,7 @@
     xmlns:spediccon="../03_sections/pat_dichiarazione_consapevolezza"
     xmlns:speinfpri="../03_sections/pat_informativa_privacy"
     xmlns:specil="../03_sections/pat_comunicazione_inizio_lavori"
-    xmlns:speeselav="../03_sections/pat_esecuzione_lavori"
+    xmlns:seselav="../03_sections/esecuzione_lavori"
     xmlns:spesalsic="../03_sections/pat_salute_sicurezza"
     xmlns:mpecil="../04_forms/pat_comunicazione_inizio_lavori">
 
@@ -249,10 +249,10 @@
         <specil:efficacia_pdc>true</specil:efficacia_pdc>
     </mpecil:sezione_pat_comunicazione_inizio_lavori>
     <mpecil:sezione_pat_esecuzione_lavori>
-        <speeselav:impresa_esecutrice>
-            <!-- <speeselav:titolare>true</speeselav:titolare> -->
-            <speeselav:impresa>
-                <epeimpese:impresa>
+        <seselav:impresa_esecutrice>
+            <!-- <seselav:titolare>true</seselav:titolare> -->
+            <seselav:impresa>
+                <eimpese:impresa>
                     <epeimpr:denominazione>XSDfacili.it</epeimpr:denominazione>
                     <epeimpr:forma_giuridica>LIBERO PROFESSIONISTA</epeimpr:forma_giuridica>
                     <epeimpr:codice_fiscale>RSSMRA80A01H294E</epeimpr:codice_fiscale>
@@ -276,8 +276,8 @@
                             <epeiscrea:numero_REA>bla</epeiscrea:numero_REA>
                         </epeimpr:rea>
                     </epeimpr:selezione_rea_iscritto> -->
-                </epeimpese:impresa>
-                <epeimpese:legale_rappresentante>
+                </eimpese:impresa>
+                <eimpese:legale_rappresentante>
                     <epepers:cognome>Rossi</epepers:cognome>
                     <epepers:nome>Mario</epepers:nome>
                     <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
@@ -286,8 +286,8 @@
                     <epepers:provincia_nascita>TN</epepers:provincia_nascita>
                     <epepers:stato_nascita>IT</epepers:stato_nascita>
                     <epepers:data_nascita>01/01/1980</epepers:data_nascita>
-                </epeimpese:legale_rappresentante>
-                <epeimpese:verifica_contributiva>
+                </eimpese:legale_rappresentante>
+                <eimpese:verifica_contributiva>
                     <epevercon:cassa_edile>
                         <epevercon:sede>Trento</epevercon:sede>
                         <epevercon:codice_impresa>abc123</epevercon:codice_impresa>
@@ -302,10 +302,10 @@
                         <epevercon:codice_impresa>abc123</epevercon:codice_impresa>
                         <epevercon:posizione_assicurativa>abc123</epevercon:posizione_assicurativa>
                     </epevercon:inail>
-                </epeimpese:verifica_contributiva>
-            </speeselav:impresa>
-            <speeselav:impresa>
-                <epeimpese:impresa>
+                </eimpese:verifica_contributiva>
+            </seselav:impresa>
+            <seselav:impresa>
+                <eimpese:impresa>
                     <epeimpr:denominazione>XSDdifficili.it</epeimpr:denominazione>
                     <epeimpr:forma_giuridica>LIBERO PROFESSIONISTA</epeimpr:forma_giuridica>
                     <epeimpr:codice_fiscale>RSSMRA80A01H294E</epeimpr:codice_fiscale>
@@ -329,8 +329,8 @@
                             <epeiscrea:numero_REA>bla</epeiscrea:numero_REA>
                         </epeimpr:rea>
                     </epeimpr:selezione_rea_iscritto> -->
-                </epeimpese:impresa>
-                <epeimpese:legale_rappresentante>
+                </eimpese:impresa>
+                <eimpese:legale_rappresentante>
                     <epepers:cognome>Rossi</epepers:cognome>
                     <epepers:nome>Mario</epepers:nome>
                     <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
@@ -339,18 +339,18 @@
                     <epepers:provincia_nascita>TN</epepers:provincia_nascita>
                     <epepers:stato_nascita>IT</epepers:stato_nascita>
                     <epepers:data_nascita>01/01/1980</epepers:data_nascita>
-                </epeimpese:legale_rappresentante>
-                <epeimpese:verifica_contributiva>
+                </eimpese:legale_rappresentante>
+                <eimpese:verifica_contributiva>
                     <epevercon:inps>
                         <epevercon:sede>Trento</epevercon:sede>
                         <epevercon:matricola_posizione>abc123</epevercon:matricola_posizione>
                     </epevercon:inps>
-                </epeimpese:verifica_contributiva>
-            </speeselav:impresa>
-        </speeselav:impresa_esecutrice>
-        <speeselav:direttore_lavori>
-            <!-- <speeselav:dichiarante_direttore>true</speeselav:dichiarante_direttore> -->
-            <speeselav:altro_direttore>
+                </eimpese:verifica_contributiva>
+            </seselav:impresa>
+        </seselav:impresa_esecutrice>
+        <seselav:direttore_lavori>
+            <!-- <seselav:dichiarante_direttore>true</seselav:dichiarante_direttore> -->
+            <seselav:altro_direttore>
                 <epepers:cognome>Rossi</epepers:cognome>
                 <epepers:nome>Mario</epepers:nome>
                 <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
@@ -359,8 +359,8 @@
                 <epepers:provincia_nascita>TN</epepers:provincia_nascita>
                 <epepers:stato_nascita>IT</epepers:stato_nascita>
                 <epepers:data_nascita>01/01/1980</epepers:data_nascita>
-            </speeselav:altro_direttore>
-            <!-- <speeselav:residenza_italiana>
+            </seselav:altro_direttore>
+            <!-- <seselav:residenza_italiana>
                 <epeindita:comune>Trento</epeindita:comune>
                 <epeindita:provincia>Trento</epeindita:provincia>
                 <epeindita:stato>Italia</epeindita:stato>
@@ -369,14 +369,14 @@
                 <epeindita:numero_civico>15</epeindita:numero_civico>
                 <epeindita:barrato></epeindita:barrato>
                 <epeindita:cap>38122</epeindita:cap>
-            </speeselav:residenza_italiana> -->
-            <speeselav:residenza_estera>
+            </seselav:residenza_italiana> -->
+            <seselav:residenza_estera>
                 <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
                 <epeindest:codice_postale>97106</epeindest:codice_postale>
                 <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
                 <epeindest:stato_estero>USA</epeindest:stato_estero>
-            </speeselav:residenza_estera>
-            <!-- <speeselav:studio_italia>
+            </seselav:residenza_estera>
+            <!-- <seselav:studio_italia>
                 <epeindita:comune>Trento</epeindita:comune>
                 <epeindita:provincia>Trento</epeindita:provincia>
                 <epeindita:stato>Italia</epeindita:stato>
@@ -385,28 +385,28 @@
                 <epeindita:numero_civico>15</epeindita:numero_civico>
                 <epeindita:barrato></epeindita:barrato>
                 <epeindita:cap>38122</epeindita:cap>
-            </speeselav:studio_italia> -->
-            <speeselav:studio_estero>
+            </seselav:studio_italia> -->
+            <seselav:studio_estero>
                 <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
                 <epeindest:codice_postale>97106</epeindest:codice_postale>
                 <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
                 <epeindest:stato_estero>USA</epeindest:stato_estero>
-            </speeselav:studio_estero>
-            <speeselav:iscrizione_ordine>
-                <speeselav:ordine_di>Trento</speeselav:ordine_di>
-                <speeselav:numero>123</speeselav:numero>
-                <speeselav:contatti>
+            </seselav:studio_estero>
+            <seselav:iscrizione_ordine>
+                <seselav:ordine_di>Trento</seselav:ordine_di>
+                <seselav:numero>123</seselav:numero>
+                <seselav:contatti>
                     <epecont:telefono_fisso>0461123456</epecont:telefono_fisso>
                     <epecont:cellulare>3481234567</epecont:cellulare>
                     <epecont:domicilio_digitale>mario.rossi@pec.it</epecont:domicilio_digitale>
                     <epecont:email>mario.rossi@gmail.com</epecont:email>
-                </speeselav:contatti>
-            </speeselav:iscrizione_ordine>
-            <speeselav:visione_relazioni>true</speeselav:visione_relazioni>
-        </speeselav:direttore_lavori>
-        <speeselav:progettista_lavori>
-            <speeselav:incaricato_della>sicurezza</speeselav:incaricato_della>
-            <speeselav:altro_progettista>
+                </seselav:contatti>
+            </seselav:iscrizione_ordine>
+            <seselav:visione_relazioni>true</seselav:visione_relazioni>
+        </seselav:direttore_lavori>
+        <seselav:progettista_lavori>
+            <seselav:incaricato_della>sicurezza</seselav:incaricato_della>
+            <seselav:altro_progettista>
                 <epepers:cognome>Rossi</epepers:cognome>
                 <epepers:nome>Mario</epepers:nome>
                 <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
@@ -415,8 +415,8 @@
                 <epepers:provincia_nascita>TN</epepers:provincia_nascita>
                 <epepers:stato_nascita>IT</epepers:stato_nascita>
                 <epepers:data_nascita>01/01/1980</epepers:data_nascita>
-            </speeselav:altro_progettista>
-            <!-- <speeselav:residenza_italiana>
+            </seselav:altro_progettista>
+            <!-- <seselav:residenza_italiana>
                 <epeindita:comune>Trento</epeindita:comune>
                 <epeindita:provincia>Trento</epeindita:provincia>
                 <epeindita:stato>Italia</epeindita:stato>
@@ -425,14 +425,14 @@
                 <epeindita:numero_civico>15</epeindita:numero_civico>
                 <epeindita:barrato></epeindita:barrato>
                 <epeindita:cap>38122</epeindita:cap>
-            </speeselav:residenza_italiana> -->
-            <speeselav:residenza_estera>
+            </seselav:residenza_italiana> -->
+            <seselav:residenza_estera>
                 <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
                 <epeindest:codice_postale>97106</epeindest:codice_postale>
                 <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
                 <epeindest:stato_estero>USA</epeindest:stato_estero>
-            </speeselav:residenza_estera>
-            <!-- <speeselav:studio_italia>
+            </seselav:residenza_estera>
+            <!-- <seselav:studio_italia>
                 <epeindita:comune>Trento</epeindita:comune>
                 <epeindita:provincia>Trento</epeindita:provincia>
                 <epeindita:stato>Italia</epeindita:stato>
@@ -441,24 +441,24 @@
                 <epeindita:numero_civico>15</epeindita:numero_civico>
                 <epeindita:barrato></epeindita:barrato>
                 <epeindita:cap>38122</epeindita:cap>
-            </speeselav:studio_italia> -->
-            <speeselav:studio_estero>
+            </seselav:studio_italia> -->
+            <seselav:studio_estero>
                 <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
                 <epeindest:codice_postale>97106</epeindest:codice_postale>
                 <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
                 <epeindest:stato_estero>USA</epeindest:stato_estero>
-            </speeselav:studio_estero>
-            <speeselav:iscrizione_ordine>
-                <speeselav:ordine_di>Trento</speeselav:ordine_di>
-                <speeselav:numero>123</speeselav:numero>
-                <speeselav:contatti>
+            </seselav:studio_estero>
+            <seselav:iscrizione_ordine>
+                <seselav:ordine_di>Trento</seselav:ordine_di>
+                <seselav:numero>123</seselav:numero>
+                <seselav:contatti>
                     <epecont:telefono_fisso>0461123456</epecont:telefono_fisso>
                     <epecont:cellulare>3481234567</epecont:cellulare>
                     <epecont:domicilio_digitale>mario.rossi@pec.it</epecont:domicilio_digitale>
                     <epecont:email>mario.rossi@gmail.com</epecont:email>
-                </speeselav:contatti>
-            </speeselav:iscrizione_ordine>
-        </speeselav:progettista_lavori>
+                </seselav:contatti>
+            </seselav:iscrizione_ordine>
+        </seselav:progettista_lavori>
     </mpecil:sezione_pat_esecuzione_lavori>
     <mpecil:sezione_pat_salute_sicurezza>
         <spesalsic:norme_salute_sicurezza>true</spesalsic:norme_salute_sicurezza>
