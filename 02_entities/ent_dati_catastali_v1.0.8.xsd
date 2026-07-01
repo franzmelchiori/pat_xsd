@@ -5,11 +5,11 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epedatcat="../02_entities/pat_dati_catastali"
-    targetNamespace="../02_entities/pat_dati_catastali"
+    xmlns:edaca="../02_entities/dati_catastali"
+    targetNamespace="../02_entities/dati_catastali"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
@@ -35,12 +35,12 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="entita_pat_dati_catastali_ctype">
+    <xsd:complexType name="dati_catastali_ctype">
         <xsd:choice minOccurs="1" maxOccurs="unbounded">
-            <xsd:element name="particella_fondiaria" type="epedatcat:particella_fondiaria_ctype" minOccurs="1" maxOccurs="unbounded"/>
-            <xsd:element name="particella_edificiale" type="epedatcat:particella_edificiale_ctype" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element name="particella_fondiaria" type="edaca:particella_fondiaria_ctype" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element name="particella_edificiale" type="edaca:particella_edificiale_ctype" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:choice>
     </xsd:complexType>
     
-    <xsd:element name="dati_catastali" type="epedatcat:entita_pat_dati_catastali_ctype"/>
+    <xsd:element name="dati_catastali" type="edaca:dati_catastali_ctype"/>
 </xsd:schema>

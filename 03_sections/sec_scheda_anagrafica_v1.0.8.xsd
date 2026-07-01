@@ -11,13 +11,13 @@
     xmlns:epeindita="../02_entities/indirizzo_italiano"
     xmlns:epeindest="../02_entities/indirizzo_estero"
     xmlns:epecont="../02_entities/contatti"
-    xmlns:eperapp="../02_entities/pat_rappresentante"
-    xmlns:epeimpr="../02_entities/pat_impresa"
-    xmlns:speschana="../03_sections/pat_scheda_anagrafica"
-    targetNamespace="../03_sections/pat_scheda_anagrafica"
+    xmlns:eruorap="../02_entities/rappresentante"
+    xmlns:eimpresa="../02_entities/impresa"
+    xmlns:sschana="../03_sections/scheda_anagrafica"
+    targetNamespace="../03_sections/scheda_anagrafica"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
@@ -30,8 +30,8 @@
     <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
-    <xsd:import namespace="../02_entities/pat_rappresentante" schemaLocation="../02_entities/ent_pat_ruolo_rappresentante_v1.0.0.xsd"/>
-    <xsd:import namespace="../02_entities/pat_impresa" schemaLocation="../02_entities/ent_pat_impresa_v1.0.0.xsd"/>
+    <xsd:import namespace="../02_entities/rappresentante" schemaLocation="../02_entities/ent_ruolo_rappresentante_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.8.xsd"/>
 
     <xsd:complexType name="opzione_persona_ctype">
         <xsd:annotation>
@@ -49,9 +49,9 @@
         <xsd:sequence>
             <xsd:element name="selezione_ditta" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1"/>
             <xsd:choice>
-                <xsd:element name="selezione_cciaa_iscritta" type="speschana:opzione_ditta_cciaa_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="selezione_cciaa_non_iscritta" type="epeimpr:entita_pat_impresa_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="selezione_cciaa_non_necessario" type="epeimpr:entita_pat_impresa_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_cciaa_iscritta" type="sschana:opzione_ditta_cciaa_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_cciaa_non_iscritta" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_cciaa_non_necessario" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
         </xsd:sequence>
     </xsd:complexType>
@@ -61,24 +61,24 @@
             <xsd:documentation xml:lang="it">Ditta iscritta alla CCIAA</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="ditta_cciaa" type="epeimpr:entita_pat_impresa_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="ditta_cciaa" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:choice>
-                <xsd:element name="selezione_rea_iscritto" type="epeimpr:opzione_ditta_rea_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_rea_iscritto" type="eimpresa:opzione_ditta_rea_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="selezione_rea_non_iscritto" default="true" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="selezione_rea_solo_ri" default="true" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="sezione_pat_scheda_anagrafica_ctype">
+    <xsd:complexType name="sezione_scheda_anagrafica_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Scheda anagrafica</xsd:documentation>
             <xsd:documentation xml:lang="it">Dati del dichiarante</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
             <xsd:choice>
-                <xsd:element name="opzione_persona" type="speschana:opzione_persona_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="opzione_ditta" type="speschana:opzione_ditta_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="opzione_persona" type="sschana:opzione_persona_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="opzione_ditta" type="sschana:opzione_ditta_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
             <xsd:element name="datiDichiarante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
@@ -91,7 +91,7 @@
                 <xsd:element name="indirizzo_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice> -->
             <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="rappresentante" type="eperapp:entita_pat_rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="rappresentante" type="eruorap:rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="datiProcuratore" type="epepers:persona_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="residenza_procuratore" type="epeindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
             <!-- TODO: il procuratore puo' risiedere all'estero? -->
@@ -99,5 +99,5 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:element name="sezione_pat_scheda_anagrafica" type="speschana:sezione_pat_scheda_anagrafica_ctype"/>
+    <xsd:element name="sezione_pat_scheda_anagrafica" type="sschana:sezione_scheda_anagrafica_ctype"/>
 </xsd:schema>

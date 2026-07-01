@@ -5,28 +5,25 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epedomdig="../02_entities/pat_domicilio_digitale"
-    xmlns:spedomdig="../03_sections/pat_domicilio_digitale"
-    targetNamespace="../03_sections/pat_domicilio_digitale"
+    xmlns:erifpdc="../02_entities/riferimenti_pdc"
+    targetNamespace="../02_entities/riferimenti_pdc"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
-    <xsd:import namespace="../02_entities/pat_domicilio_digitale" schemaLocation="../02_entities/ent_pat_domicilio_digitale_v1.0.0.xsd"/>
 
-    <xsd:complexType name="sezione_pat_domicilio_digitale_ctype">
-        <xsd:annotation>
-            <xsd:documentation xml:lang="it">PAT Domicilio digitale</xsd:documentation>
-        </xsd:annotation>
+    <xsd:complexType name="riferimenti_pdc_ctype">
         <xsd:sequence>
-            <xsd:element name="domicilio_digitale" type="epedomdig:entita_pat_domicilio_digitale_ctype"/>
+            <xsd:element name="protocollo_pdc" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_rilascio_pdc" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_inizio_pdc" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
-
-    <xsd:element name="sezione_pat_domicilio_digitale" type="spedomdig:sezione_pat_domicilio_digitale_ctype"/>
+    
+    <xsd:element name="riferimenti_pdc" type="erifpdc:riferimenti_pdc_ctype"/>
 </xsd:schema>

@@ -5,11 +5,11 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epeinfpri="../02_entities/pat_informativa_privacy"
-    targetNamespace="../02_entities/pat_informativa_privacy"
+    xmlns:einfoprivacy="../02_entities/informativa_privacy"
+    targetNamespace="../02_entities/informativa_privacy"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
@@ -17,7 +17,7 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     
-    <xsd:complexType name="entita_pat_informativa_privacy_ctype">
+    <xsd:complexType name="informativa_privacy_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">Il reg. UE n. 2016/679 del 27 aprile 2016 stabilisce norme relative alla protezione delle persone fisiche con riguardo al trattamento dei dati personali.</xsd:documentation>
             <xsd:documentation xml:lang="it">Pertanto, come previsto dall'art. 13 del Regolamento, si forniscono le seguenti informazioni:</xsd:documentation>
@@ -74,5 +74,5 @@
         </xsd:sequence>
     </xsd:complexType>
     
-    <xsd:element name="informativa_privacy" type="epeinfpri:entita_pat_informativa_privacy_ctype"/>
+    <xsd:element name="informativa_privacy" type="einfoprivacy:informativa_privacy_ctype"/>
 </xsd:schema>

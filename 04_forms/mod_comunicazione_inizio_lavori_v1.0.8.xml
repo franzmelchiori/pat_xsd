@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsi:schemaLocation="../04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd" -->
+<mcominilav:modulo_pat_comunicazione_inizio_lavori
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:epepers="../02_entities/persona"
+    xmlns:epecitt="../02_entities/cittadinanza"
+    xmlns:epedocu="../02_entities/documento_rilasciato"
+    xmlns:epeindita="../02_entities/indirizzo_italiano"
+    xmlns:epeindest="../02_entities/indirizzo_estero"
+    xmlns:epecont="../02_entities/contatti"
+    xmlns:eruorap="../02_entities/rappresentante"
+    xmlns:eimpresa="../02_entities/impresa"
+    xmlns:epeiscrea="../02_entities/iscrizione_REA"
+    xmlns:edomdig="../02_entities/domicilio_digitale"
+    xmlns:einfoprivacy="../02_entities/informativa_privacy"
+    xmlns:edaca="../02_entities/dati_catastali"
+    xmlns:erifpdc="../02_entities/riferimenti_pdc"
+    xmlns:eimpese="../02_entities/impresa_escutrice"
+    xmlns:evercon="../02_entities/verifica_contributiva"
+    xmlns:sschana="../03_sections/scheda_anagrafica"
+    xmlns:soggpra="../03_sections/oggetto_pratica"
+    xmlns:sdomdig="../03_sections/domicilio_digitale"
+    xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
+    xmlns:sinfpri="../03_sections/informativa_privacy"
+    xmlns:scominilav="../03_sections/comunicazione_inizio_lavori"
+    xmlns:seselav="../03_sections/esecuzione_lavori"
+    xmlns:ssalsic="../03_sections/salute_sicurezza"
+    xmlns:mcominilav="../04_forms/comunicazione_inizio_lavori">
+
+    <mcominilav:sezione_pat_scheda_anagrafica>
+        <!-- <sschana:opzione_persona>
+            <sschana:selezione_persona/>
+        </sschana:opzione_persona> -->
+        <sschana:opzione_ditta>
+            <sschana:selezione_ditta/>
+            <sschana:selezione_cciaa_iscritta>
+                <sschana:ditta_cciaa>
+                    <eimpresa:denominazione>XSDfacili.it</eimpresa:denominazione>
+                    <eimpresa:forma_giuridica>LIBERO PROFESSIONISTA</eimpresa:forma_giuridica>
+                    <eimpresa:codice_fiscale>RSSMRA80A01H294E</eimpresa:codice_fiscale>
+                    <eimpresa:partita_iva>01234567890</eimpresa:partita_iva>
+                    <eimpresa:indirizzo_attivita>
+                        <epeindita:comune>Trento</epeindita:comune>
+                        <epeindita:provincia>Trento</epeindita:provincia>
+                        <epeindita:stato>Italia</epeindita:stato>
+                        <epeindita:dug>Via</epeindita:dug>
+                        <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                        <epeindita:numero_civico>15</epeindita:numero_civico>
+                        <epeindita:barrato></epeindita:barrato>
+                        <epeindita:cap>38122</epeindita:cap>
+                    </eimpresa:indirizzo_attivita>
+                    <eimpresa:telefono_cellulare>3481234567</eimpresa:telefono_cellulare>
+                    <eimpresa:email>mario.rossi@gmail.com</eimpresa:email>
+                </sschana:ditta_cciaa>
+                <sschana:selezione_rea_iscritto>
+                    <eimpresa:rea>
+                        <epeiscrea:CCIAA>94</epeiscrea:CCIAA>
+                        <epeiscrea:numero_REA>bla</epeiscrea:numero_REA>
+                    </eimpresa:rea>
+                </sschana:selezione_rea_iscritto>
+                <!-- <sschana:selezione_rea_non_iscritto/> -->
+                <!-- <sschana:selezione_rea_solo_ri/> -->
+            </sschana:selezione_cciaa_iscritta>
+            <!-- <sschana:selezione_cciaa_non_iscritta>
+                <eimpresa:denominazione>XSDfacili.it</eimpresa:denominazione>
+                <eimpresa:forma_giuridica>LIBERO PROFESSIONISTA</eimpresa:forma_giuridica>
+                <eimpresa:codice_fiscale>RSSMRA80A01H294E</eimpresa:codice_fiscale>
+                <eimpresa:partita_iva>01234567890</eimpresa:partita_iva>
+                <eimpresa:indirizzo_attivita>
+                    <epeindita:comune>Trento</epeindita:comune>
+                    <epeindita:provincia>Trento</epeindita:provincia>
+                    <epeindita:stato>Italia</epeindita:stato>
+                    <epeindita:dug>Via</epeindita:dug>
+                    <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                    <epeindita:numero_civico>15</epeindita:numero_civico>
+                    <epeindita:barrato></epeindita:barrato>
+                    <epeindita:cap>38122</epeindita:cap>
+                </eimpresa:indirizzo_attivita>
+                <eimpresa:telefono_cellulare>3481234567</eimpresa:telefono_cellulare>
+                <eimpresa:email>mario.rossi@gmail.com</eimpresa:email>
+            </sschana:selezione_cciaa_non_iscritta> -->
+            <!-- <sschana:selezione_cciaa_non_necessario>
+                <eimpresa:denominazione>XSDfacili.it</eimpresa:denominazione>
+                <eimpresa:forma_giuridica>LIBERO PROFESSIONISTA</eimpresa:forma_giuridica>
+                <eimpresa:codice_fiscale>RSSMRA80A01H294E</eimpresa:codice_fiscale>
+                <eimpresa:partita_iva>01234567890</eimpresa:partita_iva>
+                <eimpresa:indirizzo_attivita>
+                    <epeindita:comune>Trento</epeindita:comune>
+                    <epeindita:provincia>Trento</epeindita:provincia>
+                    <epeindita:stato>Italia</epeindita:stato>
+                    <epeindita:dug>Via</epeindita:dug>
+                    <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                    <epeindita:numero_civico>15</epeindita:numero_civico>
+                    <epeindita:barrato></epeindita:barrato>
+                    <epeindita:cap>38122</epeindita:cap>
+                </eimpresa:indirizzo_attivita>
+                <eimpresa:telefono_cellulare>3481234567</eimpresa:telefono_cellulare>
+                <eimpresa:email>mario.rossi@gmail.com</eimpresa:email>
+            </sschana:selezione_cciaa_non_necessario> -->
+        </sschana:opzione_ditta>
+        <sschana:datiDichiarante>
+            <epepers:cognome>Rossi</epepers:cognome>
+            <epepers:nome>Mario</epepers:nome>
+            <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
+            <epepers:sesso>M</epepers:sesso>
+            <epepers:comune_nascita>TN</epepers:comune_nascita>
+            <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+            <epepers:stato_nascita>IT</epepers:stato_nascita>
+            <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+        </sschana:datiDichiarante>
+        <sschana:cittadinanza>
+            <epecitt:stato_cittadinanza>IT</epecitt:stato_cittadinanza>
+        </sschana:cittadinanza>
+        <!-- <sschana:cittadino_non_ue>false</sschana:cittadino_non_ue> -->
+        <sschana:documento>
+            <epedocu:tipo>Passaporto</epedocu:tipo>
+            <epedocu:numero>123456</epedocu:numero>
+            <epedocu:ente_rilascio>QuesturaTrento</epedocu:ente_rilascio>
+            <epedocu:data_rilascio>2025-01-01+00:00</epedocu:data_rilascio>
+            <epedocu:data_scadenza>2035-01-01+00:00</epedocu:data_scadenza>
+        </sschana:documento>
+        <sschana:residenza_dichiarante>
+            <epeindita:comune>Trento</epeindita:comune>
+            <epeindita:provincia>Trento</epeindita:provincia>
+            <epeindita:stato>Italia</epeindita:stato>
+            <epeindita:dug>Via</epeindita:dug>
+            <epeindita:toponimo>Vannetti</epeindita:toponimo>
+            <epeindita:numero_civico>15</epeindita:numero_civico>
+            <epeindita:barrato></epeindita:barrato>
+            <epeindita:cap>38122</epeindita:cap>
+        </sschana:residenza_dichiarante>
+        <!-- <sschana:indirizzo_estero>
+            <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
+            <epeindest:codice_postale>97106</epeindest:codice_postale>
+            <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
+            <epeindest:stato_estero>USA</epeindest:stato_estero>
+        </sschana:indirizzo_estero> -->
+        <sschana:contatti>
+            <epecont:telefono_fisso>0461123456</epecont:telefono_fisso>
+            <epecont:cellulare>3481234567</epecont:cellulare>
+            <epecont:domicilio_digitale>mario.rossi@pec.it</epecont:domicilio_digitale>
+            <epecont:email>mario.rossi@gmail.com</epecont:email>
+        </sschana:contatti>
+        <sschana:rappresentante>
+            <eruorap:data_inizio>2025-01-01+00:00</eruorap:data_inizio>
+            <eruorap:data_fine>2035-01-01+00:00</eruorap:data_fine>
+            <eruorap:estremi_atto>bla</eruorap:estremi_atto>
+            <eruorap:ruolo>Proprietario</eruorap:ruolo>
+        </sschana:rappresentante>
+        <sschana:datiProcuratore>
+            <epepers:cognome>Rossi</epepers:cognome>
+            <epepers:nome>Mario</epepers:nome>
+            <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
+            <epepers:sesso>M</epepers:sesso>
+            <epepers:comune_nascita>TN</epepers:comune_nascita>
+            <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+            <epepers:stato_nascita>IT</epepers:stato_nascita>
+            <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+        </sschana:datiProcuratore>
+        <sschana:residenza_procuratore>
+            <epeindita:comune>Trento</epeindita:comune>
+            <epeindita:provincia>Trento</epeindita:provincia>
+            <epeindita:stato>Italia</epeindita:stato>
+            <epeindita:dug>Via</epeindita:dug>
+            <epeindita:toponimo>Vannetti</epeindita:toponimo>
+            <epeindita:numero_civico>15</epeindita:numero_civico>
+            <epeindita:barrato></epeindita:barrato>
+            <epeindita:cap>38122</epeindita:cap>
+        </sschana:residenza_procuratore>
+        <sschana:contatti_procuratore>
+            <epecont:telefono_fisso>0461123456</epecont:telefono_fisso>
+            <epecont:cellulare>3481234567</epecont:cellulare>
+            <epecont:domicilio_digitale>mario.rossi@pec.it</epecont:domicilio_digitale>
+            <epecont:email>mario.rossi@gmail.com</epecont:email>
+        </sschana:contatti_procuratore>
+    </mcominilav:sezione_pat_scheda_anagrafica>
+    <mcominilav:sezione_pat_oggetto_pratica>
+        <soggpra:oggetto_pratica>descrizione sintetica</soggpra:oggetto_pratica>
+    </mcominilav:sezione_pat_oggetto_pratica>
+    <mcominilav:sezione_pat_domicilio_digitale>
+        <sdomdig:domicilio_digitale>
+            <edomdig:domicilio_inad_check>true</edomdig:domicilio_inad_check>
+            <edomdig:domicilio_inad_string>mario.rossi@gmail.com</edomdig:domicilio_inad_string>
+            <edomdig:domicilio_ini_pec_check>true</edomdig:domicilio_ini_pec_check>
+            <edomdig:domicilio_ini_pec_string>mario.rossi@pec.it</edomdig:domicilio_ini_pec_string>
+        </sdomdig:domicilio_digitale>
+    </mcominilav:sezione_pat_domicilio_digitale>
+    <mcominilav:sezione_pat_dichiarazione_consapevolezza>
+        <sdiccon:dichiarazione_consapevolezza>true</sdiccon:dichiarazione_consapevolezza>
+    </mcominilav:sezione_pat_dichiarazione_consapevolezza>
+    <mcominilav:sezione_pat_informativa_privacy>
+        <sinfpri:informativa_privacy>
+            <einfoprivacy:titolare_comune>Trento</einfoprivacy:titolare_comune>
+            <einfoprivacy:titolare_pec>trento@pec.it</einfoprivacy:titolare_pec>
+            <einfoprivacy:richieste_comune>Trento</einfoprivacy:richieste_comune>
+            <einfoprivacy:richieste_mail>trento@pec.it</einfoprivacy:richieste_mail>
+            <einfoprivacy:responsabile_mail>mario.rossi@pec.it</einfoprivacy:responsabile_mail>
+            <einfoprivacy:dichiarazione_lettura>true</einfoprivacy:dichiarazione_lettura>
+        </sinfpri:informativa_privacy>
+    </mcominilav:sezione_pat_informativa_privacy>
+    <mcominilav:sezione_pat_comunicazione_inizio_lavori>
+        <scominilav:comune>Trento</scominilav:comune>
+        <scominilav:indirizzo_italiano>
+            <epeindita:comune>Trento</epeindita:comune>
+            <epeindita:provincia>Trento</epeindita:provincia>
+            <epeindita:stato>Italia</epeindita:stato>
+            <epeindita:dug>Via</epeindita:dug>
+            <epeindita:toponimo>Vannetti</epeindita:toponimo>
+            <epeindita:numero_civico>15</epeindita:numero_civico>
+            <epeindita:barrato></epeindita:barrato>
+            <epeindita:cap>38122</epeindita:cap>
+        </scominilav:indirizzo_italiano>
+        <scominilav:dati_catastali>
+            <edaca:particella_fondiaria>
+                <edaca:codice_particella_fondiaria>123</edaca:codice_particella_fondiaria>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_fondiaria>
+            <edaca:particella_edificiale>
+                <edaca:codice_particella_edificiale>123</edaca:codice_particella_edificiale>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_edificiale>
+            <edaca:particella_fondiaria>
+                <edaca:codice_particella_fondiaria>123</edaca:codice_particella_fondiaria>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_fondiaria>
+            <edaca:particella_edificiale>
+                <edaca:codice_particella_edificiale>123</edaca:codice_particella_edificiale>
+                <edaca:codice_comune_catastale>123</edaca:codice_comune_catastale>
+                <edaca:codice_porzione_materiale>123</edaca:codice_porzione_materiale>
+                <edaca:codice_subalterno>123</edaca:codice_subalterno>
+            </edaca:particella_edificiale>
+        </scominilav:dati_catastali>
+        <scominilav:riferimenti_pdc>
+            <erifpdc:protocollo_pdc>abc123</erifpdc:protocollo_pdc>
+            <erifpdc:data_rilascio_pdc>24/07/2025</erifpdc:data_rilascio_pdc>
+            <erifpdc:data_inizio_pdc>24/07/2025</erifpdc:data_inizio_pdc>
+        </scominilav:riferimenti_pdc>
+        <scominilav:silenzio_assenso>true</scominilav:silenzio_assenso>
+        <scominilav:efficacia_pdc>true</scominilav:efficacia_pdc>
+    </mcominilav:sezione_pat_comunicazione_inizio_lavori>
+    <mcominilav:sezione_pat_esecuzione_lavori>
+        <seselav:impresa_esecutrice>
+            <!-- <seselav:titolare>true</seselav:titolare> -->
+            <seselav:impresa>
+                <eimpese:impresa>
+                    <eimpresa:denominazione>XSDfacili.it</eimpresa:denominazione>
+                    <eimpresa:forma_giuridica>LIBERO PROFESSIONISTA</eimpresa:forma_giuridica>
+                    <eimpresa:codice_fiscale>RSSMRA80A01H294E</eimpresa:codice_fiscale>
+                    <eimpresa:partita_iva>01234567890</eimpresa:partita_iva>
+                    <eimpresa:indirizzo_attivita>
+                        <epeindita:comune>Trento</epeindita:comune>
+                        <epeindita:provincia>Trento</epeindita:provincia>
+                        <epeindita:stato>Italia</epeindita:stato>
+                        <epeindita:dug>Via</epeindita:dug>
+                        <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                        <epeindita:numero_civico>15</epeindita:numero_civico>
+                        <epeindita:barrato></epeindita:barrato>
+                        <epeindita:cap>38122</epeindita:cap>
+                    </eimpresa:indirizzo_attivita>
+                    <eimpresa:telefono_cellulare>3481234567</eimpresa:telefono_cellulare>
+                    <eimpresa:email>mario.rossi@gmail.com</eimpresa:email>
+                    <!-- TODO: GR: iscrizione rea per sole ditta cciaa? -->
+                    <!-- <eimpresa:selezione_rea_iscritto>
+                        <eimpresa:rea>
+                            <epeiscrea:CCIAA>94</epeiscrea:CCIAA>
+                            <epeiscrea:numero_REA>bla</epeiscrea:numero_REA>
+                        </eimpresa:rea>
+                    </eimpresa:selezione_rea_iscritto> -->
+                </eimpese:impresa>
+                <eimpese:legale_rappresentante>
+                    <epepers:cognome>Rossi</epepers:cognome>
+                    <epepers:nome>Mario</epepers:nome>
+                    <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
+                    <epepers:sesso>M</epepers:sesso>
+                    <epepers:comune_nascita>TN</epepers:comune_nascita>
+                    <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                    <epepers:stato_nascita>IT</epepers:stato_nascita>
+                    <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+                </eimpese:legale_rappresentante>
+                <eimpese:verifica_contributiva>
+                    <evercon:cassa_edile>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:codice_impresa>abc123</evercon:codice_impresa>
+                        <evercon:codice_cassa>abc123</evercon:codice_cassa>
+                    </evercon:cassa_edile>
+                    <evercon:inps>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:matricola_posizione>abc123</evercon:matricola_posizione>
+                    </evercon:inps>
+                    <evercon:inail>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:codice_impresa>abc123</evercon:codice_impresa>
+                        <evercon:posizione_assicurativa>abc123</evercon:posizione_assicurativa>
+                    </evercon:inail>
+                </eimpese:verifica_contributiva>
+            </seselav:impresa>
+            <seselav:impresa>
+                <eimpese:impresa>
+                    <eimpresa:denominazione>XSDdifficili.it</eimpresa:denominazione>
+                    <eimpresa:forma_giuridica>LIBERO PROFESSIONISTA</eimpresa:forma_giuridica>
+                    <eimpresa:codice_fiscale>RSSMRA80A01H294E</eimpresa:codice_fiscale>
+                    <eimpresa:partita_iva>01234567890</eimpresa:partita_iva>
+                    <eimpresa:indirizzo_attivita>
+                        <epeindita:comune>Trento</epeindita:comune>
+                        <epeindita:provincia>Trento</epeindita:provincia>
+                        <epeindita:stato>Italia</epeindita:stato>
+                        <epeindita:dug>Via</epeindita:dug>
+                        <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                        <epeindita:numero_civico>15</epeindita:numero_civico>
+                        <epeindita:barrato></epeindita:barrato>
+                        <epeindita:cap>38122</epeindita:cap>
+                    </eimpresa:indirizzo_attivita>
+                    <eimpresa:telefono_cellulare>3481234567</eimpresa:telefono_cellulare>
+                    <eimpresa:email>mario.rossi@gmail.com</eimpresa:email>
+                    <!-- TODO: GR: iscrizione rea per sole ditta cciaa? -->
+                    <!-- <eimpresa:selezione_rea_iscritto>
+                        <eimpresa:rea>
+                            <epeiscrea:CCIAA>94</epeiscrea:CCIAA>
+                            <epeiscrea:numero_REA>bla</epeiscrea:numero_REA>
+                        </eimpresa:rea>
+                    </eimpresa:selezione_rea_iscritto> -->
+                </eimpese:impresa>
+                <eimpese:legale_rappresentante>
+                    <epepers:cognome>Rossi</epepers:cognome>
+                    <epepers:nome>Mario</epepers:nome>
+                    <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
+                    <epepers:sesso>M</epepers:sesso>
+                    <epepers:comune_nascita>TN</epepers:comune_nascita>
+                    <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                    <epepers:stato_nascita>IT</epepers:stato_nascita>
+                    <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+                </eimpese:legale_rappresentante>
+                <eimpese:verifica_contributiva>
+                    <evercon:inps>
+                        <evercon:sede>Trento</evercon:sede>
+                        <evercon:matricola_posizione>abc123</evercon:matricola_posizione>
+                    </evercon:inps>
+                </eimpese:verifica_contributiva>
+            </seselav:impresa>
+        </seselav:impresa_esecutrice>
+        <seselav:direttore_lavori>
+            <!-- <seselav:dichiarante_direttore>true</seselav:dichiarante_direttore> -->
+            <seselav:altro_direttore>
+                <epepers:cognome>Rossi</epepers:cognome>
+                <epepers:nome>Mario</epepers:nome>
+                <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
+                <epepers:sesso>M</epepers:sesso>
+                <epepers:comune_nascita>TN</epepers:comune_nascita>
+                <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                <epepers:stato_nascita>IT</epepers:stato_nascita>
+                <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+            </seselav:altro_direttore>
+            <!-- <seselav:residenza_italiana>
+                <epeindita:comune>Trento</epeindita:comune>
+                <epeindita:provincia>Trento</epeindita:provincia>
+                <epeindita:stato>Italia</epeindita:stato>
+                <epeindita:dug>Via</epeindita:dug>
+                <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                <epeindita:numero_civico>15</epeindita:numero_civico>
+                <epeindita:barrato></epeindita:barrato>
+                <epeindita:cap>38122</epeindita:cap>
+            </seselav:residenza_italiana> -->
+            <seselav:residenza_estera>
+                <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
+                <epeindest:codice_postale>97106</epeindest:codice_postale>
+                <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
+                <epeindest:stato_estero>USA</epeindest:stato_estero>
+            </seselav:residenza_estera>
+            <!-- <seselav:studio_italia>
+                <epeindita:comune>Trento</epeindita:comune>
+                <epeindita:provincia>Trento</epeindita:provincia>
+                <epeindita:stato>Italia</epeindita:stato>
+                <epeindita:dug>Via</epeindita:dug>
+                <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                <epeindita:numero_civico>15</epeindita:numero_civico>
+                <epeindita:barrato></epeindita:barrato>
+                <epeindita:cap>38122</epeindita:cap>
+            </seselav:studio_italia> -->
+            <seselav:studio_estero>
+                <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
+                <epeindest:codice_postale>97106</epeindest:codice_postale>
+                <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
+                <epeindest:stato_estero>USA</epeindest:stato_estero>
+            </seselav:studio_estero>
+            <seselav:iscrizione_ordine>
+                <seselav:ordine_di>Trento</seselav:ordine_di>
+                <seselav:numero>123</seselav:numero>
+                <seselav:contatti>
+                    <epecont:telefono_fisso>0461123456</epecont:telefono_fisso>
+                    <epecont:cellulare>3481234567</epecont:cellulare>
+                    <epecont:domicilio_digitale>mario.rossi@pec.it</epecont:domicilio_digitale>
+                    <epecont:email>mario.rossi@gmail.com</epecont:email>
+                </seselav:contatti>
+            </seselav:iscrizione_ordine>
+            <seselav:visione_relazioni>true</seselav:visione_relazioni>
+        </seselav:direttore_lavori>
+        <seselav:progettista_lavori>
+            <seselav:incaricato_della>sicurezza</seselav:incaricato_della>
+            <seselav:altro_progettista>
+                <epepers:cognome>Rossi</epepers:cognome>
+                <epepers:nome>Mario</epepers:nome>
+                <epepers:codice_fiscale>RSSMRA80A01H294E</epepers:codice_fiscale>
+                <epepers:sesso>M</epepers:sesso>
+                <epepers:comune_nascita>TN</epepers:comune_nascita>
+                <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+                <epepers:stato_nascita>IT</epepers:stato_nascita>
+                <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+            </seselav:altro_progettista>
+            <!-- <seselav:residenza_italiana>
+                <epeindita:comune>Trento</epeindita:comune>
+                <epeindita:provincia>Trento</epeindita:provincia>
+                <epeindita:stato>Italia</epeindita:stato>
+                <epeindita:dug>Via</epeindita:dug>
+                <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                <epeindita:numero_civico>15</epeindita:numero_civico>
+                <epeindita:barrato></epeindita:barrato>
+                <epeindita:cap>38122</epeindita:cap>
+            </seselav:residenza_italiana> -->
+            <seselav:residenza_estera>
+                <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
+                <epeindest:codice_postale>97106</epeindest:codice_postale>
+                <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
+                <epeindest:stato_estero>USA</epeindest:stato_estero>
+            </seselav:residenza_estera>
+            <!-- <seselav:studio_italia>
+                <epeindita:comune>Trento</epeindita:comune>
+                <epeindita:provincia>Trento</epeindita:provincia>
+                <epeindita:stato>Italia</epeindita:stato>
+                <epeindita:dug>Via</epeindita:dug>
+                <epeindita:toponimo>Vannetti</epeindita:toponimo>
+                <epeindita:numero_civico>15</epeindita:numero_civico>
+                <epeindita:barrato></epeindita:barrato>
+                <epeindita:cap>38122</epeindita:cap>
+            </seselav:studio_italia> -->
+            <seselav:studio_estero>
+                <epeindest:descrizione>101 NW Commerce St</epeindest:descrizione>
+                <epeindest:codice_postale>97106</epeindest:codice_postale>
+                <epeindest:localita_estero>Banks, OR</epeindest:localita_estero>
+                <epeindest:stato_estero>USA</epeindest:stato_estero>
+            </seselav:studio_estero>
+            <seselav:iscrizione_ordine>
+                <seselav:ordine_di>Trento</seselav:ordine_di>
+                <seselav:numero>123</seselav:numero>
+                <seselav:contatti>
+                    <epecont:telefono_fisso>0461123456</epecont:telefono_fisso>
+                    <epecont:cellulare>3481234567</epecont:cellulare>
+                    <epecont:domicilio_digitale>mario.rossi@pec.it</epecont:domicilio_digitale>
+                    <epecont:email>mario.rossi@gmail.com</epecont:email>
+                </seselav:contatti>
+            </seselav:iscrizione_ordine>
+        </seselav:progettista_lavori>
+    </mcominilav:sezione_pat_esecuzione_lavori>
+    <mcominilav:sezione_pat_salute_sicurezza>
+        <ssalsic:norme_salute_sicurezza>true</ssalsic:norme_salute_sicurezza>
+        <ssalsic:invio_notifica>true</ssalsic:invio_notifica>
+        <ssalsic:data_trasmissione_notifica>28/07/2025</ssalsic:data_trasmissione_notifica>
+        <ssalsic:protocollo_notifica>123abc</ssalsic:protocollo_notifica>
+    </mcominilav:sezione_pat_salute_sicurezza>
+</mcominilav:modulo_pat_comunicazione_inizio_lavori>

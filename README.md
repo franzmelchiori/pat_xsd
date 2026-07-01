@@ -10,7 +10,7 @@ Obiettivo
 L'obiettivo del progetto e' di dotare la PAT dei suoi XSD (e file corredati, es. XML, SCH) quantomeno dei seguenti procedimenti edilizi (es. PdC, SCIA) e compatibili con le regole di digitalizzazione del SSU.
 
 - Comunicazione Inizio Lavori
-    - <code>./04_forms/mod_pat_comunicazione_inizio_lavori_v1.0.0.xsd</code>
+    - <code>./04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd</code>
 - Comunicazione Opere Libere
 - CILA (Comunicazione Inizio Lavori Asseverata)
 - SCIA (Segnalazione Certificata di Inizio Attività)

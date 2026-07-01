@@ -5,11 +5,11 @@
     xmlns:cdichiara="../commons/dichiarazioni"
     xmlns:ctipi="../commons/tipi"
     xmlns:canncl="../commons/xsdAnnotations"
-    xmlns:epedomdig="../02_entities/pat_domicilio_digitale"
-    targetNamespace="../02_entities/pat_domicilio_digitale"
+    xmlns:edomdig="../02_entities/domicilio_digitale"
+    targetNamespace="../02_entities/domicilio_digitale"
     elementFormDefault="qualified"
     attributeFormDefault="qualified"
-    version="1.0.0"
+    version="1.0.8"
     xml:lang="it">
 
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
@@ -17,7 +17,7 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
 
-    <xsd:complexType name="entita_pat_domicilio_digitale_ctype">
+    <xsd:complexType name="domicilio_digitale_ctype">
         <xsd:sequence>
             <xsd:annotation>
                 <xsd:documentation xml:lang="it">Domicilio digitale</xsd:documentation>
@@ -55,5 +55,5 @@
         </xsd:sequence>
     </xsd:complexType>
     
-    <xsd:element name="domicilio_digitale" type="epedomdig:entita_pat_domicilio_digitale_ctype"></xsd:element>
+    <xsd:element name="domicilio_digitale" type="edomdig:domicilio_digitale_ctype"></xsd:element>
 </xsd:schema>

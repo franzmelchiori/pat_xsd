@@ -8,12 +8,12 @@
 from lxml import etree
 
 
-# XSD_FOR_VALIDATION = 'mod_pat_comunicazione_inizio_lavori_v1.0.0.xsd'
-# XML_TO_VALIDATE = 'mod_pat_comunicazione_inizio_lavori_v1.0.0.xml'
+# XSD_FOR_VALIDATION = 'mod_comunicazione_inizio_lavori_v1.0.8.xsd'
+# XML_TO_VALIDATE = 'mod_comunicazione_inizio_lavori_v1.0.8.xml'
 
 
-XML_PATH = './04_forms/mod_pat_comunicazione_inizio_lavori_v1.0.0.xml'
-XSD_PATH = './04_forms/mod_pat_comunicazione_inizio_lavori_v1.0.0.xsd'
+XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xml'
+XSD_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd'
 
 
 def prettyprint(element, **kwargs):

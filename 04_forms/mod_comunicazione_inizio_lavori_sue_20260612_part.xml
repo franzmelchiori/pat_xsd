@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pratica>
+    <DATI_CATASTALI>
+        <repeats_TF index="0">
+            <_present_>true</_present_>
+            <tipo code="1" label="FLD.C24809.R_04.1.0.name">P.f.(particella fondiaria)</tipo>
+            <particellaF>163</particellaF>
+            <comune_catastale code="002" label="002 - ALA">002 - ALA</comune_catastale>
+        </repeats_TF>
+        <repeats_TF index="1">
+            <_present_>true</_present_>
+            <tipo code="2" label="FLD.C24810.R_04.1.0.name">P.ed (particella edificiale)</tipo>
+            <particellaE>15</particellaE>
+            <comune_catastale code="098" label="098 - CHIZZOLA">098 - CHIZZOLA</comune_catastale>
+            <porzione_materiale>1</porzione_materiale>
+            <subalterno>2</subalterno>
+        </repeats_TF>
+    </DATI_CATASTALI>
+</pratica>
