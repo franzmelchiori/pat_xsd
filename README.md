@@ -11,18 +11,18 @@ Obiettivo
 
 L'obiettivo del progetto e' di dotare la PAT dei suoi XSD (e file corredati, es. XML, SCH) quantomeno dei seguenti procedimenti edilizi (es. PdC, SCIA) e compatibili con le regole di digitalizzazione del SSU.
 
-- Comunicazione Inizio Lavori
+- **Comunicazione Inizio Lavori** | da PAT PDF di *12 pp*
     - `./04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd`
-- Comunicazione Opere Libere
-- CILA (Comunicazione Inizio Lavori Asseverata)
-- SCIA (Segnalazione Certificata di Inizio Attività)
-- PdC (Permesso di Costruire)
-- PdS (Permesso di costruire Sanatoria e provvedimento in Sanatoria)
-- Soggetti coinvolti
-- Dichiarazione di Ultimazione Lavori
-- SCAgi (Segnalazione Certificata di Agibilità)
-- Certificato di conformità degli edifici esistenti
-- Dichiarazione di conformità degli impianti
+- **Comunicazione Opere Libere** | da PAT PDF di *18 pp*
+- **CILA (Comunicazione Inizio Lavori Asseverata)** | da PAT PDF di *20 pp*
+- **SCIA (Segnalazione Certificata di Inizio Attività)** | da PAT PDF di *28 pp*
+- **PdC (Permesso di Costruire)** | da PAT PDF di *30 pp*
+- **PdS (Permesso di costruire Sanatoria e provvedimento in Sanatoria)** | da PAT PDF di *26 pp*
+- **Soggetti coinvolti** | da PAT PDF di *9 pp*
+- **Dichiarazione di Ultimazione Lavori** | da PAT PDF di *14 pp*
+- **SCAgi (Segnalazione Certificata di Agibilità)** | da PAT PDF di *14 pp*
+- **Certificato di conformità degli edifici esistenti** | da PAT PDF di *12 pp*
+- **Dichiarazione di conformità degli impianti** | da PAT PDF di *8 pp*
 
 
 Validazione XML <a id="validazionexml"></a>
