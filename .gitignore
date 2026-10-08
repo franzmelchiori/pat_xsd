@@ -4,6 +4,11 @@
 # 04_forms/mod_comunicazione_inizio_lavori_v1.0.8_part.xslt
 # 04_forms/mod_pat_transformer.py
 04_forms/mod_comunicazione_inizio_lavori_sue_20260612.xml
+04_forms/mod_comunicazione_inizio_lavori_sue_20260930.xml
+04_forms/mod_comunicazione_inizio_lavori_sue_20260930_mod.xml
+
+# doc
+doc/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
