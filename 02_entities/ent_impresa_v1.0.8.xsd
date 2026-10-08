@@ -42,12 +42,9 @@
                     </xsd:appinfo>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="1" maxOccurs="1"/>
-            <!-- TODO: campo partita iva obbligatorio nel caso di codice fiscale? -->
-            <!-- TODO: codice fiscale e partita iva nel caso di soggetto estero? -->
+            <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="indirizzo_attivita" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-            <!-- TODO: occorre trattare anche ditte estere con indirizzi esteri? -->
             <xsd:element name="telefono_cellulare" type="ctipi:telefono_mobile_stype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="email" type="ctipi:email_stype" minOccurs="0" maxOccurs="1">
                 <xsd:annotation>

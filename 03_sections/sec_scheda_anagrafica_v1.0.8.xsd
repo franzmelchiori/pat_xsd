@@ -83,7 +83,7 @@
             <xsd:element name="datiDichiarante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
             <!-- <xsd:element name="cittadino_non_ue" type="xsd:boolean" default="false" minOccurs="1" maxOccurs="1"/> -->
-            <xsd:element name="documento" type="epedocu:documento_rilasciato_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="documento" type="epedocu:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="residenza_dichiarante" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
             <!-- TODO: il dichiarante puo' essere una persona estera? -->
             <!-- <xsd:choice>

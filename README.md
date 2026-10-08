@@ -4,6 +4,8 @@ PAT XSD
 - [Obiettivo](#obiettivo)
 - [Validazione XML](#validazionexml)
 - [Trasformazione XML](#trasformazionexml)
+- [Aggiornamenti](#aggiornamenti)
+    - [Aggiornamenti - 20261006](#aggiornamenti20261006)
 
 
 Obiettivo
@@ -35,6 +37,16 @@ Trasformazione XML <a id="trasformazionexml"></a>
 ------------------
 
 Eseguire `python3 ./04_forms/mod_pat_transformer.py` per trasformare `./04_forms/mod_comunicazione_inizio_lavori_sue_20260612_part.xml` in `./04_forms/mod_comunicazione_inizio_lavori_v1.0.8_part.xml` con `./04_forms/mod_comunicazione_inizio_lavori_v1.0.8_part.xslt`.
+
+
+Aggiornamenti
+-------------
+
+- **Aggiornamenti - 20261006** <a id="aggiornamenti20261006"></a>
+    - questione *codice fiscale*: in `ent_impresa_v1.0.8.xsd` modifica di `codice_fiscale` e `partita_iva` con `minOccurs="0"`
+    - questione *permesso di soggiorno*: in `sec_scheda_anagrafica_v1.0.8.xsd` modifica di `documento` con `minOccurs="0"`
+    - questione *formato date*: in `ent_ruolo_rappresentante_v1.0.8.xsd` modifica di `data_inizio` e `data_fine` con `ctipi:ggmmaaaa_stype`; in `ent_documento_rilasciato_v1.0.7.xsd` modifica di `data_rilascio` e `data_scadenza` con `ctipi:ggmmaaaa_stype`
+    - questione *dati catastali*: in `ent_dati_catastali_v1.0.8.xsd` modifica di `codice_porzione_materiale` e `codice_subalterno` con `minOccurs="0"`
 
 
 - - -

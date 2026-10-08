@@ -25,8 +25,8 @@
 
     <xsd:complexType name="rappresentante_ctype">
         <xsd:sequence>
-            <xsd:element name="data_inizio" type="xsd:date" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="data_fine" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="data_inizio" type="ctipi:ggmmaaaa_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="data_fine" type="ctipi:ggmmaaaa_stype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="estremi_atto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="ruolo" type="eruorap:entita_pat_ruolo_rappresentante_stype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
