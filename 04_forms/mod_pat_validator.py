@@ -12,7 +12,11 @@ from lxml import etree
 # XML_TO_VALIDATE = 'mod_comunicazione_inizio_lavori_v1.0.8.xml'
 
 
-XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xml'
+XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261013_08435221000-13102026-1512.001.MDA.XML'
+# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261014_DSBFNC30M18L378L-14102026-1148.001.MDA.XML'
+# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261014_RNCGPP83H27L378W-14102026-1617.001.MDA.XML'
+# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261014_SNGPLA83P61L378E-14102026-0907.001.MDA.XML'
+# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xml'
 XSD_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd'
 
 
