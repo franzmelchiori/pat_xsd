@@ -120,8 +120,8 @@
             <epedocu:tipo>Passaporto</epedocu:tipo>
             <epedocu:numero>123456</epedocu:numero>
             <epedocu:ente_rilascio>QuesturaTrento</epedocu:ente_rilascio>
-            <epedocu:data_rilascio>2025-01-01+00:00</epedocu:data_rilascio>
-            <epedocu:data_scadenza>2035-01-01+00:00</epedocu:data_scadenza>
+            <epedocu:data_rilascio>01/01/2025</epedocu:data_rilascio>
+            <epedocu:data_scadenza>01/01/2035</epedocu:data_scadenza>
         </sschana:documento>
         <sschana:residenza_dichiarante>
             <epeindita:comune>Trento</epeindita:comune>
@@ -146,8 +146,8 @@
             <epecont:email>mario.rossi@gmail.com</epecont:email>
         </sschana:contatti>
         <sschana:rappresentante>
-            <eruorap:data_inizio>2025-01-01+00:00</eruorap:data_inizio>
-            <eruorap:data_fine>2035-01-01+00:00</eruorap:data_fine>
+            <eruorap:data_inizio>01/01/2025</eruorap:data_inizio>
+            <eruorap:data_fine>01/01/2035</eruorap:data_fine>
             <eruorap:estremi_atto>bla</eruorap:estremi_atto>
             <eruorap:ruolo>Proprietario</eruorap:ruolo>
         </sschana:rappresentante>
