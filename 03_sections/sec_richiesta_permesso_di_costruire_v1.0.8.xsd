@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:equaintpdc="../02_entities/qualificazione_intervento_pdc"
+    xmlns:srichpdc="../03_sections/richiesta_permesso_di_costruire"
+    targetNamespace="../03_sections/richiesta_permesso_di_costruire"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/qualificazione_intervento_pdc" schemaLocation="../02_entities/ent_qualificazione_intervento_pdc_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_richiesta_permesso_di_costruire_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Richiesta di Permesso di Costruire</xsd:documentation>
+            <xsd:documentation xml:lang="it">Art. 80 della legge provinciale del 4 agosto 2015 n. 15</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="qualificazione_intervento" type="equaintpdc:qualificazione_intervento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Qualificazione dell'intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_richiesta_permesso_di_costruire" type="srichpdc:sezione_richiesta_permesso_di_costruire_ctype"/>
+</xsd:schema>

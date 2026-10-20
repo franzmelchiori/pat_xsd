@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:econpro="../02_entities/conformita_progetto"
+    targetNamespace="../02_entities/conformita_progetto"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="conformita_strumenti_urbanistici_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Le opere da realizzare, come individuate negli elaborati progettuali allegati, sono conformi agli strumenti urbanistici ed ai regolamenti edilizi vigenti e non sono in contrasto con quelli adottati</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="conforme" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sì</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_conforme_deroga" type="xsd:string" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">No, a tale proposito si chiede l'attivazione della procedura di deroga in ordine alle seguenti disposizioni</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="conformita_progetto_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Conformità</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="correttezza_contenuti_progetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ai sensi dell'art. 15 comma 2) della L.P. 15/15, si attesta la correttezza dei contenuti del progetto rispetto alle disposizioni vigenti e la rispondenza dei relativi contenuti rispetto a studi o perizie allegati quale parte integrante ai progetti medesimi, secondo quanto previsto alla normativa vigente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_strumenti_urbanistici" type="econpro:conformita_strumenti_urbanistici_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="conformita_normative_settore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Le opere da realizzare come individuate negli elaborati progettuali allegati, sono conformi alle normative di settore aventi incidenza sulla disciplina dell'attività edilizia e, in particolare, alle norme antisismiche, di sicurezza, antincendio, alle norme relative all'efficienza energetica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="conformita_progetto" type="econpro:conformita_progetto_ctype"/>
+    <xsd:complexType name="conformita_progetto_scia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Conformità (SCIA)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="correttezza_contenuti_progetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ai sensi dell'art. 15 comma 2) della L.P. 15/15, si attesta la correttezza dei contenuti del progetto rispetto alle disposizioni vigenti e la rispondenza dei relativi contenuti rispetto a studi o perizie allegati quale parte integrante ai progetti medesimi, secondo quanto previsto alla normativa vigente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_normative_settore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Le opere da realizzare come individuate negli elaborati progettuali allegati, sono conformi alle normative di settore aventi incidenza sulla disciplina dell'attività edilizia e, in particolare, alle norme antisismiche, di sicurezza, antincendio, alle norme relative all'efficienza energetica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="insediamenti_storici" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Nel caso di interventi riguardanti edifici soggetti alla disciplina degli insediamenti storici previsti dall'art. 103 o del patrimonio edilizio tradizionale montano, di cui all'art. 104, lo stato esistente e l'eventuale presenza di elementi decorativi, quali affreschi, portali e altri elementi decorativi significativi, mediante la presentazione di idonea documentazione fotografica con l'indicazione degli interventi previsti per la tutela e la valorizzazione dei predetti elementi</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="conformita_urbanistica_sanatoria_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Strumenti urbanistici (sanatoria)</xsd:documentation>
+            <xsd:documentation xml:lang="it">le opere realizzate, come individuate negli elaborati progettuali allegati</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="doppia_conformita" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sono conformi agli strumenti urbanistici in vigore e non in contrasto con quelli adottati sia al momento della realizzazione dell'opera, sia al momento della presentazione della domanda (ai sensi degli articoli 134 e 135 della L.P. n. 1/2008)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_art_86_quater" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sono conformi alla disciplina urbanistica vigente al momento della presentazione della domanda nonché ai requisiti prescritti dalla disciplina edilizia vigente al momento della realizzazione dell'opera (ai sensi dell'art. 86 quater della LP 15/2015)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="conformita_progetto_sanatoria_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Conformità (sanatoria)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="correttezza_contenuti_progetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ai sensi dell'art. 15 comma 2) della L.P. 15/15, si attesta la correttezza dei contenuti del progetto rispetto alle disposizioni vigenti e la rispondenza dei relativi contenuti rispetto a studi o perizie allegati quale parte integrante ai progetti medesimi, secondo quanto previsto alla normativa vigente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="no_condono_pendente" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non sono pendenti a carico dell'immobile pratiche di sanatoria relative al condono edilizio ai sensi delle vigenti leggi provinciali (l.p. n. 16/1985, l.p. n. 5/1995 e l.p. n. 3/2004)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

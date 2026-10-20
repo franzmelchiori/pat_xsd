@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:estrurb="../02_entities/strumentazione_urbanistica"
+    targetNamespace="../02_entities/strumentazione_urbanistica"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="strumentazione_urbanistica_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Inquadramento urbanistico</xsd:documentation>
+            <xsd:documentation xml:lang="it">che l'intervento ricade all'interno delle seguenti zone</xsd:documentation>
+            <xsd:documentation xml:lang="it">Progetto in fase di sviluppo PRG DIG: https://webgis.provincia.tn.it/wgt/?lang=it&amp;topic=5&amp;bgLayer=sfondo_urb&amp;layers=ammcom&amp;layers_visibility=false&amp;catalogNodes=21</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="prg_vigente_zona" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">PRG vigente - zona</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="prg_adottato_zona" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">PRG adottato - zona</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="strumentazione_urbanistica" type="estrurb:strumentazione_urbanistica_ctype"/>
+</xsd:schema>

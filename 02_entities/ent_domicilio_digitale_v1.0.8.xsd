@@ -22,7 +22,7 @@
             <xsd:annotation>
                 <xsd:documentation xml:lang="it">Domicilio digitale</xsd:documentation>
                 <xsd:documentation xml:lang="it">Il/La sottoscritta/o, consapevole che il domicilio digitale è l'indirizzo elettronico eletto presso un servizio di posta elettronica certificata o un servizio elettronico di recapito certificato qualificato, come definito dal regolamento UE 23 luglio 2014 n. 910 eIDAS valido ai fini delle comunicazioni avente valore legale</xsd:documentation>
-                <xsd:documentation xml:lang="it">COMUNICA</xsd:documentation>
+                <xsd:documentation xml:lang="it">Comunica</xsd:documentation>
             </xsd:annotation>
             <xsd:element name="domicilio_inad_check" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
                 <xsd:annotation>
@@ -43,7 +43,7 @@
                     <xsd:documentation xml:lang="it"> - È possibile eleggere anche un domicilio digitale speciale per determinati atti, procedi menti o affari. In tal caso, ferma restando la validità ai fini delle comunicazioni elettroniche aventi valore legale, colui che lo ha eletto non può opporre eccezioni relative alla forma e alla data della spedizione e del ricevimento delle comunicazioni o notificazioni ivi indirizzate (Art. 3-bis, comma 4-quinques del CAD)</xsd:documentation>
                     <xsd:documentation xml:lang="it"> - Le comunicazioni tramite i domicili digitali sono effettuate agli indirizzi inseriti in INI PEC o INAD o a quello eletto come domicilio speciale per determinati atti o affari. Le comunicazioni elettroniche trasmesse a uno di questi domicili digitali producono, al momento della spedizione e del ricevimento, gli stessi effetti giuridici delle comunicazioni a mezzo raccomandata con ricevuta di ritorno ed equivalgono alla notificazione per mezzo della posta salvo che la legge disponga diversamente. Le suddette comunicazioni si intendono spedite dal mittente se inviate al proprio gestore e si intendono consegnate se rese disponibili al domicilio digitale del destinatario, salva la prova che la mancata consegna sia dovuta a fatto non imputabile al destinatario medesimo (Art. 6 del CAD).</xsd:documentation>
                     <xsd:documentation xml:lang="it">Domicilio elettronico (domicilio digitale speciale)</xsd:documentation>
-                    <xsd:documentation xml:lang="it">Per tutti gli atti e le comunicazioni inerenti il procedimento ELEGGE il seguente domicilio digitale speciale (art. 3-bis, comma 4-quinquies del D. lgs. n. 82/2005):</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Per tutti gli atti e le comunicazioni inerenti il procedimento elegge il seguente domicilio digitale speciale (art. 3-bis, comma 4-quinquies del D. lgs. n. 82/2005):</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="domicilio_ini_pec_string" type="ctipi:email_stype" minOccurs="0" maxOccurs="1">

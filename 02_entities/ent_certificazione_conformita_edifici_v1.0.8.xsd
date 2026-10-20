@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:ecercon="../02_entities/certificazione_conformita_edifici"
+    targetNamespace="../02_entities/certificazione_conformita_edifici"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="edificio_senza_titolo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">verificato che legittimamente non esistono titoli abilitativi edilizi per l'edificio in esame</xsd:documentation>
+            <xsd:documentation xml:lang="it">esperiti i necessari accertamenti e sopralluoghi sull'immobile interessato, dichiara che</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="edificio_legittimamente_esistente" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">trattasi di edifici legittimamente esistenti in assenza di titolo edilizio abilitativo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="data_esecuzione_immobile" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">la data di esecuzione dell'immobile ai fini del rispetto della normativa di seguito richiamata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="verifica_titoli_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Verifica dei titoli abilitativi edilizi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="titoli_esaminati" type="eattass:estremi_titolo_progetto_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">esaminato il progetto allegato ai seguenti titoli abilitativi edilizi: titolo abilitativo, numero, data e redattore del progetto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="assenza_titoli" type="ecercon:edificio_senza_titolo_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="interventi_successivi_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">trattasi di interventi eseguiti in data successiva alla realizzazione dell'immobile e per loro natura/caratteristiche non soggetti a titolo edilizio abilitativo</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data_esecuzione_interventi" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">la/e data/e di esecuzione degli interventi ai fini del rispetto della normativa di seguito richiamata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="aspetti_igienico_sanitari_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Aspetti igienico-sanitari</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si certifica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="salubrita_1934_1995" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dal 9 agosto 1934 al 1° gennaio 1995, la salubrità degli ambienti ai sensi del Regio Decreto 1265/1934</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_dopo_1995" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dopo il 1° gennaio 1995, la conformità delle opere eseguite rispetto al progetto approvato e l'avvenuta prosciugatura di muri e la salubrità degli ambienti ai sensi del D.P.R. 425/1994 o del D.P.R. 380/2001</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_necessaria" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">la non necessità della dichiarazione in quanto l'opera risale ad epoca antecedente all'obbligo previsto ex lege</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="documentazione_impianti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Documentazione relativa agli impianti</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si certifica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="rispondenza_prima_1990" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per gli impianti realizzati prima del 13 marzo 1990, si allega dichiarazione di rispondenza alle norme previste per l'adeguamento degli impianti ai sensi dell'art. 7 della legge 46/1990</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_1990_2008" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per impianti realizzati tra il 13 marzo 1990 e il 26 marzo 2008, si allega dichiarazione di conformità degli impianti installati secondo quanto previsto dalla legge 46/1990</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="collaudo_1990_2008" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per impianti realizzati tra il 13 marzo 1990 e il 26 marzo 2008, si allega certificato di collaudo degli impianti installati</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="rispondenza_1990_2008" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per impianti realizzati tra il 13 marzo 1990 e il 26 marzo 2008, nei casi in cui la dichiarazione di conformità o il certificato di collaudo degli impianti non siano più reperibili, si allega dichiarazione di rispondenza ai sensi dell'art. 7, comma 6, del D.M. 37/2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_dopo_2008" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per impianti realizzati dopo il 26 marzo 2008, si allega la dichiarazione di conformità degli impianti installati ai sensi del D.M. 37/2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_ambienti_produttivi" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per gli impianti relativi ad ambienti produttivi e luoghi di lavoro, si allega la dichiarazione di conformità con riferimento alla normativa di settore</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="statica_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Statica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="idoneita_prima_1940" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per gli interventi o edifici realizzati anteriormente al 19 aprile 1940, si allega dichiarazione di idoneità statica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="collaudo_1940_1972" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per gli interventi realizzati tra il 19 aprile 1940 e il 5 gennaio 1972, si allega certificato di collaudo ai sensi del Regio Decreto 2229/1939 o in alternativa dichiarazione di idoneità statica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="collaudo_1972_2008" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per gli interventi realizzati tra il 5 gennaio 1972 e il 5 marzo 2008, si allega certificato di collaudo ai sensi della legge 1086/1971</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="collaudo_dopo_2008" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per gli interventi realizzati dopo il 5 marzo 2008 oppure dal 1° luglio 2009, a seconda della tipologia di intervento, si allega certificato di collaudo ai sensi del D.M. del 14 gennaio 2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="collaudo_non_necessario" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'immobile/l'intervento non necessita del certificato di collaudo e del relativo deposito dei calcoli</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="barriere_edifici_privati_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">nel caso di edifici privati, si certifica la conformità delle opere in relazione alle norme sull'accessibilità e superamento delle barriere architettoniche ai sensi dell'art. 77 del D.P.R. 380/2001</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="opere_1981_1989" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dal 5 agosto 1981 al 10 agosto 1989 secondo le prescrizioni dettate dalla l.p. 12/1981</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_1989_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dall'11 agosto 1989 al 30 gennaio 1991 secondo le prescrizioni di cui al D.M. 236/1989</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_dopo_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dopo il 30 gennaio 1991 ai sensi della l.p. 1/1991, "Eliminazione delle barriere architettoniche in Provincia di Trento"</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_necessaria" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non necessita della dichiarazione in quanto l'opera risale ad epoca antecedente all'obbligo previsto ex lege</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="barriere_edifici_aperti_pubblico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">nel caso di edifici privati aperti al pubblico, si certifica la conformità delle opere in relazione alle norme sull'accessibilità e superamento delle barriere architettoniche ai sensi dell'art. 82 del D.P.R. 380/2001</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="opere_1978_1989" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dal 7 agosto 1978 al 10 agosto 1989 secondo le prescrizioni del D.P.R. 384/1978</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_1989_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dall'11 agosto 1989 al 30 gennaio 1991 secondo le prescrizioni contenute nel D.M. 236/1989 congiuntamente al D.P.R. 384/1978</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_dopo_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dopo il 30 gennaio 1991 ai sensi della l.p. 1/1991, "Eliminazione delle barriere architettoniche in Provincia di Trento"</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_necessaria" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non necessita della dichiarazione in quanto l'opera risale ad epoca antecedente all'obbligo previsto ex lege</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="barriere_edifici_pubblici_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">nel caso di edifici pubblici, si certifica la conformità delle opere in relazione alle norme sull'accessibilità e superamento delle barriere architettoniche ai sensi dell'art. 82 del D.P.R. 380/2001</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="opere_1978_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dal 7 agosto 1978 al 30 gennaio 1991 secondo le prescrizioni del D.P.R. 384/1978</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_dopo_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per le opere realizzate dopo il 30 gennaio 1991 ai sensi della l.p. 1/1991, "Eliminazione delle barriere architettoniche in Provincia di Trento"</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_necessaria" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non necessita della dichiarazione in quanto l'opera risale ad epoca antecedente all'obbligo previsto ex lege</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="barriere_architettoniche_cce_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Accessibilità e superamento delle barriere architettoniche</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="edifici_privati" type="ecercon:barriere_edifici_privati_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="edifici_privati_aperti_pubblico" type="ecercon:barriere_edifici_aperti_pubblico_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="edifici_pubblici" type="ecercon:barriere_edifici_pubblici_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="attivita_soggette_vvf_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">i lavori realizzati hanno comportato variazioni alle condizioni di sicurezza antincendio dell'immobile ed è previsto lo svolgimento di attività soggette al controllo dei Vigili del Fuoco e pertanto si allega</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="attivita_a_b" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per attività A e B - copia della ricevuta di segnalazione certificata di inizio attività (SCIA) che costituisce titolo autorizzativo ai sensi dell'art. 38, comma 3, lettere e) ed f), del DL 25 giugno 2008, n. 112, convertito, con modificazioni, dalla legge 6 agosto 2008, n. 113</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="attivita_c" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">per attività C - copia del certificato di prevenzione incendi per le attività soggette alle visite di prevenzione incendi in corso di validità</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="normative_antincendio_specifiche_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">i lavori realizzati non hanno comportato attività soggette ai controlli di prevenzione incendi dell'allegato I del regolamento di cui al DPR 1 agosto 2011, n. 151, ma rispettano normative antincendio specifiche</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="edifici_civili" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">prescrizioni del DM 16 maggio 1987, n. 246 - edifici civili</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="centrali_termiche_gas" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">prescrizioni DM 12 aprile 1996, n. 74 - centrali termiche a gas</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="autorimesse" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">prescrizioni del DM 1 febbraio 1986 - autorimesse</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">altro (specificare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="prevenzione_incendi_cce_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Prevenzione incendi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="non_soggetto_cpi" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'immobile/l'intervento non rientra tra i casi che necessitano del certificato di prevenzione incendi ai sensi del D.M. 16 febbraio 1982 - D.P.R. n. 151/2011, allegato I</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="attivita_soggette_vvf" type="ecercon:attivita_soggette_vvf_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="normative_specifiche" type="ecercon:normative_antincendio_specifiche_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="documentazione_catastale_cce_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Documentazione catastale</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="planimetrie_visure" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allegano planimetrie e visure catastali</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="planimetrie_ricevuta_accatastamento" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allegano planimetrie catastali firmate dal tecnico abilitato e ricevuta di deposito della richiesta di accatastamento dell'immobile</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="certificazione_conformita_edifici" type="ecercon:verifica_titoli_ctype"/>
+</xsd:schema>

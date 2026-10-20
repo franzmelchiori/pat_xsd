@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:eautpae="../02_entities/autorizzazione_paesaggestica"
+    targetNamespace="../02_entities/autorizzazione_paesaggestica"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="autorizzazione_paesaggistica_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Autorizzazione per la tutela paesaggistica di cui alla L.P. n. 15/2015</xsd:documentation>
+            <xsd:documentation xml:lang="it">L'intervento è soggetto ad autorizzazione paesaggistica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="sindaco" type="eattass:atto_assenso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sindaco</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cpc" type="eattass:atto_assenso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">CPC (Commissione per la pianificazione territoriale e il paesaggio della comunità)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cup_sottocup" type="eattass:atto_assenso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">CUP/SOTTOCUP</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non è soggetto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="autorizzazione_paesaggestica" type="eautpae:autorizzazione_paesaggistica_ctype"/>
+    <xsd:complexType name="autorizzazione_paesaggistica_scia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Autorizzazione per la tutela paesaggistica di cui alla L.P. n. 15/2015 (SCIA)</xsd:documentation>
+            <xsd:documentation xml:lang="it">L'intervento è soggetto ad autorizzazione paesaggistica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="sindaco" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sindaco: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cpc" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">CPC (Commissione per la pianificazione territoriale e il paesaggio della comunità): provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cup_sottocup" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">CUP/SOTTOCUP: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non è soggetto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+</xsd:schema>

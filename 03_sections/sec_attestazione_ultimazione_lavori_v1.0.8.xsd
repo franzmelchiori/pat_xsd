@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattultlav="../02_entities/attestazione_ultimazione_lavori"
+    xmlns:einfoprivacy="../02_entities/informativa_privacy"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:sattultlav="../03_sections/attestazione_ultimazione_lavori"
+    targetNamespace="../03_sections/attestazione_ultimazione_lavori"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/attestazione_ultimazione_lavori" schemaLocation="../02_entities/ent_attestazione_ultimazione_lavori_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/informativa_privacy" schemaLocation="../02_entities/ent_informativa_privacy_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+
+    <xsd:simpleType name="note_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="sezione_attestazione_ultimazione_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Attestazione/dichiarazione del direttore lavori</xsd:documentation>
+            <xsd:documentation xml:lang="it">Dichiarazione di ultimazione lavori / segnalazione certificata di conformità delle opere eseguite al progetto autorizzato / certificazione finale di regolare esecuzione delle opere / dichiarazione di variazione catastale</xsd:documentation>
+            <xsd:documentation xml:lang="it">Il progettista, in qualità di tecnico asseverante, preso atto di assumere la qualità di persona esercente un servizio di pubblica necessità ai sensi degli articoli 359 e 481 del Codice Penale, consapevole che le dichiarazioni false, la falsità negli atti e l'uso di atti falsi comportano l'applicazione delle sanzioni penali previste dagli artt. 75 e 76 del d.P.R. n. 445/2000, sotto la propria responsabilità</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="dati_direttore_lavori" type="etecinc:tecnico_sintetico_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dati del direttore lavori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="certificazione_ultimazione" type="eattultlav:certificazione_ultimazione_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Certifica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="agibilita" type="eattultlav:agibilita_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Attesta</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="toponomastica" type="eattultlav:toponomastica_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Attesta</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="attestazioni_ulteriori" type="eattultlav:attestazioni_ulteriori_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Attesta inoltre</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="variazione_catastale" type="eattultlav:variazione_catastale_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Variazione catastale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="note" type="sattultlav:note_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Note (500 caratteri)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="allegati" type="eattultlav:allegati_ultimazione_lavori_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Si allega la seguente documentazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="informativa_privacy" type="einfoprivacy:informativa_privacy_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Informativa sul trattamento dei dati personali (Art. 13 del Reg. UE n. 2016/679 del 27 aprile 2016)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_attestazione_ultimazione_lavori" type="sattultlav:sezione_attestazione_ultimazione_lavori_ctype"/>
+</xsd:schema>

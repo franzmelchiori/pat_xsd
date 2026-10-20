@@ -1,0 +1,4942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:html="http://www.w3.org/1999/xhtml/">
+    <Identification>
+        <ShortName>IT:PAT:CL:ComuniCatastali</ShortName>
+        <LongName>Comuni catastali della Provincia autonoma di Trento: codice a tre cifre e denominazione, dal dataset Tariffe d'estimo del catasto fondiario del Servizio libro fondiario e catasto (12/04/2024, licenza CC BY 4.0). Nelle denominazioni le lettere accentate sono scritte con l'apostrofo, come nella fonte</LongName>
+        <Version>1</Version>
+        <CanonicalUri/>
+        <CanonicalVersionUri/>
+        <Agency>
+            <ShortName>PAT-SLFC</ShortName>
+            <LongName xml:lang="it">Provincia autonoma di Trento - Servizio libro fondiario e catasto</LongName>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="id" Use="required">
+            <ShortName>id</ShortName>
+            <Data Type="xsd:nonNegativeInteger"/>
+        </Column>
+        <Column Id="codice" Use="required">
+            <ShortName>codice</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Column Id="denominazione" Use="required">
+            <ShortName>denominazione</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Key Id="codiceKey">
+            <ShortName>codice</ShortName>
+            <ColumnRef Ref="codice"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>001</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Agrone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>002</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ala</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>003</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Albiano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>004</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Aldeno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>005</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Almazzago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>006</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Amblar</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>007</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Andalo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>008</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Andogno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>009</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Arco</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>010</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Armo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>011</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Arnago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>12</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>012</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Avio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>13</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>013</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Balbido</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>14</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>014</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ballino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>15</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>015</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Banco</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>16</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>016</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Barcesino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>17</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>017</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Baselga</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>18</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>018</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Baselga di Pin├Ę I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>19</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>019</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Baselga di Pin├Ę II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>20</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>020</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bedollo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>21</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>021</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bersone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>22</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>022</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Besenello</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>23</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>023</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bezzecca</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>24</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>024</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Biacesa</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>25</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>025</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bieno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>26</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>026</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bleggio inferiore</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>27</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>027</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bleggio superiore</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>28</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>028</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bocenago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>29</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>029</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bolbeno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>30</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>030</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bolentina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>31</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>031</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bollone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>32</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>032</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bondo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>33</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>033</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bondone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>34</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>034</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bondone Storo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>35</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>035</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bono</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>36</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>036</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Borghetto A/A</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>37</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>037</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Borgo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>38</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>038</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Borzago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>39</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>039</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bosentino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>40</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>040</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bozzana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>41</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>041</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Brancolino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>42</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>042</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Breguzzo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>43</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>043</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Breguzzo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>44</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>044</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Brentonico</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>45</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>045</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Bresimo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>46</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>046</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Brez</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>47</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>047</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Brione</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>48</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>048</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Brusino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>49</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>049</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Caderzone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>50</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>050</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cadine</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>51</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>051</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cagno'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>52</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>052</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Calavino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>53</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>053</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Calceranica</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>54</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>054</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Caldes</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>55</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>055</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Caldonazzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>56</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>056</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Calliano I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>57</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>057</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Calliano II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>58</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>058</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Calliano III</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>59</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>059</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Campitello - Ciampedel</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>60</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>060</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Campo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>61</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>061</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Campodenno I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>62</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>062</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Campodenno II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>63</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>063</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Canale</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>64</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>064</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Canal San Bovo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>65</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>065</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Canal San Bovo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>66</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>066</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Canazei - Cianacei</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>67</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>067</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Canezza</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>68</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>068</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Capriana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>69</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>069</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Carano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>70</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>070</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Carciato</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>71</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>071</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cares</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>72</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>072</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Carisolo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>73</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>073</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Carisolo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>74</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>074</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Carzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>75</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>075</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Casez</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>76</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>076</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Casotto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>77</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>077</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castagne'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>78</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>078</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castelfondo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>79</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>079</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castellano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>80</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>080</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castel Condino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>81</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>081</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castello Ossana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>82</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>082</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castello di Fiemme</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>83</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>083</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castello Tesino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>84</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>084</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castelnuovo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>85</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>085</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Castelpietra</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>86</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>086</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cavalese</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>87</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>087</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cavareno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>88</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>088</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cavedago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>89</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>089</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cavizzana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>90</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>090</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cavrasto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>91</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>091</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Celentino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>92</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>092</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Celledizzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>93</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>093</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cembra</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>94</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>094</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Centa</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>95</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>095</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ciago I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>96</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>096</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ciago II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>97</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>097</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Chienis</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>98</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>098</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Chizzola</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>99</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>099</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cimego I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>100</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>100</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cimego II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>101</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>101</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cimone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>102</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>102</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cinte Tesino I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>103</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>103</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cinte Tesino II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>104</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>104</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cis</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>105</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>105</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Civezzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>106</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>106</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cles</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>107</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>107</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cloz</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>108</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>108</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cognola</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>109</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>109</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cogolo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>110</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>110</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cologna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>111</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>111</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cologna Gavazzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>112</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>112</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Comano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>113</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>113</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Comasine</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>114</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>114</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Comighello</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>115</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>115</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Condino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>116</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>116</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Coredo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>117</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>117</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Coredo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>118</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>118</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Costasavina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>119</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>119</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Covelo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>120</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>120</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Creto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>121</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>121</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Croviana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>122</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>122</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Cunevo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>123</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>123</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Daiano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>124</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>124</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dambel</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>125</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>125</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Daone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>126</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>126</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dardine</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>127</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>127</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dare'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>128</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>128</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Darzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>129</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>129</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dasindo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>130</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>130</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Deggiano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>131</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>131</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Denno I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>132</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>132</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Denno II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>133</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>133</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dercolo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>134</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>134</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dercolo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>135</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>135</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dermulo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>136</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>136</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dimaro</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>137</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>137</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Don</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>138</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>138</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dorsino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>139</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>139</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Drena</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>140</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>140</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Dro</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>141</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>141</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Duvredo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>142</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>142</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Enguiso</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>143</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>143</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Faedo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>144</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>144</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fai</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>145</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>145</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Falesina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>146</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>146</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Faver</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>147</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>147</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Favrio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>148</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>148</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fiave'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>149</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>149</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fiera</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>150</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>150</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fierozzo - Vlarotz</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>151</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>151</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fisto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>152</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>152</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Flavon</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>153</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>153</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Folas-Revian</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>154</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>154</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Folgaria</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>155</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>155</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fondo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>156</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>156</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fornace</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>157</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>157</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Forno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>158</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>158</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fraveggio I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>159</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>159</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Fraveggio II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>160</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>160</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Frassilongo - Garait</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>161</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>161</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Gardolo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>162</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>162</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Garniga</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>163</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>163</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Giovo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>164</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>164</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Giustino I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>165</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>165</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Giustino II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>166</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>166</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Godenzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>167</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>167</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Grauno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>168</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>168</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Grigno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>169</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>169</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Grumes</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>170</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>170</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Grumo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>171</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>171</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Imer I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>172</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>172</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Imer II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>173</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>173</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ischia</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>174</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>174</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Isera</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>175</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>175</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ivano Fracena</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>176</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>176</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Javre'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>177</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>177</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Laguna Muste' I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>178</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>178</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Laguna Muste' II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>179</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>179</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lardaro I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>180</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>180</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lardaro II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>181</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>181</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Larido</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>182</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>182</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lases</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>183</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>183</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lasino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>184</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>184</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lavarone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>185</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>185</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lavis</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>186</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>186</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Legos I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>187</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>187</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Legos II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>188</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>188</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lenzima</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>189</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>189</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lenzumo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>190</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>190</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Levico</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>191</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>191</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lisignago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>192</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>192</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Livo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>193</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>193</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lizzana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>194</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>194</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Locca</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>195</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>195</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lodrone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>196</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>196</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lomaso</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>197</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>197</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lon I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>198</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>198</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lon II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>199</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>199</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lona</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>200</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>200</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lona Lases II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>201</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>201</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Luserna - Lusęrn</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>202</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>202</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lover</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>203</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>203</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Lundo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>204</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>204</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Madice</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>205</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>205</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Madrano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>206</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>206</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Magasa</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>207</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>207</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Magras</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>208</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>208</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mala</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>209</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>209</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Male'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>211</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>211</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Malosco I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>212</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>212</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Malosco II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>213</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>213</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Manzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>214</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>214</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Marano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>215</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>215</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Marco</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>216</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>216</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Margone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>217</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>217</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Masi di Vigo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>218</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>218</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Massimeno I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>219</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>219</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Massimeno II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>220</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>220</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mastellina I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>221</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>221</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mastellina II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>222</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>222</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mattarello</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>223</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>223</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mazzin - Mazin</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>224</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>224</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Meano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>225</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>225</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mechel</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>226</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>226</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Menas</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>227</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>227</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mestriago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>228</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>228</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mezzana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>229</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>229</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mezzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>230</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>230</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mezzocorona</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>231</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>231</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mezzolago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>232</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>232</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mezzolombardo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>233</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>233</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Miola I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>234</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>234</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Miola II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>235</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>235</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Moena I - Moena I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>236</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>236</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Moena II - Moena II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>237</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>237</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Moerna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>238</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>238</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Molina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>239</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>239</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mollaro</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>240</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>240</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Molveno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>241</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>241</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Monclassico</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>242</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>242</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Montagne</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>243</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>243</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Montes</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>244</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>244</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Montevaccino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>245</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>245</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mori</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>246</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>246</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mortaso I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>247</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>247</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Mortaso II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>248</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>248</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nago Torbole</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>249</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>249</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nanno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>250</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>250</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nave San Rocco</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>251</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>251</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Noarna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>252</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>252</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nogare'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>253</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>253</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nogaredo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>254</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>254</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nomesino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>255</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>255</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Nomi</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>256</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>256</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Noriglio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>257</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>257</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Novaledo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>258</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>258</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Oltresarca</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>259</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>259</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ortise'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>260</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>260</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ospedaletto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>261</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>261</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ossana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>262</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>262</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Padergnone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>263</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>263</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Palu' del Fersina - Palai en Bersntol</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>264</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>264</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Panchia'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>265</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>265</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pannone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>266</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>266</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Patone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>267</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>267</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pedemonte</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>268</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>268</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pedersano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>269</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>269</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Peio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>270</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>270</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pellizzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>271</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>271</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pelugo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>272</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>272</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pera</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>273</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>273</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pergine I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>274</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>274</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pergine II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>275</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>275</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Persone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>276</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>276</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Piano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>277</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>277</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pieve di Ledro</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>278</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>278</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pieve Tesino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>279</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>279</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pilcante</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>280</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>280</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pinzolo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>281</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>281</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Poia</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>282</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>282</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pomarolo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>283</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>283</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pomarolo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>284</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>284</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Por</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>285</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>285</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Povo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>286</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>286</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pozza - Poza</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>287</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>287</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pranzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>288</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>288</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Praso</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>289</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>289</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pre'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>290</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>290</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Predazzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>291</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>291</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Pregasina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>292</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>292</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Preghena</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>293</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>293</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Premione</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>294</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>294</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Preore</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>295</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>295</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Presson</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>296</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>296</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Prezzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>297</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>297</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Prio'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>298</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>298</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Quetta I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>299</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>299</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Quetta II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>300</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>300</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Rabbi</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>301</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>301</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ragoli I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>302</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>302</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ragoli II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>303</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>303</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Rango</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>304</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>304</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ranzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>305</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>305</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ravina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>306</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>306</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Revo'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>307</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>307</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Riva</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>308</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>308</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Romagnano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>309</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>309</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Romallo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>310</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>310</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Romarzollo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>311</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>311</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Romeno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>312</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>312</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Roncegno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>313</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>313</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ronchi di Ala</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>314</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>314</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ronchi</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>315</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>315</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Roncogno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>316</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>316</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Roncone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>317</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>317</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ronzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>318</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>318</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ronzone I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>319</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>319</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ronzone II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>320</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>320</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Rover Carbonare</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>321</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>321</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Rovere' della Luna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>322</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>322</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Rovereto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>323</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>323</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ruffre'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>324</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>324</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Rumo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>325</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>325</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sacco</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>326</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>326</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sagron Mis</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>327</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>327</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Salter Malgolo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>328</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>328</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Samoclevo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>329</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>329</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Samone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>330</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>330</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>San Giacomo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>331</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>331</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>San Lorenzo in Banale</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>332</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>332</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>S.Margherita</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>333</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>333</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>San Michele</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>334</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>334</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sant'Orsola</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>335</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>335</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sanzeno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>336</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>336</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Saone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>337</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>337</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sardagna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>338</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>338</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sarnonico</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>339</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>339</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sasso</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>340</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>340</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Savignano I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>341</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>341</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Savignano II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>342</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>342</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sclemo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>343</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>343</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Scurelle</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>344</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>344</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Segno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>345</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>345</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Segonzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>346</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>346</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Seio I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>347</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>347</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Seio II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>348</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>348</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Seo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>349</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>349</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Serravalle</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>350</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>350</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Serso</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>351</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>351</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sevignano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>352</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>352</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sfruz</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>353</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>353</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Siror</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>354</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>354</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Smarano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>355</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>355</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sopramonte</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>356</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>356</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Soraga I - Soraga I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>357</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>357</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Soraga II - Soraga II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>358</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>358</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sover</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>359</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>359</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Spera I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>360</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>360</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Spera II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>361</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>361</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Spormaggiore</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>362</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>362</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Sporminore</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>363</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>363</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Stenico I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>364</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>364</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Stenico II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>365</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>365</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Storo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>366</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>366</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Strada I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>367</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>367</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Strada II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>368</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>368</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Stramentizzo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>369</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>369</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Stravino</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>370</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>370</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Strembo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>371</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>371</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Strembo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>372</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>372</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Strigno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>373</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>373</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Stumiaga</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>374</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>374</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Susa'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>375</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>375</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Taio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>376</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>376</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tassullo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>377</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>377</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tassullo II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>378</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>378</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tassullo III</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>379</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>379</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tavodo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tavon</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>381</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>381</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Telve di Sopra</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>382</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>382</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Telve di Sotto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>383</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>383</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tenna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>384</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>384</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tenno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>385</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>385</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Terlago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>386</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>386</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Termenago I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>387</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>387</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Termenago II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>388</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>388</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Termon I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>389</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>389</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Termon II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>390</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>390</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Terragnolo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>391</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>391</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Terres</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>392</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>392</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Terzolas</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>393</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>393</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tesero</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>394</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>394</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tiarno di Sopra</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>395</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>395</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tiarno di Sotto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>396</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>396</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tignerone</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>397</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>397</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tione I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>398</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>398</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tione II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>399</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>399</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tonadico I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>400</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>400</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tonadico II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>401</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>401</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Torcegno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>402</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>402</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Torra</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>403</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>403</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Toss</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>404</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>404</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Trambileno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>405</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>405</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Transacqua</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>406</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>406</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Trento</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>407</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>407</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tres</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>408</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>408</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tuenetto</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>409</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>409</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Tuenno</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>410</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>410</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Turano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>411</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>411</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Valda</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>412</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>412</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Valfloriana</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>413</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>413</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vallarsa</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>414</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>414</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Valle</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>415</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>415</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Varano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>416</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>416</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Varena</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>417</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>417</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vasio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>418</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>418</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vattaro</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>419</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>419</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Verdesina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>420</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>420</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vermiglio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>421</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>421</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vervo'</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>422</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>422</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vezzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>423</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>423</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Viarago</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>424</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>424</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigalzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>425</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>425</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vignola I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>426</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>426</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vignola II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>427</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>427</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigo d'Anaunia</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>428</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>428</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigo Cavedine</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>429</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>429</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigo di Fassa - Vich</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>430</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>430</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigo Lomaso</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>431</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>431</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigo Rendena</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>432</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>432</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigolo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>433</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>433</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vigolo Vattaro</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>434</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>434</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Villa Banale</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>435</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>435</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Villa Agnedo</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>436</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>436</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Villalagarina</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>437</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>437</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Villamontagna</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>438</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>438</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Villa Rendena</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>439</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>439</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Villazzano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>440</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>440</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ville del Monte</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>441</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>441</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Vion</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>442</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>442</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Volano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>443</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>443</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Zambana I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>444</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>444</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Zambana II</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>445</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>445</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Ziano</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>446</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>446</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Zuclo I</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>447</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice">
+                <SimpleValue>447</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>Zuclo II</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

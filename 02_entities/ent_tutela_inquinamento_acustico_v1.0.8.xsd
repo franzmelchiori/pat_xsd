@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:etutinqacu="../02_entities/tutela_inquinamento_acustico"
+    targetNamespace="../02_entities/tutela_inquinamento_acustico"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="rientra_art_8_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">rientra nell'ambito di applicazione dell'articolo 8 della l. n. 447/1995, integrato con i contenuti dell'articolo 4 del d.P.R. n. 227/2011 e si allega</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="documentazione_impatto_acustico" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">documentazione di impatto acustico (art. 8, commi 2 e 4, l. n. 447/1995)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="valutazione_clima_acustico" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">valutazione previsionale di clima acustico (art. 8, comma 3, l. n. 447/1995)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tutela_inquinamento_acustico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tutela dall'inquinamento acustico</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_rientra_art_18_lp_6_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento non rientra nell'ambito di applicazione dell'art. 18 LP 6/1991</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="rientra_art_18_lp_6_1991" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento rientra nell'ambito di applicazione dell'art. 18 LP 6/1991</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_rientra_art_8" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento non rientra nell'ambito di applicazione dell'articolo 8 della l. n. 447/1995</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="rientra_art_8" type="etutinqacu:rientra_art_8_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="tutela_inquinamento_acustico" type="etutinqacu:tutela_inquinamento_acustico_ctype"/>
+</xsd:schema>

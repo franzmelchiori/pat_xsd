@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:edepconimp="../02_entities/deposito_conformita_impianti"
+    xmlns:sdepdicconimp="../03_sections/deposito_dichiarazioni_conformita_impianti"
+    targetNamespace="../03_sections/deposito_dichiarazioni_conformita_impianti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/deposito_conformita_impianti" schemaLocation="../02_entities/ent_deposito_conformita_impianti_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_deposito_dichiarazioni_conformita_impianti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Deposito dichiarazioni di conformità degli impianti</xsd:documentation>
+            <xsd:documentation xml:lang="it">Deposito dichiarazioni di conformità degli impianti (anche per gli interventi previsti dall'articolo 78 della l. p. 15/2015 e s.m.)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="titolo_legittimante" type="eattass:estremi_titolo_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolo legittimante l'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">in relazione all'intervento autorizzato con i seguenti titoli edilizi di riferimento (Permesso di costruire, SCIA, CILA, Comunicazione Opere Libere, ecc.): titolo, protocollo/numero e data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="impianti_depositati" type="edepconimp:impianti_depositati_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_deposito_dichiarazioni_conformita_impianti" type="sdepdicconimp:sezione_deposito_dichiarazioni_conformita_impianti_ctype"/>
+</xsd:schema>

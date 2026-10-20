@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eimpese="../02_entities/impresa_escutrice"
+    xmlns:esogcoi="../02_entities/soggetti_coinvolti"
+    targetNamespace="../02_entities/soggetti_coinvolti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/impresa_escutrice" schemaLocation="../02_entities/ent_impresa_escutrice_v1.0.8.xsd"/>
+
+    <xsd:complexType name="soggetti_coinvolti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Soggetti coinvolti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:sequence>
+                <xsd:element name="impresa_integrazione" type="eimpese:impresa_esecutrice_ctype" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">impresa esecutrice ad integrazione delle imprese già nominate (da individuare prima dell'inizio lavori di sua competenza)</xsd:documentation>
+                        <xsd:documentation xml:lang="it">Dati della ditta/società/impresa: Denominazione (nome della ditta o azienda o ragione sociale), Codice Fiscale / P. IVA, Camera di commercio, Numero REA, Data</xsd:documentation>
+                        <xsd:documentation xml:lang="it">Dati relativi alla sede legale della ditta/società/impresa: Stato, Provincia, Comune, Via, Piazza, ecc., Numero civico, CAP, Telefono fisso/Cellulare, Fax, PEC</xsd:documentation>
+                        <xsd:documentation xml:lang="it">Il cui legale rappresentante è: Cognome, Nome, Codice fiscale, nato a, Provincia, Stato, nato il, Telefono, Fax, Cell., Posta elettronica</xsd:documentation>
+                        <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+                        <xsd:documentation xml:lang="it">Allegare fac simile "impresa" (da scaricare, compilare e firmare)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="impresa_subentrante" type="eimpese:impresa_esecutrice_ctype" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">impresa esecutrice subentrante</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:element name="impresa_subentrante" type="eimpese:impresa_esecutrice_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impresa esecutrice subentrante</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Dati della ditta/società/impresa: Denominazione (nome della ditta o azienda o ragione sociale), Codice Fiscale / P. IVA, Camera di commercio, Numero REA, Data</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Dati relativi alla sede legale della ditta/società/impresa: Stato, Provincia, Comune, Via, Piazza, ecc., Numero civico, CAP, Telefono fisso/Cellulare, Fax, PEC</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il cui legale rappresentante è: Cognome, Nome, Codice fiscale, nato a, Provincia, Stato, nato il, Telefono, Fax, Cell., Posta elettronica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allegare fac simile "impresa" (da scaricare, compilare e firmare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="soggetti_coinvolti" type="esogcoi:soggetti_coinvolti_ctype"/>
+</xsd:schema>

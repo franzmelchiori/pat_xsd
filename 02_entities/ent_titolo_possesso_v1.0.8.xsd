@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:epepers="../02_entities/persona"
+    xmlns:epecitt="../02_entities/cittadinanza"
+    xmlns:epeindita="../02_entities/indirizzo_italiano"
+    xmlns:epeindest="../02_entities/indirizzo_estero"
+    xmlns:epecont="../02_entities/contatti"
+    xmlns:etitpos="../02_entities/titolo_possesso"
+    targetNamespace="../02_entities/titolo_possesso"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/cittadinanza" schemaLocation="../02_entities/ent_cittadinanza_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
+
+    <xsd:complexType name="titolo_possesso_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Titolarità dell'intervento</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si dichiara di avere titolo idoneo alla realizzazione dei lavori in quanto</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="proprietario_esclusivo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Proprietario esclusivo</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="altro_diritto_reale" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Titolare di altro diritto reale (indicare se comproprietario, usufruttuario, etc)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="diritto_contrattuale" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Titolare di diritto contrattuale</xsd:documentation>
+                        <xsd:documentation xml:lang="it">allegare copia del titolo e della dichiarazione di assenso dei terzi titolari di altri diritti reali o obbligatori</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="altri_titolari" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Sono presenti altri titolari oltre al richiedente? (sì / no)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allegare fac simile "altri titolari" (da scaricare, compilare e firmare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="titolo_possesso" type="etitpos:titolo_possesso_ctype"/>
+    <xsd:complexType name="responsabile_abuso_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Responsabile dell'abuso</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="titolare_titolo_edilizio" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">titolare titolo edilizio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Altro (specificare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="titolo_possesso_sanatoria_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Titolarità dell'intervento (sanatoria)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si dichiara di avere titolo idoneo alla realizzazione dei lavori in quanto</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="proprietario_esclusivo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Proprietario esclusivo</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="altro_diritto_reale" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Titolare di altro diritto reale (indicare se comproprietario, usufruttuario, etc)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="diritto_contrattuale" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Titolare di diritto contrattuale: allegare copia del titolo e della dichiarazione di assenso dei terzi titolari di altri diritti reali o obbligatori</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="responsabile_abuso" type="etitpos:responsabile_abuso_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="altro" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Altro (specificare)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="altri_titolari" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Sono presenti altri titolari oltre al richiedente? (sì / no)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allegare fac simile "altri titolari" (da scaricare, compilare e firmare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ulteriore_titolare_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Titolari</xsd:documentation>
+            <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+            <xsd:documentation xml:lang="it">Allegare fac simile "altri titolari" (da scaricare, compilare e firmare)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="dati_titolare" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Nome, Cognome, C.F., Data di nascita, Sesso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Luogo di nascita: Stato, Provincia, Comune italiano o Località estera</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Cittadinanza</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Residenza: Stato, Provincia, Comune italiano o Località estera, Via, Piazza, ecc., N., C.A.P.</xsd:documentation>
+                </xsd:annotation>
+                <xsd:element name="residenza_italiana" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="residenza_estera" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">PEC / posta elettronica, Telefono fisso / cellulare</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="in_qualita_di" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">In qualità di (Comproprietario, Usufruttuario, Amministratore di condominio, Legale rappresentante, Amministratore unico, Procuratore, Altro)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ditta_titolare_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Da compilare solo nel caso in cui il titolare sia una ditta o società: avere titolarità esclusiva all'esecuzione dell'intervento</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="in_qualita_di" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">in qualità di (carica nella ditta / società)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ditta_societa" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">della ditta / società</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="codice_fiscale_partita_iva" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">con codice fiscale / p. IVA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="titolarita_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Titolarità dell'intervento (segnalazione certificata di agibilità)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si dichiara di avere o non avere titolarità esclusiva all'esecuzione dell'intervento</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="titolarita_esclusiva" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">avere titolarità esclusiva all'esecuzione dell'intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ulteriori_titolari" type="etitpos:ulteriore_titolare_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non avere titolarità esclusiva all'esecuzione dell'intervento, pertanto si indicano i nominativi degli ulteriori titolari</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ditta_titolare" type="etitpos:ditta_titolare_ctype" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:choice>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eassagi="../02_entities/asseverazione_agibilita"
+    xmlns:einfoprivacy="../02_entities/informativa_privacy"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:sreltecassscagi="../03_sections/relazione_tecnica_asseverazione_scagi"
+    targetNamespace="../03_sections/relazione_tecnica_asseverazione_scagi"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/asseverazione_agibilita" schemaLocation="../02_entities/ent_asseverazione_agibilita_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/informativa_privacy" schemaLocation="../02_entities/ent_informativa_privacy_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_relazione_tecnica_asseverazione_scagi_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Relazione tecnica di asseverazione - SCAgi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="tecnico_asseverante" type="etecinc:tecnico_asseverante_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dati del tecnico asseverante</xsd:documentation>
+                    <xsd:documentation xml:lang="it">in qualità di tecnico asseverante, preso atto di assumere la qualità di persona esercente un servizio di pubblica necessità ai sensi degli artt. 359 e 481 cp, consapevole che le dichiarazioni false, le falsità negli atti e l'uso di atti falsi comportano l'applicazione delle sanzioni penali previste dagli art. 75 e 76 del d.p.r. 445/2000, sotto la propria responsabilità</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="assevera" type="eassagi:assevera_agibilita_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Assevera</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sicurezza_impianti" type="eassagi:sicurezza_impianti_agibilita_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">A tal fine attesta</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sicurezza_statica_sismica" type="eassagi:sicurezza_statica_sismica_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="prestazione_energetica" type="eassagi:prestazione_energetica_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="barriere_architettoniche" type="eassagi:barriere_architettoniche_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="conformita_igienico_sanitaria" type="eassagi:conformita_igienico_sanitaria_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="sicurezza_antincendio" type="eassagi:sicurezza_antincendio_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="informativa_privacy" type="einfoprivacy:informativa_privacy_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Informativa sul trattamento dei dati personali (Art. 13 del Reg. UE n. 2016/679 del 27 aprile 2016)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_relazione_tecnica_asseverazione_scagi" type="sreltecassscagi:sezione_relazione_tecnica_asseverazione_scagi_ctype"/>
+</xsd:schema>

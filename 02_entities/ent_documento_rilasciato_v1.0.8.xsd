@@ -3,7 +3,7 @@
             xmlns:edocril="../02_entities/documento_rilasciato"
             xmlns:ccodelist="../commons/codelist"
             xmlns:ctipi="../commons/tipi"
-            xmlns:canncl="../commons/xsdAnnotations" targetNamespace="../02_entities/documento_rilasciato" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0.7" xml:lang="it">
+            xmlns:canncl="../commons/xsdAnnotations" targetNamespace="../02_entities/documento_rilasciato" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0.8" xml:lang="it">
     
     <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>

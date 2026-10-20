@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eallres="../02_entities/alloggi_residenza"
+    targetNamespace="../02_entities/alloggi_residenza"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="alloggi_residenza_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Disciplina degli alloggi destinati a residenza</xsd:documentation>
+            <xsd:documentation xml:lang="it">Con riferimento alla disciplina degli alloggi destinati a residenza di cui all'art. 57 della l.p. 1/2008, le opere in progetto</xsd:documentation>
+            <xsd:documentation xml:lang="it">Sono soggetti i Comuni elencati nell'allegato 2 delibera n. 3015/2005 (aggiornato 19.11.2012)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_soggette" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non sono soggette</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="soggette" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sono soggette</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="alloggi_residenza" type="eallres:alloggi_residenza_ctype"/>
+</xsd:schema>

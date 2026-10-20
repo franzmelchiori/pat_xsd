@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    targetNamespace="../02_entities/atto_assenso"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="estremi_provvedimento_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Estremi di provvedimento/pratica</xsd:documentation>
+            <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:group ref="eattass:estremi_group"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:group name="estremi_group">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Numero e data di un atto</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="numero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Numero / protocollo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="data" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:group>
+
+    <xsd:complexType name="estremi_firmatario_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Estremi di atto con firmatario: numero, data e firmatario</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="eattass:estremi_provvedimento_ctype">
+                <xsd:sequence>
+                    <xsd:element name="firmatario" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="it">firmatario (a firma di)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="estremi_titolo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Estremi di un titolo abilitativo: titolo, numero e data</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="titolo" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolo abilitativo (Permesso di costruire, SCIA, CILA, Comunicazione Opere Libere, ecc.)</xsd:documentation>
+                    <xsd:appinfo>
+                        <canncl:codeListReference>
+                            <canncl:ShortName>IT:PAT:CL:TitoliAbilitativi</canncl:ShortName>
+                        </canncl:codeListReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:group ref="eattass:estremi_group"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="estremi_titolo_progetto_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Estremi di un titolo abilitativo con il redattore del progetto</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="eattass:estremi_titolo_ctype">
+                <xsd:sequence>
+                    <xsd:element name="redatto_da" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="it">Redattore del progetto</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="pratica_edilizia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Pratica edilizia</xsd:documentation>
+            <xsd:documentation xml:lang="it">intestatario dell'intervento edilizio avviato a seguito di uno dei seguenti titoli</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="permesso_di_costruire" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Permesso di costruire: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="scia" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Segnalazione certificata d'inizio attività (SCIA): provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cila" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Comunicazione inizio lavori asseverata (CILA): provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="comunicazione_opere_libere" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Comunicazione opere libere: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="atto_assenso_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Atto di assenso</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="provvedimento" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="allega_documentazione" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="atto_assenso_esteso_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Atto di assenso (con possibilità di ottenimento successivo)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="provvedimento" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'adempimento è stato effettuato / il parere o l'autorizzazione è stato ottenuto: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="allega_documentazione" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ottenimento_successivo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'adempimento/il parere/l'autorizzazione sarà ottenuto nei termini previsti dalla normativa di settore ovvero prima del rilascio del titolo edilizio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="vincolo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Vincolo: l'intervento non richiede / richiede adempimenti (provvedimento o documentazione allegata)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'intervento non richiede adempimenti / non è soggetto / non è sottoposto a tutela</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="soggetto" type="eattass:atto_assenso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'intervento richiede adempimenti / è soggetto / è sottoposto a tutela</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="vincolo_esteso_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Vincolo: l'intervento non richiede / richiede adempimenti (provvedimento, documentazione allegata o ottenimento successivo)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'intervento non richiede adempimenti / parere / autorizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="soggetto" type="eattass:atto_assenso_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'intervento richiede adempimenti / parere / autorizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="vincolo_estremi_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Vincolo: l'intervento non richiede / richiede adempimenti (con estremi del provvedimento)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="soggetto" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="vincolo" type="eattass:vincolo_ctype"/>
+    <xsd:complexType name="atto_assenso_ottenuto_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Atto di assenso ottenuto o da ottenere nei termini</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="provvedimento" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'adempimento è stato effettuato / l'autorizzazione è stata ottenuta: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ottenimento_successivo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'adempimento/l'autorizzazione sarà ottenuto nei termini previsti dalla normativa di settore</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="vincolo_ottenuto_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Vincolo: l'intervento non richiede / richiede adempimenti (atto ottenuto o da ottenere nei termini)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="soggetto" type="eattass:atto_assenso_ottenuto_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+</xsd:schema>

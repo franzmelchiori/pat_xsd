@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:equaintsan="../02_entities/qualificazione_intervento_sanatoria"
+    xmlns:srichpds="../03_sections/richiesta_permesso_di_costruire_sanatoria"
+    targetNamespace="../03_sections/richiesta_permesso_di_costruire_sanatoria"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/qualificazione_intervento_sanatoria" schemaLocation="../02_entities/ent_qualificazione_intervento_sanatoria_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_richiesta_permesso_di_costruire_sanatoria_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Permesso di costruire in sanatoria e provvedimento in sanatoria</xsd:documentation>
+            <xsd:documentation xml:lang="it">Art. 135 e art. 134, comma 5, della legge provinciale 4 marzo 2008, n. 1 - art. 86 quater della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="qualificazione_intervento" type="equaintsan:qualificazione_intervento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Qualificazione dell'intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="modalita_esecuzione" type="equaintsan:modalita_esecuzione_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Modalità di esecuzione delle opere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_richiesta_permesso_di_costruire_sanatoria" type="srichpds:sezione_richiesta_permesso_di_costruire_sanatoria_ctype"/>
+</xsd:schema>

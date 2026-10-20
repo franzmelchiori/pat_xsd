@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eopeparcom="../02_entities/opere_parti_comuni"
+    targetNamespace="../02_entities/opere_parti_comuni"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="assenso_condominio_ctype">
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="no_assenso" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">e non necessitano di atto di assenso del condominio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="assenso" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">e necessitano di atto di assenso del condominio, pertanto si allega il verbale di assemblea condominiale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="assenso_comproprietari_ctype">
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="no_assenso" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'intervento non necessita di atto di assenso dei comproprietari</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="assenso" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'intervento necessita di atto di assenso dei comproprietari, che si allega (dichiarazione di assenso dei terzi titolari di altri diritti reali o obbligatori)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="opere_previste_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Opere su parti comuni o modifiche esterne</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si dichiara che le opere oggetto della presente pratica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="no_parti_comuni" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non riguardano parti comuni</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="parti_comuni_condominio" type="eopeparcom:assenso_condominio_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">riguardano le parti comuni di un fabbricato condominiale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="parti_comuni_fabbricato_multiprop" type="eopeparcom:assenso_comproprietari_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">riguardano parti comuni di un fabbricato con più proprietà, non costituito in condominio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="opere_parti_comuni" type="eopeparcom:opere_previste_ctype"/>
+</xsd:schema>

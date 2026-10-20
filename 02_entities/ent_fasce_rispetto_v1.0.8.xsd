@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:efasris="../02_entities/fasce_rispetto"
+    targetNamespace="../02_entities/fasce_rispetto"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="fascia_rispetto_ctype">
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_richiede" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non richiede parere/autorizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="richiede" type="eattass:atto_assenso_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">richiede parere/autorizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="altra_fascia_rispetto_ctype">
+        <xsd:sequence>
+            <xsd:element name="specifica" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="fascia" type="efasris:fascia_rispetto_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="fasce_rispetto_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Fasce di rispetto</xsd:documentation>
+            <xsd:documentation xml:lang="it">Intervento ricadente nelle fasce di rispetto</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="stradale" type="efasris:fascia_rispetto_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ferroviario" type="efasris:fascia_rispetto_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="aeroportuale" type="efasris:fascia_rispetto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">aeroportuale (avvenuta trasmissione del progetto agli enti competenti al controllo, gestione e sicurezza della navigazione)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cimiteriale" type="efasris:fascia_rispetto_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="aree_danno_incidente" type="efasris:fascia_rispetto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">di aree di danno da incidente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro" type="efasris:altra_fascia_rispetto_ctype" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="fasce_rispetto" type="efasris:fasce_rispetto_ctype"/>
+    <xsd:complexType name="fascia_rispetto_scia_ctype">
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_richiede" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non richiede parere/autorizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="richiede" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">richiede parere/autorizzazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il parere/autorizzazione è stato ottenuto: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="altra_fascia_rispetto_scia_ctype">
+        <xsd:sequence>
+            <xsd:element name="specifica" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Altro (specificare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fascia" type="efasris:fascia_rispetto_scia_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="fasce_rispetto_scia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Fasce di rispetto (SCIA)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Intervento ricadente nelle fasce di rispetto</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="stradale" type="efasris:fascia_rispetto_scia_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ferroviario" type="efasris:fascia_rispetto_scia_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="aeroportuale" type="efasris:fascia_rispetto_scia_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">aeroportuale (avvenuta trasmissione del progetto agli enti competenti al controllo, gestione e sicurezza della navigazione)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cimiteriale" type="efasris:fascia_rispetto_scia_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="aree_danno_incidente" type="efasris:fascia_rispetto_scia_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">di aree di danno da incidente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro" type="efasris:altra_fascia_rispetto_scia_ctype" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

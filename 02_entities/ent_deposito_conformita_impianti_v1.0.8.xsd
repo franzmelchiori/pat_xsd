@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:edepconimp="../02_entities/deposito_conformita_impianti"
+    targetNamespace="../02_entities/deposito_conformita_impianti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="impianti_depositati_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Deposito dichiarazione di conformità</xsd:documentation>
+            <xsd:documentation xml:lang="it">Ai sensi del D.M. 37/2008 si depositano le dichiarazioni di conformità dei seguenti impianti e si dichiara che la documentazione presentata è completa degli allegati obbligatori</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="energia_elettrica" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto di produzione, trasformazione, trasporto, distribuzione e utilizzazione dell'energia elettrica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="scariche_atmosferiche" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto di protezione contro le scariche atmosferiche</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="automazione_porte" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto di automazione di porte, cancelli e barriere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="radiotelevisivi_elettronici" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto radiotelevisivi, le antenne e impianti elettronici in genere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="riscaldamento_climatizzazione" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti di riscaldamento, di climatizzazione, di condizionamento e refrigerazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="idrici_sanitari" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti idrici e sanitari</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gas" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti per la distribuzione e l'utilizzazione di gas di qualsiasi tipo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sollevamento" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti di sollevamento di persone o di cose per mezzo di ascensori, di montacarichi, di scale mobili e simili, compreso il documento attestante l'assegnazione di numero di matricola o copia dell'avvenuto deposito della richiesta del numero di matricola prevista dalle disposizioni in materia</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="protezione_antincendio" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti di protezione antincendio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="deposito_conformita_impianti" type="edepconimp:impianti_depositati_ctype"/>
+</xsd:schema>

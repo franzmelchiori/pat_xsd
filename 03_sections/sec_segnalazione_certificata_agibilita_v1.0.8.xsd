@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:esegagi="../02_entities/segnalazione_agibilita"
+    xmlns:ssegceragi="../03_sections/segnalazione_certificata_agibilita"
+    targetNamespace="../03_sections/segnalazione_certificata_agibilita"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/segnalazione_agibilita" schemaLocation="../02_entities/ent_segnalazione_agibilita_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_segnalazione_certificata_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Segnalazione certificata di agibilità</xsd:documentation>
+            <xsd:documentation xml:lang="it">Segnalazione Certificata di Agibilità (art. 93, comma 2, della legge provinciale del 4 agosto 2015, n. 15)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="titolo_legittimante" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolo legittimante l'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">il titolo che ha legittimato l'intervento: protocollo/numero e data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="dichiarazione_ultimazione_lavori" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazione sulla comunicazione di fine lavori</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Con riferimento alla dichiarazione di ultimazione lavori presentata: protocollo/numero e data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="presentazione_agibilita" type="esegagi:presentazione_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_segnalazione_certificata_agibilita" type="ssegceragi:sezione_segnalazione_certificata_agibilita_ctype"/>
+</xsd:schema>

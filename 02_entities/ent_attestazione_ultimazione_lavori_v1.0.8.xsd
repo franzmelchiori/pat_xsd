@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:eattultlav="../02_entities/attestazione_ultimazione_lavori"
+    targetNamespace="../02_entities/attestazione_ultimazione_lavori"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="certificazione_ultimazione_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Certificazione di ultimazione delle opere</xsd:documentation>
+            <xsd:documentation xml:lang="it">Ai sensi dell'art. 86 comma 5 e dell'art. 93 comma 2 della L.P. 15/2015 certifica che le opere sono state ultimate e sono state eseguite in conformità ai progetti allegati ai titoli abilitativi edilizi</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si richiama il disposto dell'art. 93 comma 8, della LP 15/2015 che prevede l'applicazione delle sanzioni di cui all'art. 24, comma 3, del D.P.R. 380/2001 nel caso di mancata presentazione entro i termini previsti delle certificazioni, attestazioni e dichiarazioni indicate allo stesso articolo</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="ultimazione_completa" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">le opere sono state ultimate completamente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ultimazione_parziale" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">le opere sono state ultimate in forma parziale, alle condizioni di cui all'articolo 93, comma 4 della L.P. 15/2015, come da planimetria/relazione grafica allegata a firma del tecnico abilitato/D.L.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="tipologie_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">che le opere rientrano nei casi di cui all'art. 93, comma 3, della l.p. 15/2015, in quanto relative alle seguenti tipologie</xsd:documentation>
+            <xsd:documentation xml:lang="it">quindi sono soggette a segnalazione certificata di agibilità ai sensi dell'art. 93, c. 2 della L.P.15/2015, che viene depositata contestualmente alla presente comunicazione</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="nuove_costruzioni" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">nuove costruzioni</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="recupero_parti_strutturali" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">lavori di recupero di edifici esistenti che interessino parti strutturali degli edifici</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cambi_destinazione_uso" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">cambi di destinazioni d'uso, con o senza opere, anche di singole unità immobiliari</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Segnalazione certificata di agibilità</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="soggette_agibilita" type="eattultlav:tipologie_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="non_soggette_agibilita" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che le opere non rientrano nei casi di cui all'art. 93, comma 3, della l.p. 15/2015, quindi non sono soggette alla presentazione della segnalazione certificata di agibilità ai sensi dell'art. 93, c. 2 della L.P.15/2015</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="variazione_numerazione_civica_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">comporta variazione di numerazione civica e</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="allega_nota_assegnazione" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allega la nota di assegnazione o aggiornamento di numerazione civica rilasciata dagli uffici comunali competenti</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="estremi_richiesta" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si comunicano gli estremi della richiesta di assegnazione o aggiornamento di numerazione civica, già presentata all'amministrazione comunale: protocollo/numero e data di ricevimento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="toponomastica_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Toponomastica</xsd:documentation>
+            <xsd:documentation xml:lang="it">che l'intervento, per quanto riguarda gli aspetti di toponomastica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="non_comporta_variazione" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non comporta variazione di numerazione civica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="comporta_variazione" type="eattultlav:variazione_numerazione_civica_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="attestazioni_ulteriori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Attesta inoltre</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="opere_urbanizzazione_primaria" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">il completamento, collaudo e completo assolvimento degli obblighi in materia di opere di urbanizzazione primaria prescritte per l'intervento edilizio, ai sensi dell'art. 93, c. 4 della L.P. 4 agosto 2015, n. 15 e art. 49 e seguenti (lottizzazioni/piani attuativi)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="vincoli_destinazione_uso" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'assolvimento dei vincoli urbanistici di destinazione d'uso previsto dalla vigente normativa (ad es. zone agricole)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="prescrizioni_autorizzazioni" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'assolvimento delle prescrizioni impartite nelle autorizzazioni acquisite preliminarmente al rilascio del titolo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="variazione_catastale_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Variazione catastale</xsd:documentation>
+            <xsd:documentation xml:lang="it">Relativamente alla variazione catastale ai sensi dell'art. 23, comma 7, del D.P.R. 380/2001 (modificato dal comma 558, della legge 311/2004), si dichiara</xsd:documentation>
+            <xsd:documentation xml:lang="it">Avvertenza: la mancanza della ricevuta di presentazione di variazione catastale, laddove necessaria, comporta l'applicazione, da parte del Comune, della sanzione prevista dall'art. 37, comma 5, del D.P.R. 380/2001</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="nessuna_modificazione_classamento" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che le opere realizzate non hanno comportato modificazioni del classamento catastale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="modificazioni_catastali" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che le opere realizzate hanno comportato modificazioni catastali, e si allega ricevuta della presentazione della variazione catastale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="allegati_ultimazione_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Si allega la seguente documentazione</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="prevenzione_cadute_alto" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ai sensi dell'art. 91 ter della L.P. 22/91 e dell'art. 4 del D.P.P. 25 febbraio 2008, n.7-114/Leg, la documentazione sulla prevenzione dei rischi di infortunio a seguito di cadute dall'alto nei lavori di manutenzione ordinaria delle coperture</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="deposito_conformita_impianti" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Modello "Deposito dichiarazioni di conformità degli impianti" - va allegata copia della ricevuta di avvenuto deposito delle dichiarazioni di conformità relative a tutti gli impianti installati e/o modificati, come previsto dal D.M. 37/2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="attestato_prestazione_energetica" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Attestato di prestazione energetica ai sensi dell'art. 5 del D.P.P. 11-13/Leg. del 13 luglio 2009 e s.m.i. unitamente all'asseverazione del Direttore Lavori ai sensi dell'art. 8, comma 2, del D.Lgs. n.192/2005</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="asseverazione_direttore_lavori" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Asseverazione del Direttore Lavori ai sensi dell'art. 8, comma 2, del D. Lgs. n. 192/2005, in merito alla "Conformità delle opere realizzate rispetto al progetto ed alle sue eventuali varianti ed alla relazione tecnica di cui al comma 1 del medesimo articolo" (quando è soggetto diverso dal tecnico abilitato sottoscrittore del presente modello)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="collaudo_statico" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Copia del certificato di collaudo statico e di conformità alle norme antisismiche ove richiesto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="antincendio" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Copia della ricevuta dell'avvenuta presentazione della dichiarazione che costituisce ai soli fini antincendio, autorizzazione provvisoria all'esercizio dell'attività (ai sensi dell'art. 3, comma 5, del D.P.R. 37/1998) ovvero copia del certificato di prevenzione antincendi ove necessario (legge 966/1965)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="planimetrie_catastali" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Planimetrie e visure catastali oppure planimetrie catastali firmate dal tecnico abilitato e ricevuta di deposito della richiesta di accatastamento dell'immobile</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="planimetrie_fine_lavori_parziale" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Planimetrie fine lavori parziale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="autorizzazione_tulps" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Autorizzazione ai sensi del TULPS per locali destinati a esercizi pubblici</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="attestazione_ultimazione_lavori" type="eattultlav:certificazione_ultimazione_ctype"/>
+</xsd:schema>

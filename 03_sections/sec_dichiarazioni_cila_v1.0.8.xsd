@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eopeparcom="../02_entities/opere_parti_comuni"
+    xmlns:epreinilavcila="../02_entities/presentazione_inizio_lavori_cila"
+    xmlns:equaintcila="../02_entities/qualificazione_intervento_cila"
+    xmlns:elibfon="../02_entities/libro_fondiario"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:eimpese="../02_entities/impresa_escutrice"
+    xmlns:eoblsalsicaltpdc="../02_entities/obblighi_salute_sicurezza_altpdc"
+    xmlns:sdiccila="../03_sections/dichiarazioni_cila"
+    targetNamespace="../03_sections/dichiarazioni_cila"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/opere_parti_comuni" schemaLocation="../02_entities/ent_opere_parti_comuni_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/presentazione_inizio_lavori_cila" schemaLocation="../02_entities/ent_presentazione_inizio_lavori_cila_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/qualificazione_intervento_cila" schemaLocation="../02_entities/ent_qualificazione_intervento_cila_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/libro_fondiario" schemaLocation="../02_entities/ent_libro_fondiario_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/impresa_escutrice" schemaLocation="../02_entities/ent_impresa_escutrice_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/obblighi_salute_sicurezza_altpdc" schemaLocation="../02_entities/ent_obblighi_salute_sicurezza_altpdc_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_dichiarazioni_cila_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazioni della Comunicazione Inizio Lavori Asseverata</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="opere_parti_comuni" type="eopeparcom:opere_previste_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Opere su parti comuni o modifiche esterne</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="presentazione" type="epreinilavcila:presentazione_inizio_lavori_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Presentazione della comunicazione di inizio dei lavori asseverata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="qualificazione_intervento" type="equaintcila:qualificazione_intervento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Qualificazione intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="libro_fondiario" type="elibfon:libro_fondiario_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Relativamente al Libro Fondiario</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnici_incaricati" type="etecinc:tecnici_incaricati_cila_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Progettisti e altri progettisti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">dichiara di aver incaricato, in qualità di progettista, il tecnico indicato nella sezione seguente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="imprese_esecutrici" type="eimpese:imprese_esecutrici_dei_lavori_economia_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impresa esecutrice dei lavori</xsd:documentation>
+                    <xsd:documentation xml:lang="it">che, in quanto opere di modesta entità che non interessano le specifiche normative di settore, i lavori saranno eseguiti in prima persona, senza alcun affidamento a ditte esterne</xsd:documentation>
+                    <xsd:documentation xml:lang="it">che i lavori sono/saranno eseguiti dalla impresa/e indicata/e alla seguente sezione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="obblighi_salute_sicurezza" type="eoblsalsicaltpdc:obblighi_salute_sicurezza_altpdc_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Rispetto degli obblighi in materia di salute e sicurezza nei luoghi di lavoro</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_dichiarazioni_cila" type="sdiccila:sezione_dichiarazioni_cila_ctype"/>
+</xsd:schema>

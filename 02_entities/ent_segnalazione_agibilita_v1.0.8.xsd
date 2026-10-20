@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:esegagi="../02_entities/segnalazione_agibilita"
+    targetNamespace="../02_entities/segnalazione_agibilita"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="tipologie_intervento_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">la Segnalazione certificata di Agibilità per</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="nuove_costruzioni" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">nuove costruzioni</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="recupero_parti_strutturali" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">lavori di recupero di edifici esistenti che interessino parti strutturali degli edifici</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cambi_destinazione_uso" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">cambi di destinazione d'uso con o senza opere, anche di singole unità immobiliari</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="riferimento_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">la Segnalazione certificata di agibilità si riferisce a una delle seguenti agibilità</xsd:documentation>
+            <xsd:documentation xml:lang="it">L'agibilità è da intendersi parziale qualora non siano stati completati tutti i lavori contemplati dai titoli edilizi sopra richiamati</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:element name="agibilita_totale" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'agibilità relativa a tutti i lavori contemplati dai titoli edilizi sopra richiamati</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="agibilita_parziale_edifici" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'agibilità parziale di singoli edifici o porzioni della costruzione, se funzionalmente autonomi, se sono state realizzate e collaudate le opere di urbanizzazione primaria relative all'intero intervento edilizio, sono state completate e collaudate le parti strutturali connesse, sono stati collaudati e certificati gli impianti relativi alle parti comuni (art. 93, comma 4, lettera a) LP 15/2015)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="agibilita_parziale_unita" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'agibilità parziale di singole unità immobiliari se sono state completate e collaudate le opere strutturali connesse, sono certificati gli impianti, sono completate le parti comuni e le opere di urbanizzazione primaria dichiarate funzionali rispetto all'edificio oggetto di agibilità parziale (art. 93, comma 4, lettera b) LP 15/2015)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="dichiarazioni_titolare_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Il sottoscritto titolare dichiara</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="prosciugatura_salubrita" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">di aver verificato l'avvenuta prosciugatura dei muri e la salubrità degli ambienti</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="saldo_contributo" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">ed allega documentazione attestante il versamento del saldo del contributo se il regolamento edilizio comunale ammette la rateizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_acustica" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">ed allega dichiarazione del tecnico abilitato in merito alla conformità acustica ai sensi dell'art. 15, comma 2, del D.P.G.P. 4 agosto 1992, n. 12-65 Leg</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="presentazione_agibilita_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Presentazione della segnalazione certificata per l'agibilità</xsd:documentation>
+            <xsd:documentation xml:lang="it">Presenta</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="tipologie_intervento" type="esegagi:tipologie_intervento_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="riferimento_agibilita" type="esegagi:riferimento_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="dichiarazioni_titolare" type="esegagi:dichiarazioni_titolare_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="segnalazione_agibilita" type="esegagi:presentazione_agibilita_ctype"/>
+</xsd:schema>

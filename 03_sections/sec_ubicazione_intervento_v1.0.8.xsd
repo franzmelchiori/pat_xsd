@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:elocint="../02_entities/localizzazione_intervento"
+    xmlns:edaca="../02_entities/dati_catastali"
+    xmlns:subiint="../03_sections/ubicazione_intervento"
+    targetNamespace="../03_sections/ubicazione_intervento"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/localizzazione_intervento" schemaLocation="../02_entities/ent_localizzazione_intervento_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_ubicazione_intervento_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Ubicazione dell'intervento: Comune destinatario, localizzazione e dati catastali</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="comune" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Comune destinatario della pratica e ufficio competente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="localizzazione_intervento" type="elocint:localizzazione_intervento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Localizzazione dell'intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="dati_catastali" type="edaca:dati_catastali_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dati catastali</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Per le particelle edificiali non anteporre punteggiatura ai numeri ed in caso di particelle con denominatore inserire numeratore/denominatore (esempio p.ed. .12/3 inserire nel campo 12/3)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">P.f., P.ed., del C.C., porzione materiale, subalterno</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_ubicazione_intervento" type="subiint:sezione_ubicazione_intervento_ctype"/>
+</xsd:schema>

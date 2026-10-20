@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:etipintopepdc="../02_entities/tipologia_intervento_opere_pdc"
+    targetNamespace="../02_entities/tipologia_intervento_opere_pdc"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="piano_attuativo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">intervento soggetto a piano attuativo approvato di cui alla convenzione (numero e data della convenzione, data di approvazione del piano attuativo)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="numero_convenzione" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_convenzione" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_approvazione_piano" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tipo_interventi_opere_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tipologia di intervento e descrizione sintetica delle opere</xsd:documentation>
+            <xsd:documentation xml:lang="it">Le opere in progetto saranno realizzate mediante</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="intervento_diretto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">intervento diretto</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="intervento_convenzionato" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">intervento soggetto a convenzione (ai sensi dell'art. 84, L.P. n. 15/2015)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="piano_attuativo" type="etipintopepdc:piano_attuativo_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+            <xsd:element name="descrizione_opere" type="xsd:string" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Descrizione sintetica delle opere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="tipologia_intervento_opere_pdc" type="etipintopepdc:tipo_interventi_opere_ctype"/>
+</xsd:schema>

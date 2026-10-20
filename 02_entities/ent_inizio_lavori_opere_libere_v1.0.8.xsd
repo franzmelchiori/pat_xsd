@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:einilavopelib="../02_entities/inizio_lavori_opere_libere"
+    targetNamespace="../02_entities/inizio_lavori_opere_libere"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="tipologia_opere_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">e che tali lavori rientrano nella seguente tipologia di opere</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="manutenzione_straordinaria" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">manutenzione straordinaria che non interessa elementi strutturali dell'edificio</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera a) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="legnaie" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">legnaie pertinenziali degli edifici nel rispetto delle tipologie e dei limiti dimensionali stabiliti dal PRG</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera d) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tende" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">tende da sole avvolgibili prive di sostegni a palo e le tende a pergola, anche bioclimatiche, su edifici posti nelle aree di tutela ambientale o soggetti alla disciplina in materia di beni culturali o compresi negli insediamenti storici, se rispettano i criteri stabiliti dal comune per la loro installazione; questi interventi sono liberi all'esterno delle aree sopra indicate o non soggette ai predetti vincoli</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera e) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="recinzioni" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">recinzioni di altezza inferiore a 150 centimetri</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera f) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="arredi_esercizi_pubblici" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">attrezzature, gli elementi di arredo, i plateatici e le loro coperture, o pergotende, o altre coperture comunque denominate, di pertinenza di esercizi pubblici e commerciali eseguiti nel rispetto delle disposizioni comunali</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera g) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="telecomunicazioni_nuove_strutture" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">la realizzazione di nuove strutture di impianti fissi di telecomunicazione e di radiodiffusione con altezza inferiore a tre metri da collocare sulle coperture di edifici o in corrispondenza di infrastrutture per la mobilità</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera g bis) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="telecomunicazioni_installazione" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">interventi di installazione e di modifica di impianti fissi di telecomunicazione e di radiodiffusione su strutture esistenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera h) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="telecomunicazioni_demolizione" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">interventi di demolizione delle strutture che ospitano impianti fissi di telecomunicazione e di radiodiffusione e la modifica delle medesime strutture nei limiti del 20 per cento delle dimensioni della struttura esistente</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera i) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="trasformazione_bosco" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">interventi di trasformazione del bosco volti al ripristino di aree prative o pascolive o alla realizzazione di bonifiche agrarie che non richiedono alcuna opera di infrastrutturazione o di edificazione, nell'ambito delle fattispecie disciplinate dall'articolo 16, comma 1, lettere c) e c bis), della legge provinciale sulle foreste e sulla protezione della natura 2007 non riconducibili agli interventi di cui all'art. 85 della L.P. n. 15/2015</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera j) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_precarie" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">opere precarie facilmente rimovibili e destinate a soddisfare esigenze improrogabili e temporanee</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera k) della legge provinciale 4 agosto 2015, n. 15. Si ricorda che la comunicazione deve essere presentata al Comune almeno 10 giorni prima dell'inizio lavori ai sensi dell'art. 32, comma 5, del regolamento urbanistico-edilizio provinciale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="segnaletica_sentieristica" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">segnaletica sentieristica ed escursionistica e quella di denominazione di percorsi storici e culturali, nel rispetto dei criteri eventualmente previsti dalla normativa vigente relativamente alla segnaletica e alla cartellonistica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera l) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cartelli_pubblicitari" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">cartelli o altri mezzi pubblicitari all'interno dei centri abitati nel rispetto dei criteri dettati dal regolamento edilizio comunale</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera m) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cippi_commemorativi" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">cippi o simboli commemorativi posti all'esterno delle aree pertinenziali degli edifici, se di limitate dimensioni e se privi di opere murarie di fondazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera n) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="demolizione_impianti_funiviari" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">gli interventi di demolizione delle opere degli impianti funiviari e delle relative costruzioni accessorie nelle aree sciabili</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera n bis) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_stagionali_agricole" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">le opere stagionali dirette a soddisfare esigenze temporanee e contingenti di alloggiamento dei lavoratori stagionali del settore agricolo, nel rispetto dei requisiti igienico-sanitari e di agibilità previsti dalla normativa vigente, incluso l'allacciamento ai servizi o altri presidi analoghi, purché destinate ad essere immediatamente rimosse al cessare della temporanea necessità e, comunque, entro un termine non superiore a centottanta giorni, comprensivo dei tempi di allestimento e smontaggio del manufatto; il comune può subordinare la loro realizzazione alla presentazione di idonee garanzie, anche di carattere finanziario, ai fini del rispetto dei termini e delle modalità di rimessa in ripristino dei luoghi; resta fermo il rispetto della normativa statale in materia di tutela della salute e della sicurezza nei luoghi di lavoro</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3, lettera n ter) della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="vetrate_panoramiche" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">interventi di installazione, sui balconi degli edifici, sulle logge rientranti all'interno dell'edificio o sui porticati - a eccezione di quelli gravati, in tutto o in parte, da diritti di uso pubblico o collocati nei fronti esterni dell'edificio, visibili da aree pubbliche - di vetrate panoramiche amovibili e totalmente trasparenti, dirette ad assolvere a funzioni temporanee di protezione dagli agenti atmosferici, miglioramento delle prestazioni acustiche ed energetiche, riduzione delle dispersioni termiche, parziale impermeabilizzazione dalle acque meteoriche</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 78, comma 3 bis della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="solare_copertura" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">installazione di impianti solari fotovoltaici o termici sulle coperture delle costruzioni esistenti e opere di connessione (nel rispetto di quanto previsto al comma 3 dell'articolo 7 della legge provinciale 2 maggio 2022, n. 4)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="solare_a_terra" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">installazione di impianti solari fotovoltaici e termici a terra nelle pertinenze delle costruzioni avente capacità di generazione inferiore alle soglie previste dall'art. 3 comma 1 della L.P. 2 maggio 2022 n. 4</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pompe_di_calore" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">installazione e sostituzione di pompe di calore con potenza elettrica inferiore a 1000 kW</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Punto A, Allegato D, legge provinciale 2 maggio 2022, n. 4</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="generatori_di_calore" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">installazione e sostituzione di generatori di calore, inclusi i generatori ibridi, al servizio di edifici, nel rispetto delle condizioni previste dall'articolo 7 del decreto legislativo 25 novembre 2024, n. 190 (Disciplina dei regimi amministrativi per la produzione di energia da fonti rinnovabili, in attuazione dell'articolo 26, commi 4 e 5, lettera b) e d), della legge 5 agosto 2022, n. 118), e del relativo allegato A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="eolico_microcogeneratori" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">installazione di singoli generatori eolici di potenza inferiore a quella prevista dalla tabella A del decreto legislativo n. 387 del 2003, con altezza complessiva non superiore a 1,5 metri e diametro non superiore a 1 metro e di microcogeneratori ad alto rendimento, come definiti dal decreto legislativo 8 febbraio 2007, n. 20</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Punto C, Allegato D, legge provinciale 2 maggio 2022, n. 4</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="microcogenerazione" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">installazione ed esercizio di unità di microcogenerazione ai sensi dell'articolo 2, comma 1, lettera e) del decreto legislativo n. 20 del 2007 e aventi potenza inferiore a 50 kWe</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Punto D, Allegato D, legge provinciale 2 maggio 2022, n. 4</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="modifiche_impianti_esistenti" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">modifiche di impianti esistenti, o di progetti autorizzati e non ancora realizzati, che rientrano entro i limiti previsti per le variazioni in corso d'opera di cui all'articolo 92, comma 3, lettera b), della legge provinciale per il governo del territorio 2015</xsd:documentation>
+                    <xsd:documentation xml:lang="it">articolo 7, comma 5 della legge provinciale 2 maggio 2022, n. 4</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="inizio_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Inizio dei lavori e tipologie di opere</xsd:documentation>
+            <xsd:documentation xml:lang="it">Attenzione! Qualora la data di presentazione della Comunicazione Opere Libere risulti successiva alla data di inizio lavori indicata è applicata la sanzione amministrativa pecuniaria (art. 78, comma 4, L.P. n. 15/2015) per mancata comunicazione preventiva</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data_lavori" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Si comunica che in data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="avranno_inizio" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">avranno inizio i lavori descritti nella sezione oggetto della pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="eseguiti_senza_comunicazione" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">sono stati eseguiti i lavori descritti in oggetto della pratica in assenza della necessaria comunicazione preventiva, con gli effetti sanzionatori previsti dall'art. 78, comma 4, della L.P. n. 15/2015</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="tipologia_opere" type="einilavopelib:tipologia_opere_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="inizio_lavori_opere_libere" type="einilavopelib:inizio_lavori_ctype"/>
+</xsd:schema>

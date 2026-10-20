@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:ecalconcosscia="../02_entities/calcolo_contributo_costruzione_scia"
+    targetNamespace="../02_entities/calcolo_contributo_costruzione_scia"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="soggetto_contributo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">è soggetto e</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="esenzione_art_90_lettera" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">rientra nei casi di esenzione ai sensi dell'art. 90, comma 1, della L.P. n. 15/2015 (indicare la lettera)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="rateizzazione" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si chiede la rateizzazione del contributo di costruzione secondo le modalità stabilite dal regolamento del Comune nel rispetto dell'art. 87, comma 6, della L.P. n. 15/2015</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="allega_ricevuta_pagamento" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allega ricevuta del pagamento, salvo successivo conguaglio o riduzione sulla base delle determinazioni del Comune</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="calcolo_contributo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Calcolo del contributo di costruzione</xsd:documentation>
+            <xsd:documentation xml:lang="it">Per quanto concerne il contributo di costruzione, l'intervento da realizzare</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">non è soggetto in quanto non comporta aumento del carico urbanistico</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="soggetto" type="ecalconcosscia:soggetto_contributo_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+            <xsd:element name="scomputo_opere_urbanizzazione" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Relativamente agli oneri di urbanizzazione: il titolare chiede di eseguire direttamente, a scomputo di quanto dovuto, le opere di urbanizzazione ed a tal fine allega la proposta di progetto per la realizzazione delle stesse, previa stipulazione della convenzione prevista dall'art. 84 della L.P. n. 15/2015</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="calcolo_contributo_costruzione_scia" type="ecalconcosscia:calcolo_contributo_ctype"/>
+</xsd:schema>

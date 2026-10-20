@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:estapar="../02_entities/standard_parcheggio"
+    targetNamespace="../02_entities/standard_parcheggio"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="standard_parcheggio_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Standard di parcheggio</xsd:documentation>
+            <xsd:documentation xml:lang="it">Per quanto concerne lo standard a parcheggio, l'intervento da realizzare</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="soddisfa_standard" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">soddisfano lo standard di parcheggio secondo quanto previsto dalla normativa vigente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_soggetto_esonerato" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non sono soggette/ sono esonerate dall'obbligo di rispetto delle quantità di parcheggio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="esonerato_pagamento" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">sono esonerate dall'obbligo del rispetto delle quantità minime di parcheggio ed è soggetto al pagamento al comune di una somma corrispondente al costo di costruzione di un volume standard di parcheggi coperti secondo quanto previsto dalla normativa vigente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="studio_specifico" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">è soggetto a studio specifico come definito dalla tabella A del Decreto del Presidente della Provincia 19 maggio 2017, n. 8-61/Leg e si allega</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="standard_parcheggio" type="estapar:standard_parcheggio_ctype"/>
+</xsd:schema>

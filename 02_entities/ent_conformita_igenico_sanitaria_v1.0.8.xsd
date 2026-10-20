@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:econigesan="../02_entities/conformita_igenico_sanitaria"
+    targetNamespace="../02_entities/conformita_igenico_sanitaria"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="conformita_sanitaria_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Conformità igienico-sanitaria</xsd:documentation>
+            <xsd:documentation xml:lang="it">Per quanto riguarda gli aspetti igienico sanitari</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="autocertificazione_conformita" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si autocertifica la conformità delle opere alle norme</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_sussiste_esigenza" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non sussiste l'esigenza di una valutazione di conformità a norme igienico-sanitarie</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="conformita_igenico_sanitaria" type="econigesan:conformita_sanitaria_ctype"/>
+</xsd:schema>

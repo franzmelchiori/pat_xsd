@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:html="http://www.w3.org/1999/xhtml/">
+    <Identification>
+        <ShortName>IT:PAT:CL:TitoliAbilitativi</ShortName>
+        <LongName>Titoli abilitativi edilizi: titoli della legge provinciale 4 agosto 2015, n. 15, e titoli previsti dalle norme precedenti, da indicare negli estremi dei titoli e nella verifica dello stato legittimo</LongName>
+        <Version>1</Version>
+        <CanonicalUri/>
+        <CanonicalVersionUri/>
+        <Agency>
+            <ShortName>PAT</ShortName>
+            <LongName xml:lang="it">Provincia autonoma di Trento</LongName>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="id" Use="required">
+            <ShortName>id</ShortName>
+            <Data Type="xsd:int"/>
+        </Column>
+        <Column Id="code" Use="required">
+            <ShortName>Code</ShortName>
+            <Data Type="xsd:normalizedString"/>
+        </Column>
+        <Column Id="description" Use="required">
+            <ShortName>Description</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Key Id="codeKey">
+            <ShortName>code</ShortName>
+            <ColumnRef Ref="code"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>PDC</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Permesso di costruire</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>SCIA</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Segnalazione certificata di inizio attività</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>CILA</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Comunicazione inizio lavori asseverata</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>COL</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Comunicazione opere libere</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>PDCS</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Permesso di costruire in sanatoria</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>PS</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Provvedimento in sanatoria</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>CE</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Concessione edilizia</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>CES</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Concessione edilizia in sanatoria (condono edilizio)</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>AE</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Autorizzazione edilizia</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>DIA</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Denuncia di inizio attività</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>LE</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Licenza edilizia</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>12</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>ALTRO</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>Altro titolo abilitativo</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:edicaggcol="../02_entities/dichiarazioni_aggiuntive_col"
+    targetNamespace="../02_entities/dichiarazioni_aggiuntive_col"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="dichiarazioni_aggiuntive_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazioni aggiuntive del titolare</xsd:documentation>
+            <xsd:documentation xml:lang="it">Il titolare dichiara</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="libro_fondiario_no_vincoli" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che non sussistono vincoli iscritti al Libro Fondiario che creano impedimento alla realizzazione dell'intervento richiesto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="garanzie_opere_precarie" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">di essere a conoscenza che, per l'esecuzione delle opere precarie di cui all'art. 78, comma 3, lettera k) della legge provinciale 4 agosto 2015, n. 15, l'Amministrazione comunale ha la facoltà di richiedere la presentazione di idonee garanzie, anche di carattere finanziario, ai fini del rispetto dei termini e delle modalità di rimessa in pristino dei luoghi</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="nessuna_modifica" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che l'intervento non comporta alcuna modifica dei seguenti aspetti: destinazione d'uso; carico urbanistico ai fini del pagamento del contributo di costruzione; standard urbanistici (ad esempio spazi di parcheggio); non interessa parti strutturali dell'edificio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="rispetto_normative" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">di essere informato che l'intervento deve essere realizzato nel rispetto degli strumenti di pianificazione e di ogni altra disciplina e normativa relativa alla sua realizzazione, in particolare delle norme: in materia antisismica; in materia di sicurezza; in materia di paesaggio e qualità architettonica; in materia igienico-sanitaria, in particolare in osservanza dei criteri fissati dal regolamento edilizio comunale (ad esempio la dimensione minima dei locali, fori, servizi igienici etc.); in materia di efficienza energetica; in materia di impianti e di barriere architettoniche; in materia di altezze e distanze</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="inizio_non_anteriore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che le opere di progetto non possono avere inizio prima della data di presentazione della presente comunicazione e che l'omissione della comunicazione stessa comporta il pagamento della sanzione pecuniaria prevista dall'art. 78, comma 4 della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="dichiarazioni_aggiuntive_col" type="edicaggcol:dichiarazioni_aggiuntive_ctype"/>
+</xsd:schema>

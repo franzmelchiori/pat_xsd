@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:epepers="../02_entities/persona"
+    xmlns:epecitt="../02_entities/cittadinanza"
+    xmlns:epeindita="../02_entities/indirizzo_italiano"
+    xmlns:epeindest="../02_entities/indirizzo_estero"
+    xmlns:epecont="../02_entities/contatti"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    targetNamespace="../02_entities/tecnici_incaricati"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/cittadinanza" schemaLocation="../02_entities/ent_cittadinanza_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
+
+    <xsd:complexType name="iscrizione_ordine_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Iscrizione all'ordine/collegio/albo: ordine, sede, numero di iscrizione</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ordine" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="ordine_di" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="numero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:group name="dati_anagrafici_tecnico_group">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati anagrafici del tecnico: persona, cittadinanza, residenza, studio</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="dati_tecnico" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Cognome, nome, C.F., data di nascita, sesso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Luogo di nascita: Stato, Provincia, Comune italiano o Località estera</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Cittadinanza</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Residenza: Stato, Provincia, Comune italiano o Località estera, Via, Piazza, ecc., N., C.A.P.</xsd:documentation>
+                </xsd:annotation>
+                <xsd:element name="residenza_italiana" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="residenza_estera" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Studio in: Stato, Provincia, Comune italiano o Località estera, Via, Piazza, ecc., N., C.A.P.</xsd:documentation>
+                </xsd:annotation>
+                <xsd:element name="studio_italia" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="studio_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:group>
+
+    <xsd:complexType name="tecnico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati del tecnico incaricato</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:group ref="etecinc:dati_anagrafici_tecnico_group"/>
+            <xsd:element name="iscrizione_ordine" type="etecinc:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Telefono, fax, cell., posta elettronica certificata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnico_asseverante_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati del tecnico asseverante</xsd:documentation>
+            <xsd:documentation xml:lang="it">La/Il sottoscritta/o in qualità di tecnico asseverante: Cognome e Nome, codice fiscale, P.IVA, nato a, prov., stato, nato il, residente in, con studio in, iscritto all'ordine/collegio, telefono, fax, cell., posta elettronica certificata</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="etecinc:tecnico_ctype">
+                <xsd:sequence>
+                <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">P.IVA</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnico_sintetico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati sintetici del tecnico: cognome e nome, iscrizione all'ordine/collegio</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="cognome_nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Cognome e Nome</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="iscrizione_ordine" type="etecinc:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Iscritto all'ordine/collegio: ordine, sede, numero di iscrizione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="progettista_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Progettista</xsd:documentation>
+            <xsd:documentation xml:lang="it">dichiara di aver incaricato, in qualità di progettista, il tecnico indicato nella sezione seguente</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_presentatore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">non è colui che presenta la pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="presentatore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">colui che presenta la pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="direttore_lavori" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">incaricato anche come direttore dei lavori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="titolo" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="direttore_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Direttore dei lavori</xsd:documentation>
+            <xsd:documentation xml:lang="it">da compilare se il direttore dei lavori è diverso dal progettista</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="altro_tecnico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Altri tecnici incaricati</xsd:documentation>
+            <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+            <xsd:documentation xml:lang="it">Allegare fac simile "altri progettisti" (da scaricare, compilare e firmare)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="incaricato_della" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ambito dell'incarico</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:group ref="etecinc:dati_anagrafici_tecnico_group"/>
+            <xsd:element name="iscritto_ordine" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">il tecnico è iscritto ad un ordine professionale (sì / no)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="iscrizione_ordine" type="etecinc:iscrizione_ordine_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Iscritto all'ordine/collegio/albo: ordine, sede, numero di iscrizione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="altri_progettisti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Altri progettisti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="presenti_altri_progettisti" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Sono presenti altri progettisti? (sì / no)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro_tecnico" type="etecinc:altro_tecnico_ctype" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">dichiara di aver incaricato in qualità di altri tecnici, i soggetti indicati nella sezione seguente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnici_incaricati_dei_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Progettisti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="progettista" type="etecinc:progettista_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="direttore_lavori" type="etecinc:direttore_lavori_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="presa_conoscenza" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">dichiara di aver preso conoscenza dei contenuti progettuali e della relazione geologica, geotecnica e idrogeologica eventualmente allegata al progetto nonché degli adempimenti relativi all'utilizzo delle terre e rocce da scavo</xsd:documentation>
+                    <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allegare fac simile "altri progettisti" (da scaricare, compilare e firmare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altri_progettisti" type="etecinc:altri_progettisti_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="progettista_architettonico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Progettista delle opere architettoniche</xsd:documentation>
+            <xsd:documentation xml:lang="it">Dichiara di aver incaricato in qualità di progettista delle opere architettoniche, il tecnico indicato nella sezione progettista delle opere architettoniche</xsd:documentation>
+            <xsd:documentation xml:lang="it">Dichiara inoltre:</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_presentatore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">non è colui che presenta la pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="presentatore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">colui che presenta la pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="direttore_lavori" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">incaricato anche come direttore dei lavori dell'opera</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="altro_tecnico_pdc_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Altri tecnici incaricati</xsd:documentation>
+            <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+            <xsd:documentation xml:lang="it">Allegare fac simile "altri progettisti" (da scaricare, compilare e firmare)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="altro_progettista" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">altro progettista</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="certificatore_energetico" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">soggetto abilitato alla certificazione energetica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="incaricato_della" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ambito dell'incarico</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="altri_progettisti_pdc_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Altri progettisti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="presenti_altri_progettisti" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Sono presenti altri progettisti? (sì / no)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Dichiara</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="0" maxOccurs="1">
+                <xsd:element name="individuati_prima_inizio_lavori" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che gli altri tecnici incaricati saranno individuati prima dell'inizio dei lavori</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="altro_tecnico" type="etecinc:altro_tecnico_pdc_ctype" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">di aver incaricato in qualità di altri tecnici, i soggetti indicati nella sezione seguente</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnici_incaricati_dei_lavori_pdc_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tecnici incaricati</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="progettista_opere_architettoniche" type="etecinc:progettista_architettonico_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="altri_progettisti" type="etecinc:altri_progettisti_pdc_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnico_abilitato_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tecnico abilitato</xsd:documentation>
+            <xsd:documentation xml:lang="it">Dichiara di aver incaricato in qualità di tecnico abilitato il professionista indicato nella sezione seguente</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_presentatore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">non è colui che presenta la pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="presentatore" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">colui che presenta la pratica</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Nome, Cognome, Sesso, Cittadinanza, nato a, il, Provincia, Stato, C.F., residenza, studio, iscrizione all'ordine/collegio/albo, telefono, fax, cell., posta elettronica certificata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="altro_tecnico_cila_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Altri tecnici incaricati (CILA)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="etecinc:altro_tecnico_ctype">
+                <xsd:sequence>
+                    <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="it">Telefono, fax</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="altri_progettisti_cila_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Altri progettisti (CILA)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="presenti_altri_progettisti" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Sono presenti altri progettisti? (sì / no)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro_tecnico" type="etecinc:altro_tecnico_cila_ctype" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">dichiara di aver incaricato in qualità di altri tecnici, i soggetti indicati nella sezione seguente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnici_incaricati_cila_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Progettisti (CILA)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="progettista" type="etecinc:progettista_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Nome, cognome, sesso, cittadinanza, luogo e data di nascita (in Italia o all'estero), C.F., residenza, studio, iscrizione all'ordine/collegio/albo, telefono, fax, cell., posta elettronica certificata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="direttore_lavori_diverso" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">se il direttore dei lavori è diverso dal progettista</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altri_progettisti" type="etecinc:altri_progettisti_cila_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="elaborati_col_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">che è necessaria la redazione dei seguenti elaborati progettuali/certificazioni e di aver incaricato in qualità di progettista/soggetto certificatore i soggetti indicati nella sezione seguente</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="elaborati_progettuali" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">elaborati progettuali a firma di un tecnico abilitato, che rappresenti lo stato di raffronto nel caso di interventi di manutenzione straordinaria che comportano la modifica dell'impianto distributivo interno; e relativa attestazione ai sensi dell'art. 15, comma 2, della L.P. n. 15/2015 in merito alla corrispondenza dei contenuti del progetto rispetto alle disposizioni vigenti e la corrispondenza dei relativi contenuti rispetto a studi o perizie allegate, quali parti integranti al progetto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="irrilevanza_strutturale" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">attestazione di un tecnico abilitato che dimostri l'irrilevanza strutturale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aree_salvaguardia" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">attestazione preventiva alla realizzazione delle attività potenzialmente interferenti con le aree di salvaguardia della carta delle risorse idriche (D.G.P. n. 1197 del 7 luglio 2023)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="elaborati_impianti" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">elaborato/i progettuale/i relativo/i agli impianti di cui al D.M. 37/2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="requisiti_prestazione_energetica" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">relazione della ditta/tecnico attestante i requisiti di prestazione energetica (nel caso in cui gli interventi ricadano nell'articolo 4, del d.P.P. 13 luglio 2009, n. 11-13/Leg. e ss.mm)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="relazione_energetica" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">relazione energetica (Allegati D.M. 26 giugno 2015 Schemi e modalità di riferimento per la compilazione della relazione tecnica di progetto ai fini dell'applicazione delle prescrizioni e dei requisiti minimi di prestazione energetica negli edifici) nel caso in cui gli interventi ricadano nell'articolo 4, commi 3, 4 o 5 del d.P.P. 13 luglio 2009, n. 11-13/Leg. e s.m.i.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="relazione_opere_precarie" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Nel caso in cui la comunicazione riguardi la posa di opere o manufatti precari ammessi dall'art. 78, comma 3, lettera k) della legge provinciale 4 agosto 2015, n. 15, la comunicazione deve essere presentata al comune allegando l'ulteriore documentazione sottoelencata, secondo le prescrizioni contenute nell'art. 32 del regolamento urbanistico-edilizio provinciale: relazione tecnica descrittiva delle opere, della loro funzione temporanea e improrogabile, dei tempi previsti di utilizzazione e delle modalità di rimozione e rimessa in pristino dei luoghi ed elaborati cartografici relativi al manufatto o alle opere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnico" type="etecinc:altro_tecnico_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tecnici incaricati</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnici_incaricati_col_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tecnici (COL)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Dichiara</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="elaborati_non_necessari" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che non è necessaria la redazione di elaborati progettuali a firma di un tecnico abilitato in quanto non comportano la costruzione di manufatti, la modifica ai parametri edilizi o igienico-sanitari esistenti o degli impianti esistenti</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="elaborati_necessari" type="etecinc:elaborati_col_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:complexType name="tecnici_incaricati_pds_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tecnici incaricati (sanatoria)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="progettista" type="etecinc:progettista_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="direttore_lavori_diverso" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">se il direttore dei lavori è diverso dal progettista</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altri_progettisti" type="etecinc:altri_progettisti_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="tecnici_incaricati" type="etecinc:tecnici_incaricati_dei_lavori_ctype"/>
+</xsd:schema>

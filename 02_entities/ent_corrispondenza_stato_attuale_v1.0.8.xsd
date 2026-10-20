@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:ecorstaatt="../02_entities/corrispondenza_stato_attuale"
+    targetNamespace="../02_entities/corrispondenza_stato_attuale"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="corrispondenza_stato_attuale_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Corrispondenza tra stato autorizzato e stato attuale</xsd:documentation>
+            <xsd:documentation xml:lang="it">In riferimento alle opere oggetto del presente permesso di costruire in sanatoria o provvedimento in sanatoria, il tecnico dichiara che si tratta di</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="nuova_costruzione_area_libera" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Intervento di nuova costruzione su area libera</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="immobile_esistente" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Intervento su immobile esistente per il quale è stato reperito il seguente ultimo titolo abilitativo rispetto al quale il rilievo dello stato attuale non risulta corrispondente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="titoli_non_reperiti" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Non sono stati reperiti titoli abilitativi essendo l'immobile di remota costruzione e successivamente non è stato interessato da altri interventi edilizi per i quali era necessario munirsi di titoli abilitativi</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="corrispondenza_stato_attuale" type="ecorstaatt:corrispondenza_stato_attuale_ctype"/>
+</xsd:schema>

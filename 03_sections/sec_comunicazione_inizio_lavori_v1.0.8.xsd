@@ -19,7 +19,7 @@
     <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
-    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/riferimenti_pdc" schemaLocation="../02_entities/ent_riferimenti_pdc_v1.0.8.xsd"/>
 
@@ -31,10 +31,10 @@
         <xsd:sequence>
             <xsd:element name="comune" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
-                    <xsd:documentation xml:lang="it">Segnala all'ufficio tecnico del Comune di</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Segnala all'ufficio tecnico del Comune</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="indirizzo_italiano" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1">
+            <xsd:element name="indirizzo_italiano" type="epeindita:indirizzo_intervento_ctype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Localizzazione dell'intervento</xsd:documentation>
                     <xsd:documentation xml:lang="it">ATTENZIONE - l'ubicazione dell'attività o intervento coincide con il Comune a cui è destinata la pratica</xsd:documentation>

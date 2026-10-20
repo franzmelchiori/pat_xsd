@@ -1,100 +1,71 @@
 """
-    PAT XML validator
+    PAT XML validator (XSD + Schematron)
     ⌘ 2026 Francesco Melchiori
+
+    uso (dalla radice del repository):
+        python3 ./04_forms/mod_pat_validator.py
+            controllo a cascata: compila tutti i moduli 04_forms/mod_*.xsd e valida
+            ogni istanza di esempio 04_forms/mod_*.xml con il suo XSD e, se presente,
+            con il suo schematron (stesso nome, estensioni .xsd e .sch)
+        python3 ./04_forms/mod_pat_validator.py <file.xml> <file.xsd> [file.sch]
+            valida una singola istanza
 """
 
 
-# import xmlschema
-from lxml import etree
+import glob
+import os
+import sys
+from lxml import etree, isoschematron
 
 
-# XSD_FOR_VALIDATION = 'mod_comunicazione_inizio_lavori_v1.0.8.xsd'
-# XML_TO_VALIDATE = 'mod_comunicazione_inizio_lavori_v1.0.8.xml'
+FORMS_DIR = './04_forms'
 
 
-# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261013_08435221000-13102026-1512.001.MDA.XML'
-# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261014_DSBFNC30M18L378L-14102026-1148.001.MDA.XML'
-# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261014_RNCGPP83H27L378W-14102026-1617.001.MDA.XML'
-# XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_sue_20261014_SNGPLA83P61L378E-14102026-0907.001.MDA.XML'
-XML_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xml'
-XSD_PATH = './04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd'
+def validate(xml_path, xsd_path, sch_path=None):
+    tree = etree.parse(xml_path, etree.XMLParser(remove_blank_text=True))
+
+    ## validate XML with XSD
+    schema = etree.XMLSchema(etree.parse(xsd_path))
+    xsd_valid = schema.validate(tree)
+    print(f'{xml_path}: XML is valid (XSD)' if xsd_valid else f'{xml_path}: XML is NOT valid (XSD)')
+    for error in schema.error_log:
+        print('    ' + str(error))
+
+    ## validate XML with Schematron
+    sch_valid = True
+    if sch_path:
+        schematron = isoschematron.Schematron(etree.parse(sch_path), store_report=True)
+        sch_valid = schematron.validate(tree)
+        print(f'{xml_path}: XML is valid (SCH)' if sch_valid else f'{xml_path}: XML is NOT valid (SCH)')
+        for text in schematron.validation_report.iter('{http://purl.oclc.org/dsdl/svrl}text'):
+            print('    ' + text.text)
+
+    return xsd_valid and sch_valid
 
 
-def prettyprint(element, **kwargs):
-    xml = etree.tostring(element, pretty_print=True, **kwargs)
-    print(xml.decode(), end='')
+def validate_all():
+    ok = True
+    for xsd_path in sorted(glob.glob(os.path.join(FORMS_DIR, 'mod_*.xsd'))):
+        try:
+            etree.XMLSchema(etree.parse(xsd_path))
+            print(f'{xsd_path}: schema OK')
+        except (etree.XMLSchemaParseError, etree.XMLSyntaxError) as error:
+            print(f'{xsd_path}: schema NOT OK\n    {error}')
+            ok = False
+            continue
+        xml_path = xsd_path[:-4] + '.xml'
+        sch_path = xsd_path[:-4] + '.sch'
+        if os.path.exists(xml_path):
+            ok = validate(xml_path, xsd_path, sch_path if os.path.exists(sch_path) else None) and ok
+    print('\nRISULTATO: tutto valido' if ok else '\nRISULTATO: ci sono errori')
+    return ok
 
 
 if __name__ == '__main__':
 
-
-    # schema_file = open(XSD_FOR_VALIDATION)
-    # schema = xmlschema.XMLSchema(schema_file)
-
-    # xml_file = open(XML_TO_VALIDATE)
-    # if schema.is_valid(xml_file):
-    #     print('XML valido')
-    # else:
-    #     schema.validate(xml_file)
-
-
-    ## parse XML from XML file
-    parser = etree.XMLParser(remove_blank_text=True)
-    tree = etree.parse(XML_PATH, parser)
-    root = tree.getroot()
-
-    for element in root.iter("*"):
-        if element.text is not None and not element.text.strip():
-            element.text = None
-        elif element.text is not None and element.text.strip():
-            element.text = element.text.strip('\n')
-            element.text = element.text.strip(' ')
-        else:
-            pass
-
-    ## print XML
-    if False:
-        print(etree.tostring(tree))
-        prettyprint(tree)
-    
-    ## browse XML
-    if False:
-        for element in root.iter():
-            print(f'{element.tag} : {element.text}')
-    
-    ## browse XML with XPath
-    if False:
-        scia = tree.xpath('/scia:ModuloSCIA', namespaces={'scia': 'http://www.agid.gov.it/MODULI_PA/SUE/modulo_scia'})
-        print(scia[0][0][0].tag)
-        print(scia[0][0][0].text)
-        titolare = tree.xpath('/scia:ModuloSCIA/scia:schedaTitolare', namespaces={'scia': 'http://www.agid.gov.it/MODULI_PA/SUE/modulo_scia'})
-        print(titolare[0][0].tag)
-        print(titolare[0][0].text)
-
-        find = tree.find('.//scia:schedaTitolare', namespaces={'scia': 'http://www.agid.gov.it/MODULI_PA/SUE/modulo_scia'})
-        print(tree.getpath(find))
-        find = tree.find('.//suecommon:riferimentiCatastali', namespaces={'suecommon': 'http://www.agid.gov.it/MODULI_PA/SUE/sue_common_components'})
-        print(tree.getpath(find))
-
-        find = etree.XPath('.//scia:schedaTitolare', namespaces={'scia': 'http://www.agid.gov.it/MODULI_PA/SUE/modulo_scia'})
-        print(find(tree)[0].tag)
-        find = etree.XPath('.//suecommon:riferimentiCatastali', namespaces={'suecommon': 'http://www.agid.gov.it/MODULI_PA/SUE/sue_common_components'})
-        print(find(tree)[0].tag)
-
-        count_elements = etree.XPath('count(.//*[local-name() = $name])')
-        print(count_elements(tree, name = 'cognome'))
-
-    ## parse XSD from XSD files
-    xsd = etree.parse(XSD_PATH)
-    schema = etree.XMLSchema(xsd)
-
-    ## validate XML with XSD
-    if schema.validate(tree):
-        print('XML is valid\n')
+    if len(sys.argv) >= 3:
+        result = validate(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) >= 4 else None)
     else:
-        print('XML is NOT valid\n')
-        for error in schema.error_log:
-            print(str(error) + '\n')
+        result = validate_all()
 
-    ## assert XML with XSD
-    # schema.assertValid(tree)
+    sys.exit(0 if result else 1)

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:ecomsegcila="../02_entities/comunicazioni_segnalazioni_cila"
+    targetNamespace="../02_entities/comunicazioni_segnalazioni_cila"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="comunicazione_ctype">
+        <xsd:sequence>
+            <xsd:element name="tipologia_atto" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tipologia di atto (1)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">(1) es.: Autorizzazione paesaggistica, Parere/nulla osta da parte della Soprintendenza, Valutazione dei Vigili del Fuoco del progetto, Autorizzazione relativa al vincolo idrogeologico, Autorizzazione relativa al vincolo idraulico, Autorizzazione relativa al pericolo idrogeologico</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="autorita_competente" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Autorità competente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="comunicazioni_segnalazioni_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Atti di assenso già acquisiti</xsd:documentation>
+            <xsd:documentation xml:lang="it">che per la realizzazione dell'intervento edilizio sono necessarie le seguenti segnalazioni, asseverazioni, comunicazioni e notifiche che si presentano contestualmente alla CILA</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="comunicazione" type="ecomsegcila:comunicazione_ctype" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="comunicazioni_segnalazioni_cila" type="ecomsegcila:comunicazioni_segnalazioni_ctype"/>
+</xsd:schema>

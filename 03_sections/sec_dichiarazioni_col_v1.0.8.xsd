@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eopeparcom="../02_entities/opere_parti_comuni"
+    xmlns:epreinilavcila="../02_entities/presentazione_inizio_lavori_cila"
+    xmlns:einilavopelib="../02_entities/inizio_lavori_opere_libere"
+    xmlns:edicaggcol="../02_entities/dichiarazioni_aggiuntive_col"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:eimpese="../02_entities/impresa_escutrice"
+    xmlns:eimpproene="../02_entities/impianti_produzione_energia"
+    xmlns:sdiccol="../03_sections/dichiarazioni_col"
+    targetNamespace="../03_sections/dichiarazioni_col"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/opere_parti_comuni" schemaLocation="../02_entities/ent_opere_parti_comuni_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/presentazione_inizio_lavori_cila" schemaLocation="../02_entities/ent_presentazione_inizio_lavori_cila_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/inizio_lavori_opere_libere" schemaLocation="../02_entities/ent_inizio_lavori_opere_libere_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/dichiarazioni_aggiuntive_col" schemaLocation="../02_entities/ent_dichiarazioni_aggiuntive_col_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/impresa_escutrice" schemaLocation="../02_entities/ent_impresa_escutrice_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/impianti_produzione_energia" schemaLocation="../02_entities/ent_impianti_produzione_energia_v1.0.8.xsd"/>
+
+    <xsd:simpleType name="note_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="sezione_dichiarazioni_col_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazioni della Comunicazione opere libere</xsd:documentation>
+            <xsd:documentation xml:lang="it">Ulteriori adempimenti: qualora le opere comportino modificazioni catastali andrà presentata denuncia di variazione catastale ai competenti uffici ai sensi della normativa vigente, trasmettendo al Comune le planimetrie e visure catastali o le planimetrie catastali firmate dal tecnico abilitato unitamente alla ricevuta di deposito della richiesta di accatastamento dell'immobile.</xsd:documentation>
+            <xsd:documentation xml:lang="it">Ulteriori adempimenti: al termine dei lavori l'impresa installatrice dovrà rilasciare al committente la dichiarazione di conformità degli impianti realizzati nel rispetto delle norme di cui all'art. 6 del D.M. 37/2008 e che, ai sensi del medesimo decreto, la dichiarazione di conformità o il certificato di collaudo degli impianti, ove previsto, andrà depositato in Comune.</xsd:documentation>
+            <xsd:documentation xml:lang="it">Ulteriori adempimenti: nel caso in cui l'intervento riguardi la copertura dell'edificio va osservato il D.P.P. 25 febbraio 2008, n. 7-117/Leg.: Regolamento tecnico per la prevenzione dei rischi di infortunio a seguito di cadute dall'alto nei lavori di manutenzione ordinaria sulle coperture.</xsd:documentation>
+            <xsd:documentation xml:lang="it">Ulteriori adempimenti: la presente comunicazione non è soggetta a vincoli temporali e per la stessa non è previsto il deposito della comunicazione di fine lavori.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="opere_parti_comuni" type="eopeparcom:opere_previste_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Opere su parti comuni o modifiche esterne</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="presentazione" type="epreinilavcila:presentazione_inizio_lavori_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Presentazione della comunicazione opere libere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="inizio_lavori" type="einilavopelib:inizio_lavori_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Inizio dei lavori e tipologie di opere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="dichiarazioni_aggiuntive" type="edicaggcol:dichiarazioni_aggiuntive_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazioni aggiuntive del titolare</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnici_incaricati" type="etecinc:tecnici_incaricati_col_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tecnici</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="imprese_esecutrici" type="eimpese:imprese_esecutrici_dei_lavori_economia_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impresa esecutrice dei lavori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="impianti_produzione_energia" type="eimpproene:impianti_produzione_energia_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti di produzione di energia</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="note" type="sdiccol:note_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Note (500 caratteri)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_dichiarazioni_col" type="sdiccol:sezione_dichiarazioni_col_ctype"/>
+</xsd:schema>

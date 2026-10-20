@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:scerconediesi="../03_sections/certificato_conformita_edifici_esistenti"
+    targetNamespace="../03_sections/certificato_conformita_edifici_esistenti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_certificato_conformita_edifici_esistenti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Certificato di conformità edifici esistenti</xsd:documentation>
+            <xsd:documentation xml:lang="it">Certificato di conformità edifici esistenti (articolo 93, comma 10, della L.P. 4 agosto 2015)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="destinazione_uso" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Destinazione d'uso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento interessa l'immobile / l'area avente destinazione d'uso (residenziale, industriale, commerciale, etc. altro)</xsd:documentation>
+                    <xsd:appinfo>
+                        <canncl:codeListReference>
+                            <canncl:ShortName>IT:PAT:CL:CategorieFunzionali</canncl:ShortName>
+                        </canncl:codeListReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnico_abilitato" type="etecinc:tecnico_abilitato_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tecnici incaricati</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_certificato_conformita_edifici_esistenti" type="scerconediesi:sezione_certificato_conformita_edifici_esistenti_ctype"/>
+</xsd:schema>

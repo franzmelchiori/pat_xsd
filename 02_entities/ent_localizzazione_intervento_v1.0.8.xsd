@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:epeindita="../02_entities/indirizzo_italiano"
+    xmlns:elocint="../02_entities/localizzazione_intervento"
+    targetNamespace="../02_entities/localizzazione_intervento"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.8.xsd"/>
+
+    <xsd:complexType name="localizzazione_intervento_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Localizzazione dell'intervento</xsd:documentation>
+            <xsd:documentation xml:lang="it">Attenzione - l'ubicazione dell'attività o intervento coincide con il Comune a cui è destinata la pratica</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="indirizzo_italiano" type="epeindita:indirizzo_intervento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Comune, Prov., CAP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Via, Viale, Piazza, n° civico</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="frazione" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Frazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="scala" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">scala</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="piano" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">piano</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="interno" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">interno</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="localizzazione_intervento" type="elocint:localizzazione_intervento_ctype"/>
+</xsd:schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:equaambter="../02_entities/qualita_ambientale_terreni"
+    targetNamespace="../02_entities/qualita_ambientale_terreni"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="qualita_ambientale_terreni_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Qualità ambientale dei terreni</xsd:documentation>
+            <xsd:documentation xml:lang="it">l'intervento, in relazione alla qualità ambientale dei terreni</xsd:documentation>
+            <xsd:documentation xml:lang="it">Se l'intervento è soggetto a Comunicazione in materia di gestione terre e rocce da scavo, presentare la documentazione 15 giorni prima dell'inizio di attività di scavo. Se l'intervento è soggetto a Piano di lavoro di demolizione o rimozione dell'amianto presentare la documentazione 30 giorni prima dell'inizio dell'attività</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_richiede_indagini" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">fatta salva l'applicazione della normativa che disciplina le terre e rocce da scavo, non richiede indagini ambientali preventive in relazione agli usi pregressi che escludono attività potenzialmente inquinanti</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_necessita_bonifica" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">a seguito delle preventive analisi effettuate non necessita di bonifica, pertanto si allegano i risultati delle analisi ambientali dei terreni</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="avvenuta_bonifica" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">è stata oggetto di bonifica dei terreni con obiettivi compatibili con la destinazione d'uso del presente intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="qualita_ambientale_terreni" type="equaambter:qualita_ambientale_terreni_ctype"/>
+</xsd:schema>

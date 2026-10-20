@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:sschana="../03_sections/scheda_anagrafica"
+    xmlns:soggpra="../03_sections/oggetto_pratica"
+    xmlns:sdomdig="../03_sections/domicilio_digitale"
+    xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
+    xmlns:sinfpri="../03_sections/informativa_privacy"
+    xmlns:scommodsogcoi="../03_sections/comunicazione_modifica_soggetti_coinvolti"
+    xmlns:ssogcoi="../03_sections/soggetti_coinvolti"
+    xmlns:subiint="../03_sections/ubicazione_intervento"
+    xmlns:mcommodsogcoi="../04_forms/comunicazione_modifica_soggetti_coinvolti"
+    targetNamespace="../04_forms/comunicazione_modifica_soggetti_coinvolti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../03_sections/scheda_anagrafica" schemaLocation="../03_sections/sec_scheda_anagrafica_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/oggetto_pratica" schemaLocation="../03_sections/sec_oggetto_pratica_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/domicilio_digitale" schemaLocation="../03_sections/sec_domicilio_digitale_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/dichiarazione_consapevolezza" schemaLocation="../03_sections/sec_dichiarazione_consapevolezza_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/informativa_privacy" schemaLocation="../03_sections/sec_informativa_privacy_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/comunicazione_modifica_soggetti_coinvolti" schemaLocation="../03_sections/sec_comunicazione_modifica_soggetti_coinvolti_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/soggetti_coinvolti" schemaLocation="../03_sections/sec_soggetti_coinvolti_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/ubicazione_intervento" schemaLocation="../03_sections/sec_ubicazione_intervento_v1.0.8.xsd"/>
+
+    <xsd:complexType name="modulo_comunicazione_modifica_soggetti_coinvolti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Procedimenti Edilizi Digitali</xsd:documentation>
+            <xsd:documentation xml:lang="it">PAT Comunicazione modifica soggetti coinvolti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- MODULO DI DOMANDA (MDA) -->
+            <xsd:element name="sezione_pat_scheda_anagrafica" type="sschana:sezione_scheda_anagrafica_ctype"/>
+            <xsd:element name="sezione_pat_oggetto_pratica" type="soggpra:sezione_oggetto_pratica_ctype"/>
+            <xsd:element name="sezione_pat_domicilio_digitale" type="sdomdig:sezione_domicilio_digitale_ctype"/>
+            <xsd:element name="sezione_pat_dichiarazione_consapevolezza" type="sdiccon:sezione_dichiarazione_consapevolezza_ctype"/>
+            <xsd:element name="sezione_pat_informativa_privacy" type="sinfpri:sezione_informativa_privacy_ctype"/>
+            <xsd:element name="sezione_pat_ubicazione_intervento" type="subiint:sezione_ubicazione_intervento_ctype">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Segnala agli uffici del Comune</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Luogo di esecuzione dei lavori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sezione_pat_comunicazione_modifica_soggetti_coinvolti" type="scommodsogcoi:sezione_comunicazione_modifica_soggetti_coinvolti_ctype"/>
+            <xsd:element name="sezione_pat_soggetti_coinvolti" type="ssogcoi:sezione_soggetti_coinvolti_ctype"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="modulo_pat_comunicazione_modifica_soggetti_coinvolti" type="mcommodsogcoi:modulo_comunicazione_modifica_soggetti_coinvolti_ctype"/>
+</xsd:schema>

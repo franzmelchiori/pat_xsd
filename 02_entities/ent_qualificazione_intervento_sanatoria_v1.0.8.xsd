@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:equaintsan="../02_entities/qualificazione_intervento_sanatoria"
+    targetNamespace="../02_entities/qualificazione_intervento_sanatoria"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="qualificazione_intervento_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Qualificazione dell'intervento in sanatoria</xsd:documentation>
+            <xsd:documentation xml:lang="it">Si chiede il rilascio</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="pdc_sanatoria_art_135" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">del permesso di costruire in sanatoria ai sensi dell'art. 135, comma 1, della L.P. n. 1/2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="provvedimento_sanatoria_art_134" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">del provvedimento di sanatoria ai sensi dell'art. 134, comma 5, della L.P. n. 1/2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pdc_sanatoria_art_86_quater" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">del permesso di costruire in sanatoria ai sensi dell'art. 86 quater della LP 15/2015</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="modalita_esecuzione_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Modalità di esecuzione delle opere</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data_esecuzione" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Si dichiara di aver eseguito le opere in data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="assenza_titolo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">in assenza di titolo</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="difformita_titolo" type="eattass:estremi_titolo_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">in difformità dal seguente titolo</xsd:documentation>
+                        <xsd:documentation xml:lang="it">Titolo abilitativo, numero e data del titolo abilitativo</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="qualificazione_intervento_sanatoria" type="equaintsan:qualificazione_intervento_ctype"/>
+</xsd:schema>

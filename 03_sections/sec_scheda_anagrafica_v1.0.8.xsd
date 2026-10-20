@@ -24,10 +24,10 @@
     <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
-    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/cittadinanza" schemaLocation="../02_entities/ent_cittadinanza_v1.0.7.xsd"/>
-    <xsd:import namespace="../02_entities/documento_rilasciato" schemaLocation="../02_entities/ent_documento_rilasciato_v1.0.7.xsd"/>
-    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/documento_rilasciato" schemaLocation="../02_entities/ent_documento_rilasciato_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.8.xsd"/>
     <xsd:import namespace="../02_entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/rappresentante" schemaLocation="../02_entities/ent_ruolo_rappresentante_v1.0.8.xsd"/>
@@ -38,7 +38,11 @@
             <xsd:documentation xml:lang="it">Persona (privato)</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="selezione_persona" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="selezione_persona" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Persona (privato)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -47,11 +51,29 @@
             <xsd:documentation xml:lang="it">Ditta/società/impresa</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="selezione_ditta" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="selezione_ditta" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ditta/società/impresa</xsd:documentation>
+                <xsd:documentation xml:lang="it">Dati [se ditta/società/impresa]</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:choice>
-                <xsd:element name="selezione_cciaa_iscritta" type="sschana:opzione_ditta_cciaa_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="selezione_cciaa_non_iscritta" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="selezione_cciaa_non_necessario" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_cciaa_iscritta" type="sschana:opzione_ditta_cciaa_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Informazioni relative all'iscrizione al Registro Imprese:</xsd:documentation>
+                        <xsd:documentation xml:lang="it">Iscritta alla CCIAA</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="selezione_cciaa_non_iscritta" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Non ancora iscritta</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="selezione_cciaa_non_necessario" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Non necessita di iscrizione al RI della CCIAA</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
             </xsd:choice>
         </xsd:sequence>
     </xsd:complexType>
@@ -61,9 +83,19 @@
             <xsd:documentation xml:lang="it">Ditta iscritta alla CCIAA</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="ditta_cciaa" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="ditta_cciaa" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dati della ditta/società/impresa: Denominazione (nome della ditta o azienda o ragione sociale), Forma giuridica, Codice Fiscale, P.IVA</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Dati relativi alla sede legale della ditta/società/impresa: Stato, Provincia / Località estera, Comune, Toponimo (DUG), Denominazione stradale, Numero civico, CAP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Telefono fisso/Cellulare, Fax, PEC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:choice>
-                <xsd:element name="selezione_rea_iscritto" type="eimpresa:opzione_ditta_rea_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="selezione_rea_iscritto" type="eimpresa:opzione_ditta_rea_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Camera di commercio, numero REA, data</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
                 <xsd:element name="selezione_rea_non_iscritto" default="true" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="selezione_rea_solo_ri" default="true" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
@@ -80,22 +112,64 @@
                 <xsd:element name="opzione_persona" type="sschana:opzione_persona_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="opzione_ditta" type="sschana:opzione_ditta_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>
-            <xsd:element name="datiDichiarante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="datiDichiarante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dati del dichiarante [se persona (privato)] / dati del dichiarante [se ditta/società/impresa]</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Nome, Cognome, Cod.Fiscale, Sesso, Data nascita</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Luogo di nascita: Stato, Provincia, Comune</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cittadinanza" type="epecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Cittadinanza</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <!-- <xsd:element name="cittadino_non_ue" type="xsd:boolean" default="false" minOccurs="1" maxOccurs="1"/> -->
-            <xsd:element name="documento" type="epedocu:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="residenza_dichiarante" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="documento" type="epedocu:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Se cittadino non UE</xsd:documentation>
+                    <xsd:documentation xml:lang="it">estremi del documento di soggiorno, rilasciato da, il, scadenza</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="residenza_dichiarante" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Informazioni relative alla residenza: Stato, Provincia, Comune, Toponimo (DUG), Denominazione stradale, Numero civico, CAP</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <!-- TODO: il dichiarante puo' essere una persona estera? -->
             <!-- <xsd:choice>
                 <xsd:element name="indirizzo_italiano" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="indirizzo_estero" type="epeindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice> -->
-            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="rappresentante" type="eruorap:rappresentante_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="datiProcuratore" type="epepers:persona_ctype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="residenza_procuratore" type="epeindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">eMail/PEC, Telefono fisso/cellulare</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="rappresentante" type="eruorap:rappresentante_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">In qualità di: (Proprietario, Comproprietario, Usufruttuario, Amministratore di condominio, Legale rappresentante, Amministratore unico, Procuratore, Altro)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Carica (se ditta/società/impresa)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="datiProcuratore" type="epepers:persona_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Qualifica e dati del procuratore</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Qualifica del procuratore</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il procuratore: nome, cognome, sesso, cittadinanza, luogo e data di nascita, provincia (in Italia) / stato (all'estero), codice fiscale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="residenza_procuratore" type="epeindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Informazioni relative alla residenza del procuratore: comune di residenza, provincia, CAP, indirizzo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <!-- TODO: il procuratore puo' risiedere all'estero? -->
-            <xsd:element name="contatti_procuratore" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="contatti_procuratore" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tel, Fax, eMail PEC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:equaintpdc="../02_entities/qualificazione_intervento_pdc"
+    targetNamespace="../02_entities/qualificazione_intervento_pdc"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="qualificazione_intervento_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Qualificazione dell'intervento</xsd:documentation>
+            <xsd:documentation xml:lang="it">Rilascio del permesso di costruire per la seguente tipologia di intervento</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="permesso_di_costruire" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">permesso di costruire</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="permesso_di_costruire_convenzionato" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">permesso di costruire convenzionato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="deroga_interesse_pubblico" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">permesso di costruire in deroga per opere d'interesse pubblico individuate dal regolamento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="deroga_barriere_parcheggi" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">permesso di costruire in deroga per l'eliminazione delle barriere architettoniche e per la realizzazione dei parcheggi residenziali e commerciali in deroga</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="deroga_altre_fattispecie" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">altre fattispecie del permesso di costruire in deroga previsti dalla l.p. 15/2015 (specificare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="variante" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">variante al permesso di costruire/concessione edilizia (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="completamento_art_85" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">ai sensi dell'art. 85, comma 1, lettera i) della legge provinciale del 4 agosto 2015, n. 15, per la realizzazione della parte di intervento non ultimata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="qualificazione_intervento_pdc" type="equaintpdc:qualificazione_intervento_ctype"/>
+</xsd:schema>

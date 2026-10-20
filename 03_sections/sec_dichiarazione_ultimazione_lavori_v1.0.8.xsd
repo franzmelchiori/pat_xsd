@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:ecomfinlav="../02_entities/comunicazione_fine_lavori"
+    xmlns:sdicultlav="../03_sections/dichiarazione_ultimazione_lavori"
+    targetNamespace="../03_sections/dichiarazione_ultimazione_lavori"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/comunicazione_fine_lavori" schemaLocation="../02_entities/ent_comunicazione_fine_lavori_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_dichiarazione_ultimazione_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazione di ultimazione lavori</xsd:documentation>
+            <xsd:documentation xml:lang="it">Dichiarazione di ultimazione lavori / segnalazione certificata di conformità delle opere eseguite al progetto autorizzato / certificazione finale di regolare esecuzione delle opere / dichiarazione di variazione catastale (artt. 86 e 93 della legge provinciale 4 agosto 2015, n. 15)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="comunicazione_fine_lavori" type="ecomfinlav:comunicazione_fine_lavori_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Comunicazione di fine lavori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_dichiarazione_ultimazione_lavori" type="sdicultlav:sezione_dichiarazione_ultimazione_lavori_ctype"/>
+</xsd:schema>

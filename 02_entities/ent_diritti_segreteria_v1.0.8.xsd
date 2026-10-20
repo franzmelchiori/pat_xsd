@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:edirseg="../02_entities/diritti_segreteria"
+    targetNamespace="../02_entities/diritti_segreteria"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:simpleType name="motivazione_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="300"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="non_dovuti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">non sono dovuti oneri quali diritti o spese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_previsti_tariffario" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">poiché non previsti dal tariffario</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="esentati" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">poiché esentati</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="motivazione" type="edirseg:motivazione_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">specificare motivazione (300 caratteri)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="versamento_postale_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">versamento su conto corrente postale (vedere le istruzioni di ogni SUAP)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Allegata qui la ricevuta di versamento tramite conto corrente postale</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">data del versamento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ufficio_postale" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">ufficio postale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="versamento_pagopa_bonifico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">pagamento pagoPA / bonifico bancario (vedere le istruzioni di ogni SUAP)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Allega qui l'attestazione del pagamento pagoPA o del bonifico bancario (in caso di bonifico, non è valida la ricevuta di presa in carico del bonifico)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">data del versamento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="codice_iuv_trn" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">indicare il codice IUV / codice TRN</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="dovuti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">sono dovuti oneri quali diritti o spese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="importo_euro" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">importo totale in euro</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="pagamento_online" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">pagamento on line alla pagina successiva 'Pagamento oneri'</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="conto_corrente_postale" type="edirseg:versamento_postale_ctype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="pagopa_bonifico" type="edirseg:versamento_pagopa_bonifico_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="diritti_segreteria_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazione relativa ai diritti di segreteria/istruttori</xsd:documentation>
+            <xsd:documentation xml:lang="it">Versamento diritti o spese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_dovuti" type="edirseg:non_dovuti_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="dovuti" type="edirseg:dovuti_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="diritti_segreteria" type="edirseg:diritti_segreteria_ctype"/>
+</xsd:schema>

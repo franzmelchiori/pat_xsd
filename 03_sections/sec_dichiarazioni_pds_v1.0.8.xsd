@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eopeparcom="../02_entities/opere_parti_comuni"
+    xmlns:elibfon="../02_entities/libro_fondiario"
+    xmlns:ecalconcospdc="../02_entities/calcolo_contributo_costruzione_pdc"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:sdicpds="../03_sections/dichiarazioni_pds"
+    targetNamespace="../03_sections/dichiarazioni_pds"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/opere_parti_comuni" schemaLocation="../02_entities/ent_opere_parti_comuni_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/libro_fondiario" schemaLocation="../02_entities/ent_libro_fondiario_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/calcolo_contributo_costruzione_pdc" schemaLocation="../02_entities/ent_calcolo_contributo_costruzione_pdc_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+
+    <xsd:simpleType name="note_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="5000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="sezione_dichiarazioni_pds_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazioni del permesso di costruire in sanatoria</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="destinazione_uso" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Destinazione d'uso dell'immobile (dato valido a fini statistici)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento interessa l'immobile / l'area avente destinazione d'uso (residenziale, industriale, commerciale, etc. altro)</xsd:documentation>
+                    <xsd:appinfo>
+                        <canncl:codeListReference>
+                            <canncl:ShortName>IT:PAT:CL:CategorieFunzionali</canncl:ShortName>
+                        </canncl:codeListReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="opere_parti_comuni" type="eopeparcom:opere_previste_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Opere su parti comuni o modifiche esterne</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="libro_fondiario" type="elibfon:libro_fondiario_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazioni aggiuntive</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="calcolo_contributo_costruzione" type="ecalconcospdc:calcolo_contributo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Calcolo del contributo di costruzione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tecnici_incaricati" type="etecinc:tecnici_incaricati_pds_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tecnici incaricati e altri progettisti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">dichiara di aver incaricato, in qualità di progettista, il tecnico indicato nella sezione seguente</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="caratteristiche_intervento" type="ecalconcospdc:caratteristiche_intervento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazioni a fini del contributo di costruzione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="note" type="sdicpds:note_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Note (5000 caratteri)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_dichiarazioni_pds" type="sdicpds:sezione_dichiarazioni_pds_ctype"/>
+</xsd:schema>

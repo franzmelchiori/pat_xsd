@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:econene="../02_entities/consumi_energetici"
+    targetNamespace="../02_entities/consumi_energetici"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="consumi_energetici_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Consumi energetici</xsd:documentation>
+            <xsd:documentation xml:lang="it">con riferimento agli aspetti energetici, gli interventi eseguiti ricadono nell'ambito di applicazione dei seguenti articoli del d.P.P. 13 luglio 2009, n. 11-13/Leg. e s.m.i.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="art_4_comma_3" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">art. 4, comma 3 (nuova costruzione, demolizione e ricostruzione, ristrutturazione importante di primo livello, ampliamento superiore al 15% del volume lordo riscaldato o superiore a 500 m3 costituente una nuova unità)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="art_4_comma_4" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">art. 4, comma 4 (ristrutturazione importante di secondo livello, ampliamento superiore al 15% del volume lordo riscaldato o superiore a 500 m3 costituente una porzione funzionalmente connessa ad un'unità preesistente)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="art_4_comma_5" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">art. 4, comma 5 (riqualificazione energetica, ampliamento inferiore o uguale al 15% del volume lordo riscaldato)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_ricade" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non ricadono in tale ambito di applicazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="consumi_energetici" type="econene:consumi_energetici_ctype"/>
+</xsd:schema>

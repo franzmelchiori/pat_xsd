@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:equaintcila="../02_entities/qualificazione_intervento_cila"
+    targetNamespace="../02_entities/qualificazione_intervento_cila"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="intervento_iniziato_ctype">
+        <xsd:sequence>
+            <xsd:element name="data_inizio_intervento" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">intervento iniziato in data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="qualificazione_intervento_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Qualificazione intervento</xsd:documentation>
+            <xsd:documentation xml:lang="it">La presente comunicazione riguarda</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="da_realizzare" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">interventi da realizzare ai sensi dell'articolo 78 bis, comma 2, della legge provinciale del 4 agosto 2015, n. 15</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="in_corso_sanzione_ridotta" type="equaintcila:intervento_iniziato_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">intervento in corso di esecuzione, articolo 78 bis, comma 3, della legge provinciale del 4 agosto 2015, n. 15, con pagamento di sanzione ridotta di due terzi se la comunicazione è effettuata spontaneamente quando l'intervento è in corso di esecuzione e pertanto si allega la ricevuta di pagamento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">allegare qui la ricevuta di versamento a titolo di oblazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="con_sanzione" type="equaintcila:intervento_iniziato_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">intervento, di cui all'articolo 78 bis, comma 3 della legge provinciale del 4 agosto 2015, n. 15, con pagamento di sanzione, e pertanto si allega la ricevuta di pagamento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">allegare qui la ricevuta di versamento a titolo di oblazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="qualificazione_intervento_cila" type="equaintcila:qualificazione_intervento_ctype"/>
+</xsd:schema>

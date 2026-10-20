@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:esicimp="../02_entities/sicurezza_impianti"
+    targetNamespace="../02_entities/sicurezza_impianti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="impianti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Ai sensi del D.M. 37/2008, art. 5, è necessaria la presentazione dello schema di progetto degli impianti tecnologici, in particolare</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="elettrici" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti di produzione, trasformazione, trasporto, distribuzione, utilizzazione dell'energia elettrica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="scariche_atmosferiche" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti di protezione contro le scariche atmosferiche</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="radiotelevisivi_elettronici" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti radiotelevisivi, antenne ed elettronici in genere</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="riscaldamento_climatizzazione" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti di riscaldamento, di climatizzazione, di condizionamento e di refrigerazione, di qualsiasi natura o specie, comprese le opere di evacuazione dei prodotti della combustione e delle condense, e di ventilazione ed aerazione dei locali</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="idrici_sanitari" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti idrici e sanitari di qualsiasi natura o specie</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gas" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti per la distribuzione e l'utilizzazione di gas di qualsiasi tipo, comprese le opere di evacuazione dei prodotti della combustione e ventilazione ed aerazione dei locali</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sollevamento" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti di sollevamento di persone o di cose per mezzo di ascensori, di montacarichi, di scale mobili e simili</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="antincendio" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">impianti di protezione antincendio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="planimetria_reti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Planimetria reti: è necessaria la predisposizione della planimetria delle reti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="scarichi_acque" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">scarichi acque nere e bianche</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="raccolta_rifiuti" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">spazi di raccolta dei rifiuti solidi urbani</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fornitura_acqua" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">fornitura di acqua</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fornitura_energia_elettrica" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">fornitura di energia elettrica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fornitura_calore_gas" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">fornitura di calore, gas, ecc</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="altro" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">altro</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="sicurezza_impianti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Impianti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="impianti" type="esicimp:impianti_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="planimetria_reti" type="esicimp:planimetria_reti_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sicurezza_impianti" type="esicimp:sicurezza_impianti_ctype"/>
+</xsd:schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:edirseg="../02_entities/diritti_segreteria"
+    xmlns:eimpbol="../02_entities/imposta_bollo"
+    xmlns:sversam="../03_sections/versamenti"
+    targetNamespace="../03_sections/versamenti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/diritti_segreteria" schemaLocation="../02_entities/ent_diritti_segreteria_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/imposta_bollo" schemaLocation="../02_entities/ent_imposta_bollo_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_versamenti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Versamenti (diritti di segreteria/istruttori e imposta di bollo)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="diritti_segreteria" type="edirseg:diritti_segreteria_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazione relativa ai diritti di segreteria/istruttori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="imposta_bollo" type="eimpbol:imposta_bollo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazione relativa all'assolvimento dell'imposta di bollo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="dichiarazione_art_75" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">dichiarazione ai sensi dell'art. 75 del d.P.R. n° 445/2000</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Attenzione: qualora dai controlli successivi il contenuto delle dichiarazioni risulti non corrispondente al vero, oltre alle sanzioni penali, è prevista la decadenza dai benefici ottenuti sulla base delle dichiarazioni stesse (art. 75 del d.P.R. n. 445/2000)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_versamenti" type="sversam:sezione_versamenti_ctype"/>
+</xsd:schema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:sschana="../03_sections/scheda_anagrafica"
+    xmlns:soggpra="../03_sections/oggetto_pratica"
+    xmlns:sdomdig="../03_sections/domicilio_digitale"
+    xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
+    xmlns:sinfpri="../03_sections/informativa_privacy"
+    xmlns:sdiccila="../03_sections/dichiarazioni_cila"
+    xmlns:sdirseg="../03_sections/diritti_segreteria"
+    xmlns:sdicprocila="../03_sections/dichiarazioni_progettista_cila"
+    xmlns:subiint="../03_sections/ubicazione_intervento"
+    xmlns:stitint="../03_sections/titolarita_intervento"
+    xmlns:mcila="../04_forms/cila"
+    targetNamespace="../04_forms/cila"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../03_sections/scheda_anagrafica" schemaLocation="../03_sections/sec_scheda_anagrafica_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/oggetto_pratica" schemaLocation="../03_sections/sec_oggetto_pratica_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/domicilio_digitale" schemaLocation="../03_sections/sec_domicilio_digitale_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/dichiarazione_consapevolezza" schemaLocation="../03_sections/sec_dichiarazione_consapevolezza_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/informativa_privacy" schemaLocation="../03_sections/sec_informativa_privacy_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/dichiarazioni_cila" schemaLocation="../03_sections/sec_dichiarazioni_cila_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/diritti_segreteria" schemaLocation="../03_sections/sec_diritti_segreteria_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/dichiarazioni_progettista_cila" schemaLocation="../03_sections/sec_dichiarazioni_progettista_cila_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/ubicazione_intervento" schemaLocation="../03_sections/sec_ubicazione_intervento_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/titolarita_intervento" schemaLocation="../03_sections/sec_titolarita_intervento_v1.0.8.xsd"/>
+
+    <xsd:complexType name="modulo_cila_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Procedimenti Edilizi Digitali</xsd:documentation>
+            <xsd:documentation xml:lang="it">PAT Comunicazione Inizio Lavori Asseverata (C.I.L.A.)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Articolo 78 bis della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- MODULO DI DOMANDA (MDA) -->
+            <xsd:element name="sezione_pat_scheda_anagrafica" type="sschana:sezione_scheda_anagrafica_ctype"/>
+            <xsd:element name="sezione_pat_oggetto_pratica" type="soggpra:sezione_oggetto_pratica_ctype"/>
+            <xsd:element name="sezione_pat_domicilio_digitale" type="sdomdig:sezione_domicilio_digitale_ctype"/>
+            <xsd:element name="sezione_pat_dichiarazione_consapevolezza" type="sdiccon:sezione_dichiarazione_consapevolezza_ctype"/>
+            <xsd:element name="sezione_pat_informativa_privacy" type="sinfpri:sezione_informativa_privacy_ctype"/>
+            <xsd:element name="sezione_pat_ubicazione_intervento" type="subiint:sezione_ubicazione_intervento_ctype">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Segnala agli uffici del Comune</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sezione_pat_titolarita_intervento" type="stitint:sezione_titolarita_intervento_ctype"/>
+            <xsd:element name="sezione_pat_altri_titolari" type="sschana:sezione_scheda_anagrafica_ctype" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolarità dell'intervento - eventuali altri titolari oltre al richiedente</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allegare fac simile "altri titolari" (da scaricare, compilare e firmare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sezione_pat_dichiarazioni_cila" type="sdiccila:sezione_dichiarazioni_cila_ctype"/>
+            <xsd:element name="sezione_pat_diritti_segreteria" type="sdirseg:sezione_diritti_segreteria_ctype"/>
+            <!-- RELAZIONE TECNICA DI ASSEVERAZIONE -->
+            <xsd:element name="sezione_pat_dichiarazioni_progettista_cila" type="sdicprocila:sezione_dichiarazioni_progettista_cila_ctype"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="modulo_pat_cila" type="mcila:modulo_cila_ctype"/>
+</xsd:schema>

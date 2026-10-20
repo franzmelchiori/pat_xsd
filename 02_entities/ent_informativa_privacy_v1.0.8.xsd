@@ -21,10 +21,13 @@
         <xsd:annotation>
             <xsd:documentation xml:lang="it">Il reg. UE n. 2016/679 del 27 aprile 2016 stabilisce norme relative alla protezione delle persone fisiche con riguardo al trattamento dei dati personali.</xsd:documentation>
             <xsd:documentation xml:lang="it">Pertanto, come previsto dall'art. 13 del Regolamento, si forniscono le seguenti informazioni:</xsd:documentation>
+            <xsd:documentation xml:lang="it">Periodo di conservazione dei dati. I dati personali saranno conservati per un periodo non superiore a quello necessario per il perseguimento delle finalità sopra menzionate o comunque non superiore a quello imposto dalla legge per la conservazione dell'atto o del documento che li contiene. I dati sono altresì trasmessi alla Camera di Commercio competente per territorio per la raccolta nel Fascicolo informativo di impresa di cui all'art. 43-bis del D.P.R. 445/2000 e s.m.i.</xsd:documentation>
+            <xsd:documentation xml:lang="it">Informazioni aggiuntive. Informativa completa e altre informazioni sono disponibili presso il Comune e nel sito istituzionale del Comune.</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="titolare_comune" type="ccodelist:CodeType" minOccurs="0" maxOccurs="1">
                 <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolare del trattamento: Comune</xsd:documentation>
                     <xsd:appinfo>
                         <canncl:codeListReference>
                             <canncl:ShortName>IT:SUAP:CL:ComuniItaliani</canncl:ShortName>
@@ -32,7 +35,11 @@
                     </xsd:appinfo>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="titolare_pec" type="ctipi:email_stype"  minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="titolare_pec" type="ctipi:email_stype"  minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">indirizzo pec</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="richieste_comune" type="ccodelist:CodeType" minOccurs="0" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:appinfo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:ecomfinlav="../02_entities/comunicazione_fine_lavori"
+    targetNamespace="../02_entities/comunicazione_fine_lavori"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:simpleType name="descrizione_intervento_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="cambio_coltura_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Cambio di coltura</xsd:documentation>
+            <xsd:documentation xml:lang="it">In relazione a quanto previsto dall'articolo 88 comma 3 del regolamento l.p. 15/2015 in materia di cambio di coltura, si informa di aver depositato la comunicazione di fine lavori all'autorità Forestale</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data_deposito" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">data di deposito della comunicazione di fine lavori all'autorità Forestale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="comunicazione_fine_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Comunicazione di fine lavori</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data_conclusione_lavori" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Comunica che si sono conclusi i lavori previsti in data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="titolo_legittimante" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Il titolo e/o comunicazione che ha legittimato l'intervento: protocollo/numero e data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="descrizione_intervento" type="ecomfinlav:descrizione_intervento_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Descrizione dell'intervento</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cambio_coltura" type="ecomfinlav:cambio_coltura_ctype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="comunicazione_fine_lavori" type="ecomfinlav:comunicazione_fine_lavori_ctype"/>
+</xsd:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:etipintopecila="../02_entities/tipologia_intervento_opere_cila"
+    targetNamespace="../02_entities/tipologia_intervento_opere_cila"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="tipo_interventi_opere_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Tipologia di intervento e descrizione sintetica delle opere</xsd:documentation>
+            <xsd:documentation xml:lang="it">che i lavori riguardano l'immobile individuato nella comunicazione di inizio lavori di cui la presente relazione costituisce parte integrante e sostanziale</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="descrizione_opere" type="xsd:string" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che le opere in progetto sono subordinate a comunicazione di inizio lavori di cui all'art. 78 bis della legge provinciale del 4 agosto 2015, n. 15 in quanto consistono in (descrizione sintetica delle opere)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="tipologia_intervento_opere_cila" type="etipintopecila:tipo_interventi_opere_ctype"/>
+</xsd:schema>

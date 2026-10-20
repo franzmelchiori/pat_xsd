@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:ecorstaatt="../02_entities/corrispondenza_stato_attuale"
+    xmlns:estrurb="../02_entities/strumentazione_urbanistica"
+    xmlns:ebararc="../02_entities/barriere_architettoniche"
+    xmlns:esicimp="../02_entities/sicurezza_impianti"
+    xmlns:econene="../02_entities/consumi_energetici"
+    xmlns:etutinqacu="../02_entities/tutela_inquinamento_acustico"
+    xmlns:epreinc="../02_entities/prevenzione_incendi"
+    xmlns:econigesan="../02_entities/conformita_igenico_sanitaria"
+    xmlns:eintzonsis="../02_entities/intervento_zona_sismica"
+    xmlns:econpro="../02_entities/conformita_progetto"
+    xmlns:equaambter="../02_entities/qualita_ambientale_terreni"
+    xmlns:eallres="../02_entities/alloggi_residenza"
+    xmlns:estapar="../02_entities/standard_parcheggio"
+    xmlns:easpgeo="../02_entities/aspetti_geologici"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:efasris="../02_entities/fasce_rispetto"
+    xmlns:einfoprivacy="../02_entities/informativa_privacy"
+    xmlns:eprocontcos="../02_entities/prospetto_contributo_costruzione"
+    xmlns:etecinc="../02_entities/tecnici_incaricati"
+    xmlns:sreltecasspds="../03_sections/relazione_tecnica_asseverazione_pds"
+    targetNamespace="../03_sections/relazione_tecnica_asseverazione_pds"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/prospetto_contributo_costruzione" schemaLocation="../02_entities/ent_prospetto_contributo_costruzione_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/corrispondenza_stato_attuale" schemaLocation="../02_entities/ent_corrispondenza_stato_attuale_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/strumentazione_urbanistica" schemaLocation="../02_entities/ent_strumentazione_urbanistica_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/barriere_architettoniche" schemaLocation="../02_entities/ent_barriere_architettoniche_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/sicurezza_impianti" schemaLocation="../02_entities/ent_sicurezza_impianti_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/consumi_energetici" schemaLocation="../02_entities/ent_consumi_energetici_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tutela_inquinamento_acustico" schemaLocation="../02_entities/ent_tutela_inquinamento_acustico_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/prevenzione_incendi" schemaLocation="../02_entities/ent_prevenzione_incendi_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/conformita_igenico_sanitaria" schemaLocation="../02_entities/ent_conformita_igenico_sanitaria_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/intervento_zona_sismica" schemaLocation="../02_entities/ent_intervento_zona_sismica_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/conformita_progetto" schemaLocation="../02_entities/ent_conformita_progetto_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/qualita_ambientale_terreni" schemaLocation="../02_entities/ent_qualita_ambientale_terreni_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/alloggi_residenza" schemaLocation="../02_entities/ent_alloggi_residenza_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/standard_parcheggio" schemaLocation="../02_entities/ent_standard_parcheggio_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/aspetti_geologici" schemaLocation="../02_entities/ent_aspetti_geologici_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/fasce_rispetto" schemaLocation="../02_entities/ent_fasce_rispetto_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/informativa_privacy" schemaLocation="../02_entities/ent_informativa_privacy_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/tecnici_incaricati" schemaLocation="../02_entities/ent_tecnici_incaricati_v1.0.8.xsd"/>
+
+    <xsd:simpleType name="note_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="descrizione_opere_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="sezione_relazione_tecnica_asseverazione_pds_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Relazione tecnica di asseverazione in sanatoria</xsd:documentation>
+            <xsd:documentation xml:lang="it">Il progettista, in qualità di tecnico asseverante, preso atto di assumere la qualità di persona esercente un servizio di pubblica necessità ai sensi degli articoli 359 e 481 del Codice Penale, consapevole che le dichiarazioni false, la falsità negli atti e l'uso di atti falsi comportano l'applicazione delle sanzioni penali previste dagli artt. 75 e 76 del d.P.R. n. 445/2000, sotto la propria responsabilità dichiara</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="dati_progettista" type="etecinc:tecnico_sintetico_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dati del progettista</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="descrizione_opere" type="sreltecasspds:descrizione_opere_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tipologia di intervento e descrizione sintetica dell'opera</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Le opere consistono in (500 caratteri)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conferenza_servizi" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Conferenza dei servizi</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allega la documentazione per indizione/convocazione conferenza dei servizi nel caso in cui la presente domanda riguarda attività che rientrano nell'ambito del procedimento ai sensi dell'art. 82 LP 15/2015 comma 1 bis</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Rimane nella responsabilità del professionista fornire tutta la documentazione necessaria alle altre amministrazioni per permettere a queste di esprimersi. Per una verifica della documentazione necessaria al rilascio di atti di assenso da parte delle strutture provinciali, è possibile consultare il sito istituzionale della Provincia al seguente link: https://www.provincia.tn.it/Documenti-e-dati/Documenti-di-supporto/Procedimenti-amministrativi-SCIA-e-comunicazioni-da-presentare-alla-Provincia</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="corrispondenza_stato_attuale" type="ecorstaatt:corrispondenza_stato_attuale_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Corrispondenza tra stato autorizzato e stato attuale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="contributo_costruzione" type="eprocontcos:contributo_costruzione_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="inquadramento_urbanistico" type="estrurb:strumentazione_urbanistica_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Inquadramento urbanistico</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="barriere_architettoniche" type="ebararc:barriere_architettoniche_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Barriere architettoniche</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="planimetria_reti" type="esicimp:planimetria_reti_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Planimetria reti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Obbligatorio se ha comportato modifiche alla fornitura dei servizi.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="consumi_energetici" type="econene:consumi_energetici_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Consumi energetici</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tutela_inquinamento_acustico" type="etutinqacu:tutela_inquinamento_acustico_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tutela dall'inquinamento acustico</xsd:documentation>
+                    <xsd:documentation xml:lang="it">rientra nell'ambito di applicazione dell'art. 18 LP 6/1991 e si allega relazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="prevenzione_incendi" type="epreinc:prevenzione_incendi_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Prevenzione incendi</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita_igienico_sanitaria" type="econigesan:conformita_sanitaria_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Conformità igienico-sanitaria</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="interventi_strutturali" type="eintzonsis:intervento_zona_sismica_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Interventi strutturali e/o in zona sismica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non ha previsto la realizzazione di opere strutturali</xsd:documentation>
+                    <xsd:documentation xml:lang="it">ha previsto la realizzazione di opere strutturali e pertanto si provvederà agli adempimenti previsti dall'art. 68 del Regolamento urbanistico-edilizio provinciale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="strumenti_urbanistici" type="econpro:conformita_urbanistica_sanatoria_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Strumenti urbanistici</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="qualita_ambientale_terreni" type="equaambter:qualita_ambientale_terreni_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Qualità ambientale dei terreni</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="alloggi_residenza" type="eallres:alloggi_residenza_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Disciplina degli alloggi destinati a residenza</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="standard_parcheggio" type="estapar:standard_parcheggio_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Standard di parcheggio</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Per quanto concerne lo standard a parcheggio, l'intervento realizzato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aspetti_geologici" type="easpgeo:aspetti_geologici_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Aspetti idrogeologici e valanghivi</xsd:documentation>
+                    <xsd:documentation xml:lang="it">le opere realizzate</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Per quanto riguarda il PGUAP: non sono soggette / sono soggette alla redazione dello studio di compatibilità</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conformita" type="econpro:conformita_progetto_sanatoria_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Conformità</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="valutazione_impatto_ambientale" type="eattass:vincolo_estremi_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Dichiarazioni relative ai vincoli</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Tutela storico-ambientale</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Bene in area protetta</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto a verifica di assoggettabilità o a VIA:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Nel caso di progetti che rientrano nell'ambito di applicazione della legge provinciale sulla valutazione d'impatto ambientale 2013 (l.p. 19/2013), il provvedimento di verifica di assoggettabilità a VIA non è suscettibile di essere incluso tra gli atti di assenso della conferenza di servizi prevista dall'art. 82 della legge provinciale 15/2015 ai fini del rilascio del permesso di costruire.</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti in materia di valutazione impatto ambientale</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti in materia di valutazione impatto ambientale: provvedimento/pratica (numero e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="valutazione_incidenza" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Intervento ricadente nelle zone appartenenti alla rete 'Natura 2000', Riserve naturali Provinciali o Locali:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede valutazione di incidenza per interventi che interessano le zone speciali di conservazione o altre aree protette di cui alla L.P. 11/2007</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede valutazione di incidenza per interventi che interessano le zone speciali di conservazione o altre aree protette di cui alla L.P. 11/2007</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aree_agricole_pup" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Aree agricole del PUP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">intervento soggetto ad autorizzazione per interventi nelle aree agricole del PUP:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti in materia di aree agricole del PUP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti in materia di aree agricole del PUP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aree_pguap" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tutela ecologica/ambientale</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Aree del PGUAP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto ad autorizzazione compatibilità con riferimento al Piano Generale di Utilizzazione delle Acque Pubbliche (PGUAP) della Provincia autonoma di Trento. Sono asseverati gli elaborati nei casi di cui all'articolo 15, comma 3 della l.p. n. 15/2015.</xsd:documentation>
+                    <xsd:documentation xml:lang="it">D.P.R. 15 febbraio 2006 - Capo VI: Ambiti fluviali, Art. 32 - Ambiti fluviali di interesse idraulico</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti in materia con riferimento agli articoli 16-17 del PGUAP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti in materia con riferimento agli articoli 16-17 del PGUAP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="vincolo_idrogeologico" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Aree con vincolo idrogeologico</xsd:documentation>
+                    <xsd:documentation xml:lang="it">intervento soggetto ad autorizzazione ai fini del vincolo idrogeologico di cui alla l.p. n. 11/2007:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti in materia nei casi previsti dalla LP 11/2007</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti in materia nei casi previsti dalla LP 11/2007</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="acque_pubbliche" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Acque pubbliche</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto ad autorizzazione/concessione di cui alla l.p. n. 18/1976 ai fini della tutela delle acque pubbliche:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">intervento non ricadente in fascia di rispetto idraulica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">intervento ricadente in fascia di rispetto idraulica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tutela_inquinamenti" type="eattass:vincolo_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tutela degli ambienti dagli inquinamenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto a provvedimenti di cui alle disposizioni vigenti in materia di tutela degli ambienti dagli inquinamenti:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'adempimento è stato effettuato: provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'adempimento sarà ottenuto nei termini previsti dalla normativa di settore</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tutela_inquinamenti_tulp" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tutela degli ambienti dagli inquinamenti di cui al TULP</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto a provvedimenti di cui al TULP in materia di tutela dell'ambiente dagli inquinamenti:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fasce_rispetto_elettrodotti" type="eattass:vincolo_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Fasce di rispetto degli elettrodotti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto a consegna di documentazione relativa all'avvenuta determinazione delle fasce di rispetto degli elettrodotti e alla verifica del rispetto dei limiti di esposizione ai relativi campi elettromagnetici:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'adempimento è stato effettuato: provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'adempimento sarà ottenuto prima del rilascio del titolo edilizio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fasce_rispetto" type="efasris:fasce_rispetto_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Tutela funzionale</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Fasce di rispetto</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento ricadente nelle fasce di rispetto: stradale / ferroviario / aeroportuale / cimiteriale / di aree di danno da incidente / altro</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede parere/autorizzazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede parere/autorizzazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il parere/autorizzazione è stato ottenuto: provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio del parere/autorizzazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il parere/autorizzazione sarà ottenuto prima del rilascio del titolo edilizio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="impianti_telecomunicazioni" type="eattass:vincolo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianti di telecomunicazioni</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto ad autorizzazione per la realizzazione di impianti di telecomunicazione ai sensi della l.p. n. 9/1997:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="esercizi_pubblici" type="eattass:vincolo_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Esercizi pubblici</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto ad autorizzazione ai sensi del TULPS per locali destinati esercizi pubblici:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'autorizzazione è stata ottenuta: provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'autorizzazione sarà ottenuta nei termini previsti dalla normativa di settore</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="illuminazione_esterna" type="eattass:vincolo_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Illuminazione esterna</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Intervento soggetto ad autorizzazione per impianti di illuminazione esterna di cui al d.P.P. n. 2-34/2010:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede autorizzazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede autorizzazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'autorizzazione è stata ottenuta: provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'autorizzazione sarà ottenuta prima del rilascio del titolo edilizio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ulteriori_atti_assenso" type="eattass:vincolo_esteso_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Ulteriori provvedimenti e atti di assenso previsti da disposizioni particolari</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Ulteriori provvedimenti e atti di assenso previsti:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">richiede adempimenti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'adempimento è stato effettuato: provvedimento/pratica (numero e data)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">si allega la documentazione necessaria al rilascio dell'atto di assenso</xsd:documentation>
+                    <xsd:documentation xml:lang="it">l'adempimento sarà ottenuto nei termini previsti dalla normativa di settore</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="note" type="sreltecasspds:note_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Note (500 caratteri)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="asseverazione" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Asseverazione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Tutto ciò premesso, il sottoscritto tecnico, in qualità di persona esercente un servizio di pubblica necessità ai sensi degli artt. 359 e 481 del Codice Penale, esperiti i necessari accertamenti di carattere urbanistico, edilizio, statico, igienico ed a seguito del sopralluogo, consapevole di essere passibile dell'ulteriore sanzione penale nel caso di falsa asseverazione circa l'esistenza dei requisiti o dei presupposti di cui all'art. 23 della L.P. 23/92, attesta/dichiara la conformità delle opere sopra indicate, compiutamente descritte negli elaborati progettuali, agli strumenti urbanistici approvati e non in contrasto con quelli adottati, la conformità al Regolamento Edilizio Comunale e assevera che le stesse rispettano le norme di sicurezza e igienico/sanitarie e le altre norme vigenti in materia di urbanistica, edilizia, e quanto vigente in materia, come sopra richiamato.</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il sottoscritto dichiara inoltre che l'allegato progetto è compilato in piena conformità alle norme di legge e dei vigenti regolamenti comunali.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="informativa_privacy" type="einfoprivacy:informativa_privacy_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Informativa sul trattamento dei dati personali (Art. 13 del Reg. UE n. 2016/679 del 27 aprile 2016)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_relazione_tecnica_asseverazione_pds" type="sreltecasspds:sezione_relazione_tecnica_asseverazione_pds_ctype"/>
+</xsd:schema>

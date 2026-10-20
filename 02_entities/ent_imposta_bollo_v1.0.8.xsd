@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eimpbol="../02_entities/imposta_bollo"
+    targetNamespace="../02_entities/imposta_bollo"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:simpleType name="numero_seriale_marca_stype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Inserire i quattordici numeri presenti appena sopra il codice a barre, nella parte bassa del contrassegno</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{14}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="marca_bollo_ctype">
+        <xsd:sequence>
+            <xsd:element name="numero_seriale" type="eimpbol:numero_seriale_marca_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">numero seriale (1)</xsd:documentation>
+                    <xsd:documentation xml:lang="it">(1) Inserire i quattordici numeri presenti appena sopra il codice a barre, nella parte bassa del contrassegno</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="data" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="pagopa_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Il pagamento è dovuto e si intende assolvere l'obbligo tramite il circuito digitale pagoPA [NB: questa opzione è possibile solo se lo Sportello Unico aderisce a pagoPA]</xsd:documentation>
+            <xsd:documentation xml:lang="it">È obbligatorio selezionare una delle seguenti due opzioni</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="due_marche" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Due marche da €16,00 ciascuna, una per la domanda e una per l'autorizzazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="solo_marca_domanda" type="xsd:string" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Solo la marca da €16,00 per la domanda; non è richiesta alcuna marca da bollo per l'autorizzazione perché il procedimento può concludersi con il silenzio assenso dell'Amministrazione o con rilascio di Nulla Osta (indicare la motivazione)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="marche_bollo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Il pagamento è dovuto e si intende assolvere l'obbligo con marche da bollo di cui si riportano i numeri di serie identificativi (le marche da bollo utilizzate saranno poi annullate e conservate in originale)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Nota bene: Le domande devono essere regolarizzate in misura forfettaria con una marca da bollo da €16,00. Aggiungere una marca da bollo per il provvedimento autorizzatorio (in seguito alle modifiche apportate al DPR n. 642/1972 dalla legge n. 147/2013, le istanze trasmesse per via telematica e i provvedimenti rilasciati per via telematica sono soggetti all'imposta di bollo forfettaria di €16,00)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="marca_domanda" type="eimpbol:marca_bollo_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Marca da € 16,00 per la domanda</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="marca_autorizzazione" type="eimpbol:marca_bollo_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Marca da € 16,00 per l'autorizzazione</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="marca_autorizzazione_non_richiesta" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">Non è richiesta alcuna marca da bollo per l'autorizzazione perché il procedimento può concludersi con il silenzio assenso dell'Amministrazione o con rilascio di Nulla Osta</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="imposta_bollo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazione relativa all'assolvimento dell'imposta di bollo</xsd:documentation>
+            <xsd:documentation xml:lang="it">Versamento dell'imposta di bollo - È obbligatorio selezionare una delle seguenti quattro opzioni</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="pagopa" type="eimpbol:pagopa_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="marche_bollo" type="eimpbol:marche_bollo_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="bollo_virtuale" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Per gli Enti autorizzati, l'imposta di bollo è assolta in modo virtuale ai sensi del D.M. 10/11/2011 o ai sensi dell'art. 15 D.P.R. 642/1972</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="esenzione" type="xsd:string" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Il pagamento non è dovuto poiché esentati per la seguente motivazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="imposta_bollo" type="eimpbol:imposta_bollo_ctype"/>
+</xsd:schema>

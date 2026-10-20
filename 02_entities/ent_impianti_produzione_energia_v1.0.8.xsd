@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eimpproene="../02_entities/impianti_produzione_energia"
+    targetNamespace="../02_entities/impianti_produzione_energia"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="impianto_ctype">
+        <xsd:sequence>
+            <xsd:element name="potenza" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Potenza</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="note" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Note</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="impianti_produzione_energia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Impianti di produzione di energia</xsd:documentation>
+            <xsd:documentation xml:lang="it">Se applicabile alla presente pratica, si indicano i dettagli degli impianti di produzione di energia di cui alla legge 4/2022</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="solare_termico_copertura" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto solare termico in copertura</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="solare_termico_a_terra" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto solare termico a terra nelle pertinenze</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fotovoltaico_copertura" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto solare fotovoltaico in copertura</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fotovoltaico_a_terra" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Impianto solare fotovoltaico a terra nelle pertinenze</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pompa_di_calore" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Pompa di calore</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="generatori_di_calore" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Generatori di calore (caldaia) e generatori ibridi</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="generatore_eolico" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Singolo generatore eolico</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="microcogeneratori" type="eimpproene:impianto_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Microcogeneratori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="impianti_produzione_energia" type="eimpproene:impianti_produzione_energia_ctype"/>
+</xsd:schema>

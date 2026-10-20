@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:html="http://www.w3.org/1999/xhtml/">
+    <Identification>
+        <ShortName>IT:PAT:CL:CategorieFunzionali</ShortName>
+        <LongName>Categorie funzionali della destinazione d'uso (art. 24, comma 8, della legge provinciale 4 agosto 2015, n. 15)</LongName>
+        <Version>1</Version>
+        <CanonicalUri/>
+        <CanonicalVersionUri/>
+        <Agency>
+            <ShortName>PAT</ShortName>
+            <LongName xml:lang="it">Provincia autonoma di Trento</LongName>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="id" Use="required">
+            <ShortName>id</ShortName>
+            <Data Type="xsd:int"/>
+        </Column>
+        <Column Id="code" Use="required">
+            <ShortName>Code</ShortName>
+            <Data Type="xsd:normalizedString"/>
+        </Column>
+        <Column Id="description" Use="required">
+            <ShortName>Description</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Key Id="codeKey">
+            <ShortName>code</ShortName>
+            <ColumnRef Ref="code"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>a</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>residenziale</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>b</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>industriale e artigianale</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>c</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>commerciale al dettaglio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>d</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>turistico-ricettiva</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>e</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>mista produttivo-commerciale, direzionale e di servizio</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>f</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>agricola</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7</SimpleValue>
+            </Value>
+            <Value ColumnRef="code">
+                <SimpleValue>g</SimpleValue>
+            </Value>
+            <Value ColumnRef="description">
+                <SimpleValue>servizi e attrezzature pubbliche</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

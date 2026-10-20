@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:ecercon="../02_entities/certificazione_conformita_edifici"
+    xmlns:scertecedi="../03_sections/certificazione_tecnico_edifici_esistenti"
+    targetNamespace="../03_sections/certificazione_tecnico_edifici_esistenti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/certificazione_conformita_edifici" schemaLocation="../02_entities/ent_certificazione_conformita_edifici_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_certificazione_tecnico_edifici_esistenti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dichiarazioni ai sensi dell'articolo 93, comma 10, della L.P. 15/2015</xsd:documentation>
+            <xsd:documentation xml:lang="it">Il sottoscritto, tecnico abilitato, in qualità di persona esercente un servizio di pubblica necessità ai sensi degli artt. 359 e 481 del Codice Penale, esperiti i necessari accertamenti di carattere urbanistico, edilizio, statico, igienico ed a seguito del sopralluogo nell'immobile, consapevole di essere passibile di sanzione penale nel caso di falsa asseverazione circa l'esistenza dei requisiti o dei presupposti di cui al comma 1 dell'art. 19 della l. n. 241/90</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="verifica_titoli" type="ecercon:verifica_titoli_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="interventi_successivi" type="ecercon:interventi_successivi_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="certificazione_edificio" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Certificazione dell'edificio</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il sottoscritto tecnico abilitato, certifica ai sensi dell'art. 68, c. 2 lett. a) del Regolamento che l'edificio, identificato dagli estremi catastali e dalla localizzazione sopra indicata e di cui all'allegato stato di rilievo o planimetria catastale, con riferimento alla disciplina vigente al momento dell'esecuzione degli interventi o della realizzazione degli edifici, è conforme alle norme igienico-sanitarie e alla normativa di sicurezza degli impianti</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Certificazione di un tecnico abilitato (art. 93, comma 10 della LP 15/2015)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aspetti_igienico_sanitari" type="ecercon:aspetti_igienico_sanitari_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="documentazione_impianti" type="ecercon:documentazione_impianti_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="statica" type="ecercon:statica_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="barriere_architettoniche" type="ecercon:barriere_architettoniche_cce_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="prevenzione_incendi" type="ecercon:prevenzione_incendi_cce_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="documentazione_catastale" type="ecercon:documentazione_catastale_cce_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="attestazione_agibilita" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Attestazione di agibilità</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Visto quanto sopra, si attesta che i locali dell'edificio considerato sono agibili</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Attestazione di un tecnico abilitato (art. 93, comma 10 della LP 15/2015)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_certificazione_tecnico_edifici_esistenti" type="scertecedi:sezione_certificazione_tecnico_edifici_esistenti_ctype"/>
+</xsd:schema>

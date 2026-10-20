@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:estaleg="../02_entities/stato_legittimo"
+    targetNamespace="../02_entities/stato_legittimo"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="stato_legittimo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Stato legittimo prima dell'intervento</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="legittimo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Lo stato attuale dell'immobile oggetto di intervento è legittimo (art. 86 bis comma 1 L.P. 15/2015) e si allega eventuale documentazione a firma di tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tolleranze_comma_1" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Lo stato attuale dell'immobile presenta difformità tali da rientrare nelle tolleranze di cui all'art. 86 ter, comma 1 L.P. 15/2015 e si allega necessaria documentazione a firma di tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tolleranze_comma_1bis" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Lo stato attuale dell'immobile presenta difformità tali da rientrare nelle tolleranze di cui all'art. 86 ter, comma 1bis L.P.15/2015 in quanto gli interventi sono stati realizzati entro il 24 maggio 2024 e si allega necessaria documentazione a firma di tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="antecedente_obbligo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">L'immobile è stato realizzato in data antecedente all'obbligo di legge (art. 86 bis comma 2 L.P. 15/2015) e allega documentazione a firma di tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="stato_legittimo" type="estaleg:stato_legittimo_ctype"/>
+    <xsd:complexType name="attestazione_non_richiesta_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Ai sensi del comma 3 bis, art. 86 bis della L.P. 15/2015 non è richiesta l'attestazione dello stato legittimo e</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="estremi_titolo" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si attestano gli estremi del titolo abilitativo che ha previsto la costruzione dell'immobile oggetto d'intervento o dei provvedimenti di sanatoria della costruzione</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Numero di protocollo e data del rilascio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ante_1967" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si attesta che la costruzione è stata completata in data antecedente il 1° settembre 1967</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="stato_legittimo_cila_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Stato legittimo (CILA)</xsd:documentation>
+            <xsd:documentation xml:lang="it">che lo stato attuale dell'immobile oggetto di intervento</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="legittimo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">è legittimo (art. 86 bis comma 1 L.P. 15/2015) e si allega eventuale documentazione a firma del tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tolleranze_comma_1" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">presenta difformità tali da rientrare nelle tolleranze di cui all'art. 86 ter, comma 1 L.P. 15/2015 e si allega necessaria documentazione a firma di tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tolleranze_comma_1bis" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">presenta difformità tali da rientrare nelle tolleranze di cui all'art. 86 ter, comma 1bis L.P.15/2015 in quanto gli interventi sono stati realizzati entro il 24 maggio 2024 e si allega necessaria documentazione a firma di tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="antecedente_obbligo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">è stato realizzato in data antecedente all'obbligo di legge (art. 86 bis comma 2 L.P. 15/2015) e allega documentazione a firma del tecnico abilitato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="attestazione_non_richiesta" type="estaleg:attestazione_non_richiesta_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eintzonsis="../02_entities/intervento_zona_sismica"
+    targetNamespace="../02_entities/intervento_zona_sismica"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="intervento_zona_sismica_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Interventi strutturali e/o in zona sismica</xsd:documentation>
+            <xsd:documentation xml:lang="it">L'intervento</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_previste_opere_strutturali" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non prevede la realizzazione di opere strutturali</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="previste_opere_strutturali" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">prevede la realizzazione di opere strutturali che necessitano di collaudo statico, pertanto si provvederà al deposito della documentazione tecnica relativa alla denuncia di cui all'art. 65 del d.P.R. n. 380/2001, comprensiva della documentazione di cui all'articolo 93 del d.P.R. n. 380/2001, nelle modalità previste dalla norma e dall'art. 68 del Regolamento urbanistico-edilizio provinciale</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="intervento_zona_sismica" type="eintzonsis:intervento_zona_sismica_ctype"/>
+</xsd:schema>

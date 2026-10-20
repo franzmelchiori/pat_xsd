@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:sschana="../03_sections/scheda_anagrafica"
+    xmlns:soggpra="../03_sections/oggetto_pratica"
+    xmlns:sdomdig="../03_sections/domicilio_digitale"
+    xmlns:sdiccon="../03_sections/dichiarazione_consapevolezza"
+    xmlns:sinfpri="../03_sections/informativa_privacy"
+    xmlns:srichpdc="../03_sections/richiesta_permesso_di_costruire"
+    xmlns:sdicpdc="../03_sections/dichiarazioni_pdc"
+    xmlns:sversam="../03_sections/versamenti"
+    xmlns:sreltecasspdc="../03_sections/relazione_tecnica_asseverazione_pdc"
+    xmlns:subiint="../03_sections/ubicazione_intervento"
+    xmlns:stitint="../03_sections/titolarita_intervento"
+    xmlns:mpercos="../04_forms/permesso_di_costruire"
+    targetNamespace="../04_forms/permesso_di_costruire"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../03_sections/scheda_anagrafica" schemaLocation="../03_sections/sec_scheda_anagrafica_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/oggetto_pratica" schemaLocation="../03_sections/sec_oggetto_pratica_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/domicilio_digitale" schemaLocation="../03_sections/sec_domicilio_digitale_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/dichiarazione_consapevolezza" schemaLocation="../03_sections/sec_dichiarazione_consapevolezza_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/informativa_privacy" schemaLocation="../03_sections/sec_informativa_privacy_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/richiesta_permesso_di_costruire" schemaLocation="../03_sections/sec_richiesta_permesso_di_costruire_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/dichiarazioni_pdc" schemaLocation="../03_sections/sec_dichiarazioni_pdc_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/versamenti" schemaLocation="../03_sections/sec_versamenti_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/relazione_tecnica_asseverazione_pdc" schemaLocation="../03_sections/sec_relazione_tecnica_asseverazione_pdc_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/ubicazione_intervento" schemaLocation="../03_sections/sec_ubicazione_intervento_v1.0.8.xsd"/>
+    <xsd:import namespace="../03_sections/titolarita_intervento" schemaLocation="../03_sections/sec_titolarita_intervento_v1.0.8.xsd"/>
+
+    <xsd:complexType name="modulo_permesso_di_costruire_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Procedimenti Edilizi Digitali</xsd:documentation>
+            <xsd:documentation xml:lang="it">PAT Richiesta di Permesso di Costruire</xsd:documentation>
+            <xsd:documentation xml:lang="it">Articolo 80 della legge provinciale 4 agosto 2015, n. 15</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- MODULO DI DOMANDA (MDA) -->
+            <xsd:element name="sezione_pat_scheda_anagrafica" type="sschana:sezione_scheda_anagrafica_ctype"/>
+            <xsd:element name="sezione_pat_oggetto_pratica" type="soggpra:sezione_oggetto_pratica_ctype"/>
+            <xsd:element name="sezione_pat_domicilio_digitale" type="sdomdig:sezione_domicilio_digitale_ctype"/>
+            <xsd:element name="sezione_pat_dichiarazione_consapevolezza" type="sdiccon:sezione_dichiarazione_consapevolezza_ctype"/>
+            <xsd:element name="sezione_pat_informativa_privacy" type="sinfpri:sezione_informativa_privacy_ctype"/>
+            <xsd:element name="sezione_pat_ubicazione_intervento" type="subiint:sezione_ubicazione_intervento_ctype">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Chiede all'ufficio tecnico del Comune</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sezione_pat_richiesta_permesso_di_costruire" type="srichpdc:sezione_richiesta_permesso_di_costruire_ctype"/>
+            <xsd:element name="sezione_pat_titolarita_intervento" type="stitint:sezione_titolarita_intervento_ctype"/>
+            <xsd:element name="sezione_pat_altri_titolari" type="sschana:sezione_scheda_anagrafica_ctype" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolarità dell'intervento - eventuali altri titolari oltre al richiedente</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Allegare fac simile "altri titolari" (da scaricare, compilare e firmare)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="sezione_pat_dichiarazioni_pdc" type="sdicpdc:sezione_dichiarazioni_pdc_ctype"/>
+            <xsd:element name="sezione_pat_versamenti" type="sversam:sezione_versamenti_ctype"/>
+            <!-- RELAZIONE TECNICA DI ASSEVERAZIONE -->
+            <xsd:element name="sezione_pat_relazione_tecnica_asseverazione_pdc" type="sreltecasspdc:sezione_relazione_tecnica_asseverazione_pdc_ctype"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="modulo_pat_permesso_di_costruire" type="mpercos:modulo_permesso_di_costruire_ctype"/>
+</xsd:schema>

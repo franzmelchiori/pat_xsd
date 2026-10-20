@@ -7,6 +7,8 @@
     xmlns:canncl="../commons/xsdAnnotations"
     xmlns:eimpresa="../02_entities/impresa"
     xmlns:epepers="../02_entities/persona"
+    xmlns:epeiscrea="../02_entities/iscrizione_REA"
+    xmlns:epecont="../02_entities/contatti"
     xmlns:evercon="../02_entities/verifica_contributiva"
     xmlns:eimpese="../02_entities/impresa_escutrice"
     targetNamespace="../02_entities/impresa_escutrice"
@@ -20,24 +22,107 @@
     <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="../02_entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.8.xsd"/>
-    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/iscrizione_REA" schemaLocation="../02_entities/ent_iscrizione_REA_v1.0.7.xsd"/>
+    <xsd:import namespace="../02_entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.7.xsd"/>
     <xsd:import namespace="../02_entities/verifica_contributiva" schemaLocation="../02_entities/ent_verifica_contributiva_v1.0.8.xsd"/>
 
-    <xsd:complexType name="impresa_escutrice_ctype">
+    <xsd:complexType name="impresa_esecutrice_ctype">
         <xsd:annotation>
-            <xsd:documentation xml:lang="it">Impresa esecutrice</xsd:documentation>
-            <xsd:documentation xml:lang="it">compilare in caso di affidamento dei lavori ad una impresa</xsd:documentation>
+            <xsd:documentation xml:lang="it">PAT Imprese esecutrici (compilare in caso di affidamento dei lavori ad una o più imprese)</xsd:documentation>
+            <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
+            <xsd:documentation xml:lang="it">Allegare fac simile "impresa" (da scaricare, compilare e firmare)</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="impresa" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="legale_rappresentante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="verifica_contributiva" type="evercon:verifica_contributiva_ctype" minOccurs="1" maxOccurs="1">
+            <xsd:element name="impresa" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
-                    <xsd:documentation xml:lang="it">dati per la verifica della regolarità contributiva</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Dati della ditta/società/impresa: Denominazione, Codice Fiscale / P. IVA</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Dati relativi alla sede legale della ditta/società/impresa: Stato, Provincia, Comune, Via, Piazza, ecc., Numero civico, CAP</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="rea" type="epeiscrea:iscrizione_REA_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Camera di commercio e numero REA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="data_iscrizione_rea" type="ctipi:ggmmaaaa_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Data di iscrizione al REA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="contatti_impresa" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Telefono fisso/Cellulare, Fax, PEC (della ditta/società/impresa)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="legale_rappresentante" type="epepers:persona_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Il cui legale rappresentante è: cognome, nome, codice fiscale, luogo di nascita (provincia, stato), data di nascita</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="contatti_legale_rappresentante" type="epecont:contatti_ctype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Telefono, Fax, Cell., Posta elettronica (del legale rappresentante)</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
-    
-    <xsd:element name="impresa" type="eimpese:impresa_escutrice_ctype"/>
+
+    <xsd:complexType name="impresa_esecutrice_verifica_contributiva_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Impresa esecutrice</xsd:documentation>
+            <xsd:documentation xml:lang="it">compilare in caso di affidamento dei lavori ad una impresa</xsd:documentation>
+            <xsd:documentation xml:lang="it">Nel caso di subentro e/o integrazione di imprese/lavoratori autonomi nel cantiere sussiste l'obbligo di dare tempestiva comunicazione, ai sensi dell'art. 90 del D.Lgs. n. 81 del 2008</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="eimpese:impresa_esecutrice_ctype">
+                <xsd:sequence>
+                    <xsd:element name="verifica_contributiva" type="evercon:verifica_contributiva_ctype" minOccurs="1" maxOccurs="1">
+                        <xsd:annotation>
+                            <xsd:documentation xml:lang="it">dati per la verifica della regolarità contributiva</xsd:documentation>
+                            <xsd:documentation xml:lang="it">Dati per verifica della regolarità contributiva: Cassa Edile (sede, codice impresa, codice cassa), INPS (sede, matricola/posizione contributiva), INAIL (sede, codice impresa, posizione assicurativa territoriale)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="imprese_esecutrici_dei_lavori_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Impresa esecutrice dei lavori</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="prima_inizio_lavori" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'impresa esecutrice/imprese esecutrici dei lavori sarà/saranno individuata/e prima dell'inizio dei lavori</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="impresa" type="eimpese:impresa_esecutrice_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">i lavori saranno eseguiti/sono eseguiti dalla/e impresa/e indicata/e alla seguente sezione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="imprese_esecutrici_dei_lavori_economia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Impresa esecutrice dei lavori</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="in_economia" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che, in quanto opere di modesta entità che non interessano le specifiche normative di settore, i lavori saranno eseguiti in economia, senza alcun affidamento a ditte esterne</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="impresa" type="eimpese:impresa_esecutrice_verifica_contributiva_ctype" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">che i lavori sono/saranno eseguiti dalla/e impresa/e indicata/e alla seguente sezione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="impresa" type="eimpese:impresa_esecutrice_verifica_contributiva_ctype"/>
 </xsd:schema>

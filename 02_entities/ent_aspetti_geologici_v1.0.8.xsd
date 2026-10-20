@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:easpgeo="../02_entities/aspetti_geologici"
+    targetNamespace="../02_entities/aspetti_geologici"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+
+    <xsd:complexType name="soggezione_ctype">
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_soggette" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">le opere in progetto non sono soggette alla redazione della relazione/dello studio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="soggette" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">le opere in progetto sono soggette alla redazione della relazione/dello studio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="zona_rispetto_idrogeologico_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">la zona di rispetto idrogeologico. Per le attività consentite ricadenti all'interno della zona di rispetto idrogeologico (a) fognature, b) edilizia residenziale e relative opere di urbanizzazione e c) opere viarie, ferroviarie e in genere infrastrutture di servizio)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="0" maxOccurs="1">
+            <xsd:element name="allega_relazione_idrogeologica" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">allega la relazione idrogeologica richiamata al punto 5) della parte dispositiva della suddetta deliberazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="non_allega_relazione_idrogeologica" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non allega la sopra citata relazione idrogeologica in quanto si attesta che non c'è interferenza di natura idrogeologica sia diretta che indiretta con la falda in considerazione della tipologia di intervento di cui al punto 5) della parte dispositiva della suddetta deliberazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="zona_protezione_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">la zona di protezione</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="allega_relazione_idrogeologica" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">allega la relazione idrogeologica richiamata al punto 5) della parte dispositiva della suddetta deliberazione in quanto la propria attività è una delle seguenti: dispersione degli scarichi in suolo e sottosuolo, ad eccezione delle acque bianche non inquinate, lo stoccaggio di rifiuti, reflui e sostanze chimiche pericolose e la realizzazione di depositi di combustibili</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="interferenza_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">l'avvenuta verifica dell'interferenza spaziale/localizzativa con le seguenti zone di cui alla deliberazione della Giunta Provinciale n. 1197 del 7 luglio 2023 e ss.mm.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="zona_tutela_assoluta" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">la zona di tutela assoluta</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="zona_rispetto_idrogeologico" type="easpgeo:zona_rispetto_idrogeologico_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="zona_protezione" type="easpgeo:zona_protezione_ctype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="aree_salvaguardia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">Attestazione preventiva alla realizzazione delle attività potenzialmente interferenti con le aree di salvaguardia della carta delle risorse idriche (D.G.P. n. 1197 del 7 luglio 2023)</xsd:documentation>
+            <xsd:documentation xml:lang="it">Attesta per le attività di cui all'art. 94, commi 4, 5 e 7 del D.Lgs. 152/2006</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="non_interferenza" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">l'avvenuta verifica della non interferenza spaziale/localizzativa con le tre aree di salvaguardia delle risorse idriche idropotabili della Carta delle Risorse Idriche del PUP di cui alla deliberazione della Giunta Provinciale n. 1197 del 7 luglio 2023 e ss.mm. (zona di tutela assoluta, zona di rispetto idrogeologico, zona di protezione)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="interferenza" type="easpgeo:interferenza_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="aspetti_geologici_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Aspetti geologici, idrogeologici e valanghivi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="carta_sintesi_pericolosita" type="easpgeo:soggezione_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Per quanto riguarda la Carta di sintesi della Pericolosità della Provincia Autonoma di Trento e le relative norme di attuazione, le opere in progetto:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non sono soggette alla redazione di relazione dello studio di compatibilità</xsd:documentation>
+                    <xsd:documentation xml:lang="it">sono soggette alla redazione dello studio di compatibilità</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Visualizza la carta di sintesi delle pericolosità nella tua particella: https://webgis.provincia.tn.it/wgt/services/resolve/G7B9wzE01sI</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ntc2018" type="easpgeo:soggezione_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Per quanto riguarda le NTC2018, le opere in progetto:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non sono soggette alla redazione di relazione geologica e/o geotecnica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">sono soggette alla redazione di relazione geologica e/o geotecnica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pguap" type="easpgeo:soggezione_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Per quanto riguarda il Piano Generale di Utilizzazione delle Acque Pubbliche (PGUAP) della Provincia autonoma di Trento e le relative norme di attuazione, le opere in progetto:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">D.P.R. 15 febbraio 2006 - Capo VI: Ambiti fluviali, Art. 32 - Ambiti fluviali di interesse idraulico</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non sono soggette alla redazione della relazione idraulica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">sono soggette alla redazione della relazione idraulica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="carta_risorse_idriche" type="easpgeo:soggezione_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Per quanto riguarda la Carta delle risorse idriche della Provincia autonoma di Trento e le relative norme di attuazione, le opere in progetto:</xsd:documentation>
+                    <xsd:documentation xml:lang="it">non sono soggette alla redazione di relazione idrogeologica</xsd:documentation>
+                    <xsd:documentation xml:lang="it">sono soggette alla redazione di relazione idrogeologica</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aree_salvaguardia" type="easpgeo:aree_salvaguardia_ctype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="aspetti_geologici" type="easpgeo:aspetti_geologici_ctype"/>
+</xsd:schema>

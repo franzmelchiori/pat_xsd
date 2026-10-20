@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:scommodsogcoi="../03_sections/comunicazione_modifica_soggetti_coinvolti"
+    targetNamespace="../03_sections/comunicazione_modifica_soggetti_coinvolti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_comunicazione_modifica_soggetti_coinvolti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Comunicazione modifica soggetti coinvolti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="pratica_edilizia" type="eattass:pratica_edilizia_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_comunicazione_modifica_soggetti_coinvolti" type="scommodsogcoi:sezione_comunicazione_modifica_soggetti_coinvolti_ctype"/>
+</xsd:schema>

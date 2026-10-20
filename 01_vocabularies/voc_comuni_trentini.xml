@@ -1,0 +1,2386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:html="http://www.w3.org/1999/xhtml/">
+    <Identification>
+        <ShortName>IT:PAT:CL:ComuniTrentini</ShortName>
+        <LongName>Comuni della Provincia autonoma di Trento: estratto di IT:SUAP:CL:ComuniItaliani (ANPR, comuni attivi) con codice ISTAT di provincia 022</LongName>
+        <Version>1</Version>
+        <CanonicalUri/>
+        <CanonicalVersionUri/>
+        <Agency>
+            <ShortName>PAT</ShortName>
+            <LongName xml:lang="it">Provincia autonoma di Trento</LongName>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="id" Use="required">
+            <ShortName>id</ShortName>
+            <Data Type="xsd:nonNegativeInteger"/>
+        </Column>
+        <Column Id="codice_istat" Use="required">
+            <ShortName>codice_istat</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Column Id="codice_catastale" Use="required">
+            <ShortName>codice_catastale</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Column Id="denominazione" Use="required">
+            <ShortName>denominazione</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Column Id="altra_denominazione" Use="optional">
+            <ShortName>altra_denominazione</ShortName>
+            <Data Type="xsd:string"/>
+        </Column>
+        <Key Id="codice_istatKey">
+            <ShortName>codice_istat</ShortName>
+            <ColumnRef Ref="codice_istat"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>131</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022001</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A116</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ALA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>172</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022002</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A158</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ALBIANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>192</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022003</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A178</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ALDENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11228</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022235</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M349</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ALTAVALLE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11229</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022236</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M350</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ALTOPIANO DELLA VIGOLANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11230</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022237</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M351</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>AMBLAR-DON</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>293</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022005</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A274</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ANDALO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>406</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022006</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A372</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ARCO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>566</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022007</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A520</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>AVIO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>754</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022009</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A694</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BASELGA DI PINÈ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>797</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022011</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A730</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BEDOLLO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>902</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022013</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A821</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BESENELLO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>950</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022015</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A863</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BIENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>990</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022017</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A902</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BLEGGIO SUPERIORE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1004</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022018</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A916</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BOCENAGO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1059</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022021</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>A968</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BONDONE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11231</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022238</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M352</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BORGO CHIESE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>23066</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022252</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M429</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BORGO D'ANAUNIA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11232</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022239</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M353</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BORGO LARES</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1098</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022022</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B006</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BORGO VALSUGANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1253</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022025</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B153</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BRENTONICO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1262</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022026</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B158</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>BRESIMO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1455</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022029</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B335</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CADERZONE TERME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1513</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022032</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B389</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CALCERANICA AL LAGO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1525</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022033</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B400</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CALDES</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1529</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022034</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B404</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CALDONAZZO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1545</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022035</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B419</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CALLIANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1649</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022036</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B514</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAMPITELLO DI FASSA</SimpleValue>
+            </Value>
+            <Value ColumnRef="altra_denominazione">
+                <SimpleValue>CIAMPEDEL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1661</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022037</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B525</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAMPODENNO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1715</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022038</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B577</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CANAL SAN BOVO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1717</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022039</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B579</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CANAZEI</SimpleValue>
+            </Value>
+            <Value ColumnRef="altra_denominazione">
+                <SimpleValue>CIANACEI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1849</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022040</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B697</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAPRIANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>1942</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022042</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B783</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CARISOLO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2024</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022043</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>B856</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CARZANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2359</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022045</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C183</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CASTEL CONDINO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11233</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022240</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M354</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CASTEL IVANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2371</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022048</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C194</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CASTELLO TESINO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2366</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022047</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C189</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CASTELLO-MOLINA DI FIEMME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2394</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022049</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C216</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CASTELNUOVO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2562</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022050</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C372</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAVALESE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>16954</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022051</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C380</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAVARENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2583</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022052</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C392</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAVEDAGO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2584</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022053</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C393</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAVEDINE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2593</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022054</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C400</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CAVIZZANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11234</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022241</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M355</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CEMBRA LISIGNAGO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2913</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022058</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C700</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CIMONE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2925</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022059</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C712</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CINTE TESINO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2944</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022060</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C727</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CIS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>2974</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022061</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C756</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CIVEZZANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3016</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022062</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C794</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CLES</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11186</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022228</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M314</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>COMANO TERME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3160</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022064</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>C931</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>COMMEZZADURA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11235</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022242</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M356</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CONTÀ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3443</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022068</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D188</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>CROVIANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3507</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022071</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D246</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>DAMBEL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3535</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022074</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D273</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>DENNO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11245</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022233</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M366</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>DIMARO FOLGARIDA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3637</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022078</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D365</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>DRENA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3642</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022079</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D371</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>DRO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3753</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022081</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D468</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>FAI DELLA PAGANELLA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3854</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022083</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D565</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>FIAVÈ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3862</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022085</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D573</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>FIEROZZO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>3955</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022087</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D651</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>FOLGARIA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4024</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022089</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D714</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>FORNACE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4093</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022090</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D775</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>FRASSILONGO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4258</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022091</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>D928</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>GARNIGA TERME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4389</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022092</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E048</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>GIOVO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4407</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022093</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E065</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>GIUSTINO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4531</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022095</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E178</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>GRIGNO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4649</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022097</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E288</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>IMER</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4698</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022098</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E334</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ISERA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4870</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022102</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E492</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LAVARONE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4879</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022103</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E500</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LAVIS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11185</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022229</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M313</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LEDRO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>4946</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022104</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E565</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LEVICO TERME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5009</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022106</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E624</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LIVO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5054</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022108</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E664</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LONA-LASES</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5154</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022109</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E757</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>LUSERNA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11236</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022243</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M357</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MADRUZZO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5260</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022110</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>E850</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MALÉ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5468</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022112</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F045</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MASSIMENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5493</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022113</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F068</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MAZZIN</SimpleValue>
+            </Value>
+            <Value ColumnRef="altra_denominazione">
+                <SimpleValue>MAZIN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5607</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022114</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F168</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MEZZANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5615</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022115</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F176</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MEZZANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5622</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022116</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F183</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MEZZOCORONA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5626</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022117</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F187</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MEZZOLOMBARDO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5715</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022118</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F263</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MOENA</SimpleValue>
+            </Value>
+            <Value ColumnRef="altra_denominazione">
+                <SimpleValue>MOENA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>5764</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022120</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F307</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MOLVENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6245</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022123</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F728</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>MORI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6357</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022124</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F835</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>NAGO-TORBOLE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6448</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022127</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F920</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>NOGAREDO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6457</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022128</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F929</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>NOMI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6480</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022129</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>F947</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>NOVALEDO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>23067</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022253</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M430</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>NOVELLA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6728</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022130</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G168</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>OSPEDALETTO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6735</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022131</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G173</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>OSSANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6870</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022133</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G296</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PALÙ DEL FERSINA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>6879</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022134</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G305</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PANCHIÀ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7001</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022136</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G419</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PEIO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7010</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022137</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G428</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PELLIZZANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7011</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022138</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G429</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PELUGO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7038</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022139</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G452</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PERGINE VALSUGANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11244</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022234</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M365</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PIEVE DI BONO-PREZZO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7259</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022142</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G656</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PIEVE TESINO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7286</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022143</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G681</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PINZOLO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7423</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022144</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>G808</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>POMAROLO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11237</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022244</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M358</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PORTE DI RENDENA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11217</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022230</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M344</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PREDAIA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7651</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022147</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H018</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PREDAZZO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11238</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022245</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M359</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>PRIMIERO SAN MARTINO DI CASTROZZA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7791</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022150</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H146</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RABBI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>7985</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022153</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H330</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RIVA DEL GARDA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8181</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022155</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H517</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ROMENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8192</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022156</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H528</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RONCEGNO TERME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8197</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022157</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H532</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RONCHI VALSUGANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11178</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022135</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M303</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RONZO-CHIENIS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8220</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022159</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H552</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RONZONE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8281</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022160</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H607</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ROVERÈ DELLA LUNA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8287</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022161</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H612</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ROVERETO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8309</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022162</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H634</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RUFFRÈ-MENDOLA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8315</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022163</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H639</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>RUMO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8345</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022164</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H666</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SAGRON MIS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8439</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022165</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>H754</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SAMONE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>23027</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022250</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M390</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SAN GIOVANNI DI FASSA-SÈN JAN</SimpleValue>
+            </Value>
+            <Value ColumnRef="altra_denominazione">
+                <SimpleValue>SÈN JAN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11218</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022231</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M345</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SAN LORENZO DORSINO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>8749</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022167</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I042</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SAN MICHELE ALL'ADIGE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9084</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022168</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I354</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SANT'ORSOLA TERME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9144</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022169</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I411</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SANZENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9173</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022170</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I439</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SARNONICO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9295</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022171</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I554</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SCURELLE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9320</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022172</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I576</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SEGONZANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11239</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022246</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M360</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SELLA GIUDICARIE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9479</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022173</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I714</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SFRUZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>22984</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022176</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I839</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SORAGA DI FASSA</SimpleValue>
+            </Value>
+            <Value ColumnRef="altra_denominazione">
+                <SimpleValue>SORAGA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9656</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022177</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I871</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SOVER</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9686</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022179</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I899</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SPIAZZO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9716</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022180</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I924</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SPORMAGGIORE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9717</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022181</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I925</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>SPORMINORE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9742</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022182</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I949</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>STENICO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9757</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022183</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I964</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>STORO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9767</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022184</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>I975</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>STREMBO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9900</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022188</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L089</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TELVE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9901</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022189</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L090</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TELVE DI SOPRA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9908</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022190</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L096</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TENNA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9909</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022191</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L097</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TENNO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9934</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022193</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L121</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TERRAGNOLO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>23015</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022251</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M407</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TERRE D'ADIGE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9961</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022195</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L145</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TERZOLAS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9963</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022196</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L147</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TESERO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>9991</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022199</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L174</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TIONE DI TRENTO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10019</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022200</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L200</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TON</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10030</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022202</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L211</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TORCEGNO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10143</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022203</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L322</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TRAMBILENO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11240</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022247</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M361</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TRE VILLE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10208</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022205</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L378</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>TRENTO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11216</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022232</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M343</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VALDAONE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10429</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022209</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L575</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VALFLORIANA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10443</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022210</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L588</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VALLARSA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11241</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022248</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M362</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VALLELAGHI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10644</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022213</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L769</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VERMIGLIO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10767</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022216</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L886</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VIGNOLA-FALESINA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>10842</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022222</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>L957</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VILLA LAGARINA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11242</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022249</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M363</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VILLE D'ANAUNIA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>23068</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022254</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M431</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VILLE DI FIEMME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11010</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022224</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M113</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>VOLANO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="id">
+                <SimpleValue>11073</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_istat">
+                <SimpleValue>022226</SimpleValue>
+            </Value>
+            <Value ColumnRef="codice_catastale">
+                <SimpleValue>M173</SimpleValue>
+            </Value>
+            <Value ColumnRef="denominazione">
+                <SimpleValue>ZIANO DI FIEMME</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

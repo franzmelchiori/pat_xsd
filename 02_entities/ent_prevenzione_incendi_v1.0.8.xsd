@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:eattass="../02_entities/atto_assenso"
+    xmlns:epreinc="../02_entities/prevenzione_incendi"
+    targetNamespace="../02_entities/prevenzione_incendi"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/atto_assenso" schemaLocation="../02_entities/ent_atto_assenso_v1.0.8.xsd"/>
+
+    <xsd:complexType name="deroga_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">presenta caratteristiche tali da non consentire l'integrale osservanza delle regole tecniche di prevenzione incendi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="allega_documentazione_deroga" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allega documentazione necessaria all'ottenimento della deroga</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="valutazione_progetto_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">è soggetto alla valutazione del progetto da parte del Comando Provinciale dei Vigili del Fuoco, ai sensi dell'articolo 3 del d.P.R. n. 151/2011 e</xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:element name="allega_documentazione" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">si allega documentazione necessaria alla valutazione del progetto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="parere_ottenuto" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">il parere è stato ottenuto (protocollo e data)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="prevenzione_incendi_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Prevenzione incendi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento non è soggetto alle norme di prevenzione incendi</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="soggetto_norme_rispettate" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento è soggetto alle norme tecniche di prevenzione incendi e le stesse sono rispettate nel progetto</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="deroga" type="epreinc:deroga_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_soggetto_valutazione_progetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">e che l'intervento non è soggetto alla valutazione del progetto da parte del Comando Provinciale dei Vigili del Fuoco ai sensi del d.P.R. n.151/2011</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="soggetto_valutazione_progetto" type="epreinc:valutazione_progetto_ctype" minOccurs="1" maxOccurs="1"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="prevenzione_incendi" type="epreinc:prevenzione_incendi_ctype"/>
+    <xsd:complexType name="prevenzione_incendi_scia_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Prevenzione incendi (SCIA)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento non è soggetto alle norme di prevenzione incendi</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="soggetto_norme_rispettate" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento è soggetto alle norme tecniche di prevenzione incendi e le stesse sono rispettate nel progetto</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="deroga_ottenuta" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">che l'intervento presenta caratteristiche tali da non consentire l'integrale osservanza delle regole tecniche di prevenzione incendi e la deroga è stata ottenuta (protocollo e data)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="non_soggetto_valutazione_progetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">e che l'intervento non è soggetto alla valutazione del progetto da parte del Comando Provinciale dei Vigili del Fuoco ai sensi del d.P.R. n. 151/2011</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="parere_ottenuto" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="it">e che l'intervento è soggetto alla valutazione del progetto da parte del Comando Provinciale dei Vigili del Fuoco, ai sensi dell'articolo 3 del d.P.R. n. 151/2011 e il parere è stato ottenuto (protocollo e data)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

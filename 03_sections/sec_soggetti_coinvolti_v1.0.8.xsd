@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ccodelist="../commons/codelist"
+    xmlns:cdichiara="../commons/dichiarazioni"
+    xmlns:ctipi="../commons/tipi"
+    xmlns:canncl="../commons/xsdAnnotations"
+    xmlns:esogcoi="../02_entities/soggetti_coinvolti"
+    xmlns:eoblsalsicaltpdc="../02_entities/obblighi_salute_sicurezza_altpdc"
+    xmlns:ssogcoi="../03_sections/soggetti_coinvolti"
+    targetNamespace="../03_sections/soggetti_coinvolti"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0.8"
+    xml:lang="it">
+
+    <xsd:import namespace="../commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="../commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    <xsd:import namespace="../commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="../02_entities/soggetti_coinvolti" schemaLocation="../02_entities/ent_soggetti_coinvolti_v1.0.8.xsd"/>
+    <xsd:import namespace="../02_entities/obblighi_salute_sicurezza_altpdc" schemaLocation="../02_entities/ent_obblighi_salute_sicurezza_altpdc_v1.0.8.xsd"/>
+
+    <xsd:complexType name="sezione_soggetti_coinvolti_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Soggetti coinvolti</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="soggetti_coinvolti" type="esogcoi:soggetti_coinvolti_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="obblighi_salute_sicurezza" type="eoblsalsicaltpdc:obblighi_salute_sicurezza_soggetti_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Rispetto degli obblighi in materia di salute e sicurezza nei luoghi di lavoro</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="sezione_pat_soggetti_coinvolti" type="ssogcoi:sezione_soggetti_coinvolti_ctype"/>
+</xsd:schema>
