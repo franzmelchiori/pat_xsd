@@ -5,7 +5,7 @@
     uso (dalla radice del repository):
         python3 ./xslt/mod_pat_xslt.py
             per ogni trasformata xslt/mod_<procedimento>_v<versione>.xslt trasforma ogni XML SUE
-            04_forms/mod_<procedimento>_sue_*.xml (elemento radice pratica), scrive l'istanza PAT
+            04_forms/in/mod_<procedimento>_sue_*.xml (elemento radice pratica), scrive l'istanza PAT
             in xslt/out e la valida con l'XSD e lo schematron del modulo in 04_forms
         python3 ./xslt/mod_pat_xslt.py <file_sue.xml> <file.xslt> [file_pat.xml]
             trasforma e valida un singolo XML SUE
@@ -18,11 +18,12 @@ import re
 import sys
 from lxml import etree
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '04_forms'))
-from mod_pat_validator import validate
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tests'))
+from test_moduli import validate
 
 
 FORMS_DIR = './04_forms'
+SUE_DIR = './04_forms/in'
 XSLT_DIR = './xslt'
 OUT_DIR = './xslt/out'
 
@@ -50,8 +51,8 @@ def transform_all():
         procedimento = re.sub(r'_v[0-9.]+$', '', form)
         xsd_path = os.path.join(FORMS_DIR, form + '.xsd')
         sch_path = os.path.join(FORMS_DIR, form + '.sch')
-        sue_paths = sorted(glob.glob(os.path.join(FORMS_DIR, procedimento + '_sue_*.xml'))
-                           + glob.glob(os.path.join(FORMS_DIR, procedimento + '_sue_*.XML')))
+        sue_paths = sorted(glob.glob(os.path.join(SUE_DIR, procedimento + '_sue_*.xml'))
+                           + glob.glob(os.path.join(SUE_DIR, procedimento + '_sue_*.XML')))
         sue_paths = [sue_path for sue_path in sue_paths if is_sue_raw(sue_path)]
         print(f'\n{xslt_path}: {len(sue_paths)} XML SUE')
         for sue_path in sue_paths:

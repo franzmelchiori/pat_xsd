@@ -49,24 +49,26 @@ MDA: modulo di domanda; RTA: relazione tecnica di asseverazione.
 Validazione XML <a id="validazionexml"></a>
 ---------------
 
-I comandi si lanciano dalla radice del repository.
-
-Senza argomenti esegue il **controllo a cascata**: compila tutti i moduli `04_forms/mod_*.xsd` e valida ogni istanza di esempio `mod_*.xml` con il suo XSD e, se presente, con il suo schematron (stesso nome). Va eseguito dopo ogni modifica a entità o sezioni condivise, perché la modifica si ripercuote su tutti i moduli che le usano.
-
-```
-python3 ./04_forms/mod_pat_validator.py
-```
-
-Con argomenti valida una singola istanza:
-
-```
-python3 ./04_forms/mod_pat_validator.py <file.xml> <file.xsd> [file.sch]
-```
-
-I **test dei moduli** applicano agli esempi mutazioni che devono essere accettate o rifiutate, dall'XSD o dallo schematron, e verificano che ogni regola schematron scatti in almeno un caso. Controllano anche che ogni vocabolario PAT citato negli schemi esista in `01_vocabularies` con codici univoci. Una regola che non scatta mai è inerte, per esempio perché punta a un percorso che non esiste più. I casi sulle dichiarazioni obbligatorie, sul Comune e sugli altri titolari sono generati dagli schematron; gli altri sono scritti in `tests/test_moduli.py`. Vanno eseguiti insieme al controllo a cascata.
+Il **controllo a cascata** è `tests/test_moduli.py`, da lanciare dalla radice del repository:
 
 ```
 python3 ./tests/test_moduli.py
+```
+
+Per ogni modulo `04_forms/mod_*.xsd` con la sua istanza di esempio `mod_*.xml`:
+1. compila l'XSD e, se presente, lo schematron con lo stesso nome;
+2. valida l'istanza di esempio così com'è, che deve risultare valida;
+3. applica all'esempio delle mutazioni, che l'XSD o lo schematron devono accettare o rifiutare;
+4. verifica che ogni regola dello schematron scatti in almeno un caso.
+
+Una regola che non scatta mai è inerte, per esempio perché punta a un percorso che non esiste più. I casi sulle dichiarazioni obbligatorie, sul Comune e sugli altri titolari sono generati dagli schematron. Gli altri sono scritti in `tests/test_moduli.py`. Il controllo verifica anche che ogni vocabolario PAT citato negli schemi esista in `01_vocabularies` con codici univoci.
+
+Va eseguito dopo ogni modifica a entità o sezioni condivise, perché la modifica si ripercuote su tutti i moduli che le usano. L'esito è positivo quando l'ultima riga riporta "tutti come atteso e tutte le regole coperte".
+
+Con argomenti valida una singola istanza con l'XSD e, se indicato, con lo schematron:
+
+```
+python3 ./tests/test_moduli.py <file.xml> <file.xsd> [file.sch]
 ```
 
 

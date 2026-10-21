@@ -7,6 +7,8 @@
             applica agli esempi 04_forms/mod_*.xml mutazioni che devono essere
             accettate o rifiutate, e verifica che ogni regola schematron dei moduli
             scatti in almeno un caso (una regola che non scatta mai è inerte)
+        python3 ./tests/test_moduli.py <file.xml> <file.xsd> [file.sch]
+            valida una singola istanza con l'XSD e, se indicato, con lo schematron
 """
 
 
@@ -246,6 +248,23 @@ def vocabulary_checks():
     return len(errors)
 
 
+def validate(xml_path, xsd_path, sch_path=None):
+    tree = etree.parse(xml_path, etree.XMLParser(remove_blank_text=True))
+    schema = etree.XMLSchema(etree.parse(xsd_path))
+    xsd_valid = schema.validate(tree)
+    print(f'{xml_path}: ' + ('valido' if xsd_valid else 'NON valido') + ' (XSD)')
+    for error in schema.error_log:
+        print('    ' + str(error))
+    sch_valid = True
+    if sch_path:
+        sch = isoschematron.Schematron(etree.parse(sch_path), store_report=True)
+        sch_valid = sch.validate(tree)
+        print(f'{xml_path}: ' + ('valido' if sch_valid else 'NON valido') + ' (SCH)')
+        for text in sch.validation_report.iter(SVRL + 'text'):
+            print('    ' + ' '.join(''.join(text.itertext()).split()))
+    return xsd_valid and sch_valid
+
+
 def run():
     total, wrong, uncovered = 0, 0, 0
     wrong += vocabulary_checks()
@@ -302,4 +321,9 @@ def run():
 
 if __name__ == '__main__':
 
-    sys.exit(0 if run() else 1)
+    if len(sys.argv) >= 3:
+        result = validate(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) >= 4 else None)
+    else:
+        result = run()
+
+    sys.exit(0 if result else 1)
