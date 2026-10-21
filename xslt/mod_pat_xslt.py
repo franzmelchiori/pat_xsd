@@ -1,0 +1,77 @@
+"""
+    PAT XSLT: trasformazione degli XML SUE nelle istanze PAT e loro validazione
+    ⌘ 2026 Francesco Melchiori
+
+    uso (dalla radice del repository):
+        python3 ./xslt/mod_pat_xslt.py
+            per ogni trasformata xslt/mod_<procedimento>_v<versione>.xslt trasforma ogni XML SUE
+            04_forms/mod_<procedimento>_sue_*.xml (elemento radice pratica), scrive l'istanza PAT
+            in xslt/out e la valida con l'XSD e lo schematron del modulo in 04_forms
+        python3 ./xslt/mod_pat_xslt.py <file_sue.xml> <file.xslt> [file_pat.xml]
+            trasforma e valida un singolo XML SUE
+"""
+
+
+import glob
+import os
+import re
+import sys
+from lxml import etree
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '04_forms'))
+from mod_pat_validator import validate
+
+
+FORMS_DIR = './04_forms'
+XSLT_DIR = './xslt'
+OUT_DIR = './xslt/out'
+
+
+def transform(sue_path, xslt_path, pat_path):
+    sue_tree = etree.parse(sue_path, etree.XMLParser(remove_blank_text=True))
+    transform_xslt = etree.XSLT(etree.parse(xslt_path))
+    pat_tree = transform_xslt(sue_tree)
+    for entry in transform_xslt.error_log:
+        print('    ' + str(entry))
+    os.makedirs(os.path.dirname(pat_path) or '.', exist_ok=True)
+    pat_tree.write(pat_path, pretty_print=True, xml_declaration=True, encoding='UTF-8')
+    print(f'{sue_path}: trasformato in {pat_path}')
+    return pat_path
+
+
+def is_sue_raw(xml_path):
+    return etree.parse(xml_path).getroot().tag == 'pratica'
+
+
+def transform_all():
+    ok = True
+    for xslt_path in sorted(glob.glob(os.path.join(XSLT_DIR, 'mod_*.xslt'))):
+        form = os.path.basename(xslt_path)[:-5]
+        procedimento = re.sub(r'_v[0-9.]+$', '', form)
+        xsd_path = os.path.join(FORMS_DIR, form + '.xsd')
+        sch_path = os.path.join(FORMS_DIR, form + '.sch')
+        sue_paths = sorted(glob.glob(os.path.join(FORMS_DIR, procedimento + '_sue_*.xml'))
+                           + glob.glob(os.path.join(FORMS_DIR, procedimento + '_sue_*.XML')))
+        sue_paths = [sue_path for sue_path in sue_paths if is_sue_raw(sue_path)]
+        print(f'\n{xslt_path}: {len(sue_paths)} XML SUE')
+        for sue_path in sue_paths:
+            pat_name = re.sub(r'\.xml$', '', os.path.basename(sue_path), flags=re.IGNORECASE) + '_pat.xml'
+            pat_path = transform(sue_path, xslt_path, os.path.join(OUT_DIR, pat_name))
+            ok = validate(pat_path, xsd_path, sch_path if os.path.exists(sch_path) else None) and ok
+    print('\nRISULTATO: tutto valido' if ok else '\nRISULTATO: ci sono errori')
+    return ok
+
+
+if __name__ == '__main__':
+
+    if len(sys.argv) >= 3:
+        sue_path, xslt_path = sys.argv[1], sys.argv[2]
+        form = os.path.basename(xslt_path)[:-5]
+        pat_path = sys.argv[3] if len(sys.argv) >= 4 else os.path.join(OUT_DIR, os.path.basename(sue_path) + '_pat.xml')
+        sch_path = os.path.join(FORMS_DIR, form + '.sch')
+        transform(sue_path, xslt_path, pat_path)
+        result = validate(pat_path, os.path.join(FORMS_DIR, form + '.xsd'), sch_path if os.path.exists(sch_path) else None)
+    else:
+        result = transform_all()
+
+    sys.exit(0 if result else 1)
