@@ -14,6 +14,7 @@
     <sch:ns uri="../02_entities/localizzazione_intervento" prefix="elocint"/>
     <sch:ns uri="../02_entities/titolo_possesso" prefix="etitpos"/>
     <sch:ns uri="../02_entities/tecnici_incaricati" prefix="etecinc"/>
+    <sch:ns uri="../02_entities/calcolo_contributo_costruzione_pdc" prefix="ecalconcospdc"/>
     <sch:ns uri="../02_entities/obblighi_salute_sicurezza_altpdc" prefix="eoblsalsicaltpdc"/>
     <sch:ns uri="../02_entities/informativa_privacy" prefix="einfoprivacy"/>
     <sch:ns uri="../03_sections/ubicazione_intervento" prefix="subiint"/>
@@ -43,6 +44,10 @@
 
         <sch:rule context="sdicpdc:diritti_terzi | eoblsalsicaltpdc:consapevolezza_efficacia_sospesa | sversam:dichiarazione_art_75 | sdiccon:dichiarazione_consapevolezza | einfoprivacy:dichiarazione_lettura">
             <sch:assert test=". = 'true' or . = '1'">La dichiarazione <sch:name/> è obbligatoria e deve essere selezionata.</sch:assert>
+        </sch:rule>
+
+        <sch:rule context="ecalconcospdc:soggetto">
+            <sch:assert test="* or ../ecalconcospdc:rateizzazione = 'true' or ../ecalconcospdc:rateizzazione = '1'">Il contributo di costruzione è dovuto: indicare l'invio della ricevuta del pagamento, l'esenzione oppure la richiesta di rateizzazione.</sch:assert>
         </sch:rule>
 
     </sch:pattern>

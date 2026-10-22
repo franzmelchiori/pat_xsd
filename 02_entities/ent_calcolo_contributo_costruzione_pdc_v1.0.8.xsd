@@ -18,7 +18,8 @@
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
 
     <xsd:complexType name="soggetto_contributo_ctype">
-        <xsd:choice minOccurs="1" maxOccurs="1">
+        <!-- SUE propone la rateizzazione in alternativa alla ricevuta e all'esenzione: la scelta è facoltativa e lo schematron del modulo la richiede quando non è chiesta la rateizzazione -->
+        <xsd:choice minOccurs="0" maxOccurs="1">
             <xsd:element name="invio_ricevuta_pagamento" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">si procederà ad inviare la ricevuta del pagamento</xsd:documentation>

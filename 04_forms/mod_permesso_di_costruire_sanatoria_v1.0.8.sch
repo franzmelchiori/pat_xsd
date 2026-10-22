@@ -17,6 +17,7 @@
     <sch:ns uri="../02_entities/conformita_progetto" prefix="econpro"/>
     <sch:ns uri="../02_entities/qualita_ambientale_terreni" prefix="equaambter"/>
     <sch:ns uri="../02_entities/tecnici_incaricati" prefix="etecinc"/>
+    <sch:ns uri="../02_entities/calcolo_contributo_costruzione_pdc" prefix="ecalconcospdc"/>
     <sch:ns uri="../02_entities/informativa_privacy" prefix="einfoprivacy"/>
     <sch:ns uri="../03_sections/ubicazione_intervento" prefix="subiint"/>
     <sch:ns uri="../03_sections/titolarita_intervento" prefix="stitint"/>
@@ -60,6 +61,10 @@
 
         <sch:rule context="sversam:dichiarazione_art_75 | sdiccon:dichiarazione_consapevolezza | einfoprivacy:dichiarazione_lettura">
             <sch:assert test=". = 'true' or . = '1'">La dichiarazione <sch:name/> è obbligatoria e deve essere selezionata.</sch:assert>
+        </sch:rule>
+
+        <sch:rule context="ecalconcospdc:soggetto">
+            <sch:assert test="* or ../ecalconcospdc:rateizzazione = 'true' or ../ecalconcospdc:rateizzazione = '1'">Il contributo di costruzione è dovuto: indicare l'invio della ricevuta del pagamento, l'esenzione oppure la richiesta di rateizzazione.</sch:assert>
         </sch:rule>
 
     </sch:pattern>

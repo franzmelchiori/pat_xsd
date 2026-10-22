@@ -51,6 +51,8 @@ CASI = {
         ('lavori in economia con notifica', [('sostituisci', '//seselav:impresa_esecutrice', '<seselav:impresa_esecutrice><seselav:titolare>true</seselav:titolare></seselav:impresa_esecutrice>')], 'sch'),
         ('impresa senza verifica contributiva', [('rimuovi', '//seselav:impresa[1]/eimpese:verifica_contributiva')], 'xsd'),
         ('ubicazione senza Comune', [('rimuovi', '//scominilav:indirizzo_italiano/epeindita:comune')], 'xsd'),
+        ('impresa con codice fiscale numerico', [('testo', '//eimpresa:codice_fiscale', '01234567890')], 'valido'),
+        ('impresa con codice fiscale numerico di 10 cifre', [('testo', '//eimpresa:codice_fiscale', '0123456789')], 'xsd'),
     ],
     'permesso_di_costruire': [
         ('altri progettisti presenti senza indicazioni', [('rimuovi', '//etecinc:individuati_prima_inizio_lavori')], 'sch'),
@@ -58,6 +60,8 @@ CASI = {
         ('progettista della relazione senza iscrizione', [('rimuovi', '//sreltecasspdc:dati_progettista/etecinc:iscrizione_ordine')], 'xsd'),
         ('estremi della notifica senza numero', [('rimuovi', '//eoblsalsicaltpdc:estremi_notifica/eattass:numero')], 'xsd'),
         ('impresa senza legale rappresentante', [('rimuovi', '//sdicpdc:imprese_esecutrici/eimpese:impresa/eimpese:legale_rappresentante')], 'xsd'),
+        ('contributo dovuto con la sola rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento')], 'valido'),
+        ('contributo dovuto senza ricevuta, esenzione o rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento'), ('testo', '//ecalconcospdc:rateizzazione', 'false')], 'sch'),
     ],
     'scia': [
         ('progettista non direttore e nessun direttore', [('rimuovi', '//sdicscia:tecnici_incaricati/etecinc:direttore_lavori')], 'sch'),
@@ -94,6 +98,8 @@ CASI = {
         ('altro tecnico iscritto senza iscrizione', [('testo', '//etecinc:presenti_altri_progettisti', 'true'), ('inserisci', '//etecinc:altri_progettisti', ALTRO_TECNICO.format(iscritto='true'), 'dentro')], 'sch'),
         ('altro tecnico non iscritto con iscrizione', [('testo', '//etecinc:presenti_altri_progettisti', 'true'), ('inserisci', '//etecinc:altri_progettisti', ALTRO_TECNICO.format(iscritto='false'), 'dentro'), ('inserisci', '//etecinc:altro_tecnico/etecinc:iscritto_ordine', ISCRIZIONE, 'dopo')], 'sch'),
         ('qualità dei terreni senza indagini', [('sostituisci', '//equaambter:non_necessita_bonifica', '<equaambter:non_richiede_indagini>true</equaambter:non_richiede_indagini>')], 'sch'),
+        ('contributo dovuto con la sola rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento')], 'valido'),
+        ('contributo dovuto senza ricevuta, esenzione o rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento'), ('testo', '//ecalconcospdc:rateizzazione', 'false')], 'sch'),
         ('titolo difforme senza titolo', [('rimuovi', '//equaintsan:difformita_titolo/eattass:titolo')], 'xsd'),
     ],
     'comunicazione_modifica_soggetti_coinvolti': [

@@ -80,7 +80,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 - **Modulo**: `04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd` (namespace `../04_forms/comunicazione_inizio_lavori`)
 - **Fonte**: `07.COMUNICAZIONE INIZIO LAVORI_MDA.pdf`
 - **Istanza di esempio**: usata dal controllo a cascata. Non va modificata e deve restare valida: le modifiche alla CIL sono ammesse solo se lasciano invariati nomi e namespace dei suoi elementi.
-- **Modifiche compatibili con l'istanza di esempio**: annotazioni in `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8` (vedi [scelte di modellazione](#modellazione)), la correzione "Segnala all'ufficio tecnico del Comune" in `sec_comunicazione_inizio_lavori_v1.0.8`, `ent_documento_rilasciato` portata da v1.0.7 a v1.0.8 perché le date in formato gg/mm/aaaa la distinguono dalla versione nazionale, `ent_impresa_escutrice` diventata la sede comune dell'impresa esecutrice (vedi [entità e sezioni comuni](#comuni)), `ent_indirizzo_italiano` ed `ent_persona` portate a v1.0.8 per il Comune obbligatorio nell'indirizzo dell'intervento e per la nascita all'estero (vedi [scelte di modellazione](#modellazione)). L'istanza di esempio resta valida e invariata.
+- **Modifiche compatibili con l'istanza di esempio**: annotazioni in `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8` (vedi [scelte di modellazione](#modellazione)), la correzione "Segnala all'ufficio tecnico del Comune" in `sec_comunicazione_inizio_lavori_v1.0.8`, `ent_documento_rilasciato` portata da v1.0.7 a v1.0.8 perché le date in formato gg/mm/aaaa la distinguono dalla versione nazionale, `ent_impresa_escutrice` diventata la sede comune dell'impresa esecutrice (vedi [entità e sezioni comuni](#comuni)), `ent_indirizzo_italiano` ed `ent_persona` portate a v1.0.8 per il Comune obbligatorio nell'indirizzo dell'intervento e per la nascita all'estero, `ent_impresa` con il codice fiscale che ammette anche quello numerico dell'impresa (vedi [scelte di modellazione](#modellazione)). L'istanza di esempio resta valida e invariata.
 - **Schematron** (`mod_comunicazione_inizio_lavori_v1.0.8.sch`): comune dell'intervento, data di inizio lavori non precedente al rilascio del permesso di costruire, nessuna notifica se l'intervento non ricade nel d.lgs. n. 81/2008 o se i lavori sono eseguiti in economia, dichiarazioni e scelte selezionate a `true` (efficacia del permesso di costruire, in economia, direttore dei lavori, presa visione delle relazioni, salute e sicurezza, notifica, consapevolezza, privacy).
 
 
@@ -106,7 +106,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 | `sezione_pat_versamenti` | `sec_versamenti_v1.0.8` | nuova | Diritti di segreteria, imposta di bollo, art. 75 DPR 445/2000 |
 | `sezione_pat_relazione_tecnica_asseverazione_pdc` | `sec_relazione_tecnica_asseverazione_pdc_v1.0.8` | versione PAT della nazionale | Relazione tecnica di asseverazione 1-34 |
 
-**Entità riusate senza modifiche**: `persona`, `cittadinanza`, `indirizzo_italiano`, `indirizzo_estero`, `contatti`, `iscrizione_REA` (v1.0.7), `impresa`, `dati_catastali`, `informativa_privacy` (v1.0.8 CIL), `dati_geometrici_immobile` (v1.0.7 nazionale).
+**Entità riusate senza modifiche**: `persona`, `cittadinanza`, `indirizzo_italiano`, `indirizzo_estero`, `contatti`, `iscrizione_REA` (v1.0.7), `dati_catastali`, `informativa_privacy` (v1.0.8 CIL), `dati_geometrici_immobile` (v1.0.7 nazionale). `impresa` è riusata dalla CIL con il codice fiscale che ammette anche quello numerico dell'impresa (vedi [scelte di modellazione](#modellazione)).
 
 **Entità comune a tutti i moduli tranne la CIL**: `localizzazione_intervento` v1.0.8 (indirizzo, frazione, scala, piano, interno), versione PAT dell'entità nazionale omonima, usata dalla sezione comune `sec_ubicazione_intervento`.
 
@@ -119,7 +119,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 | `qualificazione_intervento_pdc` | MDA a) |
 | `titolo_possesso` | MDA b) |
 | `opere_parti_comuni` | MDA d) |
-| `calcolo_contributo_costruzione_pdc` | MDA f) e l) caratteristiche lusso/non lusso |
+| `calcolo_contributo_costruzione_pdc` | MDA f), con la sola rateizzazione ammessa come alternativa a ricevuta ed esenzione, e l) caratteristiche lusso/non lusso |
 | `tecnici_incaricati` | MDA G1) e G2), con i tipi `*_pdc_ctype` |
 | `impresa_escutrice` | MDA h), con `imprese_esecutrici_dei_lavori_ctype` |
 | `obblighi_salute_sicurezza_altpdc` | MDA i) |
@@ -153,7 +153,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 | `conformita_progetto` | RTA 18 |
 | `fasce_rispetto` | RTA 29 |
 
-**Schematron**: coerenza tra `altri_titolari` e le sezioni `sezione_pat_altri_titolari`, coincidenza tra comune della pratica e comune dell'intervento, coerenza degli altri progettisti, dichiarazioni obbligatorie a `true`.
+**Schematron**: coerenza tra `altri_titolari` e le sezioni `sezione_pat_altri_titolari`, coincidenza tra comune della pratica e comune dell'intervento, coerenza degli altri progettisti, contributo di costruzione dovuto con invio della ricevuta, esenzione o rateizzazione, dichiarazioni obbligatorie a `true`.
 
 
 ### Segnalazione Certificata di Inizio Attività (SCIA) <a id="scia"></a>
@@ -302,7 +302,7 @@ Le due note di `sicurezza_impianti` valide solo per il PdC sono passate dall'ent
 | `tecnici_incaricati` | `tecnici_incaricati_pds_ctype` (progettista con titolo, direttore dei lavori diverso, altri progettisti come nella SCIA) |
 | `conformita_progetto` | `conformita_urbanistica_sanatoria_ctype` (doppia conformità o art. 86 quater), `conformita_progetto_sanatoria_ctype` (con assenza di condoni pendenti) |
 
-**Schematron**: altri titolari, comune dell'intervento, progettista direttore dei lavori incompatibile con un direttore dei lavori diverso, altri progettisti e loro iscrizione all'ordine, coerenza tra fattispecie di sanatoria richiesta e conformità urbanistica attestata, qualità ambientale dei terreni senza l'opzione "non richiede indagini", dichiarazioni obbligatorie a `true`.
+**Schematron**: altri titolari, comune dell'intervento, progettista direttore dei lavori incompatibile con un direttore dei lavori diverso, altri progettisti e loro iscrizione all'ordine, coerenza tra fattispecie di sanatoria richiesta e conformità urbanistica attestata, qualità ambientale dei terreni senza l'opzione "non richiede indagini", contributo di costruzione dovuto con invio della ricevuta, esenzione o rateizzazione, dichiarazioni obbligatorie a `true`.
 
 
 ### Comunicazione modifica soggetti coinvolti (SC) <a id="sc"></a>
@@ -493,6 +493,7 @@ python3 ./tools/genera_vocabolari.py <tariffe_catasto_fondiario.csv>
 
 ### Scelte di modellazione <a id="modellazione"></a>
 
+- Le modifiche richieste allo SUE vanno ridotte al minimo: quando un XML prodotto dallo SUE non è rappresentabile, si adegua l'XSD, anche con un compromesso, invece di chiedere allo SUE di cambiare il modulo.
 - Le entità nazionali versionate v1.0.8 mantengono nome file e namespace della v1.0.7 nazionale. Le entità v1.0.7 nazionali riusate restano identiche agli originali. La scelta è voluta anche quando il contenuto PAT si discosta molto dal nazionale: gli XSD sono destinati a una piattaforma multitenant che isola per costruzione le versioni PAT da quelle nazionali e di altri enti, quindi non serve un prefisso `pat_` nei nomi dei file. Le istanze PAT restano riconoscibili dall'elemento radice `modulo_pat_*`.
 - Quando un nuovo procedimento differisce da un'entità già usata, si aggiunge un nuovo tipo all'entità esistente invece di modificare quello in uso. Ogni modifica a entità o sezioni condivise va verificata con il [controllo a cascata](#validazionexml) su tutti i moduli.
 - Le entità nazionali con tipo base astratto (`*_base_type`) sono state sostituite da tipi concreti, così le istanze non richiedono `xsi:type`. `dati_geometrici_immobile` v1.0.7 è riusata referenziando direttamente il tipo concreto `dati_geometrici_ctype`.
@@ -504,6 +505,8 @@ python3 ./tools/genera_vocabolari.py <tariffe_catasto_fondiario.csv>
 - `ent_documento_rilasciato` è in v1.0.8 perché la PAT ha sostituito `xsd:date` con il formato gg/mm/aaaa nelle date di rilascio e di scadenza. Lo schematron nazionale di entità `ent_documento_rilasciato_v1.0.7.sch` è stato rimosso: nessun modulo lo usava e confrontava le date come `xs:date`, quindi non era compatibile con la versione PAT.
 - L'indirizzo dell'intervento richiede il Comune: `ent_indirizzo_italiano` v1.0.8 aggiunge `indirizzo_intervento_ctype`, restrizione dell'indirizzo nazionale con il Comune obbligatorio, usata dalla localizzazione dell'intervento e dalla CIL. Via e numero civico restano facoltativi, perché i terreni senza indirizzo sono identificati dai dati catastali, già obbligatori.
 - `ent_persona` v1.0.8 ammette la nascita all'estero: nato in Italia con Comune, Provincia e Stato facoltativo, oppure nato all'estero con Stato e località estera facoltativa, che usa il tipo nazionale `localita_estero_stype`. Le istanze dei nati in Italia non cambiano. Gli schematron nazionali di entità `ent_persona_v1.0.7.sch` e `ent_indirizzo_italiano_v1.0.7.sch` sono stati rimossi: nessun modulo li usava e non corrispondevano alle versioni PAT.
+- Nel calcolo del contributo di costruzione di PdC e PdS il PDF prevede la rateizzazione in aggiunta all'invio della ricevuta o all'esenzione, mentre lo SUE la propone come alternativa. In `calcolo_contributo_costruzione_pdc` la scelta tra ricevuta ed esenzione è quindi facoltativa. Lo schematron del modulo la richiede quando non è chiesta la rateizzazione.
+- Un'impresa può avere il solo codice fiscale numerico, che ha la sintassi della partita IVA. `ent_impresa` v1.0.8 usa per il codice fiscale il tipo `codice_fiscale_impresa_stype`, che ammette il codice di persona fisica oppure 11 cifre. Le istanze esistenti restano valide.
 - Negli schematron il Comune dell'intervento si confronta con il destinatario della pratica ignorando maiuscole, accenti e punteggiatura: il nome del Comune deve comparire come parola intera nel destinatario, che SUE compila con l'ufficio, per esempio "COMUNE DI ALA - UFFICIO TECNICO". Se l'ubicazione è indicata con un codice catastale o ISTAT la regola non si applica, perché senza un vocabolario dei Comuni non si può confrontare.
 
 ### Stile delle annotazioni <a id="stile"></a>
