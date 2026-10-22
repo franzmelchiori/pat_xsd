@@ -40,6 +40,20 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <xsd:group name="dati_impresa_group">
+        <xsd:sequence>
+            <xsd:element name="codice_fiscale" type="eimpresa:codice_fiscale_impresa_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="indirizzo_attivita" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="telefono_cellulare" type="ctipi:telefono_mobile_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="email" type="ctipi:email_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">PEC/email</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:group>
+
     <xsd:complexType name="impresa_ctype">
         <xsd:sequence>
             <xsd:element name="denominazione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -52,15 +66,24 @@
                     </xsd:appinfo>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="codice_fiscale" type="eimpresa:codice_fiscale_impresa_stype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="indirizzo_attivita" type="epeindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="telefono_cellulare" type="ctipi:telefono_mobile_stype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="email" type="ctipi:email_stype" minOccurs="0" maxOccurs="1">
+            <xsd:group ref="eimpresa:dati_impresa_group"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- impresa esecutrice: il PDF PAT chiede denominazione, codice fiscale o partita IVA e sede legale, senza la forma giuridica -->
+    <xsd:complexType name="impresa_forma_giuridica_facoltativa_ctype">
+        <xsd:sequence>
+            <xsd:element name="denominazione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="forma_giuridica" type="ccodelist:CodeType" minOccurs="0" maxOccurs="1">
                 <xsd:annotation>
-                    <xsd:documentation xml:lang="it">PEC/email</xsd:documentation>
+                    <xsd:appinfo>
+                        <canncl:codeListReference>
+                            <canncl:codeListID_cl>IT:SUAP:CL:FormeGiuridiche</canncl:codeListID_cl>
+                        </canncl:codeListReference>
+                    </xsd:appinfo>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:group ref="eimpresa:dati_impresa_group"/>
         </xsd:sequence>
     </xsd:complexType>
     

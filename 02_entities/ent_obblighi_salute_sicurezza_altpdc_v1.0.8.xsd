@@ -101,6 +101,7 @@
             <xsd:element name="consapevolezza_efficacia_sospesa" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">di essere a conoscenza che l'efficacia della presente pratica è sospesa qualora sia assente il piano di sicurezza e coordinamento di cui all'articolo 100 del d.lgs. n. 81/2008 o il fascicolo di cui all'articolo 91, comma 1, lettera b), quando previsti, oppure in assenza di notifica di cui all'articolo 99, quando prevista, oppure in assenza di documento unico di regolarità contributiva</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Attenzione: la presa d'atto si intende resa con la sottoscrizione della pratica</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
@@ -115,6 +116,7 @@
             <xsd:element name="consapevolezza_efficacia_sospesa" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Dichiara inoltre di essere a conoscenza che l'efficacia della presente pratica è sospesa qualora sia assente il piano di sicurezza e coordinamento di cui all'articolo 100 del d.lgs. n. 81/2008 o il fascicolo di cui all'articolo 91, comma 1, lettera b), quando previsti, oppure in assenza di notifica di cui all'articolo 99, quando prevista, oppure in assenza di documento unico di regolarità contributiva</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Attenzione: la presa d'atto si intende resa con la sottoscrizione della pratica</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>

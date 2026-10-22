@@ -60,6 +60,8 @@ CASI = {
         ('progettista della relazione senza iscrizione', [('rimuovi', '//sreltecasspdc:dati_progettista/etecinc:iscrizione_ordine')], 'xsd'),
         ('estremi della notifica senza numero', [('rimuovi', '//eoblsalsicaltpdc:estremi_notifica/eattass:numero')], 'xsd'),
         ('impresa senza legale rappresentante', [('rimuovi', '//sdicpdc:imprese_esecutrici/eimpese:impresa/eimpese:legale_rappresentante')], 'xsd'),
+        ('impresa esecutrice senza forma giuridica', [('rimuovi', '//sdicpdc:imprese_esecutrici/eimpese:impresa/eimpese:impresa/eimpresa:forma_giuridica')], 'valido'),
+        ('dichiarante ditta senza forma giuridica', [('sostituisci', '//sschana:opzione_persona', '<sschana:opzione_ditta><sschana:selezione_ditta>true</sschana:selezione_ditta><sschana:selezione_cciaa_non_necessario><eimpresa:denominazione>Ditta</eimpresa:denominazione><eimpresa:indirizzo_attivita/></sschana:selezione_cciaa_non_necessario></sschana:opzione_ditta>')], 'xsd'),
         ('contributo dovuto con la sola rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento')], 'valido'),
         ('contributo dovuto senza ricevuta, esenzione o rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento'), ('testo', '//ecalconcospdc:rateizzazione', 'false')], 'sch'),
     ],

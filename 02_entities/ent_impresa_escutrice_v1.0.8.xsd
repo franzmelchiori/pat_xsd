@@ -34,7 +34,7 @@
             <xsd:documentation xml:lang="it">Allegare fac simile "impresa" (da scaricare, compilare e firmare)</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="impresa" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1">
+            <xsd:element name="impresa" type="eimpresa:impresa_forma_giuridica_facoltativa_ctype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Dati della ditta/società/impresa: Denominazione, Codice Fiscale / P. IVA</xsd:documentation>
                     <xsd:documentation xml:lang="it">Dati relativi alla sede legale della ditta/società/impresa: Stato, Provincia, Comune, Via, Piazza, ecc., Numero civico, CAP</xsd:documentation>

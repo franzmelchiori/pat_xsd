@@ -665,9 +665,7 @@
                     <xsl:with-param name="nome" select="'eimpresa:denominazione'"/>
                     <xsl:with-param name="valore" select=".//ragioneSociale"/>
                 </xsl:call-template>
-                <xsl:call-template name="mancante">
-                    <xsl:with-param name="dato" select="&quot;forma giuridica dell'impresa esecutrice&quot;"/>
-                </xsl:call-template>
+                <!-- la forma giuridica dell'impresa esecutrice è facoltativa e SUE non la invia -->
                 <xsl:call-template name="campo">
                     <xsl:with-param name="nome" select="'eimpresa:partita_iva'"/>
                     <xsl:with-param name="valore" select=".//pIVA"/>
@@ -1123,7 +1121,8 @@
                             </eoblsalsicaltpdc:ricade>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <eoblsalsicaltpdc:consapevolezza_efficacia_sospesa><xsl:value-of select="boolean($sicurezza/*[contains(translate(normalize-space(.), $M, $m), 'efficacia')])"/></eoblsalsicaltpdc:consapevolezza_efficacia_sospesa>
+                    <!-- la presa d'atto è implicita nella sottoscrizione della pratica: SUE non la invia come casella -->
+                    <eoblsalsicaltpdc:consapevolezza_efficacia_sospesa>true</eoblsalsicaltpdc:consapevolezza_efficacia_sospesa>
                 </sdicpdc:obblighi_salute_sicurezza>
 
                 <!-- l) diritti di terzi -->
