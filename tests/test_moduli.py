@@ -53,6 +53,8 @@ CASI = {
         ('ubicazione senza Comune', [('rimuovi', '//scominilav:indirizzo_italiano/epeindita:comune')], 'xsd'),
         ('impresa con codice fiscale numerico', [('testo', '//eimpresa:codice_fiscale', '01234567890')], 'valido'),
         ('impresa con codice fiscale numerico di 10 cifre', [('testo', '//eimpresa:codice_fiscale', '0123456789')], 'xsd'),
+        ('altro progettista non iscritto all\'ordine', [('rimuovi', '//seselav:progettista_lavori/seselav:iscrizione_ordine')], 'valido'),
+        ('direttore dei lavori non iscritto all\'ordine', [('rimuovi', '//seselav:direttore_lavori//seselav:iscrizione_ordine')], 'xsd'),
     ],
     'permesso_di_costruire': [
         ('altri progettisti presenti senza indicazioni', [('rimuovi', '//etecinc:individuati_prima_inizio_lavori')], 'sch'),
@@ -122,6 +124,7 @@ CASI = {
         ('titolo legittimante con il titolo', [('inserisci', '//ssegceragi:titolo_legittimante/eattass:numero', '<eattass:titolo>Permesso di costruire</eattass:titolo>', 'prima')], 'valido'),
         ('nessuna tipologia di intervento', [('testo', '//esegagi:recupero_parti_strutturali', 'false')], 'sch'),
         ('tipologie di intervento assenti', [('rimuovi', '//esegagi:tipologie_intervento/*')], 'valido'),
+        ('estensione dell\'agibilità non segnalata dal titolare', [('rimuovi', '//esegagi:riferimento_agibilita')], 'valido'),
         ('agibilità segnalata diversa da quella asseverata', [('sostituisci', '//esegagi:agibilita_parziale_unita', '<esegagi:agibilita_totale>true</esegagi:agibilita_totale>')], 'sch'),
         ('agibilità parziale di edifici non autonomi', [('sostituisci', '//esegagi:agibilita_parziale_unita', '<esegagi:agibilita_parziale_edifici>true</esegagi:agibilita_parziale_edifici>'), ('sostituisci', '//eassagi:agibilita_parziale_unita', '<eassagi:agibilita_parziale_edifici><eassagi:funzionalmente_autonomi>false</eassagi:funzionalmente_autonomi><eassagi:parti_strutturali>true</eassagi:parti_strutturali><eassagi:impianti_parti_comuni>true</eassagi:impianti_parti_comuni></eassagi:agibilita_parziale_edifici>')], 'sch'),
         ('convenzione senza urbanizzazione primaria', [('sostituisci', '//esegagi:agibilita_parziale_unita', '<esegagi:agibilita_parziale_edifici>true</esegagi:agibilita_parziale_edifici>'), ('sostituisci', '//eassagi:agibilita_parziale_unita', '<eassagi:agibilita_parziale_edifici><eassagi:funzionalmente_autonomi>true</eassagi:funzionalmente_autonomi><eassagi:convenzione_urbanizzazione><eattass:numero>12</eattass:numero><eattass:data>01/03/2024</eattass:data></eassagi:convenzione_urbanizzazione><eassagi:parti_strutturali>true</eassagi:parti_strutturali><eassagi:impianti_parti_comuni>true</eassagi:impianti_parti_comuni></eassagi:agibilita_parziale_edifici>')], 'sch'),

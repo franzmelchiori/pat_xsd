@@ -526,12 +526,13 @@
         <sschana:cittadinanza>
             <epecitt:stato_cittadinanza><xsl:value-of select="$a/ANAG_LEGALE_RAPPRESENTANTE_CITTADINANZA/@code"/></epecitt:stato_cittadinanza>
         </sschana:cittadinanza>
+        <!-- residenza all'estero: l'XSD ha solo l'indirizzo italiano, la località estera va nel Comune; DUG "ALTRO": vale il dettaglio -->
         <sschana:residenza_dichiarante>
             <xsl:call-template name="indirizzo">
-                <xsl:with-param name="comune" select="$a/INDIRIZZO_STANDARD_RESIDENZA/COMUNE_STANDARD"/>
+                <xsl:with-param name="comune" select="$a/INDIRIZZO_STANDARD_RESIDENZA/COMUNE_STANDARD | $a/INDIRIZZO_STANDARD_RESIDENZA/LOC_ESTERA_STANDARD"/>
                 <xsl:with-param name="provincia" select="$a/INDIRIZZO_STANDARD_RESIDENZA/PROVINCIA_STANDARD/@code"/>
                 <xsl:with-param name="stato" select="$a/INDIRIZZO_STANDARD_RESIDENZA/STATO_STANDARD/@code"/>
-                <xsl:with-param name="dug" select="$a/ANAG_LEGALE_RAPPRESENTANTE_TOPORES"/>
+                <xsl:with-param name="dug" select="$a/ANAG_LEGALE_RAPPRESENTANTE_TOPORES[not(@code = 'ALTRO')] | $a/ANAG_LEGALE_RAP_TOPORES_DETTAGLIO[../ANAG_LEGALE_RAPPRESENTANTE_TOPORES/@code = 'ALTRO']"/>
                 <xsl:with-param name="toponimo" select="$a/ANAG_LEGALE_RAPPRESENTANTE_DENOMSTRES"/>
                 <xsl:with-param name="numero_civico" select="$a/ANAG_NUM_N_RESIDENZA"/>
                 <xsl:with-param name="cap" select="$a/ANAG_LEGALE_RAPPRESENTANTE_CAPRES"/>
@@ -1067,6 +1068,15 @@
         </xsl:if>
     </xsl:template>
 
+    <!-- destinatario della pratica: l'ente SUE della pratica (COMUNE DI ... - UFFICIO TECNICO), altrimenti il nome dello sportello -->
+    <xsl:template name="destinatario">
+        <xsl:variable name="ente" select="normalize-space((/pratica/struttura/interventi/*/enti/*/code)[1])"/>
+        <xsl:choose>
+            <xsl:when test="$ente != ''"><xsl:value-of select="$ente"/></xsl:when>
+            <xsl:otherwise><xsl:value-of select="normalize-space($sportello/nome)"/></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <!-- ================= FINE BLOCCO COMUNE ================= -->
 
     <!-- ================= MODULO ================= -->
@@ -1107,7 +1117,7 @@
 
             <!-- DC616: localizzazione dell'intervento -->
             <mpercos:sezione_pat_ubicazione_intervento>
-                <subiint:comune><xsl:value-of select="normalize-space($sportello/nome)"/></subiint:comune>
+                <subiint:comune><xsl:call-template name="destinatario"/></subiint:comune>
                 <subiint:localizzazione_intervento>
                     <elocint:indirizzo_italiano>
                         <xsl:call-template name="indirizzo">
@@ -1336,9 +1346,41 @@
                                     <etecinc:individuati_prima_inizio_lavori>true</etecinc:individuati_prima_inizio_lavori>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:call-template name="mancante">
-                                        <xsl:with-param name="dato" select="'anagrafica degli altri tecnici (SoggettiCoinvoltiType_AltriTecniciType)'"/>
-                                    </xsl:call-template>
+                                    <!-- altro_tecnico_pdc_ctype: altro progettista o certificatore energetico, incarico, anagrafica, ordine e contatti -->
+                                    <xsl:for-each select="ALTRI_PROGETTISTI/SoggettiCoinvoltiType_AltriTecniciType[ProfessionistaAnagrafica/*[not(starts-with(local-name(), '_'))]]">
+                                        <etecinc:altro_tecnico>
+                                            <xsl:choose>
+                                                <xsl:when test="contains(translate(normalize-space(altroProgettista), $M, $m), 'certificazione energetica')">
+                                                    <etecinc:certificatore_energetico>true</etecinc:certificatore_energetico>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <etecinc:altro_progettista>true</etecinc:altro_progettista>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                            <xsl:call-template name="campo">
+                                                <xsl:with-param name="nome" select="'etecinc:incaricato_della'"/>
+                                                <xsl:with-param name="valore" select="incaricatoDi"/>
+                                            </xsl:call-template>
+                                            <etecinc:tecnico>
+                                                <xsl:call-template name="anagrafica_professionista">
+                                                    <xsl:with-param name="tecnico" select="."/>
+                                                </xsl:call-template>
+                                                <xsl:choose>
+                                                    <xsl:when test="starts-with(translate(normalize-space(studiopro_ordineprofessionale_contatti/ordineprofessionale), $M, $m), 's')">
+                                                        <xsl:call-template name="iscrizione_ordine">
+                                                            <xsl:with-param name="studio" select="studiopro_ordineprofessionale_contatti"/>
+                                                        </xsl:call-template>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:call-template name="mancante">
+                                                            <xsl:with-param name="dato" select="&quot;iscrizione all'ordine dell'altro tecnico, obbligatoria nel PdC&quot;"/>
+                                                        </xsl:call-template>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                                <etecinc:contatti/>
+                                            </etecinc:tecnico>
+                                        </etecinc:altro_tecnico>
+                                    </xsl:for-each>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:if>

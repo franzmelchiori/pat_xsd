@@ -519,12 +519,13 @@
         <sschana:cittadinanza>
             <epecitt:stato_cittadinanza><xsl:value-of select="$a/ANAG_LEGALE_RAPPRESENTANTE_CITTADINANZA/@code"/></epecitt:stato_cittadinanza>
         </sschana:cittadinanza>
+        <!-- residenza all'estero: l'XSD ha solo l'indirizzo italiano, la località estera va nel Comune; DUG "ALTRO": vale il dettaglio -->
         <sschana:residenza_dichiarante>
             <xsl:call-template name="indirizzo">
-                <xsl:with-param name="comune" select="$a/INDIRIZZO_STANDARD_RESIDENZA/COMUNE_STANDARD"/>
+                <xsl:with-param name="comune" select="$a/INDIRIZZO_STANDARD_RESIDENZA/COMUNE_STANDARD | $a/INDIRIZZO_STANDARD_RESIDENZA/LOC_ESTERA_STANDARD"/>
                 <xsl:with-param name="provincia" select="$a/INDIRIZZO_STANDARD_RESIDENZA/PROVINCIA_STANDARD/@code"/>
                 <xsl:with-param name="stato" select="$a/INDIRIZZO_STANDARD_RESIDENZA/STATO_STANDARD/@code"/>
-                <xsl:with-param name="dug" select="$a/ANAG_LEGALE_RAPPRESENTANTE_TOPORES"/>
+                <xsl:with-param name="dug" select="$a/ANAG_LEGALE_RAPPRESENTANTE_TOPORES[not(@code = 'ALTRO')] | $a/ANAG_LEGALE_RAP_TOPORES_DETTAGLIO[../ANAG_LEGALE_RAPPRESENTANTE_TOPORES/@code = 'ALTRO']"/>
                 <xsl:with-param name="toponimo" select="$a/ANAG_LEGALE_RAPPRESENTANTE_DENOMSTRES"/>
                 <xsl:with-param name="numero_civico" select="$a/ANAG_NUM_N_RESIDENZA"/>
                 <xsl:with-param name="cap" select="$a/ANAG_LEGALE_RAPPRESENTANTE_CAPRES"/>
@@ -1060,6 +1061,15 @@
         </xsl:if>
     </xsl:template>
 
+    <!-- destinatario della pratica: l'ente SUE della pratica (COMUNE DI ... - UFFICIO TECNICO), altrimenti il nome dello sportello -->
+    <xsl:template name="destinatario">
+        <xsl:variable name="ente" select="normalize-space((/pratica/struttura/interventi/*/enti/*/code)[1])"/>
+        <xsl:choose>
+            <xsl:when test="$ente != ''"><xsl:value-of select="$ente"/></xsl:when>
+            <xsl:otherwise><xsl:value-of select="normalize-space($sportello/nome)"/></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <!-- ================= FINE BLOCCO COMUNE ================= -->
 
     <!-- ================= MODULO ================= -->
@@ -1100,7 +1110,7 @@
 
             <!-- DC616: indirizzo dei locali di installazione degli impianti -->
             <mdepdicconimp:sezione_pat_ubicazione_intervento>
-                <subiint:comune><xsl:value-of select="normalize-space($sportello/nome)"/></subiint:comune>
+                <subiint:comune><xsl:call-template name="destinatario"/></subiint:comune>
                 <subiint:localizzazione_intervento>
                     <elocint:indirizzo_italiano>
                         <xsl:call-template name="indirizzo">

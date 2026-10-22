@@ -28,7 +28,7 @@
             <sch:assert test="$ubicazione = '' or $ubicazione_codice or contains($destinatario, concat(' ', $ubicazione, ' '))">Attenzione - l'ubicazione dell'intervento deve coincidere con il Comune a cui è destinata la pratica.</sch:assert>
         </sch:rule>
 
-        <!-- la regola vale solo se le tipologie sono presenti: lo SUE potrebbe non offrirle, da verificare -->
+        <!-- la regola vale solo se le tipologie sono presenti: lo SUE offre una tipologia in alternativa all'estensione dell'agibilità -->
         <sch:rule context="esegagi:tipologie_intervento[*]">
             <sch:assert test="*[. = 'true' or . = '1']">Indicare almeno una tipologia di intervento per cui si presenta la segnalazione certificata di agibilità.</sch:assert>
         </sch:rule>
@@ -36,7 +36,8 @@
         <sch:rule context="msegceragi:modulo_pat_segnalazione_certificata_agibilita">
             <sch:let name="mda" value="local-name(msegceragi:sezione_pat_segnalazione_certificata_agibilita/ssegceragi:presentazione_agibilita/esegagi:riferimento_agibilita/*)"/>
             <sch:let name="rta" value="local-name(msegceragi:sezione_pat_relazione_tecnica_asseverazione_scagi/sreltecassscagi:assevera/*)"/>
-            <sch:assert test="$mda = $rta">L'agibilità asseverata dal tecnico (totale, parziale di edifici o parziale di unità immobiliari) deve coincidere con quella segnalata dal titolare.</sch:assert>
+            <!-- l'estensione segnalata dal titolare è facoltativa: il confronto vale solo se c'è -->
+            <sch:assert test="$mda = '' or $mda = $rta">L'agibilità asseverata dal tecnico (totale, parziale di edifici o parziale di unità immobiliari) deve coincidere con quella segnalata dal titolare.</sch:assert>
         </sch:rule>
 
         <sch:rule context="eassagi:agibilita_parziale_edifici">

@@ -94,7 +94,8 @@
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="tipologie_intervento" type="esegagi:tipologie_intervento_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="riferimento_agibilita" type="esegagi:riferimento_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <!-- SUE offre tipologie ed estensione dell'agibilità in un'unica scelta: l'estensione è facoltativa e lo schematron la confronta con l'asseverazione quando c'è -->
+            <xsd:element name="riferimento_agibilita" type="esegagi:riferimento_agibilita_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="dichiarazioni_titolare" type="esegagi:dichiarazioni_titolare_agibilita_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>

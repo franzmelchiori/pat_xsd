@@ -218,6 +218,7 @@
             <xsd:element name="presa_conoscenza" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">dichiara di aver preso conoscenza dei contenuti progettuali e della relazione geologica, geotecnica e idrogeologica eventualmente allegata al progetto nonché degli adempimenti relativi all'utilizzo delle terre e rocce da scavo</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Attenzione: la presa d'atto si intende resa con la sottoscrizione della pratica</xsd:documentation>
                     <xsd:documentation xml:lang="it">allegare qui le dichiarazioni firmate</xsd:documentation>
                     <xsd:documentation xml:lang="it">Allegare fac simile "altri progettisti" (da scaricare, compilare e firmare)</xsd:documentation>
                 </xsd:annotation>

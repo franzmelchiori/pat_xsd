@@ -3,12 +3,12 @@
     ⌘ 2026 Francesco Melchiori
 
     uso (dalla radice del repository):
-        python3 ./xslt/mod_pat_xslt.py
+        python3 ./tests/mod_pat_xslt.py
             per ogni trasformata xslt/mod_<procedimento>_v<versione>.xslt trasforma ogni XML SUE
             04_forms/in/mod_<procedimento>_sue_*.xml (elemento radice pratica), scrive l'istanza PAT
             in xslt/out e la valida con l'XSD e lo schematron del modulo in 04_forms; verifica
             anche che il blocco comune sia identico in tutte le trasformate
-        python3 ./xslt/mod_pat_xslt.py <file_sue.xml> <file.xslt> [file_pat.xml]
+        python3 ./tests/mod_pat_xslt.py <file_sue.xml> <file.xslt> [file_pat.xml]
             trasforma e valida un singolo XML SUE
 """
 
@@ -18,8 +18,6 @@ import os
 import re
 import sys
 from lxml import etree
-
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tests'))
 from test_moduli import validate
 
 
@@ -44,7 +42,9 @@ def transform(sue_path, xslt_path, pat_path):
 
 
 def is_sue_raw(xml_path):
-    return etree.parse(xml_path).getroot().tag == 'pratica'
+    """XML SUE grezzo di una pratica completa: radice pratica con la testata struttura"""
+    root = etree.parse(xml_path).getroot()
+    return root.tag == 'pratica' and root.find('struttura') is not None
 
 
 def shared_block(xslt_path):
