@@ -81,6 +81,26 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <!-- variante con il titolo facoltativo, per i moduli PAT che chiedono solo numero e data ma per cui SUE invia anche il titolo -->
+    <xsd:complexType name="estremi_titolo_facoltativo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Estremi di un titolo abilitativo: titolo (facoltativo), numero e data</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="titolo" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Titolo abilitativo (Permesso di costruire, SCIA, CILA, Comunicazione Opere Libere, ecc.)</xsd:documentation>
+                    <xsd:appinfo>
+                        <canncl:codeListReference>
+                            <canncl:ShortName>IT:PAT:CL:TitoliAbilitativi</canncl:ShortName>
+                        </canncl:codeListReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:group ref="eattass:estremi_group"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
     <xsd:complexType name="estremi_titolo_progetto_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Estremi di un titolo abilitativo con il redattore del progetto</xsd:documentation>

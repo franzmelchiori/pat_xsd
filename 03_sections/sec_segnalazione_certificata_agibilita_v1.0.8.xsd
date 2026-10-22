@@ -27,10 +27,10 @@
             <xsd:documentation xml:lang="it">Segnalazione Certificata di Agibilità (art. 93, comma 2, della legge provinciale del 4 agosto 2015, n. 15)</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="titolo_legittimante" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="titolo_legittimante" type="eattass:estremi_titolo_facoltativo_ctype" minOccurs="1" maxOccurs="unbounded">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Titolo legittimante l'intervento</xsd:documentation>
-                    <xsd:documentation xml:lang="it">il titolo che ha legittimato l'intervento: protocollo/numero e data</xsd:documentation>
+                    <xsd:documentation xml:lang="it">il titolo che ha legittimato l'intervento: titolo, protocollo/numero e data</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="dichiarazione_ultimazione_lavori" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">

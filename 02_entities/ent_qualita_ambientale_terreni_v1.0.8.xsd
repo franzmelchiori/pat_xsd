@@ -39,6 +39,12 @@
                     <xsd:documentation xml:lang="it">è stata oggetto di bonifica dei terreni con obiettivi compatibili con la destinazione d'uso del presente intervento</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <!-- opzione non presente nei PDF PAT ma offerta dallo SUE: l'XSD la accoglie per non richiedere modifiche allo SUE -->
+            <xsd:element name="non_ricade" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">non ricade in tale ambito di applicazione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:choice>
     </xsd:complexType>
 

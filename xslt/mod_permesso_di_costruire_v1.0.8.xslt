@@ -11,7 +11,8 @@
       perché i codici SUE delle opzioni non sono stabili tra i campi;
     - le caselle assenti nell'XML SUE valgono false, perché SUE scrive solo le opzioni selezionate;
     - Comuni per nome, province per sigla, Stati e cittadinanza con il codice SUE, comune catastale con il codice a tre cifre;
-    - i dati richiesti dall'XSD che SUE non invia sono segnalati con un commento nell'istanza.
+    - i dati richiesti dall'XSD che SUE non invia sono segnalati con un commento nell'istanza;
+    - il blocco comune è identico in tutte le trasformate PAT: una modifica va riportata in ognuna.
 -->
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -33,6 +34,7 @@
     xmlns:ecalconcospdc="../02_entities/calcolo_contributo_costruzione_pdc"
     xmlns:etecinc="../02_entities/tecnici_incaricati"
     xmlns:eimpese="../02_entities/impresa_escutrice"
+    xmlns:evercon="../02_entities/verifica_contributiva"
     xmlns:eoblsalsicaltpdc="../02_entities/obblighi_salute_sicurezza_altpdc"
     xmlns:edirseg="../02_entities/diritti_segreteria"
     xmlns:eimpbol="../02_entities/imposta_bollo"
@@ -68,7 +70,10 @@
     xmlns:sdicpdc="../03_sections/dichiarazioni_pdc"
     xmlns:sversam="../03_sections/versamenti"
     xmlns:sreltecasspdc="../03_sections/relazione_tecnica_asseverazione_pdc"
-    xmlns:mpercos="../04_forms/permesso_di_costruire">
+    xmlns:mpercos="../04_forms/permesso_di_costruire"
+    exclude-result-prefixes="evercon">
+
+    <!-- ================= INIZIO BLOCCO COMUNE: identico in tutte le trasformate PAT ================= -->
 
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
     <xsl:strip-space elements="*"/>
@@ -610,7 +615,10 @@
                 <xsl:with-param name="cap" select="$utente/capres"/>
             </xsl:call-template>
         </etecinc:residenza_italiana>
-        <xsl:call-template name="studio_ordine">
+        <xsl:call-template name="studio">
+            <xsl:with-param name="studio" select="$studio"/>
+        </xsl:call-template>
+        <xsl:call-template name="iscrizione_ordine">
             <xsl:with-param name="studio" select="$studio"/>
         </xsl:call-template>
         <!-- se l'utente SUE non ha email si usa quella della procura, quando il procuratore è lo stesso utente -->
@@ -628,8 +636,8 @@
         </etecinc:contatti>
     </xsl:template>
 
-    <!-- studio_italia e iscrizione_ordine dal pannello SUE studiopro_ordineprofessionale_contatti -->
-    <xsl:template name="studio_ordine">
+    <!-- studio_italia dal pannello SUE studiopro_ordineprofessionale_contatti -->
+    <xsl:template name="studio">
         <xsl:param name="studio"/>
         <etecinc:studio_italia>
             <xsl:call-template name="indirizzo">
@@ -641,25 +649,71 @@
                 <xsl:with-param name="cap" select="$studio/studio_tecnico_cap"/>
             </xsl:call-template>
         </etecinc:studio_italia>
+    </xsl:template>
+
+    <!-- iscrizione_ordine dal pannello SUE studiopro_ordineprofessionale_contatti: collegio_tecnici_* per chi presenta la pratica, Ordine* per gli altri tecnici -->
+    <xsl:template name="iscrizione_ordine">
+        <xsl:param name="studio"/>
         <etecinc:iscrizione_ordine>
             <xsl:call-template name="campo">
                 <xsl:with-param name="nome" select="'etecinc:ordine'"/>
-                <xsl:with-param name="valore" select="$studio/collegio_tecnici_nome"/>
+                <xsl:with-param name="valore" select="$studio/collegio_tecnici_nome | $studio/OrdineNome"/>
             </xsl:call-template>
             <xsl:call-template name="campo">
                 <xsl:with-param name="nome" select="'etecinc:ordine_di'"/>
-                <xsl:with-param name="valore" select="$studio/collegio_tecnici_zona"/>
+                <xsl:with-param name="valore" select="$studio/collegio_tecnici_zona | $studio/OrdineCitta"/>
             </xsl:call-template>
             <xsl:call-template name="campo">
                 <xsl:with-param name="nome" select="'etecinc:numero'"/>
-                <xsl:with-param name="valore" select="$studio/collegio_tecnici_numero_iscrizione"/>
+                <xsl:with-param name="valore" select="$studio/collegio_tecnici_numero_iscrizione | $studio/OrdineNumero"/>
             </xsl:call-template>
         </etecinc:iscrizione_ordine>
     </xsl:template>
 
-    <!-- impresa_esecutrice_ctype da SoggettiCoinvoltiType_ImpreseEsecutrici -->
-    <xsl:template match="SoggettiCoinvoltiType_ImpreseEsecutrici">
-        <eimpese:impresa>
+    <!-- dati_anagrafici_tecnico_group di un tecnico SUE: di norma ProfessionistaAnagrafica e studiopro_ordineprofessionale_contatti di un pannello SoggettiCoinvoltiType_*, altrimenti i pannelli indicati -->
+    <xsl:template name="anagrafica_professionista">
+        <xsl:param name="tecnico"/>
+        <xsl:param name="anagrafica" select="$tecnico/ProfessionistaAnagrafica"/>
+        <xsl:param name="studio" select="$tecnico/studiopro_ordineprofessionale_contatti"/>
+        <xsl:variable name="a" select="$anagrafica"/>
+        <etecinc:dati_tecnico>
+            <xsl:call-template name="persona">
+                <xsl:with-param name="cognome" select="$a/cognome"/>
+                <xsl:with-param name="nome" select="$a/nome"/>
+                <xsl:with-param name="codice_fiscale" select="$a/codiceFiscale"/>
+                <xsl:with-param name="sesso" select="substring(translate(normalize-space($a/Sesso), $m, $M), 1, 1)"/>
+                <xsl:with-param name="comune" select="$a/comune_nascita"/>
+                <xsl:with-param name="provincia" select="$a/provincia_nascita/@code"/>
+                <xsl:with-param name="stato" select="$a/stato_nascita/@code"/>
+                <xsl:with-param name="data" select="$a/data_nascita"/>
+            </xsl:call-template>
+        </etecinc:dati_tecnico>
+        <xsl:if test="$a/cittadinanza/@code">
+            <etecinc:cittadinanza>
+                <epecitt:stato_cittadinanza><xsl:value-of select="$a/cittadinanza/@code"/></epecitt:stato_cittadinanza>
+            </etecinc:cittadinanza>
+        </xsl:if>
+        <etecinc:residenza_italiana>
+            <xsl:call-template name="indirizzo">
+                <xsl:with-param name="comune" select="$a/comune_residenza"/>
+                <xsl:with-param name="provincia" select="$a/provincia_residenza/@code"/>
+                <xsl:with-param name="stato" select="$a/stato_residenza/@code"/>
+                <xsl:with-param name="toponimo" select="$a/indirizzo_residenza"/>
+                <xsl:with-param name="numero_civico" select="$a/civico_residenza"/>
+                <xsl:with-param name="cap" select="$a/CAP_residenza"/>
+            </xsl:call-template>
+        </etecinc:residenza_italiana>
+        <xsl:call-template name="studio">
+            <xsl:with-param name="studio" select="$studio"/>
+        </xsl:call-template>
+    </xsl:template>
+
+    <!-- impresa_esecutrice_ctype da un pannello SUE di impresa esecutrice, con la verifica contributiva se il modulo la richiede; l'elemento contenitore cambia da un modulo all'altro -->
+    <xsl:template match="SoggettiCoinvoltiType_ImpreseEsecutrici | AnagraficaImpresaEsecutrice | AnagraficaImpresaEsecutriceSUBENTRANTE">
+        <xsl:param name="verifica_contributiva" select="false()"/>
+        <xsl:param name="elemento" select="'eimpese:impresa'"/>
+        <xsl:param name="namespace" select="'../02_entities/impresa_escutrice'"/>
+        <xsl:element name="{$elemento}" namespace="{$namespace}">
             <eimpese:impresa>
                 <xsl:call-template name="campo">
                     <xsl:with-param name="nome" select="'eimpresa:denominazione'"/>
@@ -704,7 +758,25 @@
                     <xsl:with-param name="pec" select=".//legaleRappresentante_PEC"/>
                 </xsl:call-template>
             </eimpese:contatti_legale_rappresentante>
-        </eimpese:impresa>
+            <xsl:if test="$verifica_contributiva">
+                <eimpese:verifica_contributiva>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(.//cassaEdile_sede) != '' or normalize-space(.//codiceCassa) != ''">
+                            <evercon:cassa_edile>
+                                <evercon:sede><xsl:value-of select="normalize-space(.//cassaEdile_sede)"/></evercon:sede>
+                                <evercon:codice_impresa><xsl:value-of select="normalize-space(.//cassaEdile_codiceImpres)"/></evercon:codice_impresa>
+                                <evercon:codice_cassa><xsl:value-of select="normalize-space(.//codiceCassa)"/></evercon:codice_cassa>
+                            </evercon:cassa_edile>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:call-template name="mancante">
+                                <xsl:with-param name="dato" select="'dati INPS o INAIL per la verifica della regolarità contributiva'"/>
+                            </xsl:call-template>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </eimpese:verifica_contributiva>
+            </xsl:if>
+        </xsl:element>
     </xsl:template>
 
     <!-- ================= DATI CATASTALI ================= -->
@@ -779,6 +851,224 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- ================= VERSAMENTI E AREE DI SALVAGUARDIA ================= -->
+
+    <!-- diritti_segreteria_ctype dal pannello SUE DC629 -->
+    <xsl:template name="diritti_segreteria">
+        <xsl:variable name="d" select="/pratica/DC629"/>
+        <xsl:choose>
+            <xsl:when test="starts-with(translate(normalize-space($d/R_dic001), $M, $m), 'non ')">
+                <xsl:variable name="motivo">
+                    <xsl:call-template name="testo">
+                        <xsl:with-param name="nodo" select="$d/R_dic013"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <edirseg:non_dovuti>
+                    <xsl:choose>
+                        <xsl:when test="contains($motivo, 'tariffario')">
+                            <edirseg:non_previsti_tariffario>true</edirseg:non_previsti_tariffario>
+                        </xsl:when>
+                        <xsl:when test="contains($motivo, 'esentati')">
+                            <edirseg:esentati>true</edirseg:esentati>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:call-template name="mancante">
+                                <xsl:with-param name="dato" select="'motivo per cui i diritti di segreteria non sono dovuti'"/>
+                            </xsl:call-template>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:call-template name="campo">
+                        <xsl:with-param name="nome" select="'edirseg:motivazione'"/>
+                        <xsl:with-param name="valore" select="$d/C12181"/>
+                    </xsl:call-template>
+                </edirseg:non_dovuti>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="modalita">
+                    <xsl:call-template name="testo">
+                        <xsl:with-param name="nodo" select="$d/R_dic020"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <edirseg:dovuti>
+                    <edirseg:importo_euro>
+                        <xsl:call-template name="decimale">
+                            <xsl:with-param name="valore" select="$d/C12180"/>
+                        </xsl:call-template>
+                    </edirseg:importo_euro>
+                    <xsl:choose>
+                        <xsl:when test="contains($modalita, 'conto corrente postale')">
+                            <edirseg:conto_corrente_postale>
+                                <edirseg:data><xsl:value-of select="normalize-space($d/C12190)"/></edirseg:data>
+                                <edirseg:ufficio_postale><xsl:value-of select="normalize-space($d/C12191)"/></edirseg:ufficio_postale>
+                            </edirseg:conto_corrente_postale>
+                        </xsl:when>
+                        <xsl:when test="contains($modalita, 'pagopa') or contains($modalita, 'bonifico')">
+                            <edirseg:pagopa_bonifico>
+                                <edirseg:data><xsl:value-of select="normalize-space($d/C12192)"/></edirseg:data>
+                                <edirseg:codice_iuv_trn><xsl:value-of select="normalize-space($d/C12193)"/></edirseg:codice_iuv_trn>
+                            </edirseg:pagopa_bonifico>
+                        </xsl:when>
+                        <xsl:when test="contains($modalita, 'on line')">
+                            <edirseg:pagamento_online>true</edirseg:pagamento_online>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:call-template name="mancante">
+                                <xsl:with-param name="dato" select="'modalità di versamento dei diritti di segreteria'"/>
+                            </xsl:call-template>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </edirseg:dovuti>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- imposta_bollo_ctype dal pannello SUE DC175 -->
+    <xsl:template name="imposta_bollo">
+        <xsl:variable name="d" select="/pratica/DC175"/>
+        <xsl:variable name="bollo">
+            <xsl:call-template name="testo">
+                <xsl:with-param name="nodo" select="$d/R_dic002"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="contains($bollo, 'marche da bollo')">
+                <eimpbol:marche_bollo>
+                    <eimpbol:marca_domanda>
+                        <eimpbol:numero_seriale><xsl:value-of select="normalize-space($d/C3283)"/></eimpbol:numero_seriale>
+                        <eimpbol:data><xsl:value-of select="normalize-space($d/C3284)"/></eimpbol:data>
+                    </eimpbol:marca_domanda>
+                    <xsl:choose>
+                        <xsl:when test="contains(translate(normalize-space($d/R_dic005), $M, $m), 'non è richiesta')">
+                            <eimpbol:marca_autorizzazione_non_richiesta>true</eimpbol:marca_autorizzazione_non_richiesta>
+                        </xsl:when>
+                        <xsl:when test="normalize-space($d/C3286) != ''">
+                            <eimpbol:marca_autorizzazione>
+                                <eimpbol:numero_seriale><xsl:value-of select="normalize-space($d/C3286)"/></eimpbol:numero_seriale>
+                                <eimpbol:data><xsl:value-of select="normalize-space($d/C3287)"/></eimpbol:data>
+                            </eimpbol:marca_autorizzazione>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:call-template name="mancante">
+                                <xsl:with-param name="dato" select="&quot;numero seriale e data della marca per l'autorizzazione&quot;"/>
+                            </xsl:call-template>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </eimpbol:marche_bollo>
+            </xsl:when>
+            <xsl:when test="contains($bollo, 'virtuale')">
+                <eimpbol:bollo_virtuale>true</eimpbol:bollo_virtuale>
+            </xsl:when>
+            <!-- esenzione: la motivazione è il testo dell'opzione scelta in Ndic101_1 -->
+            <xsl:when test="contains($bollo, 'non è dovuto') or contains($bollo, 'esentati')">
+                <xsl:choose>
+                    <xsl:when test="normalize-space($d/Ndic101_1) != ''">
+                        <eimpbol:esenzione><xsl:value-of select="normalize-space($d/Ndic101_1)"/></eimpbol:esenzione>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="mancante">
+                            <xsl:with-param name="dato" select="&quot;motivazione dell'esenzione dall'imposta di bollo&quot;"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="mancante">
+                    <xsl:with-param name="dato" select="&quot;modalità di assolvimento dell'imposta di bollo&quot;"/>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- contenuto di aree_salvaguardia_ctype dal sottopannello SUE dell'attestazione preventiva -->
+    <xsl:template name="aree_salvaguardia">
+        <xsl:param name="salvaguardia"/>
+        <xsl:choose>
+            <xsl:when test="contains(translate(normalize-space($salvaguardia/InterferenzaSpaziale), $M, $m), 'non interferenza')">
+                <easpgeo:non_interferenza>true</easpgeo:non_interferenza>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="relazione">
+                    <xsl:call-template name="testo">
+                        <xsl:with-param name="nodo" select="$salvaguardia/RelazioneIdrogeologica"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <!-- le zone si riconoscono dalle caselle del sottopannello, escluso il testo di InterferenzaSpaziale che le elenca tutte -->
+                <easpgeo:interferenza>
+                    <xsl:if test="$salvaguardia/*[not(self::InterferenzaSpaziale)][contains(translate(normalize-space(.), $M, $m), 'tutela assoluta')]">
+                        <easpgeo:zona_tutela_assoluta>true</easpgeo:zona_tutela_assoluta>
+                    </xsl:if>
+                    <xsl:if test="$salvaguardia/ZonaRispettoIdrogeologico">
+                        <easpgeo:zona_rispetto_idrogeologico>
+                            <xsl:choose>
+                                <xsl:when test="starts-with($relazione, 'non allega')">
+                                    <easpgeo:non_allega_relazione_idrogeologica>true</easpgeo:non_allega_relazione_idrogeologica>
+                                </xsl:when>
+                                <xsl:when test="starts-with($relazione, 'allega')">
+                                    <easpgeo:allega_relazione_idrogeologica>true</easpgeo:allega_relazione_idrogeologica>
+                                </xsl:when>
+                            </xsl:choose>
+                        </easpgeo:zona_rispetto_idrogeologico>
+                    </xsl:if>
+                    <xsl:if test="$salvaguardia/*[not(self::InterferenzaSpaziale)][contains(translate(normalize-space(.), $M, $m), 'zona di protezione')]">
+                        <easpgeo:zona_protezione>
+                            <xsl:if test="$salvaguardia/AllegaRelazioneIdrogeologica">
+                                <easpgeo:allega_relazione_idrogeologica>true</easpgeo:allega_relazione_idrogeologica>
+                            </xsl:if>
+                        </easpgeo:zona_protezione>
+                    </xsl:if>
+                </easpgeo:interferenza>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- contenuto di qualita_ambientale_terreni_ctype dal pannello SUE RTA_qualita_ambientale_terreni_PdC -->
+    <xsl:template name="qualita_ambientale_terreni">
+        <xsl:param name="pannello"/>
+        <xsl:variable name="t">
+            <xsl:call-template name="testo">
+                <xsl:with-param name="nodo" select="$pannello/*[not(starts-with(local-name(), '_'))][1]"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="contains($t, 'non necessita di bonifica')">
+                <equaambter:non_necessita_bonifica>true</equaambter:non_necessita_bonifica>
+            </xsl:when>
+            <xsl:when test="contains($t, 'oggetto di bonifica')">
+                <equaambter:avvenuta_bonifica>true</equaambter:avvenuta_bonifica>
+            </xsl:when>
+            <xsl:when test="contains($t, 'non richiede indagini')">
+                <equaambter:non_richiede_indagini>true</equaambter:non_richiede_indagini>
+            </xsl:when>
+            <xsl:when test="contains($t, 'non ricade')">
+                <equaambter:non_ricade>true</equaambter:non_ricade>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="mancante">
+                    <xsl:with-param name="dato" select="'qualità ambientale dei terreni'"/>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- contenuto di domicilio_digitale_ctype dai pannelli SUE DOMICILIO_DIGITALE (INAD o INI-PEC) e HDOMICILIO (domicilio digitale speciale) -->
+    <xsl:template name="domicilio_digitale">
+        <xsl:variable name="dd" select="/pratica/DOMICILIO_DIGITALE"/>
+        <xsl:if test="contains(translate(normalize-space($dd/INAD), $M, $m), 'inad') and normalize-space($dd/DOMICILIO_DIGITALE_PERSONA) != ''">
+            <edomdig:domicilio_inad_check>true</edomdig:domicilio_inad_check>
+            <edomdig:domicilio_inad_string><xsl:value-of select="normalize-space($dd/DOMICILIO_DIGITALE_PERSONA)"/></edomdig:domicilio_inad_string>
+        </xsl:if>
+        <xsl:if test="contains(translate(normalize-space($dd/INI_PEC), $M, $m), 'ini-pec') and normalize-space($dd/DOMICILIO_DIGITALE_IMPRESA) != ''">
+            <edomdig:domicilio_ini_pec_check>true</edomdig:domicilio_ini_pec_check>
+            <edomdig:domicilio_ini_pec_string><xsl:value-of select="normalize-space($dd/DOMICILIO_DIGITALE_IMPRESA)"/></edomdig:domicilio_ini_pec_string>
+        </xsl:if>
+        <xsl:if test="normalize-space(/pratica/HDOMICILIO/OGG_DOMIC_ELE) != ''">
+            <edomdig:domicilio_speciale_check><xsl:value-of select="boolean(/pratica/HDOMICILIO/OGG_CHECK_PEC)"/></edomdig:domicilio_speciale_check>
+            <edomdig:domicilio_speciale_string><xsl:value-of select="normalize-space(/pratica/HDOMICILIO/OGG_DOMIC_ELE)"/></edomdig:domicilio_speciale_string>
+        </xsl:if>
+    </xsl:template>
+
+    <!-- ================= FINE BLOCCO COMUNE ================= -->
+
     <!-- ================= MODULO ================= -->
 
     <xsl:template match="/pratica">
@@ -801,14 +1091,7 @@
 
             <mpercos:sezione_pat_domicilio_digitale>
                 <sdomdig:domicilio_digitale>
-                    <xsl:if test="contains(translate(normalize-space(DOMICILIO_DIGITALE/INAD), $M, $m), 'inad') and normalize-space(DOMICILIO_DIGITALE/DOMICILIO_DIGITALE_PERSONA) != ''">
-                        <edomdig:domicilio_inad_check>true</edomdig:domicilio_inad_check>
-                        <edomdig:domicilio_inad_string><xsl:value-of select="normalize-space(DOMICILIO_DIGITALE/DOMICILIO_DIGITALE_PERSONA)"/></edomdig:domicilio_inad_string>
-                    </xsl:if>
-                    <xsl:if test="normalize-space(HDOMICILIO/OGG_DOMIC_ELE) != ''">
-                        <edomdig:domicilio_ini_pec_check><xsl:value-of select="boolean(HDOMICILIO/OGG_CHECK_PEC)"/></edomdig:domicilio_ini_pec_check>
-                        <edomdig:domicilio_ini_pec_string><xsl:value-of select="normalize-space(HDOMICILIO/OGG_DOMIC_ELE)"/></edomdig:domicilio_ini_pec_string>
-                    </xsl:if>
+                    <xsl:call-template name="domicilio_digitale"/>
                 </sdomdig:domicilio_digitale>
             </mpercos:sezione_pat_domicilio_digitale>
 
@@ -1069,7 +1352,7 @@
                             <eimpese:prima_inizio_lavori>true</eimpese:prima_inizio_lavori>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:apply-templates select="impreseEsecutrici_ModuloPermessoCostruire/SoggettiCoinvoltiType_ImpreseEsecutrici[_present_ = 'true']"/>
+                            <xsl:apply-templates select="impreseEsecutrici_ModuloPermessoCostruire/SoggettiCoinvoltiType_ImpreseEsecutrici[ImpresaAnagrafica/*[not(starts-with(local-name(), '_'))]]"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </sdicpdc:imprese_esecutrici>
@@ -1149,103 +1432,12 @@
             <mpercos:sezione_pat_versamenti>
                 <!-- DC629: diritti di segreteria -->
                 <sversam:diritti_segreteria>
-                    <xsl:choose>
-                        <xsl:when test="starts-with(translate(normalize-space(DC629/R_dic001), $M, $m), 'non ')">
-                            <edirseg:non_dovuti>
-                                <xsl:variable name="motivo">
-                                    <xsl:call-template name="testo">
-                                        <xsl:with-param name="nodo" select="DC629/R_dic013"/>
-                                    </xsl:call-template>
-                                </xsl:variable>
-                                <xsl:choose>
-                                    <xsl:when test="contains($motivo, 'tariffario')">
-                                        <edirseg:non_previsti_tariffario>true</edirseg:non_previsti_tariffario>
-                                    </xsl:when>
-                                    <xsl:when test="contains($motivo, 'esentati')">
-                                        <edirseg:esentati>true</edirseg:esentati>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:call-template name="mancante">
-                                            <xsl:with-param name="dato" select="'motivo per cui i diritti di segreteria non sono dovuti'"/>
-                                        </xsl:call-template>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </edirseg:non_dovuti>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:variable name="modalita">
-                                <xsl:call-template name="testo">
-                                    <xsl:with-param name="nodo" select="DC629/R_dic020"/>
-                                </xsl:call-template>
-                            </xsl:variable>
-                            <edirseg:dovuti>
-                                <edirseg:importo_euro>
-                                    <xsl:call-template name="decimale">
-                                        <xsl:with-param name="valore" select="DC629/C12180"/>
-                                    </xsl:call-template>
-                                </edirseg:importo_euro>
-                                <xsl:choose>
-                                    <xsl:when test="contains($modalita, 'conto corrente postale')">
-                                        <edirseg:conto_corrente_postale>
-                                            <edirseg:data><xsl:value-of select="normalize-space(DC629/C12190)"/></edirseg:data>
-                                            <edirseg:ufficio_postale><xsl:value-of select="normalize-space(DC629/C12191)"/></edirseg:ufficio_postale>
-                                        </edirseg:conto_corrente_postale>
-                                    </xsl:when>
-                                    <xsl:when test="contains($modalita, 'on line')">
-                                        <edirseg:pagamento_online>true</edirseg:pagamento_online>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:call-template name="mancante">
-                                            <xsl:with-param name="dato" select="'data e codice IUV/TRN del versamento PagoPA o bonifico'"/>
-                                        </xsl:call-template>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </edirseg:dovuti>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <xsl:call-template name="diritti_segreteria"/>
                 </sversam:diritti_segreteria>
 
                 <!-- DC175: imposta di bollo -->
-                <xsl:variable name="bollo">
-                    <xsl:call-template name="testo">
-                        <xsl:with-param name="nodo" select="DC175/R_dic002"/>
-                    </xsl:call-template>
-                </xsl:variable>
                 <sversam:imposta_bollo>
-                    <xsl:choose>
-                        <xsl:when test="contains($bollo, 'marche da bollo')">
-                            <eimpbol:marche_bollo>
-                                <eimpbol:marca_domanda>
-                                    <eimpbol:numero_seriale><xsl:value-of select="normalize-space(DC175/C3283)"/></eimpbol:numero_seriale>
-                                    <eimpbol:data><xsl:value-of select="normalize-space(DC175/C3284)"/></eimpbol:data>
-                                </eimpbol:marca_domanda>
-                                <xsl:choose>
-                                    <xsl:when test="contains(translate(normalize-space(DC175/R_dic005), $M, $m), 'non è richiesta')">
-                                        <eimpbol:marca_autorizzazione_non_richiesta>true</eimpbol:marca_autorizzazione_non_richiesta>
-                                    </xsl:when>
-                                    <xsl:when test="normalize-space(DC175/C3286) != ''">
-                                        <eimpbol:marca_autorizzazione>
-                                            <eimpbol:numero_seriale><xsl:value-of select="normalize-space(DC175/C3286)"/></eimpbol:numero_seriale>
-                                            <eimpbol:data><xsl:value-of select="normalize-space(DC175/C3287)"/></eimpbol:data>
-                                        </eimpbol:marca_autorizzazione>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:call-template name="mancante">
-                                            <xsl:with-param name="dato" select="&quot;numero seriale e data della marca per l'autorizzazione&quot;"/>
-                                        </xsl:call-template>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </eimpbol:marche_bollo>
-                        </xsl:when>
-                        <xsl:when test="contains($bollo, 'virtuale')">
-                            <eimpbol:bollo_virtuale>true</eimpbol:bollo_virtuale>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:call-template name="mancante">
-                                <xsl:with-param name="dato" select="&quot;modalità di assolvimento dell'imposta di bollo&quot;"/>
-                            </xsl:call-template>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <xsl:call-template name="imposta_bollo"/>
                 </sversam:imposta_bollo>
 
                 <sversam:dichiarazione_art_75><xsl:value-of select="boolean(DC1201/DC1201)"/></sversam:dichiarazione_art_75>
@@ -1560,23 +1752,10 @@
                     </xsl:choose>
                 </sreltecasspdc:opere_urbanizzazione_primaria>
 
-                <xsl:variable name="terreni">
-                    <xsl:call-template name="testo">
-                        <xsl:with-param name="nodo" select="$rta_terreni/RTA_qualita_ambientale_terreni_PdC/TerreRocceScavo"/>
-                    </xsl:call-template>
-                </xsl:variable>
                 <sreltecasspdc:qualita_ambientale_terreni>
-                    <xsl:choose>
-                        <xsl:when test="contains($terreni, 'non necessita di bonifica')">
-                            <equaambter:non_necessita_bonifica>true</equaambter:non_necessita_bonifica>
-                        </xsl:when>
-                        <xsl:when test="contains($terreni, 'oggetto di bonifica')">
-                            <equaambter:avvenuta_bonifica>true</equaambter:avvenuta_bonifica>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <equaambter:non_richiede_indagini>true</equaambter:non_richiede_indagini>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <xsl:call-template name="qualita_ambientale_terreni">
+                        <xsl:with-param name="pannello" select="$rta_terreni/RTA_qualita_ambientale_terreni_PdC"/>
+                    </xsl:call-template>
                 </sreltecasspdc:qualita_ambientale_terreni>
 
                 <sreltecasspdc:alloggi_residenza>
@@ -1633,43 +1812,9 @@
                     </easpgeo:carta_risorse_idriche>
                     <xsl:if test="$salvaguardia/InterferenzaSpaziale">
                         <easpgeo:aree_salvaguardia>
-                            <xsl:choose>
-                                <xsl:when test="contains(translate(normalize-space($salvaguardia/InterferenzaSpaziale), $M, $m), 'non interferenza')">
-                                    <easpgeo:non_interferenza>true</easpgeo:non_interferenza>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:variable name="relazione">
-                                        <xsl:call-template name="testo">
-                                            <xsl:with-param name="nodo" select="$salvaguardia/RelazioneIdrogeologica"/>
-                                        </xsl:call-template>
-                                    </xsl:variable>
-                                    <!-- le zone si riconoscono dalle caselle del sottopannello, escluso il testo di InterferenzaSpaziale che le elenca tutte -->
-                                    <easpgeo:interferenza>
-                                        <xsl:if test="$salvaguardia/*[not(self::InterferenzaSpaziale)][contains(translate(normalize-space(.), $M, $m), 'tutela assoluta')]">
-                                            <easpgeo:zona_tutela_assoluta>true</easpgeo:zona_tutela_assoluta>
-                                        </xsl:if>
-                                        <xsl:if test="$salvaguardia/ZonaRispettoIdrogeologico">
-                                            <easpgeo:zona_rispetto_idrogeologico>
-                                                <xsl:choose>
-                                                    <xsl:when test="starts-with($relazione, 'non allega')">
-                                                        <easpgeo:non_allega_relazione_idrogeologica>true</easpgeo:non_allega_relazione_idrogeologica>
-                                                    </xsl:when>
-                                                    <xsl:when test="starts-with($relazione, 'allega')">
-                                                        <easpgeo:allega_relazione_idrogeologica>true</easpgeo:allega_relazione_idrogeologica>
-                                                    </xsl:when>
-                                                </xsl:choose>
-                                            </easpgeo:zona_rispetto_idrogeologico>
-                                        </xsl:if>
-                                        <xsl:if test="$salvaguardia/*[not(self::InterferenzaSpaziale)][contains(translate(normalize-space(.), $M, $m), 'zona di protezione')]">
-                                            <easpgeo:zona_protezione>
-                                                <xsl:if test="$salvaguardia/AllegaRelazioneIdrogeologica">
-                                                    <easpgeo:allega_relazione_idrogeologica>true</easpgeo:allega_relazione_idrogeologica>
-                                                </xsl:if>
-                                            </easpgeo:zona_protezione>
-                                        </xsl:if>
-                                    </easpgeo:interferenza>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                            <xsl:call-template name="aree_salvaguardia">
+                                <xsl:with-param name="salvaguardia" select="$salvaguardia"/>
+                            </xsl:call-template>
                         </easpgeo:aree_salvaguardia>
                     </xsl:if>
                 </sreltecasspdc:aspetti_geologici>

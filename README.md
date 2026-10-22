@@ -80,7 +80,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 - **Modulo**: `04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd` (namespace `../04_forms/comunicazione_inizio_lavori`)
 - **Fonte**: `07.COMUNICAZIONE INIZIO LAVORI_MDA.pdf`
 - **Istanza di esempio**: usata dal controllo a cascata. Non va modificata e deve restare valida: le modifiche alla CIL sono ammesse solo se lasciano invariati nomi e namespace dei suoi elementi.
-- **Modifiche compatibili con l'istanza di esempio**: annotazioni in `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8` (vedi [scelte di modellazione](#modellazione)), la correzione "Segnala all'ufficio tecnico del Comune" in `sec_comunicazione_inizio_lavori_v1.0.8`, `ent_documento_rilasciato` portata da v1.0.7 a v1.0.8 perché le date in formato gg/mm/aaaa la distinguono dalla versione nazionale, `ent_impresa_escutrice` diventata la sede comune dell'impresa esecutrice (vedi [entità e sezioni comuni](#comuni)), `ent_indirizzo_italiano` ed `ent_persona` portate a v1.0.8 per il Comune obbligatorio nell'indirizzo dell'intervento e per la nascita all'estero, `ent_impresa` con il codice fiscale che ammette anche quello numerico dell'impresa e con la forma giuridica facoltativa per l'impresa esecutrice, `ent_obblighi_salute_sicurezza_altpdc` con l'avvertenza sulla presa d'atto resa con la sottoscrizione (vedi [scelte di modellazione](#modellazione)). L'istanza di esempio resta valida e invariata.
+- **Modifiche compatibili con l'istanza di esempio**: annotazioni in `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8` (vedi [scelte di modellazione](#modellazione)), la correzione "Segnala all'ufficio tecnico del Comune" in `sec_comunicazione_inizio_lavori_v1.0.8`, `ent_documento_rilasciato` portata da v1.0.7 a v1.0.8 perché le date in formato gg/mm/aaaa la distinguono dalla versione nazionale, `ent_impresa_escutrice` diventata la sede comune dell'impresa esecutrice (vedi [entità e sezioni comuni](#comuni)), `ent_indirizzo_italiano` ed `ent_persona` portate a v1.0.8 per il Comune obbligatorio nell'indirizzo dell'intervento e per la nascita all'estero, `ent_impresa` con il codice fiscale che ammette anche quello numerico dell'impresa e con la forma giuridica facoltativa per l'impresa esecutrice, `ent_domicilio_digitale` con i due elementi facoltativi del domicilio digitale speciale, `ent_obblighi_salute_sicurezza_altpdc` con l'avvertenza sulla presa d'atto resa con la sottoscrizione (vedi [scelte di modellazione](#modellazione)). L'istanza di esempio resta valida e invariata.
 - **Schematron** (`mod_comunicazione_inizio_lavori_v1.0.8.sch`): comune dell'intervento, data di inizio lavori non precedente al rilascio del permesso di costruire, nessuna notifica se l'intervento non ricade nel d.lgs. n. 81/2008 o se i lavori sono eseguiti in economia, dichiarazioni e scelte selezionate a `true` (efficacia del permesso di costruire, in economia, direttore dei lavori, presa visione delle relazioni, salute e sicurezza, notifica, consapevolezza, privacy).
 
 
@@ -134,7 +134,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 | `conformita_igenico_sanitaria` | RTA 10 |
 | `intervento_zona_sismica` | RTA 11 |
 | `opere_urbanizzazione_primaria` | RTA 12 |
-| `qualita_ambientale_terreni` | RTA 13 |
+| `qualita_ambientale_terreni` | RTA 13, con l'opzione "non ricade in tale ambito di applicazione" offerta dallo SUE |
 | `autorizzazione_paesaggestica` | RTA 19 |
 
 **Entità nuove PAT** (nessun equivalente nazionale utilizzabile)
@@ -171,7 +171,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 | `sezione_pat_diritti_segreteria` | `sec_diritti_segreteria_v1.0.8` | nuova (la SCIA non prevede l'imposta di bollo) |
 | `sezione_pat_relazione_tecnica_asseverazione_scia` | `sec_relazione_tecnica_asseverazione_scia_v1.0.8` | versione PAT della nazionale |
 
-**Entità riusate dal PdC senza modifiche**: `localizzazione_intervento`, `prospetto_contributo_costruzione`, `titolo_possesso`, `opere_parti_comuni`, `libro_fondiario`, `diritti_segreteria`, `obblighi_salute_sicurezza_altpdc` (la riserva prima dell'inizio lavori è esclusa dallo schematron), `calcolo_contributo_costruzione_pdc` (solo lusso/non lusso), `stato_legittimo`, `strumentazione_urbanistica`, `barriere_architettoniche`, `sicurezza_impianti`, `consumi_energetici`, `tutela_inquinamento_acustico`, `qualita_ambientale_terreni`, `conformita_igenico_sanitaria`, `intervento_zona_sismica`, `opere_urbanizzazione_primaria`, `alloggi_residenza`, `standard_parcheggio`, `aspetti_geologici`, `dati_geometrici_immobile` (v1.0.7).
+**Entità riusate dal PdC senza modifiche**: `localizzazione_intervento`, `prospetto_contributo_costruzione`, `titolo_possesso`, `opere_parti_comuni`, `libro_fondiario`, `diritti_segreteria`, `obblighi_salute_sicurezza_altpdc` (la riserva prima dell'inizio lavori è esclusa dallo schematron), `calcolo_contributo_costruzione_pdc` (solo lusso/non lusso), `stato_legittimo`, `strumentazione_urbanistica`, `barriere_architettoniche`, `sicurezza_impianti`, `consumi_energetici`, `tutela_inquinamento_acustico`, `qualita_ambientale_terreni` (con l'opzione "non ricade" del PdC), `conformita_igenico_sanitaria`, `intervento_zona_sismica`, `opere_urbanizzazione_primaria`, `alloggi_residenza`, `standard_parcheggio`, `aspetti_geologici`, `dati_geometrici_immobile` (v1.0.7).
 
 **Entità nazionali versionate v1.0.8**
 
@@ -285,7 +285,7 @@ Le due note di `sicurezza_impianti` valide solo per il PdC sono passate dall'ent
 | `sezione_pat_versamenti` | `sec_versamenti_v1.0.8` | riuso PdC (diritti di segreteria, imposta di bollo, art. 75) |
 | `sezione_pat_relazione_tecnica_asseverazione_pds` | `sec_relazione_tecnica_asseverazione_pds_v1.0.8` | nuova |
 
-**Entità riusate senza modifiche**: `localizzazione_intervento`, `prospetto_contributo_costruzione`, `dati_catastali`, `opere_parti_comuni`, `libro_fondiario`, `calcolo_contributo_costruzione_pdc` (contributo e lusso/non lusso), `strumentazione_urbanistica`, `barriere_architettoniche`, `sicurezza_impianti` (solo la planimetria delle reti), `consumi_energetici`, `tutela_inquinamento_acustico`, `prevenzione_incendi`, `conformita_igenico_sanitaria`, `intervento_zona_sismica`, `qualita_ambientale_terreni`, `alloggi_residenza`, `standard_parcheggio`, `aspetti_geologici`, `atto_assenso`, `fasce_rispetto`, `informativa_privacy`.
+**Entità riusate senza modifiche**: `localizzazione_intervento`, `prospetto_contributo_costruzione`, `dati_catastali`, `opere_parti_comuni`, `libro_fondiario`, `calcolo_contributo_costruzione_pdc` (contributo e lusso/non lusso), `strumentazione_urbanistica`, `barriere_architettoniche`, `sicurezza_impianti` (solo la planimetria delle reti), `consumi_energetici`, `tutela_inquinamento_acustico`, `prevenzione_incendi`, `conformita_igenico_sanitaria`, `intervento_zona_sismica`, `qualita_ambientale_terreni` (con l'opzione "non ricade" del PdC), `alloggi_residenza`, `standard_parcheggio`, `aspetti_geologici`, `atto_assenso`, `fasce_rispetto`, `informativa_privacy`.
 
 **Entità nuove PAT**
 
@@ -351,13 +351,13 @@ Le due note di `sicurezza_impianti` valide solo per il PdC sono passate dall'ent
 | `sezione_pat_diritti_segreteria` | `sec_diritti_segreteria_v1.0.8` | riuso SCIA |
 | `sezione_pat_attestazione_ultimazione_lavori` | `sec_attestazione_ultimazione_lavori_v1.0.8` | nuova: attestazione del direttore lavori, con la propria informativa privacy |
 
-**Entità riusate senza modifiche**: `localizzazione_intervento`, `dati_catastali`, `titolo_possesso`, `atto_assenso` (`estremi_provvedimento_ctype` per il titolo legittimante e per la richiesta di numerazione civica), `tecnici_incaricati` (`tecnico_sintetico_ctype` per il direttore lavori), `diritti_segreteria`, `informativa_privacy`.
+**Entità riusate senza modifiche**: `localizzazione_intervento`, `dati_catastali`, `titolo_possesso`, `atto_assenso` (`estremi_titolo_facoltativo_ctype` per il titolo legittimante, `estremi_provvedimento_ctype` per la richiesta di numerazione civica), `tecnici_incaricati` (`tecnico_sintetico_ctype` per il direttore lavori), `diritti_segreteria`, `informativa_privacy`.
 
 **Entità nuove PAT**
 
 | Entità | Quadro PDF |
 |---|---|
-| `comunicazione_fine_lavori` | MDA comunicazione di fine lavori: data, titolo legittimante, descrizione dell'intervento, cambio di coltura |
+| `comunicazione_fine_lavori` | MDA comunicazione di fine lavori: data, titolo legittimante (titolo facoltativo, numero e data), descrizione dell'intervento, cambio di coltura |
 | `attestazione_ultimazione_lavori` | Attestazione: certificazione di ultimazione completa o parziale, agibilità (art. 93 L.P. 15/2015), toponomastica, attestazioni ulteriori, variazione catastale, documentazione allegata |
 
 **Schematron**: altri titolari, comune dell'intervento, almeno una tipologia per le opere soggette ad agibilità, planimetrie di fine lavori parziale per l'ultimazione parziale, planimetrie catastali per le modificazioni catastali, dichiarazioni obbligatorie a `true`.
@@ -374,11 +374,11 @@ Le due note di `sicurezza_impianti` valide solo per il PdC sono passate dall'ent
 |---|---|---|
 | scheda anagrafica, oggetto, domicilio digitale, consapevolezza, informativa privacy | sezioni v1.0.8 della CIL | riuso (gli ulteriori titolari sono dentro la titolarità, non c'è la sezione altri titolari) |
 | `sezione_pat_ubicazione_intervento`, `sezione_pat_titolarita_intervento` | `sec_ubicazione_intervento_v1.0.8`, `sec_titolarita_intervento_v1.0.8` | sezioni comuni, con `sezione_titolarita_agibilita_ctype` |
-| `sezione_pat_segnalazione_certificata_agibilita` | `sec_segnalazione_certificata_agibilita_v1.0.8` | nuova: titoli legittimanti (1..n), dichiarazione di ultimazione lavori di riferimento, presentazione |
+| `sezione_pat_segnalazione_certificata_agibilita` | `sec_segnalazione_certificata_agibilita_v1.0.8` | nuova: titoli legittimanti (1..n, con il titolo facoltativo), dichiarazione di ultimazione lavori di riferimento, presentazione |
 | `sezione_pat_diritti_segreteria` | `sec_diritti_segreteria_v1.0.8` | riuso SCIA |
 | `sezione_pat_relazione_tecnica_asseverazione_scagi` | `sec_relazione_tecnica_asseverazione_scagi_v1.0.8` | nuova |
 
-**Entità riusate senza modifiche**: `localizzazione_intervento`, `dati_catastali`, `atto_assenso` (`estremi_provvedimento_ctype` per titoli, dichiarazione di ultimazione lavori e convenzioni, `estremi_firmatario_ctype` per collaudi e certificati), `tecnici_incaricati` (`tecnico_asseverante_ctype`, il tecnico comune con la P.IVA), `diritti_segreteria`, `informativa_privacy`.
+**Entità riusate senza modifiche**: `localizzazione_intervento`, `dati_catastali`, `atto_assenso` (`estremi_titolo_facoltativo_ctype` per i titoli legittimanti, `estremi_provvedimento_ctype` per dichiarazione di ultimazione lavori e convenzioni, `estremi_firmatario_ctype` per collaudi e certificati), `tecnici_incaricati` (`tecnico_asseverante_ctype`, il tecnico comune con la P.IVA), `diritti_segreteria`, `informativa_privacy`.
 
 **Entità nuove PAT**
 
@@ -393,7 +393,7 @@ Le due note di `sicurezza_impianti` valide solo per il PdC sono passate dall'ent
 |---|---|
 | `titolo_possesso` | `titolarita_agibilita_ctype` (titolarità esclusiva, ulteriori titolari o ditta titolare), `ulteriore_titolare_ctype`, `ditta_titolare_ctype` |
 
-**Schematron**: comune dell'intervento, almeno una tipologia di intervento, coerenza tra agibilità segnalata dal titolare e asseverata dal tecnico, condizioni dell'agibilità parziale tutte attestate (l'urbanizzazione primaria per singoli edifici resta facoltativa, "eventuali"), dichiarazioni obbligatorie a `true`.
+**Schematron**: comune dell'intervento, almeno una tipologia di intervento quando le tipologie sono indicate (lo SUE potrebbe non offrirle), coerenza tra agibilità segnalata dal titolare e asseverata dal tecnico, condizioni dell'agibilità parziale tutte attestate (l'urbanizzazione primaria per singoli edifici resta facoltativa, "eventuali"), dichiarazioni obbligatorie a `true`.
 
 
 ### Certificato di conformità edifici esistenti (CCE) <a id="cce"></a>
@@ -463,7 +463,7 @@ Ogni concetto condiviso ha una sola sede, cioè un solo file e un solo namespace
 |---|---|---|---|
 | Tecnico | `ent_tecnici_incaricati_v1.0.8` | `iscrizione_ordine_ctype`, `dati_anagrafici_tecnico_group`, `tecnico_ctype`, `tecnico_asseverante_ctype`, `tecnico_sintetico_ctype`, tipi di ruolo per procedimento | i tipi locali di `sec_esecuzione_lavori` della CIL |
 | Impresa esecutrice | `ent_impresa_escutrice_v1.0.8` | `impresa_esecutrice_ctype`, `impresa_esecutrice_verifica_contributiva_ctype`, `imprese_esecutrici_dei_lavori_ctype`, `imprese_esecutrici_dei_lavori_economia_ctype` | la scelta in economia / imprese di `sec_esecuzione_lavori` della CIL |
-| Estremi di atti e titoli | `ent_atto_assenso_v1.0.8` | `estremi_group`, `estremi_provvedimento_ctype`, `estremi_firmatario_ctype`, `estremi_titolo_ctype`, `estremi_titolo_progetto_ctype`, `pratica_edilizia_ctype` | `ent_riferimenti_pdc` della CIL |
+| Estremi di atti e titoli | `ent_atto_assenso_v1.0.8` | `estremi_group`, `estremi_provvedimento_ctype`, `estremi_firmatario_ctype`, `estremi_titolo_ctype`, `estremi_titolo_facoltativo_ctype`, `estremi_titolo_progetto_ctype`, `pratica_edilizia_ctype` | `ent_riferimenti_pdc` della CIL |
 | Salute e sicurezza | `ent_obblighi_salute_sicurezza_altpdc_v1.0.8` | `documentazione_imprese_group` e le varianti per procedimento | `sec_salute_sicurezza` della CIL |
 | Ubicazione dell'intervento | `sec_ubicazione_intervento_v1.0.8` | Comune destinatario, localizzazione, dati catastali | la sezione `sec_comunicazione_inizio_lavori` della CIL |
 | Titolarità dell'intervento | `sec_titolarita_intervento_v1.0.8` | standard, sanatoria, agibilità | |
@@ -481,7 +481,7 @@ I vocabolari PAT sono in `01_vocabularies` nello stesso formato genericode dei v
 | `voc_comuni_trentini.xml` | `IT:PAT:CL:ComuniTrentini` | estratto del vocabolario nazionale `voc_comuni_italiani.xml` (ANPR), codice ISTAT 022: 166 Comuni con codice ISTAT, codice catastale e denominazione | Comune dell'indirizzo dell'intervento (`indirizzo_intervento_ctype`) |
 | `voc_comuni_catastali.xml` | `IT:PAT:CL:ComuniCatastali` | dataset "Tariffe d'estimo del catasto fondiario" del Servizio libro fondiario e catasto (12/04/2024, CC BY 4.0): 446 comuni catastali con codice a tre cifre | codice del comune catastale nei dati catastali |
 | `voc_categorie_funzionali.xml` | `IT:PAT:CL:CategorieFunzionali` | art. 24, comma 8, della L.P. 15/2015: sette categorie funzionali | destinazione d'uso in PdC, SCIA, PdS e CCE |
-| `voc_titoli_abilitativi.xml` | `IT:PAT:CL:TitoliAbilitativi` | titoli della L.P. 15/2015 e dei PDF PAT, più i titoli previgenti (concessione, autorizzazione, DIA, licenza, condono) e "altro" | titolo negli estremi di un titolo abilitativo (`estremi_titolo_ctype`) |
+| `voc_titoli_abilitativi.xml` | `IT:PAT:CL:TitoliAbilitativi` | titoli della L.P. 15/2015 e dei PDF PAT, più i titoli previgenti (concessione, autorizzazione, DIA, licenza, condono) e "altro" | titolo negli estremi di un titolo abilitativo (`estremi_titolo_ctype`, `estremi_titolo_facoltativo_ctype`) |
 
 I valori che SUE invia oggi non coincidono sempre con i codici: per esempio il comune catastale arriva come "002 - ALA" invece di "002", e con nomi diversi dalla fonte ("RONCHI (DISTR. ROVERETO)" per il codice 313, "Ronchi di Ala" nel catasto). Prima di imporre i vocabolari va concordato con SUE il formato dei valori.
 
@@ -501,13 +501,15 @@ python3 ./tools/genera_vocabolari.py <tariffe_catasto_fondiario.csv>
 - I vincoli nazionali (`autorizzazione_soprintendenza`, `area_protetta`, `natura_duemila`, `vincolo_idrogeologico`, `vincolo_idraulico`, `rispetto_cimiteriale`, `rischio_incidente_rilevante`, `tutela_ecologica`, `efficienza_infrastrutture`) sono resi con i tipi generici di `atto_assenso` e con `fasce_rispetto`: nei PDF PAT hanno tutti la stessa struttura.
 - Gli altri titolari sono sezioni ripetute a livello di modulo con il tipo della scheda anagrafica: così il livello `03_sections` non importa altre sezioni.
 - Come per la CIL, non è modellata la tabella degli allegati (`sec_allegati_sue` nazionale): gli allegati richiesti sono indicati nelle annotazioni.
-- Nei file PAT condivisi con la CIL, `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8`, sono cambiate solo le `xsd:documentation` (testo del PDF mancante e regole di stile): la struttura e la validazione non cambiano.
+- Nei file PAT condivisi con la CIL, `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8`, sono cambiate solo le `xsd:documentation` (testo del PDF mancante e regole di stile): la struttura e la validazione non cambiano. Fa eccezione `ent_domicilio_digitale_v1.0.8`, che aggiunge in fondo due elementi facoltativi per il domicilio digitale speciale, `domicilio_speciale_check` e `domicilio_speciale_string`. Nel PDF il domicilio speciale è un quadro distinto da INAD e INI-PEC, e lo SUE lo invia in un pannello a parte. Le annotazioni del domicilio speciale sono passate dagli elementi INI-PEC ai nuovi elementi, e l'esempio della CIL resta valido e invariato.
 - `ent_documento_rilasciato` è in v1.0.8 perché la PAT ha sostituito `xsd:date` con il formato gg/mm/aaaa nelle date di rilascio e di scadenza. Lo schematron nazionale di entità `ent_documento_rilasciato_v1.0.7.sch` è stato rimosso: nessun modulo lo usava e confrontava le date come `xs:date`, quindi non era compatibile con la versione PAT.
 - L'indirizzo dell'intervento richiede il Comune: `ent_indirizzo_italiano` v1.0.8 aggiunge `indirizzo_intervento_ctype`, restrizione dell'indirizzo nazionale con il Comune obbligatorio, usata dalla localizzazione dell'intervento e dalla CIL. Via e numero civico restano facoltativi, perché i terreni senza indirizzo sono identificati dai dati catastali, già obbligatori.
 - `ent_persona` v1.0.8 ammette la nascita all'estero: nato in Italia con Comune, Provincia e Stato facoltativo, oppure nato all'estero con Stato e località estera facoltativa, che usa il tipo nazionale `localita_estero_stype`. Le istanze dei nati in Italia non cambiano. Gli schematron nazionali di entità `ent_persona_v1.0.7.sch` e `ent_indirizzo_italiano_v1.0.7.sch` sono stati rimossi: nessun modulo li usava e non corrispondevano alle versioni PAT.
 - Nel calcolo del contributo di costruzione di PdC e PdS il PDF prevede la rateizzazione in aggiunta all'invio della ricevuta o all'esenzione, mentre lo SUE la propone come alternativa. In `calcolo_contributo_costruzione_pdc` la scelta tra ricevuta ed esenzione è quindi facoltativa. Lo schematron del modulo la richiede quando non è chiesta la rateizzazione.
 - Per l'impresa esecutrice il PDF PAT chiede denominazione, codice fiscale o partita IVA e sede legale, ma non la forma giuridica, e lo SUE non la invia. `ent_impresa` v1.0.8 aggiunge `impresa_forma_giuridica_facoltativa_ctype`, che condivide con `impresa_ctype` il gruppo `dati_impresa_group` e ha la forma giuridica facoltativa. Lo usa solo `ent_impresa_escutrice`, quindi vale per l'impresa esecutrice di tutti i moduli. Per il dichiarante e per gli altri titolari la forma giuridica resta obbligatoria.
 - La dichiarazione di essere a conoscenza che l'efficacia della pratica è sospesa, senza piano di sicurezza, notifica o DURC, è una presa d'atto implicita nella sottoscrizione della pratica. Lo SUE non la raccoglie come casella. L'annotazione in `ent_obblighi_salute_sicurezza_altpdc` lo segnala al compilatore, e la trasformata dell'XML SUE la valorizza a `true`.
+- Per la qualità ambientale dei terreni lo SUE offre l'opzione "non ricade in tale ambito di applicazione", che non c'è nei PDF PAT. `qualita_ambientale_terreni` v1.0.8 la accoglie con l'elemento `non_ricade`, usato da PdC, SCIA e PdS. Lo schematron del PdS continua a escludere soltanto "non richiede indagini".
+- Nella comunicazione di fine lavori il PDF PAT chiede del titolo legittimante solo il protocollo/numero e la data, ma lo SUE invia anche il nome del titolo. `ent_atto_assenso` v1.0.8 aggiunge `estremi_titolo_facoltativo_ctype`, uguale a `estremi_titolo_ctype` ma con il titolo facoltativo, e lo usano per il titolo legittimante `comunicazione_fine_lavori` (DUL) e `sec_segnalazione_certificata_agibilita` (SCAgi), dove lo SUE invia il tipo di intervento. Le istanze esistenti restano valide.
 - Un'impresa può avere il solo codice fiscale numerico, che ha la sintassi della partita IVA. `ent_impresa` v1.0.8 usa per il codice fiscale il tipo `codice_fiscale_impresa_stype`, che ammette il codice di persona fisica oppure 11 cifre. Le istanze esistenti restano valide.
 - Negli schematron il Comune dell'intervento si confronta con il destinatario della pratica ignorando maiuscole, accenti e punteggiatura: il nome del Comune deve comparire come parola intera nel destinatario, che SUE compila con l'ufficio, per esempio "COMUNE DI ALA - UFFICIO TECNICO". Se l'ubicazione è indicata con un codice catastale o ISTAT la regola non si applica, perché senza un vocabolario dei Comuni non si può confrontare.
 

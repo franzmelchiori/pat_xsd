@@ -50,9 +50,9 @@
                     <xsd:documentation xml:lang="it">Comunica che si sono conclusi i lavori previsti in data</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="titolo_legittimante" type="eattass:estremi_provvedimento_ctype" minOccurs="1" maxOccurs="1">
+            <xsd:element name="titolo_legittimante" type="eattass:estremi_titolo_facoltativo_ctype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
-                    <xsd:documentation xml:lang="it">Il titolo e/o comunicazione che ha legittimato l'intervento: protocollo/numero e data</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Il titolo e/o comunicazione che ha legittimato l'intervento: titolo, protocollo/numero e data</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="descrizione_intervento" type="ecomfinlav:descrizione_intervento_stype" minOccurs="1" maxOccurs="1">

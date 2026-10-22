@@ -6,7 +6,8 @@
         python3 ./xslt/mod_pat_xslt.py
             per ogni trasformata xslt/mod_<procedimento>_v<versione>.xslt trasforma ogni XML SUE
             04_forms/in/mod_<procedimento>_sue_*.xml (elemento radice pratica), scrive l'istanza PAT
-            in xslt/out e la valida con l'XSD e lo schematron del modulo in 04_forms
+            in xslt/out e la valida con l'XSD e lo schematron del modulo in 04_forms; verifica
+            anche che il blocco comune sia identico in tutte le trasformate
         python3 ./xslt/mod_pat_xslt.py <file_sue.xml> <file.xslt> [file_pat.xml]
             trasforma e valida un singolo XML SUE
 """
@@ -26,6 +27,8 @@ FORMS_DIR = './04_forms'
 SUE_DIR = './04_forms/in'
 XSLT_DIR = './xslt'
 OUT_DIR = './xslt/out'
+SHARED_START = '<!-- ================= INIZIO BLOCCO COMUNE'
+SHARED_END = '<!-- ================= FINE BLOCCO COMUNE'
 
 
 def transform(sue_path, xslt_path, pat_path):
@@ -44,9 +47,32 @@ def is_sue_raw(xml_path):
     return etree.parse(xml_path).getroot().tag == 'pratica'
 
 
-def transform_all():
+def shared_block(xslt_path):
+    text = open(xslt_path, encoding='utf-8').read()
+    start, end = text.find(SHARED_START), text.find(SHARED_END)
+    return text[start:end] if 0 <= start < end else None
+
+
+def check_shared_blocks(xslt_paths):
+    """il blocco comune deve essere identico in tutte le trasformate"""
+    blocks = {xslt_path: shared_block(xslt_path) for xslt_path in xslt_paths}
+    reference_path = xslt_paths[0] if xslt_paths else None
     ok = True
-    for xslt_path in sorted(glob.glob(os.path.join(XSLT_DIR, 'mod_*.xslt'))):
+    for xslt_path, block in blocks.items():
+        if block is None:
+            print(f'{xslt_path}: blocco comune non trovato')
+            ok = False
+        elif block != blocks[reference_path]:
+            print(f'{xslt_path}: blocco comune diverso da {reference_path}')
+            ok = False
+    print(f'blocco comune: {len(xslt_paths)} trasformate, ' + ('identico' if ok else 'NON identico'))
+    return ok
+
+
+def transform_all():
+    xslt_paths = sorted(glob.glob(os.path.join(XSLT_DIR, 'mod_*.xslt')))
+    ok = check_shared_blocks(xslt_paths)
+    for xslt_path in xslt_paths:
         form = os.path.basename(xslt_path)[:-5]
         procedimento = re.sub(r'_v[0-9.]+$', '', form)
         xsd_path = os.path.join(FORMS_DIR, form + '.xsd')

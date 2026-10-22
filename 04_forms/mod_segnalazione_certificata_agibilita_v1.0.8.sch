@@ -28,7 +28,8 @@
             <sch:assert test="$ubicazione = '' or $ubicazione_codice or contains($destinatario, concat(' ', $ubicazione, ' '))">Attenzione - l'ubicazione dell'intervento deve coincidere con il Comune a cui è destinata la pratica.</sch:assert>
         </sch:rule>
 
-        <sch:rule context="esegagi:tipologie_intervento">
+        <!-- la regola vale solo se le tipologie sono presenti: lo SUE potrebbe non offrirle, da verificare -->
+        <sch:rule context="esegagi:tipologie_intervento[*]">
             <sch:assert test="*[. = 'true' or . = '1']">Indicare almeno una tipologia di intervento per cui si presenta la segnalazione certificata di agibilità.</sch:assert>
         </sch:rule>
 
