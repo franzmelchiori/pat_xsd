@@ -1330,9 +1330,24 @@
                                     </xsl:call-template>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:call-template name="mancante">
-                                        <xsl:with-param name="dato" select="'anagrafica del progettista che non presenta la pratica (ProfessionistaAnagrafica)'"/>
+                                    <!-- progettista che non presenta la pratica: anagrafica, studio e ordine nel pannello SoggettiCoinvoltiType_schedaProgettistaOpereArchitett, senza contatti -->
+                                    <xsl:variable name="progettista" select="$tecnici/SoggettiCoinvoltiType_schedaProgettistaOpereArchitett"/>
+                                    <xsl:call-template name="anagrafica_professionista">
+                                        <xsl:with-param name="tecnico" select="$progettista"/>
                                     </xsl:call-template>
+                                    <xsl:choose>
+                                        <xsl:when test="normalize-space($progettista/studiopro_ordineprofessionale_contatti/collegio_tecnici_numero_iscrizione | $progettista/studiopro_ordineprofessionale_contatti/OrdineNumero) != ''">
+                                            <xsl:call-template name="iscrizione_ordine">
+                                                <xsl:with-param name="studio" select="$progettista/studiopro_ordineprofessionale_contatti"/>
+                                            </xsl:call-template>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:call-template name="mancante">
+                                                <xsl:with-param name="dato" select="&quot;iscrizione all'ordine del progettista, obbligatoria nel PdC&quot;"/>
+                                            </xsl:call-template>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                    <etecinc:contatti/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </etecinc:tecnico>
@@ -1641,6 +1656,7 @@
                         <xsl:if test="$reti[contains(translate(normalize-space(.), $M, $m), 'fornitura di acqua')]"><esicimp:fornitura_acqua>true</esicimp:fornitura_acqua></xsl:if>
                         <xsl:if test="$reti[contains(translate(normalize-space(.), $M, $m), 'fornitura di energia')]"><esicimp:fornitura_energia_elettrica>true</esicimp:fornitura_energia_elettrica></xsl:if>
                         <xsl:if test="$reti[contains(translate(normalize-space(.), $M, $m), 'calore')]"><esicimp:fornitura_calore_gas>true</esicimp:fornitura_calore_gas></xsl:if>
+                        <xsl:if test="normalize-space($rta_impianti/RTA_Planimetria/AltroSpecifica) != ''"><esicimp:altro><xsl:value-of select="normalize-space($rta_impianti/RTA_Planimetria/AltroSpecifica)"/></esicimp:altro></xsl:if>
                     </esicimp:planimetria_reti>
                 </sreltecasspdc:impianti>
 
@@ -2048,9 +2064,23 @@
                         </efasris:aree_danno_incidente>
                     </xsl:if>
                     <xsl:if test="$fasce/altro/parere_autorizzazioni">
-                        <xsl:call-template name="mancante">
-                            <xsl:with-param name="dato" select="&quot;specifica dell'altra fascia di rispetto&quot;"/>
-                        </xsl:call-template>
+                        <xsl:choose>
+                            <xsl:when test="normalize-space($fasce/infrastrutture_7_1) != ''">
+                                <efasris:altro>
+                                    <efasris:specifica><xsl:value-of select="normalize-space($fasce/infrastrutture_7_1)"/></efasris:specifica>
+                                    <efasris:fascia>
+                                        <xsl:call-template name="fascia">
+                                            <xsl:with-param name="pannello" select="$fasce/altro"/>
+                                        </xsl:call-template>
+                                    </efasris:fascia>
+                                </efasris:altro>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:call-template name="mancante">
+                                    <xsl:with-param name="dato" select="&quot;specifica dell'altra fascia di rispetto&quot;"/>
+                                </xsl:call-template>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:if>
                 </sreltecasspdc:fasce_rispetto>
 

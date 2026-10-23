@@ -2085,9 +2085,23 @@
                         </efasris:aree_danno_incidente>
                     </xsl:if>
                     <xsl:if test="$fasce/altro/parere_autorizzazioni">
-                        <xsl:call-template name="mancante">
-                            <xsl:with-param name="dato" select="&quot;specifica dell'altra fascia di rispetto&quot;"/>
-                        </xsl:call-template>
+                        <xsl:choose>
+                            <xsl:when test="normalize-space($fasce/infrastrutture_7_1) != ''">
+                                <efasris:altro>
+                                    <efasris:specifica><xsl:value-of select="normalize-space($fasce/infrastrutture_7_1)"/></efasris:specifica>
+                                    <efasris:fascia>
+                                        <xsl:call-template name="fascia_scia">
+                                            <xsl:with-param name="pannello" select="$fasce/altro"/>
+                                        </xsl:call-template>
+                                    </efasris:fascia>
+                                </efasris:altro>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:call-template name="mancante">
+                                    <xsl:with-param name="dato" select="&quot;specifica dell'altra fascia di rispetto&quot;"/>
+                                </xsl:call-template>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:if>
                 </sreltecassscia:fasce_rispetto>
 
