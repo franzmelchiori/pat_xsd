@@ -547,6 +547,11 @@
                     <xsl:with-param name="ditta" select="$ditta"/>
                 </xsl:call-template>
             </eruorap:ruolo>
+            <!-- con il ruolo Altro lo SUE invia la specifica in ANAG_RAD_QUALITA_DI_ALTRO_SPECIFICARE -->
+            <xsl:call-template name="campo">
+                <xsl:with-param name="nome" select="'eruorap:ruolo_altro'"/>
+                <xsl:with-param name="valore" select="$a/ANAG_RAD_QUALITA_DI_ALTRO_SPECIFICARE"/>
+            </xsl:call-template>
         </sschana:rappresentante>
         <xsl:if test="$procura">
             <sschana:datiProcuratore>
@@ -1322,7 +1327,7 @@
                     <xsl:if test="$allegati[contains(translate(normalize-space(.), $M, $m), 'collaudo statico')]"><eattultlav:collaudo_statico>true</eattultlav:collaudo_statico></xsl:if>
                     <xsl:if test="$allegati[contains(translate(normalize-space(.), $M, $m), 'antincendio')]"><eattultlav:antincendio>true</eattultlav:antincendio></xsl:if>
                     <xsl:if test="$allegati[contains(translate(normalize-space(.), $M, $m), 'catastal')]"><eattultlav:planimetrie_catastali>true</eattultlav:planimetrie_catastali></xsl:if>
-                    <xsl:if test="$allegati[contains(translate(normalize-space(.), $M, $m), 'fine lavori parziale')]"><eattultlav:planimetrie_fine_lavori_parziale>true</eattultlav:planimetrie_fine_lavori_parziale></xsl:if>
+                    <xsl:if test="$allegati[contains(translate(normalize-space(.), $M, $m), 'fine lavori parziale') or contains(translate(normalize-space(.), $M, $m), 'ultimazione parziale')]"><eattultlav:planimetrie_fine_lavori_parziale>true</eattultlav:planimetrie_fine_lavori_parziale></xsl:if>
                     <xsl:if test="$allegati[contains(translate(normalize-space(.), $M, $m), 'tulps')]"><eattultlav:autorizzazione_tulps>true</eattultlav:autorizzazione_tulps></xsl:if>
                 </sattultlav:allegati>
 

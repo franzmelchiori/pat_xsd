@@ -532,6 +532,11 @@
                     <xsl:with-param name="ditta" select="$ditta"/>
                 </xsl:call-template>
             </eruorap:ruolo>
+            <!-- con il ruolo Altro lo SUE invia la specifica in ANAG_RAD_QUALITA_DI_ALTRO_SPECIFICARE -->
+            <xsl:call-template name="campo">
+                <xsl:with-param name="nome" select="'eruorap:ruolo_altro'"/>
+                <xsl:with-param name="valore" select="$a/ANAG_RAD_QUALITA_DI_ALTRO_SPECIFICARE"/>
+            </xsl:call-template>
         </sschana:rappresentante>
         <xsl:if test="$procura">
             <sschana:datiProcuratore>

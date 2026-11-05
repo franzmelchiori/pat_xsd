@@ -545,6 +545,11 @@
                     <xsl:with-param name="ditta" select="$ditta"/>
                 </xsl:call-template>
             </eruorap:ruolo>
+            <!-- con il ruolo Altro lo SUE invia la specifica in ANAG_RAD_QUALITA_DI_ALTRO_SPECIFICARE -->
+            <xsl:call-template name="campo">
+                <xsl:with-param name="nome" select="'eruorap:ruolo_altro'"/>
+                <xsl:with-param name="valore" select="$a/ANAG_RAD_QUALITA_DI_ALTRO_SPECIFICARE"/>
+            </xsl:call-template>
         </sschana:rappresentante>
         <xsl:if test="$procura">
             <sschana:datiProcuratore>
@@ -1305,14 +1310,22 @@
                         <xsl:when test="contains($antincendio, 'non rientra')">
                             <ecercon:non_soggetto_cpi>true</ecercon:non_soggetto_cpi>
                         </xsl:when>
-                        <xsl:when test="contains($antincendio, 'attività a e b')">
+                        <!-- attività soggette ai Vigili del Fuoco: A e B oppure C sono caselle a parte del pannello -->
+                        <xsl:when test="contains($antincendio, 'attività soggette')">
                             <ecercon:attivita_soggette_vvf>
-                                <ecercon:attivita_a_b>true</ecercon:attivita_a_b>
-                            </ecercon:attivita_soggette_vvf>
-                        </xsl:when>
-                        <xsl:when test="contains($antincendio, 'attività c')">
-                            <ecercon:attivita_soggette_vvf>
-                                <ecercon:attivita_c>true</ecercon:attivita_c>
+                                <xsl:choose>
+                                    <xsl:when test="$incendi/*[starts-with(translate(normalize-space(.), $M, $m), 'per attività a e b')]">
+                                        <ecercon:attivita_a_b>true</ecercon:attivita_a_b>
+                                    </xsl:when>
+                                    <xsl:when test="$incendi/*[starts-with(translate(normalize-space(.), $M, $m), 'per attività c')]">
+                                        <ecercon:attivita_c>true</ecercon:attivita_c>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:call-template name="mancante">
+                                            <xsl:with-param name="dato" select="'categoria delle attività soggette ai Vigili del Fuoco (A e B oppure C)'"/>
+                                        </xsl:call-template>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </ecercon:attivita_soggette_vvf>
                         </xsl:when>
                         <xsl:otherwise>

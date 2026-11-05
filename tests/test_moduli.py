@@ -55,6 +55,8 @@ CASI = {
         ('impresa con codice fiscale numerico di 10 cifre', [('testo', '//eimpresa:codice_fiscale', '0123456789')], 'xsd'),
         ('altro progettista non iscritto all\'ordine', [('rimuovi', '//seselav:progettista_lavori/seselav:iscrizione_ordine')], 'valido'),
         ('direttore dei lavori non iscritto all\'ordine', [('rimuovi', '//seselav:direttore_lavori//seselav:iscrizione_ordine')], 'xsd'),
+        ('ruolo Altro con la specifica', [('inserisci', '(//eruorap:ruolo)[1]', '<eruorap:ruolo_altro>Tecnico certificatore</eruorap:ruolo_altro>', 'dopo')], 'valido'),
+        ('specifica del ruolo prima del ruolo', [('inserisci', '(//eruorap:ruolo)[1]', '<eruorap:ruolo_altro>Tecnico certificatore</eruorap:ruolo_altro>', 'prima')], 'xsd'),
     ],
     'permesso_di_costruire': [
         ('altri progettisti presenti senza indicazioni', [('rimuovi', '//etecinc:individuati_prima_inizio_lavori')], 'sch'),
