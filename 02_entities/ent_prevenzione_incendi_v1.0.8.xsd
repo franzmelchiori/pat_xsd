@@ -85,7 +85,7 @@
             <xsd:documentation xml:lang="it">PAT Prevenzione incendi (SCIA)</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:choice minOccurs="0" maxOccurs="1">
                 <xsd:element name="non_soggetto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                     <xsd:annotation>
                         <xsd:documentation xml:lang="it">che l'intervento non è soggetto alle norme di prevenzione incendi</xsd:documentation>

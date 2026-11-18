@@ -86,7 +86,7 @@
             <xsd:documentation xml:lang="it">Si dichiara di avere titolo idoneo alla realizzazione dei lavori in quanto</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:choice minOccurs="0" maxOccurs="1">
                 <xsd:element name="proprietario_esclusivo" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                     <xsd:annotation>
                         <xsd:documentation xml:lang="it">Proprietario esclusivo</xsd:documentation>
@@ -185,7 +185,7 @@
             <xsd:documentation xml:lang="it">PAT Titolarità dell'intervento (segnalazione certificata di agibilità)</xsd:documentation>
             <xsd:documentation xml:lang="it">Si dichiara di avere o non avere titolarità esclusiva all'esecuzione dell'intervento</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice>
+        <xsd:choice minOccurs="0">
             <xsd:element name="titolarita_esclusiva" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">avere titolarità esclusiva all'esecuzione dell'intervento</xsd:documentation>

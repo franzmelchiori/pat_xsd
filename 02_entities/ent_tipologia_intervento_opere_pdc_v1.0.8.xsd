@@ -34,7 +34,7 @@
             <xsd:documentation xml:lang="it">Le opere in progetto saranno realizzate mediante</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:choice minOccurs="1" maxOccurs="1">
+            <xsd:choice minOccurs="0" maxOccurs="1">
                 <xsd:element name="intervento_diretto" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                     <xsd:annotation>
                         <xsd:documentation xml:lang="it">intervento diretto</xsd:documentation>

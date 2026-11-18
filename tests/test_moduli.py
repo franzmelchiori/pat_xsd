@@ -39,6 +39,24 @@ ALTRO_TECNICO = '''<etecinc:altro_tecnico>
     <etecinc:iscritto_ordine>{iscritto}</etecinc:iscritto_ordine>
 </etecinc:altro_tecnico>'''
 ISCRIZIONE = '<etecinc:iscrizione_ordine><etecinc:ordine>Ordine degli Ingegneri</etecinc:ordine><etecinc:ordine_di>Trento</etecinc:ordine_di><etecinc:numero>99</etecinc:numero></etecinc:iscrizione_ordine>'
+ALTRO_TECNICO_PDC = '''<etecinc:altro_tecnico>
+    <etecinc:altro_progettista>true</etecinc:altro_progettista>
+    <etecinc:incaricato_della>progettazione acustica</etecinc:incaricato_della>
+    <etecinc:tecnico>
+        <etecinc:dati_tecnico>
+            <epepers:cognome>Neri</epepers:cognome>
+            <epepers:nome>Anna</epepers:nome>
+            <epepers:codice_fiscale>NRENNA80A41L378Y</epepers:codice_fiscale>
+            <epepers:comune_nascita>L378</epepers:comune_nascita>
+            <epepers:provincia_nascita>TN</epepers:provincia_nascita>
+            <epepers:data_nascita>01/01/1980</epepers:data_nascita>
+        </etecinc:dati_tecnico>
+        <etecinc:residenza_italiana><epeindita:comune>Trento</epeindita:comune></etecinc:residenza_italiana>
+        <etecinc:studio_italia><epeindita:comune>Trento</epeindita:comune></etecinc:studio_italia>
+        {iscrizione}
+        <etecinc:contatti/>
+    </etecinc:tecnico>
+</etecinc:altro_tecnico>'''
 
 # casi scritti a mano: modulo -> [(descrizione, operazioni, esito atteso)]
 # operazioni: ('testo', xpath, valore) | ('rimuovi', xpath) | ('sostituisci', xpath, frammento)
@@ -57,6 +75,8 @@ CASI = {
         ('direttore dei lavori non iscritto all\'ordine', [('rimuovi', '//seselav:direttore_lavori//seselav:iscrizione_ordine')], 'xsd'),
         ('ruolo Altro con la specifica', [('inserisci', '(//eruorap:ruolo)[1]', '<eruorap:ruolo_altro>Tecnico certificatore</eruorap:ruolo_altro>', 'dopo')], 'valido'),
         ('specifica del ruolo prima del ruolo', [('inserisci', '(//eruorap:ruolo)[1]', '<eruorap:ruolo_altro>Tecnico certificatore</eruorap:ruolo_altro>', 'prima')], 'xsd'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('verifica contributiva senza Cassa edile, INPS o INAIL', [('rimuovi', '//seselav:impresa[1]/eimpese:verifica_contributiva/*')], 'valido'),
     ],
     'permesso_di_costruire': [
         ('altri progettisti presenti senza indicazioni', [('rimuovi', '//etecinc:individuati_prima_inizio_lavori')], 'sch'),
@@ -69,6 +89,13 @@ CASI = {
         ('dichiarante ditta senza forma giuridica', [('sostituisci', '//sschana:opzione_persona', '<sschana:opzione_ditta><sschana:selezione_ditta>true</sschana:selezione_ditta><sschana:selezione_cciaa_non_necessario><eimpresa:denominazione>Ditta</eimpresa:denominazione><eimpresa:indirizzo_attivita/></sschana:selezione_cciaa_non_necessario></sschana:opzione_ditta>')], 'xsd'),
         ('contributo dovuto con la sola rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento')], 'valido'),
         ('contributo dovuto senza ricevuta, esenzione o rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento'), ('testo', '//ecalconcospdc:rateizzazione', 'false')], 'sch'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('qualificazione senza fattispecie o estremi', [('rimuovi', '//srichpdc:qualificazione_intervento/*')], 'valido'),
+        ('notifica senza estremi', [('rimuovi', '//eoblsalsicaltpdc:notifica/*')], 'valido'),
+        ('tipologia di intervento senza estremi del piano attuativo', [('rimuovi', '//sreltecasspdc:tipologia_intervento_opere/*[not(self::etipintopepdc:descrizione_opere)]')], 'valido'),
+        ('imposta di bollo senza modalità', [('rimuovi', '//sversam:imposta_bollo/*')], 'valido'),
+        ('altro tecnico iscritto all\'ordine', [('sostituisci', '//etecinc:individuati_prima_inizio_lavori', ALTRO_TECNICO_PDC.format(iscrizione=ISCRIZIONE))], 'valido'),
+        ('altro tecnico non iscritto all\'ordine', [('sostituisci', '//etecinc:individuati_prima_inizio_lavori', ALTRO_TECNICO_PDC.format(iscrizione=''))], 'valido'),
     ],
     'scia': [
         ('progettista non direttore e nessun direttore', [('rimuovi', '//sdicscia:tecnici_incaricati/etecinc:direttore_lavori')], 'sch'),
@@ -80,6 +107,12 @@ CASI = {
         ('contributo dovuto senza indicazioni', [('rimuovi', '//ecalconcosscia:soggetto/*')], 'sch'),
         ('riserva sulla salute e sicurezza', [('sostituisci', '//sdicscia:obblighi_salute_sicurezza/eoblsalsicaltpdc:ricade', '<eoblsalsicaltpdc:ricade_riserva_prima_inizio_lavori>true</eoblsalsicaltpdc:ricade_riserva_prima_inizio_lavori>')], 'sch'),
         ('impresa senza verifica contributiva', [('rimuovi', '//sdicscia:imprese_esecutrici/eimpese:impresa[1]/eimpese:verifica_contributiva')], 'xsd'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('qualificazione senza estremi', [('rimuovi', '//sdicscia:qualificazione_intervento/*')], 'valido'),
+        ('direttore dei lavori senza anagrafica', [('rimuovi', '//etecinc:direttore_lavori/etecinc:tecnico/*')], 'valido'),
+        ('direttore dei lavori con anagrafica senza iscrizione', [('rimuovi', '//etecinc:direttore_lavori/etecinc:tecnico/etecinc:iscrizione_ordine')], 'xsd'),
+        ('prevenzione incendi senza estremi della deroga', [('rimuovi', '//epreinc:non_soggetto | //epreinc:soggetto_norme_rispettate | //epreinc:deroga_ottenuta')], 'valido'),
+        ('ulteriori atti di assenso senza estremi', [('rimuovi', '//sreltecassscia:ulteriori_atti_assenso/*')], 'valido'),
     ],
     'cila': [
         ('progettista direttore e direttore diverso', [('testo', '//sdiccila:tecnici_incaricati/etecinc:progettista/etecinc:direttore_lavori', 'true')], 'sch'),
@@ -88,6 +121,13 @@ CASI = {
         ('altro tecnico iscritto senza iscrizione', [('testo', '//etecinc:altro_tecnico/etecinc:iscritto_ordine', 'true')], 'sch'),
         ('altro tecnico non iscritto con iscrizione', [('inserisci', '//etecinc:altro_tecnico/etecinc:iscritto_ordine', ISCRIZIONE, 'dopo')], 'sch'),
         ('riserva sulla salute e sicurezza', [('sostituisci', '//sdiccila:obblighi_salute_sicurezza/eoblsalsicaltpdc:ricade', '<eoblsalsicaltpdc:ricade_riserva_prima_inizio_lavori>true</eoblsalsicaltpdc:ricade_riserva_prima_inizio_lavori>')], 'sch'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('atti di assenso rilasciati senza estremi', [('rimuovi', '//sdiccila:presentazione/*')], 'valido'),
+        ('progettista senza anagrafica', [('rimuovi', '//sdiccila:tecnici_incaricati/etecinc:progettista/etecinc:tecnico/*')], 'valido'),
+        ('progettista con anagrafica senza iscrizione', [('rimuovi', '//sdiccila:tecnici_incaricati/etecinc:progettista/etecinc:tecnico/etecinc:iscrizione_ordine')], 'xsd'),
+        ('progettista della relazione senza dati', [('rimuovi', '//sdicprocila:dati_progettista/*')], 'valido'),
+        ('progettista della relazione senza iscrizione', [('rimuovi', '//sdicprocila:dati_progettista/etecinc:iscrizione_ordine')], 'xsd'),
+        ('stato legittimo senza estremi del titolo', [('rimuovi', '//sdicprocila:stato_legittimo/*')], 'valido'),
     ],
     'comunicazione_opere_libere': [
         ('nessuna tipologia di opere', [('testo', '//einilavopelib:opere_precarie', 'false'), ('testo', '//einilavopelib:solare_copertura', 'false')], 'sch'),
@@ -95,6 +135,8 @@ CASI = {
         ('opere precarie senza relazione descrittiva', [('testo', '//etecinc:relazione_opere_precarie', 'false')], 'sch'),
         ('tecnico iscritto senza iscrizione', [('testo', '//etecinc:elaborati_necessari/etecinc:tecnico/etecinc:iscritto_ordine', 'true')], 'sch'),
         ('tecnico non iscritto con iscrizione', [('inserisci', '//etecinc:elaborati_necessari/etecinc:tecnico/etecinc:iscritto_ordine', ISCRIZIONE, 'dopo')], 'sch'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('atti di assenso rilasciati senza estremi', [('rimuovi', '//sdiccol:presentazione/*')], 'valido'),
     ],
     'permesso_di_costruire_sanatoria': [
         ('sanatoria art. 86 quater senza la sua conformità', [('sostituisci', '//econpro:conformita_art_86_quater', '<econpro:doppia_conformita>true</econpro:doppia_conformita>')], 'sch'),
@@ -109,6 +151,10 @@ CASI = {
         ('contributo dovuto con la sola rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento')], 'valido'),
         ('contributo dovuto senza ricevuta, esenzione o rateizzazione', [('rimuovi', '//ecalconcospdc:invio_ricevuta_pagamento'), ('testo', '//ecalconcospdc:rateizzazione', 'false')], 'sch'),
         ('titolo difforme senza titolo', [('rimuovi', '//equaintsan:difformita_titolo/eattass:titolo')], 'xsd'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('titolarità senza estremi', [('rimuovi', '//stitint:titolarita_intervento/*[not(self::etitpos:altri_titolari)]')], 'valido'),
+        ('progettista senza anagrafica', [('rimuovi', '//sdicpds:tecnici_incaricati/etecinc:progettista/etecinc:tecnico/*')], 'valido'),
+        ('imposta di bollo senza modalità', [('rimuovi', '//sversam:imposta_bollo/*')], 'valido'),
     ],
     'comunicazione_modifica_soggetti_coinvolti': [
         ('due pratiche edilizie', [('inserisci', '//scommodsogcoi:pratica_edilizia', '<eattass:cila><eattass:numero>1</eattass:numero><eattass:data>01/01/2026</eattass:data></eattass:cila>', 'dentro')], 'xsd'),
@@ -133,11 +179,18 @@ CASI = {
         ('agibilità parziale di unità con una condizione mancante', [('testo', '//eassagi:parti_comuni', 'false')], 'sch'),
         ('collaudo statico senza firmatario', [('rimuovi', '//eassagi:collaudo_statico/eattass:firmatario')], 'xsd'),
         ('tecnico asseverante senza iscrizione', [('rimuovi', '//sreltecassscagi:tecnico_asseverante/etecinc:iscrizione_ordine')], 'xsd'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('titolarità senza ulteriori titolari o ditta', [('rimuovi', '//stitint:titolarita_intervento/*')], 'valido'),
+        ('agibilità asseverata senza condizioni', [('rimuovi', '//sreltecassscagi:assevera/*')], 'valido'),
+        ('strutture interessate senza collaudo statico', [('rimuovi', '//sreltecassscagi:sicurezza_statica_sismica/*')], 'valido'),
+        ('prevenzione incendi senza estremi', [('rimuovi', '//sreltecassscagi:sicurezza_antincendio/*')], 'valido'),
     ],
     'certificato_conformita_edifici_esistenti': [
         ('edificio senza titoli non legittimo', [('sostituisci', '//ecercon:titoli_esaminati', '<ecercon:assenza_titoli><ecercon:edificio_legittimamente_esistente>false</ecercon:edificio_legittimamente_esistente><ecercon:data_esecuzione_immobile>1950</ecercon:data_esecuzione_immobile></ecercon:assenza_titoli>')], 'sch'),
         ('aspetti igienico-sanitari senza opzioni', [('testo', '//ecercon:salubrita_1934_1995', 'false')], 'sch'),
         ('titolo esaminato senza redattore', [('rimuovi', '//ecercon:titoli_esaminati/eattass:redatto_da')], 'xsd'),
+        # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
+        ('verifica dei titoli senza estremi', [('rimuovi', '//scertecedi:verifica_titoli/*')], 'valido'),
     ],
     'deposito_dichiarazioni_conformita_impianti': [
         ('domicilio speciale oltre a INI-PEC', [('inserisci', '//edomdig:domicilio_ini_pec_string', '<edomdig:domicilio_speciale_check>true</edomdig:domicilio_speciale_check><edomdig:domicilio_speciale_string>speciale@pec.it</edomdig:domicilio_speciale_string>', 'dopo')], 'valido'),

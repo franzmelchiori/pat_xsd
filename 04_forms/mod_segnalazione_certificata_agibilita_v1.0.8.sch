@@ -36,8 +36,8 @@
         <sch:rule context="msegceragi:modulo_pat_segnalazione_certificata_agibilita">
             <sch:let name="mda" value="local-name(msegceragi:sezione_pat_segnalazione_certificata_agibilita/ssegceragi:presentazione_agibilita/esegagi:riferimento_agibilita/*)"/>
             <sch:let name="rta" value="local-name(msegceragi:sezione_pat_relazione_tecnica_asseverazione_scagi/sreltecassscagi:assevera/*)"/>
-            <!-- l'estensione segnalata dal titolare è facoltativa: il confronto vale solo se c'è -->
-            <sch:assert test="$mda = '' or $mda = $rta">L'agibilità asseverata dal tecnico (totale, parziale di edifici o parziale di unità immobiliari) deve coincidere con quella segnalata dal titolare.</sch:assert>
+            <!-- l'estensione segnalata dal titolare è facoltativa e quella asseverata può mancare quando lo SUE non invia le condizioni dell'agibilità parziale: il confronto vale solo se ci sono entrambe -->
+            <sch:assert test="$mda = '' or $rta = '' or $mda = $rta">L'agibilità asseverata dal tecnico (totale, parziale di edifici o parziale di unità immobiliari) deve coincidere con quella segnalata dal titolare.</sch:assert>
         </sch:rule>
 
         <sch:rule context="eassagi:agibilita_parziale_edifici">

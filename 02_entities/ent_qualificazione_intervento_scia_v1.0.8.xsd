@@ -38,7 +38,7 @@
             <xsd:documentation xml:lang="it">PAT Qualificazione dell'intervento</xsd:documentation>
             <xsd:documentation xml:lang="it">La presente segnalazione relativa all'intervento, descritto nella relazione di asseverazione, riguarda l'inizio dell'attività edilizia</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice minOccurs="1" maxOccurs="1">
+        <xsd:choice minOccurs="0" maxOccurs="1">
             <xsd:element name="art_85" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">ai sensi dell'art. 85 della legge provinciale del 4 agosto 2015, n. 15</xsd:documentation>

@@ -86,6 +86,36 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <xsd:complexType name="tecnico_facoltativo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati del tecnico incaricato</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+            <xsd:group ref="etecinc:dati_anagrafici_tecnico_group"/>
+            <xsd:element name="iscrizione_ordine" type="etecinc:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Telefono, fax, cell., posta elettronica certificata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnico_iscrizione_facoltativa_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati del tecnico incaricato</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:group ref="etecinc:dati_anagrafici_tecnico_group"/>
+            <xsd:element name="iscrizione_ordine" type="etecinc:iscrizione_ordine_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="contatti" type="epecont:contatti_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Telefono, fax, cell., posta elettronica certificata</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
     <xsd:complexType name="tecnico_asseverante_ctype">
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Dati del tecnico asseverante</xsd:documentation>
@@ -109,6 +139,24 @@
             <xsd:documentation xml:lang="it">PAT Dati sintetici del tecnico: cognome e nome, iscrizione all'ordine/collegio</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
+            <xsd:element name="cognome_nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Cognome e Nome</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="iscrizione_ordine" type="etecinc:iscrizione_ordine_ctype" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="it">Iscritto all'ordine/collegio: ordine, sede, numero di iscrizione</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="tecnico_sintetico_facoltativo_ctype">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="it">PAT Dati sintetici del tecnico: cognome e nome, iscrizione all'ordine/collegio</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="1">
             <xsd:element name="cognome_nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">Cognome e Nome</xsd:documentation>
@@ -150,7 +198,7 @@
                     <xsd:documentation xml:lang="it">Titolo</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="tecnico" type="etecinc:tecnico_facoltativo_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -160,7 +208,7 @@
             <xsd:documentation xml:lang="it">da compilare se il direttore dei lavori è diverso dal progettista</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="tecnico" type="etecinc:tecnico_facoltativo_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -279,7 +327,7 @@
                     <xsd:documentation xml:lang="it">Ambito dell'incarico</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="tecnico" type="etecinc:tecnico_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="tecnico" type="etecinc:tecnico_iscrizione_facoltativa_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
 

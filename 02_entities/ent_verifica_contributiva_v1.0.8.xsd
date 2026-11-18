@@ -41,7 +41,7 @@
     </xsd:complexType>
 
     <xsd:complexType name="verifica_contributiva_ctype">
-        <xsd:choice minOccurs="1" maxOccurs="1">
+        <xsd:choice minOccurs="0" maxOccurs="1">
             <xsd:sequence>
                 <xsd:element name="cassa_edile" type="evercon:cassa_edile_ctype" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="inps" type="evercon:inps_ctype" minOccurs="0" maxOccurs="1"/>

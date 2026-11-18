@@ -95,7 +95,7 @@
             <xsd:documentation xml:lang="it">PAT Assevera</xsd:documentation>
             <xsd:documentation xml:lang="it">L'agibilità è da intendersi parziale qualora non siano stati completati tutti i lavori contemplati dai titoli edilizi di cui alle dichiarazioni precedenti</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice>
+        <xsd:choice minOccurs="0">
             <xsd:element name="agibilita_totale" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">l'agibilità relativa a tutti i lavori contemplati dai titoli edilizi di cui alle dichiarazioni precedenti</xsd:documentation>
@@ -148,7 +148,7 @@
             <xsd:documentation xml:lang="it">Sicurezza statica e sismica</xsd:documentation>
             <xsd:documentation xml:lang="it">che l'intervento</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice>
+        <xsd:choice minOccurs="0">
             <xsd:element name="non_interessa_strutture" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">non ha interessato le strutture dell'edificio</xsd:documentation>
@@ -252,7 +252,7 @@
             <xsd:documentation xml:lang="it">Sicurezza antincendio</xsd:documentation>
             <xsd:documentation xml:lang="it">che l'intervento</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice>
+        <xsd:choice minOccurs="0">
             <xsd:element name="non_soggetto_prevenzione_incendi" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">non è soggetto ad adempimenti specifici in materia di prevenzione incendi</xsd:documentation>

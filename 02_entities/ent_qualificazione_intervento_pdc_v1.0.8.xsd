@@ -24,7 +24,7 @@
             <xsd:documentation xml:lang="it">PAT Qualificazione dell'intervento</xsd:documentation>
             <xsd:documentation xml:lang="it">Rilascio del permesso di costruire per la seguente tipologia di intervento</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice minOccurs="1" maxOccurs="1">
+        <xsd:choice minOccurs="0" maxOccurs="1">
             <xsd:element name="permesso_di_costruire" type="xsd:boolean" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">permesso di costruire</xsd:documentation>

@@ -42,7 +42,7 @@
         <xsd:annotation>
             <xsd:documentation xml:lang="it">PAT Verifica dei titoli abilitativi edilizi</xsd:documentation>
         </xsd:annotation>
-        <xsd:choice>
+        <xsd:choice minOccurs="0">
             <xsd:element name="titoli_esaminati" type="eattass:estremi_titolo_progetto_ctype" minOccurs="1" maxOccurs="unbounded">
                 <xsd:annotation>
                     <xsd:documentation xml:lang="it">esaminato il progetto allegato ai seguenti titoli abilitativi edilizi: titolo abilitativo, numero, data e redattore del progetto</xsd:documentation>

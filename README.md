@@ -83,6 +83,22 @@ Per ogni trasformata `xslt/mod_*.xslt` trasforma gli XML originali dello SUE del
 python3 ./tests/mod_pat_xslt.py <file_sue.xml> <file.xslt> [file_pat.xml]
 ```
 
+La copertura dei dati di ogni trasformata rispetto all'XSD del modulo si misura con `tests/mod_pat_copertura.py`, che oltre a `lxml` usa la libreria `xmlschema`:
+
+```
+python3 ./tests/mod_pat_copertura.py [-v] [--dettaglio] [--json file.json]
+```
+
+Per ogni modulo, e in totale, stampa la copertura della trasformata, cioè la quota di alternative delle scelte dell'XSD che la trasformata è in grado di produrre. Con `-v` stampa la tabella completa, con il numero di pratiche reali, le alternative comparse davvero nelle pratiche e la quota di elementi ripetibili e di campi che la trasformata produce. Le pratiche reali sono gli XML SUE di `04_forms/in` trasformati e le istanze già trasformate dallo SUE in `04_forms/in/trs`. Con `--dettaglio` elenca le alternative e le ripetizioni che la trasformata non produce.
+
+I rami delle trasformate che scrivono il commento "dato non inviato dallo SUE" si provano con `tests/mod_pat_lacune.py`:
+
+```
+python3 ./tests/mod_pat_lacune.py [procedimento ...] [--dettaglio] [--json file.json]
+```
+
+Per ogni commento di dato mancante costruisce una copia della trasformata in cui le condizioni che portano al commento sono vere. Applica la copia agli XML SUE del procedimento e valida l'istanza con l'XSD e lo schematron. I rami delle opzioni che lo SUE offre senza inviarne i dettagli producono istanze valide (vedi [scelte di modellazione](#modellazione)). Restano con errori, per scelta, i rami di ripiego per una risposta assente o non riconosciuta e i dati obbligatori voluti. Restano con errori anche alcuni artefatti, che nascono dal forzare le condizioni esterne con dati vuoti.
+
 
 Procedimenti edilizi <a id="procedimenti"></a>
 --------------------
@@ -92,7 +108,7 @@ Procedimenti edilizi <a id="procedimenti"></a>
 - **Modulo**: `04_forms/mod_comunicazione_inizio_lavori_v1.0.8.xsd` (namespace `../04_forms/comunicazione_inizio_lavori`)
 - **Fonte**: `07.COMUNICAZIONE INIZIO LAVORI_MDA.pdf`
 - **Istanza di esempio**: usata dal controllo a cascata. Non va modificata e deve restare valida: le modifiche alla CIL sono ammesse solo se lasciano invariati nomi e namespace dei suoi elementi.
-- **Modifiche compatibili con l'istanza di esempio**: annotazioni in `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8` (vedi [scelte di modellazione](#modellazione)), la correzione "Segnala all'ufficio tecnico del Comune" in `sec_comunicazione_inizio_lavori_v1.0.8`, `ent_documento_rilasciato` portata da v1.0.7 a v1.0.8 perché le date in formato gg/mm/aaaa la distinguono dalla versione nazionale, `ent_impresa_escutrice` diventata la sede comune dell'impresa esecutrice (vedi [entità e sezioni comuni](#comuni)), `ent_indirizzo_italiano` ed `ent_persona` portate a v1.0.8 per il Comune obbligatorio nell'indirizzo dell'intervento e per la nascita all'estero, `ent_impresa` con il codice fiscale che ammette anche quello numerico dell'impresa e con la forma giuridica facoltativa per l'impresa esecutrice, `ent_domicilio_digitale` con i due elementi facoltativi del domicilio digitale speciale, `ent_obblighi_salute_sicurezza_altpdc` con l'avvertenza sulla presa d'atto resa con la sottoscrizione, `sec_esecuzione_lavori` con l'iscrizione all'ordine facoltativa per gli altri progettisti, `ent_ruolo_rappresentante` con la specifica facoltativa del ruolo Altro (vedi [scelte di modellazione](#modellazione)). L'istanza di esempio resta valida e invariata.
+- **Modifiche compatibili con l'istanza di esempio**: annotazioni in `sec_scheda_anagrafica_v1.0.8`, `ent_informativa_privacy_v1.0.8` e `ent_domicilio_digitale_v1.0.8` (vedi [scelte di modellazione](#modellazione)), la correzione "Segnala all'ufficio tecnico del Comune" in `sec_comunicazione_inizio_lavori_v1.0.8`, `ent_documento_rilasciato` portata da v1.0.7 a v1.0.8 perché le date in formato gg/mm/aaaa la distinguono dalla versione nazionale, `ent_impresa_escutrice` diventata la sede comune dell'impresa esecutrice (vedi [entità e sezioni comuni](#comuni)), `ent_indirizzo_italiano` ed `ent_persona` portate a v1.0.8 per il Comune obbligatorio nell'indirizzo dell'intervento e per la nascita all'estero, `ent_impresa` con il codice fiscale che ammette anche quello numerico dell'impresa e con la forma giuridica facoltativa per l'impresa esecutrice, `ent_domicilio_digitale` con i due elementi facoltativi del domicilio digitale speciale, `ent_obblighi_salute_sicurezza_altpdc` con l'avvertenza sulla presa d'atto resa con la sottoscrizione, `sec_esecuzione_lavori` con l'iscrizione all'ordine facoltativa per gli altri progettisti, `ent_ruolo_rappresentante` con la specifica facoltativa del ruolo Altro, `ent_verifica_contributiva` con la verifica contributiva che può restare vuota quando lo SUE non ne invia i dati (vedi [scelte di modellazione](#modellazione)). L'istanza di esempio resta valida e invariata.
 - **Schematron** (`mod_comunicazione_inizio_lavori_v1.0.8.sch`): comune dell'intervento, data di inizio lavori non precedente al rilascio del permesso di costruire, nessuna notifica se l'intervento non ricade nel d.lgs. n. 81/2008 o se i lavori sono eseguiti in economia, dichiarazioni e scelte selezionate a `true` (efficacia del permesso di costruire, in economia, direttore dei lavori, presa visione delle relazioni, salute e sicurezza, notifica, consapevolezza, privacy).
 
 
@@ -473,7 +489,7 @@ Ogni concetto condiviso ha una sola sede, cioè un solo file e un solo namespace
 
 | Concetto | Sede | Tipi principali | Fuori dalla sede |
 |---|---|---|---|
-| Tecnico | `ent_tecnici_incaricati_v1.0.8` | `iscrizione_ordine_ctype`, `dati_anagrafici_tecnico_group`, `tecnico_ctype`, `tecnico_asseverante_ctype`, `tecnico_sintetico_ctype`, tipi di ruolo per procedimento | i tipi locali di `sec_esecuzione_lavori` della CIL |
+| Tecnico | `ent_tecnici_incaricati_v1.0.8` | `iscrizione_ordine_ctype`, `dati_anagrafici_tecnico_group`, `tecnico_ctype`, `tecnico_facoltativo_ctype`, `tecnico_iscrizione_facoltativa_ctype`, `tecnico_asseverante_ctype`, `tecnico_sintetico_ctype`, `tecnico_sintetico_facoltativo_ctype`, tipi di ruolo per procedimento | i tipi locali di `sec_esecuzione_lavori` della CIL |
 | Impresa esecutrice | `ent_impresa_escutrice_v1.0.8` | `impresa_esecutrice_ctype`, `impresa_esecutrice_verifica_contributiva_ctype`, `imprese_esecutrici_dei_lavori_ctype`, `imprese_esecutrici_dei_lavori_economia_ctype` | la scelta in economia / imprese di `sec_esecuzione_lavori` della CIL |
 | Estremi di atti e titoli | `ent_atto_assenso_v1.0.8` | `estremi_group`, `estremi_provvedimento_ctype`, `estremi_firmatario_ctype`, `estremi_titolo_ctype`, `estremi_titolo_facoltativo_ctype`, `estremi_titolo_progetto_ctype`, `pratica_edilizia_ctype` | `ent_riferimenti_pdc` della CIL |
 | Salute e sicurezza | `ent_obblighi_salute_sicurezza_altpdc_v1.0.8` | `documentazione_imprese_group` e le varianti per procedimento | `sec_salute_sicurezza` della CIL |
@@ -525,6 +541,20 @@ python3 ./tools/genera_vocabolari.py <tariffe_catasto_fondiario.csv>
 - Nella segnalazione certificata di agibilità lo SUE offre in un'unica scelta le tipologie dell'intervento (nuove costruzioni, recupero di parti strutturali, cambi di destinazione d'uso) e l'estensione dell'agibilità (intero immobile, singoli edifici, singole unità). `ent_segnalazione_agibilita` v1.0.8 rende quindi facoltativo `riferimento_agibilita`. Lo schematron confronta l'estensione segnalata con quella asseverata solo quando c'è, e chiede almeno una tipologia solo quando le tipologie sono indicate.
 - Nella CIL gli altri progettisti possono non essere iscritti a un ordine, collegio o albo, come il tecnico incaricato della progettazione acustica: lo SUE lo indica con "no" e non invia sede e numero. In `sec_esecuzione_lavori` l'iscrizione all'ordine di `progettista_lavori` è quindi facoltativa, da compilare quando il progettista è iscritto. Per il direttore dei lavori resta obbligatoria. L'istanza di esempio resta valida e invariata.
 - Il ruolo del dichiarante è un vocabolario chiuso, che comprende Altro. Lo SUE con Altro invia anche la specifica, per esempio "Tecnico certificatore". `ent_ruolo_rappresentante` aggiunge dopo `ruolo` l'elemento facoltativo `ruolo_altro`, che la accoglie. L'istanza di esempio della CIL resta valida e invariata.
+- Le trasformate XSLT scrivono nell'istanza il commento "dato non inviato dallo SUE" quando lo SUE offre un'opzione del modulo ma non ne invia i dettagli. Per consolidare la v1.0.8 senza cambiare né le trasformate né lo SUE, in questi casi l'elemento del modulo può restare vuoto. Se invece è compilato, deve avere la struttura completa. Le scelte diventate facoltative sono:
+    - gli atti di assenso già rilasciati senza ente, protocollo e date: `presentazione_inizio_lavori_ctype` (CILA, COL);
+    - la verifica contributiva dell'impresa esecutrice senza Cassa edile, perché lo SUE non invia i dati INPS e INAIL: `verifica_contributiva_ctype` (CIL, CILA, SCIA, COL);
+    - gli estremi della notifica preliminare: `notifica_ctype` (CILA, SCIA, PdC, SC);
+    - la qualificazione dell'intervento del PdC in deroga per altre fattispecie o in variante e quella della SCIA per gli impianti da fonti rinnovabili: `qualificazione_intervento_ctype` di PdC e SCIA;
+    - gli estremi del piano attuativo: `tipo_interventi_opere_ctype` (PdC);
+    - l'imposta di bollo assolta con pagoPA: `imposta_bollo_ctype` (PdC, PdS);
+    - la titolarità del responsabile dell'abuso o un'altra titolarità: `titolo_possesso_sanatoria_ctype` (PdS); gli ulteriori titolari o la ditta titolare: `titolarita_agibilita_ctype` (SCAgi);
+    - l'agibilità parziale, il collaudo statico e la prevenzione incendi asseverati: `assevera_agibilita_ctype`, `sicurezza_statica_sismica_agibilita_ctype`, `sicurezza_antincendio_agibilita_ctype` (SCAgi);
+    - l'edificio senza titoli abilitativi: `verifica_titoli_ctype` (CCE);
+    - gli estremi del titolo che attesta lo stato legittimo: `stato_legittimo_cila_ctype` (CILA);
+    - la deroga antincendio ottenuta e gli ulteriori atti di assenso: `prevenzione_incendi_scia_ctype`, `ulteriori_atti_assenso_ctype` (SCIA).
+
+  `ent_tecnici_incaricati` aggiunge tre tipi e lascia invariato `tecnico_ctype`: `tecnico_facoltativo_ctype` per il progettista e il direttore dei lavori che non presentano la pratica (CILA, SCIA, PdS), `tecnico_sintetico_facoltativo_ctype` per i dati del progettista nella relazione della CILA e `tecnico_iscrizione_facoltativa_ctype` per l'altro tecnico del PdC non iscritto a un ordine, come per gli altri progettisti della CIL. Lo schematron della SCAgi confronta l'agibilità segnalata con quella asseverata solo quando ci sono entrambe. Restano obbligatori i dati che lo SUE chiede sempre: se una risposta manca o non è riconosciuta, l'istanza non è valida, come quando mancano la forma giuridica del dichiarante o l'iscrizione all'ordine del direttore dei lavori della CIL e del progettista del PdC.
 - Un'impresa può avere il solo codice fiscale numerico, che ha la sintassi della partita IVA. `ent_impresa` v1.0.8 usa per il codice fiscale il tipo `codice_fiscale_impresa_stype`, che ammette il codice di persona fisica oppure 11 cifre. Le istanze esistenti restano valide.
 - Negli schematron il Comune dell'intervento si confronta con il destinatario della pratica ignorando maiuscole, accenti e punteggiatura: il nome del Comune deve comparire come parola intera nel destinatario, che SUE compila con l'ufficio, per esempio "COMUNE DI ALA - UFFICIO TECNICO". Se l'ubicazione è indicata con un codice catastale o ISTAT la regola non si applica, perché senza un vocabolario dei Comuni non si può confrontare.
 
