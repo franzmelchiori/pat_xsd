@@ -99,6 +99,14 @@ python3 ./tests/mod_pat_lacune.py [procedimento ...] [--dettaglio] [--json file.
 
 Per ogni commento di dato mancante costruisce una copia della trasformata in cui le condizioni che portano al commento sono vere. Applica la copia agli XML SUE del procedimento e valida l'istanza con l'XSD e lo schematron. I rami delle opzioni che lo SUE offre senza inviarne i dettagli producono istanze valide (vedi [scelte di modellazione](#modellazione)). Restano con errori, per scelta, i rami di ripiego per una risposta assente o non riconosciuta e i dati obbligatori voluti. Restano con errori anche alcuni artefatti, che nascono dal forzare le condizioni esterne con dati vuoti.
 
+Da un'istanza PAT del permesso di costruire, per esempio un XML trasformato dallo SUE, `tools/mod_pat_pdf.py` ricava i moduli PDF PAT compilati, l'MDA e la relazione tecnica di asseverazione:
+
+```
+python3 ./tools/mod_pat_pdf.py <istanza.xml> <cartella_moduli_pdf> [cartella_uscita]
+```
+
+La cartella dei moduli contiene i PDF compilabili PAT del procedimento. I PDF compilati vanno nella cartella di uscita, per difetto la sottocartella `pdf` di quella dell'istanza, e restano compilabili. Per ora lo strumento gestisce solo il permesso di costruire. Segnala i dati che il modulo non accoglie, come le particelle oltre la quinta riga o gli altri titolari oltre il primo, che vanno nei fac simile.
+
 
 Procedimenti edilizi <a id="procedimenti"></a>
 --------------------
