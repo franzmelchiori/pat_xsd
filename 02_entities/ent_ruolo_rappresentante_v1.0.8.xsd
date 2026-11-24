@@ -19,8 +19,18 @@
     <xsd:import namespace="../commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="../01_vocabularies/ruolo_rappresentante" schemaLocation="../01_vocabularies/voc_ruolo_rappresentante.xsd"/>
 
+    <!-- ruolo: il vocabolario nazionale resta invariato; PAT accetta in più le cariche che SUE invia con l'etichetta in maiuscolo -->
     <xsd:simpleType name="entita_pat_ruolo_rappresentante_stype">
-        <xsd:restriction base="vperuorap:ruolo_rappresentante_voc"/>
+        <xsd:union memberTypes="vperuorap:ruolo_rappresentante_voc eruorap:ruolo_rappresentante_sue_stype"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ruolo_rappresentante_sue_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AMMINISTRATORE"/>
+            <xsd:enumeration value="CONSIGLIERE"/>
+            <xsd:enumeration value="LEGALE RAPPRESENTANTE"/>
+            <xsd:enumeration value="PROPRIETARIO"/>
+        </xsd:restriction>
     </xsd:simpleType>
 
     <xsd:complexType name="rappresentante_ctype">

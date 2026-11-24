@@ -75,6 +75,8 @@ CASI = {
         ('direttore dei lavori non iscritto all\'ordine', [('rimuovi', '//seselav:direttore_lavori//seselav:iscrizione_ordine')], 'xsd'),
         ('ruolo Altro con la specifica', [('inserisci', '(//eruorap:ruolo)[1]', '<eruorap:ruolo_altro>Tecnico certificatore</eruorap:ruolo_altro>', 'dopo')], 'valido'),
         ('specifica del ruolo prima del ruolo', [('inserisci', '(//eruorap:ruolo)[1]', '<eruorap:ruolo_altro>Tecnico certificatore</eruorap:ruolo_altro>', 'prima')], 'xsd'),
+        ('ruolo con l\'etichetta SUE in maiuscolo', [('testo', '(//eruorap:ruolo)[1]', 'LEGALE RAPPRESENTANTE')], 'valido'),
+        ('ruolo fuori vocabolario', [('testo', '(//eruorap:ruolo)[1]', 'CONSIGLIERE DELEGATO')], 'xsd'),
         # dati che lo SUE non invia: l'elemento resta vuoto (consolidamento v1.0.8)
         ('verifica contributiva senza Cassa edile, INPS o INAIL', [('rimuovi', '//seselav:impresa[1]/eimpese:verifica_contributiva/*')], 'valido'),
     ],
